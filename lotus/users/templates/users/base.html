@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "users/css/base.css" %}">
+    {% block users_css_files %}
+    {% endblock users_css_files %}
+{% endblock css_files %}
+
+{% block content %}
+    <main class="container-fluid vh-100">
+        <div class="row h-100">
+            <div class="col-8 h-100">
+                <img src="{% static 'users/images/login.png' %}"
+                     alt="Login page"
+                     class="img-fluid _img h-100">
+            </div>
+            <div class="col-4 my-auto">
+                {% block form_block %}
+                {% endblock form_block %}
+            </div>
+        </div>
+    </main>
+{% endblock content %}
