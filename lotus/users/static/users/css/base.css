@@ -1,5 +1,13 @@
 ._container {
   height: 100vh;
+  padding: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  ._container {
+    height: 50vh;
+    max-height: 50vh;
+  }
 }
 
 ._img {
