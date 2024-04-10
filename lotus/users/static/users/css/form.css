@@ -28,10 +28,10 @@
   border-radius: 5px;
   background-color: #b88e2f;
   color: #fff;
-  cursor: pointer;
 }
 
-.login-btn:hover {
+._btn:hover {
+  color: white;
   background-color: #5e4919;
 }
 
