@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'lotus/css/base.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+    <header>
+        {% include "lotus/includes/navbar.html" %}
+    </header>
+    {% block lotus_content %}
+    {% endblock lotus_content %}
+{% endblock content %}
