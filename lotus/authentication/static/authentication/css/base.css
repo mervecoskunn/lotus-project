@@ -13,20 +13,3 @@
 ._img {
   object-fit: cover;
 }
-
-/* For debugging */
-.red-border {
-  border: 1px solid red;
-}
-
-.black-border {
-  border: 1px solid black;
-}
-
-.blue-border {
-  border: 1px solid blue;
-}
-
-.green-border {
-  border: 1px solid green;
-}
