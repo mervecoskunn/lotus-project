@@ -1,0 +1,51 @@
+/* Banner Styling */
+.banner {
+  height: 80vh;
+  background-image: url('/static/images/banner.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-post-it {
+  width: 40vw;
+  height: auto;
+  background-color: #fff3e3;
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.banner-post-it p {
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: #333;
+}
+
+.banner-post-it h1 {
+  font-size: 2.5rem;
+  color: #b88e2f;
+}
+
+.banner-post-it a {
+  background-color: #b88e2f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  .banner-post-it p {
+    font-size: 0.8rem;
+  }
+
+  .banner-post-it h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner-post-it a {
+    font-size: 1rem;
+  }
+}

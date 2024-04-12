@@ -1,7 +1,12 @@
 {% extends "lotus/base.html" %}
 {% load static %}
 
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'lotus/css/home.css' %}">
+{% endblock lotus_css_files %}
 
 {% block lotus_content %}
-    <h1>Home Page</h1>
+    <section id="banner-section">
+        {% include "lotus/includes/banner.html" %}
+    </section>
 {% endblock lotus_content %}
