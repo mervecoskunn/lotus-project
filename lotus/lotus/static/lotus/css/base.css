@@ -1,7 +1,7 @@
 ._navbar-text {
   color: black !important;
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -10,6 +10,33 @@
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 500;
+}
+
+.nav-icons {
+  min-width: 100px;
+}
+
+.nav-logo {
+  height: 69px;
+  width: 69px;
+}
+
+@media screen and (max-width: 576px) {
+  .nav-logo {
+    height: 40px;
+    width: 40px;
+  }
+  ._navbar-text {
+    font-size: 16px;
+  }
+
+  .navbar-toggler {
+    font-size: 1rem;
+  }
+
+  .nav-icons {
+    width: 100%;
+  }
 }
 
 .footer {
