@@ -11,3 +11,77 @@
   font-size: 16px;
   font-weight: 500;
 }
+
+.footer {
+  height: 500px;
+}
+
+.footer-title {
+  color: black !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.footer-address {
+  width: 250px;
+}
+
+.gray-text {
+  color: #9f9f9f !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-item {
+}
+
+.list-item-link {
+  color: black !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.list-item-link:hover {
+  color: #f5a623 !important;
+}
+
+.footer-form {
+}
+
+.footer-form-input {
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer-form-input::placeholder {
+  color: #9f9f9f;
+  font-weight: 400;
+}
+
+.footer-form-input:focus {
+  outline: none;
+}
+
+.footer-form-button {
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
