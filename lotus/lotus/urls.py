@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from authentication import views as authentication_views
+from . import views as lotus_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', authentication_views.login, name="login"),
     path('register/', authentication_views.register, name="register"),
+    path('', lotus_views.home, name="home"),
+    path('/contact', lotus_views.contact, name="contact"),
 ]
