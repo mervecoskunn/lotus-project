@@ -3,6 +3,8 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'lotus/css/base.css' %}">
+    {% block lotus_css_files %}
+    {% endblock lotus_css_files %}
 {% endblock css_files %}
 
 {% block content %}
