@@ -9,6 +9,10 @@
     <header>
         {% include "lotus/includes/navbar.html" %}
     </header>
+
     {% block lotus_content %}
     {% endblock lotus_content %}
+
+    <hr class="hr" />
+    {% include "lotus/includes/footer.html" %}
 {% endblock content %}
