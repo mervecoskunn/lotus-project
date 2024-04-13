@@ -28,6 +28,28 @@
   font-weight: 500;
 }
 
+.poppins-600 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.poppins-700 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.end-10 {
+  right: 10%;
+}
+
+.end-10px {
+  right: 10px;
+}
+
+.end-20px {
+  right: 20px;
+}
+
 .icon {
   color: black;
 }
