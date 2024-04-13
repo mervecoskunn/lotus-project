@@ -6,7 +6,19 @@
 {% endblock lotus_css_files %}
 
 {% block lotus_content %}
-    <section id="banner-section">
-        {% include "lotus/includes/banner.html" %}
-    </section>
+    <main>
+        <section id="banner-section">
+            {% include "lotus/includes/banner.html" %}
+        </section>
+
+        <h2 class="poppins-600 text-center my-5">Lotus Blog</h2>
+
+        <section>
+            {% include "lotus/includes/blog-posts.html" %}
+        </section>
+
+        <section>
+            {% include "lotus/includes/badge-row.html" %}
+        </section>
+    </main>
 {% endblock lotus_content %}
