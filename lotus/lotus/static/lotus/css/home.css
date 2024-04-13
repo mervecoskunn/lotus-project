@@ -74,6 +74,21 @@
   margin-top: 4px;
 }
 
+/* explore-row styling */
+.explore-row {
+  background-color: #fcf8f3;
+  padding: 3rem 2rem;
+}
+
+.explore-row h2 {
+  font-size: 28px;
+}
+
+.explore-row p {
+  color: #616161 !important;
+  font-size: 14px;
+}
+
 /* Slider  */
 .cards-wrapper {
   display: flex;
