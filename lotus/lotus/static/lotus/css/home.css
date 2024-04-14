@@ -83,12 +83,24 @@
 }
 
 .explore-row h2 {
-  font-size: 28px;
+  font-size: 2.5rem;
 }
 
 .explore-row p {
   color: #616161 !important;
-  font-size: 14px;
+}
+
+.explore-row__left-col {
+  max-width: 500px;
+}
+
+@media screen and (max-width: 576px) {
+  .explore-row h2 {
+    font-size: 1.5rem;
+  }
+  .explore-row p {
+    font-size: 0.8rem;
+  }
 }
 
 /* Slider  */
