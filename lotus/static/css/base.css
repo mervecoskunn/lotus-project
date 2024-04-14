@@ -23,6 +23,16 @@
   height: 90%;
 }
 
+.poppins-300 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.poppins-400 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
 .poppins-500 {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
