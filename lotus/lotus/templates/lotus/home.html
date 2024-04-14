@@ -5,12 +5,14 @@
     <link rel="stylesheet" href="{% static 'lotus/css/home.css' %}">
 {% endblock lotus_css_files %}
 
+{% block header %}
+    <section id="banner-section">
+        {% include "lotus/includes/banner.html" %}
+    </section>
+{% endblock header %}
+
 {% block lotus_content %}
     <main>
-        <section id="banner-section">
-            {% include "lotus/includes/banner.html" %}
-        </section>
-
         <h2 class="poppins-600 text-center my-5">Lotus Blog</h2>
 
         <section>
