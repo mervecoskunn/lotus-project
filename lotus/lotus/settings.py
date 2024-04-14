@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'lotus',
     'authentication',
+    'shopping',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

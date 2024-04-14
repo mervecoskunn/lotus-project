@@ -1,0 +1,17 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Lotus - Shop
+{% endblock page_title %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'shopping/css/shopping.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    {% include "shopping/includes/banner.html" %}
+{% endblock header %}
+
+{% block lotus_content %}
+{% endblock lotus_content %}
