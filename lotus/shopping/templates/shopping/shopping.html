@@ -10,8 +10,13 @@
 {% endblock lotus_css_files %}
 
 {% block header %}
-    {% include "shopping/includes/banner.html" %}
+    <section>
+        {% include "shopping/includes/banner.html" %}
+    </section>
 {% endblock header %}
 
 {% block lotus_content %}
+    <section>
+        {% include "shopping/includes/filter-row.html" %}
+    </section>
 {% endblock lotus_content %}

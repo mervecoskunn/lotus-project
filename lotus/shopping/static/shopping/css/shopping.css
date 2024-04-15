@@ -21,3 +21,7 @@
   background-size: cover;
   z-index: -1;
 }
+
+.filter-row {
+  background-color: #f9f1e7;
+}

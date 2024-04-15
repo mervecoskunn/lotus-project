@@ -1,0 +1,116 @@
+{% load static %}
+<div class="container-fluid filter-row">
+    <div class="row ps-5 py-3">
+        <div class="col-2 dropdown">
+            <button type="button"
+                    class="btn dropdown-btn d-flex"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-auto-close="outside">
+                <img src="{% static 'shopping/images/ic_filter.png' %}"
+                     alt="Filter"
+                     width="20"
+                     height="20">
+                <p class="poppins-400 ms-1 mb-0">Filter</p>
+            </button>
+
+            <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                    <input type="checkbox" id="bracelet" name="bracelet" value="bracelet">
+                    <label for="bracelet">Bracelet</label>
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox" id="pendulum" name="pendulum" value="pendulum">
+                    <label for="pendulum">Pendulum</label>
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox"
+                           id="natural-stones"
+                           name="natural-stones"
+                           value="natural-stones">
+                    <label for="natural-stones">Natural Stones</label>
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox" id="incense" name="incense" value="incense">
+                    <label for="incense">Incense</label>
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox"
+                           id="chakra-stones"
+                           name="chakra-stones"
+                           value="chakra-stones">
+                    <label for="chakra-stones">Chakra Stones</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+
+        </div>
+
+        <div class="col-2 dropdown">
+            <button type="button"
+                    class="btn dropdown-btn d-flex"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-auto-close="outside">
+                <img src="{% static 'shopping/images/ic_sort.png' %}"
+                     alt="Sort"
+                     width="20"
+                     height="20">
+                <p class="poppins-400 ms-1 mb-0">Sort by</p>
+
+            </button>
+
+
+            <form class="dropdown-menu p-4">
+                <div class="mb-3">
+                    <input type="radio"
+                           id="date-added-low-to-high"
+                           name="sort-option"
+                           value="date-added-low-to-high">
+                    <label for="date-added-low-to-high">Date added (low to high)</label>
+                </div>
+
+                <div class="mb-3">
+                    <input type="radio"
+                           id="date-added-high-to-low"
+                           name="sort-option"
+                           value="date-added-high-to-low">
+                    <label for="date-added-high-to-low">Date added (high to low)</label>
+                </div>
+
+                <div class="mb-3">
+                    <input type="radio"
+                           id="price-low-to-high"
+                           name="sort-option"
+                           value="price-low-to-high">
+                    <label for="price-low-to-high">Price (low to high)</label>
+                </div>
+
+                <div class="mb-3">
+                    <input type="radio"
+                           id="price-high-to-low"
+                           name="sort-option"
+                           value="price-high-to-low">
+                    <label for="price-high-to-low">Price (high to low)</label>
+                </div>
+
+                <div class="mb-3">
+                    <input type="radio" id="name-a-z" name="sort-option" value="name-a-z">
+                    <label for="name-a-z">Name (A-Z)</label>
+                </div>
+
+                <div class="mb-3">
+                    <input type="radio" id="name-z-a" name="sort-option" value="name-z-a">
+                    <label for="name-z-a">Name (Z-A)</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Sort Products</button>
+            </form>
+        </div>
+
+
+
+
+
+    </div>
+</div>
