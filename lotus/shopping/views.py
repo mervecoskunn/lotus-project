@@ -7,6 +7,12 @@ filter_keys = [
     'bracelet', 'pendulum', 'natural-stones', 'incense', 'chackra-stones'
 ]
 
+sort_options = [
+    'date-added-low-to-high', 'date-added-high-to-low',
+    'price-low-to-high', 'price-high-to-low',
+    'name-a-z', 'name-z-a'
+]
+
 
 def get_filter_key_values(post_data) -> list:
     return list(filter(lambda key: post_data.get(key) is not None,
@@ -26,10 +32,24 @@ def get_filter_results(filter_key_values) -> list:
     return filter_results
 
 
+def sort_products(order_by) -> list:
+    if order_by == 'price-low-to-high':
+        return sorted(models.product_list, key=lambda product: product.price)
+    elif order_by == 'price-high-to-low':
+        return sorted(models.product_list, key=lambda product: product.price, reverse=True)
+    elif order_by == 'name-a-z':
+        return sorted(models.product_list, key=lambda product: product.name)
+    elif order_by == 'name-z-a':
+        return sorted(models.product_list, key=lambda product: product.name, reverse=True)
+    else:
+        return []
+
+
 def shopping(request):
     if request.method == 'POST':
         search_key = request.POST.get('search_key')
         filter_key_values = get_filter_key_values(request.POST)
+        order_by = request.POST.get('sort_option')
         if search_key is not None:
             search_results = get_search_results(search_key)
             context = {
@@ -40,7 +60,16 @@ def shopping(request):
             context = {
                 "products": filter_results
             }
+        elif order_by is not None:
+            products = sort_products(order_by)
+            context = {
+                "products": products
+            }
 
+        else:
+            context = {
+                "products": []
+            }
     else:
         context = {
             "products": models.product_list
