@@ -5,9 +5,17 @@ from . import models
 
 
 def shopping(request):
-    context = {
-        "products": models.product_list
-    }
+    if request.method == 'POST':
+        search_key = request.POST.get('search_key')
+        search_results = filter(lambda product: search_key.lower() in product.name.lower(),
+                                models.product_list)
+        context = {
+            "products": search_results
+        }
+    else:
+        context = {
+            "products": models.product_list
+        }
     return render(request, 'shopping/shopping.html', context)
 
 
