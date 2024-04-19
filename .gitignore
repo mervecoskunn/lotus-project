@@ -9,3 +9,4 @@ node_modules/
 cloudinary_python.txt
 virt
 lotus/db.sqlite3
+.vscode/launch.json
