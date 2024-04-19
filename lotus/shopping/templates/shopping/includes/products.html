@@ -13,7 +13,8 @@
                 <p>
                     <strong>€ {{ product.price }}</strong>
                 </p>
-                <button class="btn lotus-btn-primary">Read More</button>
+                <a href="{% url "product_detail" product.id %}"
+                   class="btn lotus-btn-primary">Read More</a>
             </div>
         {% endfor %}
     </div>

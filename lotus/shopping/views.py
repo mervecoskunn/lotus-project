@@ -8,3 +8,11 @@ def shopping(request):
         "products": models.product_list
     }
     return render(request, 'shopping/shopping.html', context)
+
+
+def product_detail(request, product_id):
+    product = models.product_list[product_id]
+    context = {
+        "product": product
+    }
+    return render(request, 'shopping/product_detail.html', context)

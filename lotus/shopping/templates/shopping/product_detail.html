@@ -1,0 +1,39 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    {{ product.name }}
+{% endblock page_title %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet"
+          href="{% static 'shopping/css/product-detail.css' %}">
+{% endblock lotus_css_files %}
+
+{% block lotus_content %}
+    <section class="container-fluid product-detail my-5">
+        <div class="row justify-content-center px-5">
+            <div class="col img-col">
+                <img src="{% static product.img_path %}"
+                     alt="{{ product.name }}"
+                     class="product-img">
+            </div>
+            <div class="col detail-col">
+                <h1>{{ product.name }}</h1>
+                <div>rating bar</div>
+                <p>
+                    <strong>€ {{ product.price }}</strong>
+                </p>
+                <pre>{{ product.description }}</pre>
+                <form action="#" class="my-4">
+                    <input type="number"
+                           min="1"
+                           value="1"
+                           step="1"
+                           class="form-control product-count">
+                    <button type="submit" class="btn lotus-btn-primary">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock lotus_content %}
