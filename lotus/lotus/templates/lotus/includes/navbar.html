@@ -12,7 +12,7 @@
                     aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url "home" %}">
                 <img src="{% static 'lotus/images/logo.png' %}"
                      alt="Logo"
                      class="d-inline-block nav-logo">
@@ -22,13 +22,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav w-100 justify-content-center mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link _nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link _nav-link active"
+                       aria-current="page"
+                       href="{% url "home" %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link _nav-link" href="#">Shop</a>
+                    <a class="nav-link _nav-link" href="{% url "shopping" %}">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link _nav-link" href="#">Contact</a>
+                    <a class="nav-link _nav-link" href="{% url "contact" %}">Contact</a>
                 </li>
             </ul>
 
@@ -42,19 +44,23 @@
         </div>
         <ul class="navbar-nav nav-icons flex-row justify-content-around">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active"
+                   aria-current="page"
+                   href="{% url "profile" %}">
                     <i class="fa-solid fa-user" style="color: #000"></i>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active"
+                   aria-current="page"
+                   href="{% url "favorites" %}">
                     <i class="fa-solid fa-heart" style="color: #000"></i>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active" aria-current="page" href="{% url "cart" %}">
                     <i class="fa-solid fa-cart-shopping" style="color: #000;"></i>
                 </a>
             </li>
