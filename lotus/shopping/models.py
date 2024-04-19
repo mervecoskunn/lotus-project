@@ -1,11 +1,11 @@
 from django.db import models
 
 # Create your models here.
-cat_bracelet = 'Bracelet'
-cat_chackra_stone = 'Chackra Stone'
-cat_incense = 'Incense'
-cat_natural_stone = 'Natural Stone'
-cat_pandul = 'Pandul'
+cat_bracelet = 'bracelet'
+cat_chackra_stone = 'chakra-stones'
+cat_incense = 'incence'
+cat_natural_stone = 'natural-stones'
+cat_pandul = 'pendulum'
 
 
 class Product:

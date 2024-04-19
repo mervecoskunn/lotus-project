@@ -14,7 +14,8 @@
                 <p class="poppins-400 ms-1 mb-0">Filter</p>
             </button>
 
-            <form class="dropdown-menu p-4">
+            <form action="{% url "shopping" %}" method="post" class="dropdown-menu p-4">
+                {% csrf_token %}
                 <div class="mb-3">
                     <input type="checkbox" id="bracelet" name="bracelet" value="bracelet">
                     <label for="bracelet">Bracelet</label>
@@ -31,8 +32,8 @@
                     <label for="natural-stones">Natural Stones</label>
                 </div>
                 <div class="mb-3">
-                    <input type="checkbox" id="incense" name="incense" value="incense">
-                    <label for="incense">Incense</label>
+                    <input type="checkbox" id="incence" name="incence" value="incence">
+                    <label for="incence">Incence</label>
                 </div>
                 <div class="mb-3">
                     <input type="checkbox"
@@ -61,7 +62,7 @@
             </button>
 
 
-            <form class="dropdown-menu p-4">
+            <form action="{% url "shopping" %}" method="post" class="dropdown-menu p-4">
                 <div class="mb-3">
                     <input type="radio"
                            id="date-added-low-to-high"
