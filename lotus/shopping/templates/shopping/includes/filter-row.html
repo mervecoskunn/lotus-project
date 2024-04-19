@@ -63,21 +63,7 @@
 
 
             <form action="{% url "shopping" %}" method="post" class="dropdown-menu p-4">
-                <div class="mb-3">
-                    <input type="radio"
-                           id="date-added-low-to-high"
-                           name="sort-option"
-                           value="date-added-low-to-high">
-                    <label for="date-added-low-to-high">Date added (low to high)</label>
-                </div>
-
-                <div class="mb-3">
-                    <input type="radio"
-                           id="date-added-high-to-low"
-                           name="sort-option"
-                           value="date-added-high-to-low">
-                    <label for="date-added-high-to-low">Date added (high to low)</label>
-                </div>
+                {% csrf_token %}
 
                 <div class="mb-3">
                     <input type="radio"
