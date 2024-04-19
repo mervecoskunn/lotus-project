@@ -19,4 +19,8 @@
     <section>
         {% include "shopping/includes/filter-row.html" %}
     </section>
+
+    <section class="my-5">
+        {% include "shopping/includes/products.html" with products=products %}
+    </section>
 {% endblock lotus_content %}

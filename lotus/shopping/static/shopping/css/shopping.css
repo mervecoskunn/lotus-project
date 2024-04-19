@@ -25,3 +25,37 @@
 .filter-row {
   background-color: #f9f1e7;
 }
+
+/* products.html */
+.product-container {
+  gap: 1rem;
+}
+
+.product {
+  height: 600px;
+  min-width: 390px;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid #dadada80;
+  outline: 1px solid #dadada80 !important;
+  box-shadow: 0 0 6px #dadada;
+}
+
+.product img {
+  object-fit: contain;
+}
+
+.product p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.product button {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
