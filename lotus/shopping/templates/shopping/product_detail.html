@@ -26,6 +26,7 @@
                 </p>
                 <pre>{{ product.description }}</pre>
                 <form action="#" class="my-4">
+                    {% csrf_token %}
                     <input type="number"
                            min="1"
                            value="1"
