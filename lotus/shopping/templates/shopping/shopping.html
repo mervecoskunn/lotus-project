@@ -6,13 +6,13 @@
 {% endblock page_title %}
 
 {% block lotus_css_files %}
-<link rel="stylesheet" href="{% static 'shopping/css/banner.css' %}">
+    <link rel="stylesheet" href="{% static 'css/banner.css' %}">
     <link rel="stylesheet" href="{% static 'shopping/css/shopping.css' %}">
 {% endblock lotus_css_files %}
 
 {% block header %}
     <section>
-        {% include "shopping/includes/banner.html" with page_name="Shop" %}
+        {% include "includes/banner.html" with page_name="Shop" %}
     </section>
 {% endblock header %}
 
