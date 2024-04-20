@@ -26,8 +26,6 @@ urlpatterns = [
     path('', lotus_views.home, name="home"),
     path('contact/', lotus_views.contact, name="contact"),
     path('shopping/', include('shopping.urls')),
-    path('profile/', lotus_views.profile, name="profile"),
-    path('favorites/', lotus_views.favorites, name="favorites"
-         ),
+    path('user/', include('user.urls')),
 
 ]

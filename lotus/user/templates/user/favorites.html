@@ -1,0 +1,41 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Favorites
+{% endblock page_title %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'css/banner.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/favorites.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Favorites" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+    <section class="container my-5">
+        <div class="row gap-3 product-container ">
+            {% for product in favorites %}
+                <div class="col-3 product">
+                    <img src="{% static product.img_path %}"
+                         alt="{{ product.name }}"
+                         width="375"
+                         height="303">
+                    <h4 class="mt-4">{{ product.name }}</h4>
+                    <div>rating bar</div>
+                    <p>
+                        <strong>€ {{ product.price }}</strong>
+                    </p>
+                    <a href="{% url "product_detail" product.id %}"
+                       class="btn lotus-btn-primary">Read More</a>
+                    <a href="{% url "remove_from_favorites" product.id %}"
+                       class="btn btn-outline-secondary mt-4">Remove from favorites</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock lotus_content %}
