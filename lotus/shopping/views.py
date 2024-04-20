@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models
 # Create your views here.
@@ -110,4 +110,4 @@ def remove_from_cart(request, product_id):
         "cart": models.carts[0]
     }
     # TODO Success message
-    return render(request, 'shopping/cart.html', context)
+    return redirect('cart')
