@@ -1,0 +1,74 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block title %}
+    Shopping Cart
+{% endblock title %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'shopping/css/banner.css' %}">
+    <link rel="stylesheet" href="{% static 'shopping/css/cart.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "shopping/includes/banner.html" with page_name="Cart" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-8">
+                <table class="table table-borderless product-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cart_product in cart.items %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ cart_product.product.name }}</td>
+                                <td>{{ cart_product.product.price }}</td>
+                                <td>{{ cart_product.quantity }}</td>
+                                <td>{{ cart_product.subtotal }}</td>
+                                <td>
+                                    <a href="{% url "remove_from_cart" cart_product.product.id %}">
+                                        <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4 summary-col py-4 px-4">
+                <h2>Cart Totals</h2>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Subtotal</th>
+                            <td>€ {{ cart.subtotal }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Shipping</th>
+                            <td>€ {{ cart.shipping }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td>€ {{ cart.total }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn lotus-btn-primary mt-4">Checkout</button>
+            </div>
+        </div>
+    </section>
+{% endblock lotus_content %}

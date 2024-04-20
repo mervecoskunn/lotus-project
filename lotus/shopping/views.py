@@ -86,5 +86,28 @@ def product_detail(request, product_id):
 
 
 def cart(request):
-    return HttpResponse("Cart Page")
-    # return render(request, 'shopping/cart.html')
+    context = {
+        "cart": models.carts[0]
+    }
+    return render(request, 'shopping/cart.html', context)
+
+
+def add_to_cart(request):
+    product_id = int(request.POST.get('product_id'))
+    quantity = int(request.POST.get('quantity'))
+    product = models.product_list[product_id]
+    cart_product = models.CartProduct(product, quantity)
+    models.carts[0].add_product(cart_product)
+
+    # TODO Success message
+    return HttpResponse("Added to cart")
+
+
+def remove_from_cart(request, product_id):
+
+    models.carts[0].remove_product(product_id)
+    context = {
+        "cart": models.carts[0]
+    }
+    # TODO Success message
+    return render(request, 'shopping/cart.html', context)

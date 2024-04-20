@@ -1,0 +1,23 @@
+.banner-row {
+  position: relative;
+  height: 30vh;
+  max-height: 200px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.banner-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  max-height: inherit;
+  opacity: 0.5;
+  background-image: url('/static/images/banner.png');
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}

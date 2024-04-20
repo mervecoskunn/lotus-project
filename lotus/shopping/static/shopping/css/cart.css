@@ -1,0 +1,25 @@
+.product-table {
+  background-color: transparent !important;
+}
+
+.product-table tbody,
+tr,
+th,
+td {
+  background-color: transparent !important;
+}
+
+.product-table thead {
+  background-color: #faf3ea !important;
+}
+
+.summary-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #faf3ea !important;
+}
+
+.summary-col h2 {
+  text-align: center;
+}

@@ -22,6 +22,7 @@ class Product:
         return '[' + self.name + ' ' + str(self.price) + ' ' + self.description + ' ' + str(self.rating) + ']'
 
 
+# TODO will be removed
 product_list = [
     Product(id=1, name='Chakra Bracelet', price=15, category=cat_bracelet,
             description="Designed to balance our energy centers and enhance inner harmony, this bracelet targets the seven main chakra points. Combining the power of natural stones and crystals, this bracelet helps boost your life force, supporting mental and emotional equilibrium. Each unique stone's energy works in harmony with the chakras in your body, optimizing your energy flow and contributing to an elevated quality of life",
@@ -179,3 +180,73 @@ Benefits of Brass Pendulum:
 ⦁	Versatile and Easy to Use: Our brass pendulum is versatile and easy to use, making it suitable for both beginners and experienced practitioners alike.""", rating=5, img_path="shopping/images/products/pandul/brass_pendulum.jpeg"),
 
 ]
+
+
+class CartProduct:
+    def __init__(self, product, quantity):
+        self.product = product
+        self.quantity = quantity
+        self.subtotal = product.price * quantity
+
+    def __str__(self):
+        return str(self.product) + ' ' + str(self.quantity) + ' ' + str(self.subtotal)
+
+
+class Cart:
+    def __init__(self, user_id, items=[]):
+        self.user_id = user_id
+        self.items = items
+        self.subtotal = sum([item.subtotal for item in items])
+        self.shipping = 0 if self.subtotal > 150 else 10
+        self.total = self.subtotal + self.shipping
+
+    def add_product(self, cart_product):
+        self.items.append(cart_product)
+        self.subtotal += cart_product.subtotal
+        self.shipping = 0 if self.subtotal > 150 else 10
+        self.total = self.subtotal + self.shipping
+
+    def remove_product(self, product_id):
+        product = next(
+            (cart_product for cart_product in self.items if cart_product.product.id == product_id), None)
+        self.items.remove(product)
+        self.subtotal -= product.subtotal
+        self.shipping = 0 if self.subtotal > 150 else 10
+        self.total = self.subtotal + self.shipping
+
+    def __str__(self):
+        return str(self.items)
+
+
+# TODO will be removed
+cart_products1 = [
+    CartProduct(product_list[0], 1),
+    CartProduct(product_list[1], 2),
+    CartProduct(product_list[2], 3),
+    CartProduct(product_list[3], 4),
+    CartProduct(product_list[4], 5),
+]
+
+cart_products2 = [
+    CartProduct(product_list[0], 1),
+    CartProduct(product_list[1], 2),
+    CartProduct(product_list[2], 3),
+    CartProduct(product_list[3], 4),
+    CartProduct(product_list[4], 5),
+    CartProduct(product_list[5], 6),
+    CartProduct(product_list[6], 7),
+    CartProduct(product_list[7], 8),
+]
+
+cart_products3 = [
+    CartProduct(product_list[0], 1),
+    CartProduct(product_list[1], 2),
+    CartProduct(product_list[2], 3),
+]
+
+
+cart1 = Cart(1, items=cart_products1)
+cart2 = Cart(2, items=cart_products2)
+cart3 = Cart(3, items=cart_products3)
+
+carts = [cart1, cart2, cart3]
