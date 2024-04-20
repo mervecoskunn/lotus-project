@@ -1,0 +1,68 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'css/banner.css' %}">
+{% endblock lotus_css_files %}
+
+{% block page_title %}
+    Lotus - Contact
+{% endblock page_title %}
+
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Contact" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+    <section class="container my-5">
+        <div class="row justify-content-between">
+            <div class="col-6">
+                <h2>Get in touch</h2>
+                <p>
+                    Feel free to contact us with any questions or comments you may have. We will get back to you as soon as possible.
+                </p>
+                <form>
+                    {% csrf_token %}
+                    <div class="form-group mb-2">
+                        <label for="name">Name</label>
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               placeholder="Enter your name">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="email">Email</label>
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               placeholder="Enter your email">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn lotus-btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-6">
+                <h2>Our Location</h2>
+                <p>123 Main Street</p>
+                <p>Springfield, IL 62701</p>
+                <p>Phone: (555) 555-5555</p>
+                <p>
+                    Email:
+                    <a href="mailto:" class="text-primary">example@ex.com</a>
+                </p>
+                <p>Hours: Monday - Friday 9am - 5pm</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5">
+        {% include "includes/badge-row.html" %}
+    </section>
+
+{% endblock lotus_content %}
