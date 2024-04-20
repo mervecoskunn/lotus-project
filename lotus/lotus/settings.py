@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'lotus',
     'authentication',
     'shopping',
+    'user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
