@@ -1,0 +1,3 @@
+# Windows Virtual Env with Powershell
+    - Set-ExecutionPolicy Unrestricted -Scope Process
+    - virt\Scripts\Activate.ps1
