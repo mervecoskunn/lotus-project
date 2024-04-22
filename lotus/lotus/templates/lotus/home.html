@@ -17,10 +17,10 @@
 
 {% block lotus_content %}
     <main>
-        <h2 class="poppins-600 text-center my-5">Lotus Blog</h2>
-
-        <section>
-            {% include "lotus/includes/blog-posts.html" %}
+        <section class="container text-center">
+            <h2 class="poppins-600 text-center my-4">Lotus Blog</h2>
+            <a class="btn btn-outline-secondary">View All Blogs</a>
+            {% include "lotus/includes/latest-blogs.html" with latest_blogs=latest_blogs %}
         </section>
 
         <section class="mt-5">

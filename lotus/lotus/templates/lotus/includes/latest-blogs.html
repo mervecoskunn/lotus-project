@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        {% for blog in latest_blogs %}
+            <div class="col-4 p-4 blog-container">
+                <div class="card text-center">
+                    <img src="{% static blog.img_path %}"
+                         class="card-img-top"
+                         alt="chackra blog"
+                         class="blog-img">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blog.title }}</h5>
+                        <p class="card-text blog-content">{{ blog.content }}</p>
+                        <a href="#" class="btn btn-outline-secondary">Read more</a>
+                    </div>
+                    <div class="card-footer text-body-secondary">By Admin | {{ blog.date }}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
