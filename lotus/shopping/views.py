@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 filter_keys = [
@@ -14,16 +16,19 @@ sort_options = [
 ]
 
 
+@login_required
 def get_filter_key_values(post_data) -> list:
     return list(filter(lambda key: post_data.get(key) is not None,
                        [post_data.get(key) for key in filter_keys]))
 
 
+@login_required
 def get_search_results(search_key) -> list:
     return filter(lambda product: search_key.lower() in product.name.lower(),
                   models.product_list)
 
 
+@login_required
 def get_filter_results(filter_key_values) -> list:
     filter_results = []
     for filter_key in filter_key_values:
@@ -32,6 +37,7 @@ def get_filter_results(filter_key_values) -> list:
     return filter_results
 
 
+@login_required
 def sort_products(order_by) -> list:
     if order_by == 'price-low-to-high':
         return sorted(models.product_list, key=lambda product: product.price)
@@ -45,6 +51,7 @@ def sort_products(order_by) -> list:
         return []
 
 
+@login_required
 def shopping(request):
     if request.method == 'POST':
         search_key = request.POST.get('search_key')
@@ -77,6 +84,7 @@ def shopping(request):
     return render(request, 'shopping/shopping.html', context)
 
 
+@login_required
 def product_detail(request, product_id):
     product = models.product_list[product_id]
     context = {
@@ -85,6 +93,7 @@ def product_detail(request, product_id):
     return render(request, 'shopping/product_detail.html', context)
 
 
+@login_required
 def cart(request):
     context = {
         "cart": models.carts[0]
@@ -92,6 +101,7 @@ def cart(request):
     return render(request, 'shopping/cart.html', context)
 
 
+@login_required
 def add_to_cart(request):
     product_id = int(request.POST.get('product_id'))
     quantity = int(request.POST.get('quantity'))
@@ -103,6 +113,7 @@ def add_to_cart(request):
     return HttpResponse("Added to cart")
 
 
+@login_required
 def remove_from_cart(request, product_id):
 
     models.carts[0].remove_product(product_id)
