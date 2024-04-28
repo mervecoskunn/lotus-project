@@ -1,3 +1,23 @@
+# References
+    - https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0
+
+
 # Windows Virtual Env with Powershell
     - Set-ExecutionPolicy Unrestricted -Scope Process
     - virt\Scripts\Activate.ps1
+    - cd lotus
+    - python3 manage.py runserver
+    - py manage.py runserver
+    - deactivate
+
+
+# Install Packages
+    - pip3 install -r requirements.txt
+
+# Create Virtual Environment
+    - python3 -m venv virt
+    - py -m venv virt
+
+# Libraries
+    - Bootstrap 5
+    -
