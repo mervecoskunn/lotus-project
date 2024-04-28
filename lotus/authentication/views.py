@@ -50,3 +50,8 @@ def register(request):
         return redirect('login')
 
     return render(request, 'authentication/register.html',)
+
+
+def logout(request):
+    messages.success(request, 'You have been logged out successfully.')
+    return render(request, 'authentication/login.html')
