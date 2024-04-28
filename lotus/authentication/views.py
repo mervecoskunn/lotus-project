@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import logout as auth_logout
+
 
 # Create your views here.
 
@@ -53,5 +55,6 @@ def register(request):
 
 
 def logout(request):
+    auth_logout(request)
     messages.success(request, 'You have been logged out successfully.')
     return render(request, 'authentication/login.html')
