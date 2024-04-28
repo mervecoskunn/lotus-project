@@ -45,3 +45,9 @@ span {
   outline: 1px solid #b88e2f !important;
   box-shadow: 0 0 6px #b88e2f;
 }
+
+.alert-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
