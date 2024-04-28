@@ -19,7 +19,7 @@
 
                 <h1 class="title">Hello Again!</h1>
                 <p class="subtitle">Welcome Back</p>
-                <form>
+                <form method="post" action="{% url "login" %}">
                     {% csrf_token %}
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -28,7 +28,8 @@
                                id="email"
                                placeholder="Email"
                                class="form-control gold-outline"
-                               required>
+                               required
+                               value="merve_coskun@hotmail.com">
                     </div>
 
                     <div class="input-group mb-3">
@@ -38,7 +39,8 @@
                                id="password"
                                placeholder="Password"
                                class="form-control gold-outline"
-                               required>
+                               required
+                               value="testing321">
                     </div>
 
                     <button type="submit" class="btn _btn">Submit</button>
