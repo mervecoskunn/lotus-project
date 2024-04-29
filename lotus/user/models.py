@@ -1,28 +1,23 @@
 from django.db import models
 from shopping.models import product_list
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
-class User:
-    def __init__(self, username, email, password, favorites=[]):
-        self.username = username
-        self.email = email
-        self.password = password
-        self.favorites = favorites
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255, null=True, blank=True)
+    favorites = models.ManyToManyField('shopping.Product', blank=True)
+    # TODO Orders
+    # TODO Payment info
 
     def add_to_favorites(self, product):
-        self.favorites.append(product)
+        self.favorites.add(product)
 
     def remove_from_favorites(self, id):
-        self.favorites = [
-            product for product in self.favorites if product.id != id]
+        product = self.favorites.get(id=id)
+        self.favorites.remove(product)
 
     def __str__(self):
-        return self.username
-
-
-user1 = User("user1", "", "", [product_list[0],
-             product_list[1], product_list[2]])
-user2 = User("user2", "", "", [])
-user3 = User("user3", "", "", [])
+        return self.user.username

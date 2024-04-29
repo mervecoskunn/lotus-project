@@ -1,0 +1,79 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Profile
+{% endblock page_title %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'css/banner.css' %}">
+    <link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Profile" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+    <section class="container my-5">
+        <form method="post" action="{% url "profile" %}">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text"
+                       name="firstName"
+                       id="firstName"
+                       placeholder="First Name"
+                       class="form-control gold-outline"
+                       required
+                       value="{{ user.first_name }}">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text"
+                       name="lastName"
+                       id="lastName"
+                       placeholder="Last Name"
+                       class="form-control gold-outline"
+                       required
+                       value="{{ user.last_name }}">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email"
+                       name="email"
+                       id="email"
+                       placeholder="Email"
+                       class="form-control gold-outline"
+                       required
+                       value="{{ user.email }}">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password"
+                       name="password"
+                       id="password"
+                       placeholder="Password"
+                       class="form-control gold-outline"
+                       required>
+            </div>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-address-book"></i></span>
+                <textarea name="address"
+                          id="address"
+                          placeholder="Address"
+                          class="form-control gold-outline">{{ user.address }}</textarea>
+            </div>
+
+
+            <button type="submit" class="btn _btn">Update Profile</button>
+        </form>
+    </section>
+{% endblock lotus_content %}

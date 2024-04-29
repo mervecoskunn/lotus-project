@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from shopping.models import Product, product_list
 from . import models as user_models
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -10,15 +11,23 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def favorites(request):
     context = {
-        'favorites': user_models.user1.favorites
+        'favorites': []
     }
     return render(request, 'user/favorites.html', context)
 
 
 @login_required
 def profile(request):
-    return HttpResponse("Profile page")
-    # return render(request, 'user/profile.html')
+    if request.method == 'POST':
+        address = request.POST.get('address')
+        user_models.user1.profile.address = address
+        user_models.user1.profile.save()
+        # TODO Success message
+        return redirect('profile')
+    profile = User.objects.filter(
+        username=request.user.username
+    ).first().profile
+    return render(request, 'user/profile.html', {'profile': profile})
 
 
 @login_required
@@ -37,7 +46,6 @@ def remove_from_favorites(request, id):
 @login_required
 def add_to_favorites(request, id):
     product = filter(lambda product: product.id == id, product_list)
-    user_models.user1.add_to_favorites(product)
 
     # TODO success message
     return render(request, 'user/favorites.html')
