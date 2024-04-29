@@ -4,7 +4,7 @@
     <div class="row gap-3 justify-content-center">
         {% for product in products %}
             <div class="col-4 product">
-                <img src="{% static product.img_path %}"
+                <img src="{{ product.img.url }}"
                      alt="{{ product.name }}"
                      width="375"
                      height="303">

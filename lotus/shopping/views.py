@@ -53,6 +53,8 @@ def sort_products(order_by) -> list:
 
 @login_required
 def shopping(request):
+    # TODO Remove this line
+    #              models.add_products()
     if request.method == 'POST':
         search_key = request.POST.get('search_key')
         filter_key_values = get_filter_key_values(request.POST)
@@ -79,7 +81,7 @@ def shopping(request):
             }
     else:
         context = {
-            "products": models.product_list
+            "products": models.Product.objects.all()
         }
     return render(request, 'shopping/shopping.html', context)
 
