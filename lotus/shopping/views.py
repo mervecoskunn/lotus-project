@@ -17,19 +17,15 @@ sort_options = [
 ]
 
 
-@login_required
 def get_filter_key_values(post_data) -> list:
     return list(filter(lambda key: post_data.get(key) is not None,
                        [post_data.get(key) for key in filter_keys]))
 
 
-@login_required
 def get_search_results(search_key) -> list:
-    return filter(lambda product: search_key.lower() in product.name.lower(),
-                  models.product_list)
+    return models.Product.objects.filter(name__icontains=search_key).all()
 
 
-@login_required
 def get_filter_results(filter_key_values) -> list:
     filter_results = []
     for filter_key in filter_key_values:
@@ -38,7 +34,6 @@ def get_filter_results(filter_key_values) -> list:
     return filter_results
 
 
-@login_required
 def sort_products(order_by) -> list:
     if order_by == 'price-low-to-high':
         return sorted(models.product_list, key=lambda product: product.price)
@@ -54,8 +49,6 @@ def sort_products(order_by) -> list:
 
 @login_required
 def shopping(request):
-    # TODO Remove this line
-    #              models.add_products()
     if request.method == 'POST':
         search_key = request.POST.get('search_key')
         filter_key_values = get_filter_key_values(request.POST)
