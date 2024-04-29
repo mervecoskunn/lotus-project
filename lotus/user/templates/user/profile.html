@@ -18,6 +18,9 @@
 
 {% block lotus_content %}
     <section class="container my-5">
+        {% if messages %}
+            {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+        {% endif %}
         <form method="post" action="{% url "profile" %}">
             {% csrf_token %}
             <div class="input-group mb-3">
@@ -50,6 +53,7 @@
                        placeholder="Email"
                        class="form-control gold-outline"
                        required
+                       disabled
                        value="{{ user.email }}">
             </div>
 
@@ -60,7 +64,9 @@
                        id="password"
                        placeholder="Password"
                        class="form-control gold-outline"
-                       required>
+                       required
+                       disabled
+                       value="********">
             </div>
 
 
@@ -69,7 +75,7 @@
                 <textarea name="address"
                           id="address"
                           placeholder="Address"
-                          class="form-control gold-outline">{{ user.address }}</textarea>
+                          class="form-control gold-outline">{{ profile.address }}</textarea>
             </div>
 
 

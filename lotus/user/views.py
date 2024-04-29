@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from shopping.models import Product
 from . import models as user_models
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -25,10 +26,17 @@ def favorites(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         address = request.POST.get('address')
-        user_models.user1.profile.address = address
-        user_models.user1.profile.save()
-        # TODO Success message
+        profile = User.objects.filter(
+            username=request.user.username
+        ).first().profile
+        profile.first_name = first_name
+        profile.last_name = last_name
+        profile.address = address
+        profile.save()
+        messages.success(request, 'Profile updated successfully')
         return redirect('profile')
     profile = User.objects.filter(
         username=request.user.username
