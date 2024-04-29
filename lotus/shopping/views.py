@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import models
+from user.models import Profile
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -88,9 +89,13 @@ def shopping(request):
 
 @login_required
 def product_detail(request, product_id):
-    product = models.product_list[product_id]
+    product = models.Product.objects.get(id=product_id)
+    is_favorited = Profile.objects.get(
+        user=request.user).favorites.filter(id=product_id).exists()
+    print("product: ", product.id)
     context = {
-        "product": product
+        "product": product,
+        "is_favorited": is_favorited
     }
     return render(request, 'shopping/product_detail.html', context)
 

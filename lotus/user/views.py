@@ -1,6 +1,7 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from shopping.models import Product, product_list
+from shopping.models import Product
 from . import models as user_models
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -38,14 +39,24 @@ def settings(request):
 
 @login_required
 def remove_from_favorites(request, id):
-    user_models.user1.remove_from_favorites(id)
-    # TODO success message
-    return redirect('favorites')
+    profile = User.objects.filter(
+        username=request.user.username
+    ).first().profile
+    profile.remove_from_favorites(id)
+    messages.success(request, 'Product removed from favorites')
+
+    # Go back to the page where the user clicked the button
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 @login_required
 def add_to_favorites(request, id):
-    product = filter(lambda product: product.id == id, product_list)
+    product = Product.objects.get(id=id)
+    profile = User.objects.filter(
+        username=request.user.username
+    ).first().profile
+    profile.add_to_favorites(product)
+    messages.success(request, 'Product added to favorites')
 
-    # TODO success message
-    return render(request, 'user/favorites.html')
+    # Go back to the page where the user clicked the button
+    return redirect(request.META.get('HTTP_REFERER', '/'))
