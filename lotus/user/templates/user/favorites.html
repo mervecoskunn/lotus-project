@@ -21,7 +21,7 @@
         <div class="row gap-3 product-container ">
             {% for product in favorites %}
                 <div class="col-3 product">
-                    <img src="{% static product.img_path %}"
+                    <img src="{{ product.img.url }}"
                          alt="{{ product.name }}"
                          width="375"
                          height="303">

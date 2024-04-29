@@ -11,8 +11,11 @@ from django.contrib.auth.models import User
 
 @login_required
 def favorites(request):
+    profile = User.objects.filter(
+        username=request.user.username
+    ).first().profile
     context = {
-        'favorites': []
+        'favorites': profile.favorites.all()
     }
     return render(request, 'user/favorites.html', context)
 
