@@ -14,8 +14,10 @@ def favorites(request):
     profile = User.objects.filter(
         username=request.user.username
     ).first().profile
+    favorites = profile.favorites.all()
     context = {
-        'favorites': profile.favorites.all()
+        'favorites': favorites,
+        'is_empty': len(favorites) == 0
     }
     return render(request, 'user/favorites.html', context)
 

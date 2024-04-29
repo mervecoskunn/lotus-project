@@ -19,23 +19,31 @@
 {% block lotus_content %}
     <section class="container my-5">
         <div class="row gap-3 product-container ">
-            {% for product in favorites %}
-                <div class="col-3 product">
-                    <img src="{{ product.img.url }}"
-                         alt="{{ product.name }}"
-                         width="375"
-                         height="303">
-                    <h4 class="mt-4">{{ product.name }}</h4>
-                    <div>rating bar</div>
-                    <p>
-                        <strong>€ {{ product.price }}</strong>
-                    </p>
-                    <a href="{% url "product_detail" product.id %}"
-                       class="btn lotus-btn-primary">Read More</a>
-                    <a href="{% url "remove_from_favorites" product.id %}"
-                       class="btn btn-outline-secondary mt-4">Remove from favorites</a>
+            {% if is_empty %}
+                <div class="col-12 text-center">
+                    <h2 class="display-6">Your favorites list is empty</h2>
+                    <a href="{% url "shopping" %}" class="btn lotus-btn-primary">Go to products</a>
                 </div>
-            {% endfor %}
+            {% else %}
+                {% for product in favorites %}
+                    <div class="col-3 product">
+                        <img src="{{ product.img.url }}"
+                             alt="{{ product.name }}"
+                             width="375"
+                             height="303">
+                        <h4 class="mt-4">{{ product.name }}</h4>
+                        <div>rating bar</div>
+                        <p>
+                            <strong>€ {{ product.price }}</strong>
+                        </p>
+                        <a href="{% url "product_detail" product.id %}"
+                           class="btn lotus-btn-primary">Read More</a>
+                        <a href="{% url "remove_from_favorites" product.id %}"
+                           class="btn btn-outline-secondary mt-4">Remove from favorites</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
         </div>
     </section>
 {% endblock lotus_content %}
