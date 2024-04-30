@@ -28,13 +28,15 @@
                     <strong>€ {{ product.price }}</strong>
                 </p>
                 <pre>{{ product.description }}</pre>
-                <form method="post" action="#" class="my-4">
+                <form method="post" action="{% url "add_to_cart" %}" class="my-4">
                     {% csrf_token %}
                     <input type="number"
+                           name="quantity"
                            min="1"
                            value="1"
                            step="1"
                            class="form-control product-count">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn lotus-btn-primary">Add to Cart</button>
                 </form>
                 {% if not is_favorited %}

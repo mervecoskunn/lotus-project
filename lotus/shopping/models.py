@@ -43,17 +43,7 @@ class Product(models.Model):
         return '[' + self.name + ' ' + str(self.price) + ' ' + str(self.rating) + ']'
 
 
-class CartProduct(models.Model):
-    product = models.OneToOneField(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
-    subtotal = models.DecimalField(max_digits=6, decimal_places=2)
-
-    def __str__(self):
-        return '[' + str(self.product.name) + ' ' + str(self.quantity) + ' ' + str(self.subtotal) + ']'
-
-
 class Cart(models.Model):
-    items = models.ManyToManyField(CartProduct, blank=True)
     subtotal = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     shipping = models.DecimalField(max_digits=6, decimal_places=2, default=0)
     total = models.DecimalField(max_digits=6, decimal_places=2, default=0)
@@ -61,7 +51,7 @@ class Cart(models.Model):
     def add_product(self, cart_product):
         # Check if the product is already in the cart
         existing_product = next(
-            (product for product in self.items if product.product.id == cart_product.product.id), None)
+            (product for product in self.items.all() if product.product.id == cart_product.product.id), None)
         if existing_product:
             existing_product.quantity += cart_product.quantity
             existing_product.subtotal += cart_product.subtotal
@@ -81,6 +71,21 @@ class Cart(models.Model):
         self.subtotal -= product.subtotal
         self.shipping = 0 if self.subtotal > 150 else 10
         self.total = self.subtotal + self.shipping
+        self.save()
+
+    def get_items(self):
+        return self.items.all()
 
     def __str__(self):
         return '[ Cart id:' + str(self.id) + ' ]'
+
+
+class CartProduct(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+    subtotal = models.DecimalField(max_digits=6, decimal_places=2)
+    cart = models.ForeignKey(
+        Cart, on_delete=models.CASCADE, related_name='items', null=True)
+
+    def __str__(self):
+        return '[' + str(self.product.name) + ' ' + str(self.quantity) + ' ' + str(self.subtotal) + ']'

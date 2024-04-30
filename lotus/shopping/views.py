@@ -1,50 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 from . import models
 from user.models import Profile
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
-
-filter_keys = [
-    'bracelet', 'pendulum', 'natural-stones', 'incense', 'chackra-stones'
-]
-
-sort_options = [
-    'date-added-low-to-high', 'date-added-high-to-low',
-    'price-low-to-high', 'price-high-to-low',
-    'name-a-z', 'name-z-a'
-]
-
-
-def get_filter_key_values(post_data) -> list:
-    return list(filter(lambda key: post_data.get(key) is not None,
-                       [post_data.get(key) for key in filter_keys]))
-
-
-def get_search_results(search_key) -> list:
-    return models.Product.objects.filter(name__icontains=search_key).all()
-
-
-def get_filter_results(filter_key_values) -> list:
-    filter_results = []
-    for filter_key in filter_key_values:
-        filter_results += list(filter(lambda product: product.category.lower() == filter_key.lower(),
-                                      models.product_list))
-    return filter_results
-
-
-def sort_products(order_by) -> list:
-    if order_by == 'price-low-to-high':
-        return sorted(models.product_list, key=lambda product: product.price)
-    elif order_by == 'price-high-to-low':
-        return sorted(models.product_list, key=lambda product: product.price, reverse=True)
-    elif order_by == 'name-a-z':
-        return sorted(models.product_list, key=lambda product: product.name)
-    elif order_by == 'name-z-a':
-        return sorted(models.product_list, key=lambda product: product.name, reverse=True)
-    else:
-        return []
+from .utils import get_search_results, get_filter_results, get_filter_key_values, sort_products
 
 
 @login_required
@@ -85,7 +45,6 @@ def product_detail(request, product_id):
     product = models.Product.objects.get(id=product_id)
     is_favorited = Profile.objects.get(
         user=request.user).favorites.filter(id=product_id).exists()
-    print("product: ", product.id)
     context = {
         "product": product,
         "is_favorited": is_favorited
@@ -95,8 +54,10 @@ def product_detail(request, product_id):
 
 @login_required
 def cart(request):
+    cart = Profile.objects.get(user=request.user).cart
     context = {
-        "cart": models.carts[0]
+        "cart": cart,
+        "items": cart.items.all()
     }
     return render(request, 'shopping/cart.html', context)
 
@@ -105,20 +66,24 @@ def cart(request):
 def add_to_cart(request):
     product_id = int(request.POST.get('product_id'))
     quantity = int(request.POST.get('quantity'))
-    product = models.product_list[product_id]
-    cart_product = models.CartProduct(product, quantity)
-    models.carts[0].add_product(cart_product)
+    product = models.Product.objects.get(id=product_id)
+    cart_product = models.CartProduct.objects.create(
+        product=product, quantity=quantity, subtotal=product.price * quantity)
+    profile = Profile.objects.get(user=request.user)
+    profile.cart.add_product(cart_product)
+    profile.save()
 
-    # TODO Success message
-    return HttpResponse("Added to cart")
+    messages.success(request, 'Product added to cart')
+
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 @login_required
 def remove_from_cart(request, product_id):
+    # TODO Remove from cart
 
-    models.carts[0].remove_product(product_id)
     context = {
-        "cart": models.carts[0]
+        "cart": []  # TODO Get cart
     }
     # TODO Success message
     return redirect('cart')
