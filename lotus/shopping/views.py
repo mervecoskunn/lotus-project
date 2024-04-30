@@ -81,7 +81,34 @@ def add_to_cart(request):
 
 @login_required
 def remove_from_cart(request, cart_product_id):
-    CartProduct.objects.get(id=cart_product_id).delete()
+    cart = Profile.objects.get(user=request.user).cart
+    cart.remove_product(cart_product_id)
     messages.success(request, 'Product removed from cart')
+
+    return redirect('cart')
+
+
+@login_required
+def increase_quantity(request, cart_product_id):
+    cart = Profile.objects.get(user=request.user).cart
+    if cart.increase_quantity(cart_product_id):
+        messages.success(request, 'Product quantity increased by one')
+    else:
+        messages.error(request, 'Error increasing product quantity')
+
+    return redirect('cart')
+
+
+@login_required
+def decrease_quantity(request, cart_product_id):
+    cart_product = CartProduct.objects.get(id=cart_product_id)
+    cart = Profile.objects.get(user=request.user).cart
+    cart.decrease_quantity(cart_product_id)
+    if cart_product.quantity == 1:
+        messages.success(request, 'Product removed from cart')
+
+        return redirect('cart')
+
+    messages.success(request, 'Product quantity decreased by one')
 
     return redirect('cart')

@@ -40,7 +40,18 @@
                                 <th scope="row">{{ forloop.counter }}</th>
                                 <td>{{ cart_product.product.name }}</td>
                                 <td>{{ cart_product.product.price }}</td>
-                                <td>{{ cart_product.quantity }}</td>
+                                <td>
+                                    {{ cart_product.quantity }}
+
+                                    <a href="{% url "decrease_quantity" cart_product.id %}"
+                                       class="btn btn-outline-secondary">
+                                        <i class="fa-solid fa-minus" style="color: #888"></i>
+                                    </a>
+                                    <a href="{% url "increase_quantity" cart_product.id %}"
+                                       class="btn btn-outline-secondary">
+                                        <i class="fa-solid fa-plus" style="color: #888"></i>
+                                    </a>
+                                </td>
                                 <td>{{ cart_product.subtotal }}</td>
                                 <td>
                                     <a href="{% url "remove_from_cart" cart_product.id %}">

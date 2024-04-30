@@ -59,22 +59,46 @@ class Cart(models.Model):
 
         else:
             self.items.add(cart_product)
-        self.subtotal += cart_product.subtotal
-        self.shipping = 0 if self.subtotal > 150 else 10
-        self.total = self.subtotal + self.shipping
-        self.save()
+        self.recalculate()
 
     def remove_product(self, product_id):
         product = next(
-            (cart_product for cart_product in self.items if cart_product.product.id == product_id), None)
-        self.items.remove(product)
-        self.subtotal -= product.subtotal
-        self.shipping = 0 if self.subtotal > 150 else 10
-        self.total = self.subtotal + self.shipping
-        self.save()
+            (cart_product for cart_product in self.items.all() if cart_product.id == product_id), None)
+        product.delete()
+        self.recalculate()
 
     def get_items(self):
         return self.items.all()
+
+    def increase_quantity(self, cart_product_id):
+        product = next(
+            (cart_product for cart_product in self.items.all() if cart_product.id == cart_product_id), None)
+        if product is not None:
+            product.quantity += 1
+            product.subtotal = product.product.price * product.quantity
+            product.save()
+            self.recalculate()
+            return True
+        return False
+
+    def decrease_quantity(self, cart_product_id):
+        product = next(
+            (cart_product for cart_product in self.items.all() if cart_product.id == cart_product_id), None)
+        if product.quantity == 1:
+            product.delete()
+        else:
+            product.quantity -= 1
+            product.subtotal = product.product.price * product.quantity
+            product.save()
+        self.recalculate()
+
+    def recalculate(self):
+        self.subtotal = 0
+        for item in self.items.all():
+            self.subtotal += item.subtotal
+        self.shipping = 0 if self.subtotal > 150 else 10
+        self.total = self.subtotal + self.shipping
+        self.save()
 
     def __str__(self):
         return '[ Cart id:' + str(self.id) + ' ]'
