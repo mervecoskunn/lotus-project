@@ -1,6 +1,7 @@
 from django.db import models
-from shopping.models import product_list
+from shopping.models import Cart
 from django.contrib.auth.models import User
+from shopping.models import Cart
 
 # Create your models here.
 
@@ -9,6 +10,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     address = models.CharField(max_length=255, null=True, blank=True)
     favorites = models.ManyToManyField('shopping.Product', blank=True)
+    cart = models.OneToOneField(
+        Cart, on_delete=models.CASCADE, null=True)
     # TODO Orders
     # TODO Payment info
 
