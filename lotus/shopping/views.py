@@ -56,9 +56,11 @@ def product_detail(request, product_id):
 @login_required
 def cart(request):
     cart = Profile.objects.get(user=request.user).cart
+    items = cart.items.all()
     context = {
         "cart": cart,
-        "items": cart.items.all()
+        "items": items,
+        "is_empty": items.count() == 0
     }
     return render(request, 'shopping/cart.html', context)
 

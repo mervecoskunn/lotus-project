@@ -22,67 +22,76 @@
             {% if messages %}
                 {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
             {% endif %}
-            <div class="col-8">
-                <table class="table table-borderless product-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Subtotal</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for cart_product in items %}
-                            <tr>
-                                <th scope="row">{{ forloop.counter }}</th>
-                                <td>{{ cart_product.product.name }}</td>
-                                <td>{{ cart_product.product.price }}</td>
-                                <td>
-                                    {{ cart_product.quantity }}
+            {% if is_empty %}
+                <div class="col-12 text-center">
+                    <h2>Your cart is empty</h2>
+                    <a href="{% url "shopping" %}" class="btn btn-outline-secondary">Continue Shopping</a>
+                </div>
 
-                                    <a href="{% url "decrease_quantity" cart_product.id %}"
-                                       class="btn btn-outline-secondary">
-                                        <i class="fa-solid fa-minus" style="color: #888"></i>
-                                    </a>
-                                    <a href="{% url "increase_quantity" cart_product.id %}"
-                                       class="btn btn-outline-secondary">
-                                        <i class="fa-solid fa-plus" style="color: #888"></i>
-                                    </a>
-                                </td>
-                                <td>{{ cart_product.subtotal }}</td>
-                                <td>
-                                    <a href="{% url "remove_from_cart" cart_product.id %}">
-                                        <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
-                                    </a>
-                                </td>
+            {% else %}
+                <div class="col-8">
+                    <table class="table table-borderless product-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Subtotal</th>
+                                <th scope="col"></th>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-4 summary-col py-4 px-4">
-                <h2>Cart Totals</h2>
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Subtotal</th>
-                            <td>€ {{ cart.subtotal }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Shipping</th>
-                            <td>€ {{ cart.shipping }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Total</th>
-                            <td>€ {{ cart.total }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button class="btn lotus-btn-primary mt-4">Checkout</button>
-            </div>
+                        </thead>
+                        <tbody>
+                            {% for cart_product in items %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td>{{ cart_product.product.name }}</td>
+                                    <td>{{ cart_product.product.price }}</td>
+                                    <td>
+                                        {{ cart_product.quantity }}
+
+                                        <a href="{% url "decrease_quantity" cart_product.id %}"
+                                           class="btn btn-outline-secondary">
+                                            <i class="fa-solid fa-minus" style="color: #888"></i>
+                                        </a>
+                                        <a href="{% url "increase_quantity" cart_product.id %}"
+                                           class="btn btn-outline-secondary">
+                                            <i class="fa-solid fa-plus" style="color: #888"></i>
+                                        </a>
+                                    </td>
+                                    <td>{{ cart_product.subtotal }}</td>
+                                    <td>
+                                        <a href="{% url "remove_from_cart" cart_product.id %}">
+                                            <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4 summary-col py-4 px-4">
+                    <h2>Cart Totals</h2>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Subtotal</th>
+                                <td>€ {{ cart.subtotal }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Shipping</th>
+                                <td>€ {{ cart.shipping }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total</th>
+                                <td>€ {{ cart.total }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn lotus-btn-primary mt-4">Checkout</button>
+                </div>
+            {% endif %}
+
         </div>
     </section>
 {% endblock lotus_content %}
