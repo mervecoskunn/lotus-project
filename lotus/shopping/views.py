@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from . import models
 from user.models import Profile
+from .models import CartProduct
 from django.contrib.auth.decorators import login_required
 from .utils import get_search_results, get_filter_results, get_filter_key_values, sort_products
 
@@ -79,11 +80,8 @@ def add_to_cart(request):
 
 
 @login_required
-def remove_from_cart(request, product_id):
-    # TODO Remove from cart
+def remove_from_cart(request, cart_product_id):
+    CartProduct.objects.get(id=cart_product_id).delete()
+    messages.success(request, 'Product removed from cart')
 
-    context = {
-        "cart": []  # TODO Get cart
-    }
-    # TODO Success message
     return redirect('cart')

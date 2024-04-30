@@ -19,6 +19,9 @@
 {% block lotus_content %}
     <section class="container my-5">
         <div class="row">
+            {% if messages %}
+                {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+            {% endif %}
             <div class="col-8">
                 <table class="table table-borderless product-table">
                     <thead>
@@ -40,7 +43,7 @@
                                 <td>{{ cart_product.quantity }}</td>
                                 <td>{{ cart_product.subtotal }}</td>
                                 <td>
-                                    <a href="{% url "remove_from_cart" cart_product.product.id %}">
+                                    <a href="{% url "remove_from_cart" cart_product.id %}">
                                         <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
                                     </a>
                                 </td>
