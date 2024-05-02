@@ -46,9 +46,17 @@ def product_detail(request, product_id):
     product = models.Product.objects.get(id=product_id)
     is_favorited = Profile.objects.get(
         user=request.user).favorites.filter(id=product_id).exists()
+    is_added_to_cart = Profile.objects.get(
+        user=request.user).cart.items.filter(product_id=product_id).exists()
+    quantity = 1
+    if is_added_to_cart:
+        quantity = Profile.objects.get(user=request.user).cart.items.get(
+            product_id=product_id).quantity
     context = {
         "product": product,
-        "is_favorited": is_favorited
+        "is_favorited": is_favorited,
+        "is_added_to_cart": is_added_to_cart,
+        "quantity": quantity
     }
     return render(request, 'shopping/product_detail.html', context)
 
@@ -69,6 +77,18 @@ def cart(request):
 def add_to_cart(request):
     product_id = int(request.POST.get('product_id'))
     quantity = int(request.POST.get('quantity'))
+    post_type = request.POST.get('post_type')
+    if post_type == 'update':
+        product = models.Product.objects.get(id=product_id)
+        cart_product = models.CartProduct.objects.get(product=product)
+        cart_product.quantity = quantity
+        cart_product.subtotal = product.price * quantity
+        cart_product.save()
+        cart_product.cart.recalculate()
+        messages.success(request, 'Product quantity updated')
+
+        return redirect(request.META.get('HTTP_REFERER', '/'))
+
     product = models.Product.objects.get(id=product_id)
     cart_product = models.CartProduct.objects.create(
         product=product, quantity=quantity, subtotal=product.price * quantity)

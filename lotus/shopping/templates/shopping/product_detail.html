@@ -33,11 +33,18 @@
                     <input type="number"
                            name="quantity"
                            min="1"
-                           value="1"
+                           value="{{ quantity }}"
                            step="1"
                            class="form-control product-count">
                     <input type="hidden" name="product_id" value="{{ product.id }}">
-                    <button type="submit" class="btn lotus-btn-primary">Add to Cart</button>
+                    {% if not is_added_to_cart %}
+                        <input type="hidden" name="post_type" value="add">
+                        <button type="submit" class="btn lotus-btn-primary">Add to Cart</button>
+
+                    {% else %}
+                        <input type="hidden" name="post_type" value="update">
+                        <button type="submit" class="btn lotus-btn-primary">Update Cart</button>
+                    {% endif %}
                 </form>
                 {% if not is_favorited %}
                     <a href="{% url "add_to_favorites" product.id %}"
