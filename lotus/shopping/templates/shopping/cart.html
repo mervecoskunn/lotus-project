@@ -88,7 +88,11 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn lotus-btn-primary mt-4">Checkout</button>
+                    <form action="{% url "create_checkout_session" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="cart_id" value="{{ cart.id }}">
+                        <button class="btn lotus-btn-primary mt-4">Checkout</button>
+                    </form>
                 </div>
             {% endif %}
 

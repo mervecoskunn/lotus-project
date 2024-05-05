@@ -12,8 +12,6 @@ class Profile(models.Model):
     favorites = models.ManyToManyField('shopping.Product', blank=True)
     cart = models.OneToOneField(
         Cart, on_delete=models.CASCADE, null=True)
-    # TODO Orders
-    # TODO Payment info
 
     def add_to_favorites(self, product):
         self.favorites.add(product)
@@ -21,6 +19,12 @@ class Profile(models.Model):
     def remove_from_favorites(self, id):
         product = self.favorites.get(id=id)
         self.favorites.remove(product)
+
+    def create_new_cart(self):
+        cart = Cart()
+        cart.save()
+        self.cart = cart
+        self.save()
 
     def __str__(self):
         return self.user.username

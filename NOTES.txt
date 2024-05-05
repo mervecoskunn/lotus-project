@@ -21,3 +21,19 @@
 # Libraries
     - Bootstrap 5
     -
+
+
+
+# Stripe Test Data
+merve_coskun2013@hotmail.com
+    - Cart Data
+        - Success:
+4242424242424242
+        - Required Authentication:
+4000002500003155
+        - Declined:
+4000000000009995
+    - 12/30
+    - 111
+
+Merve Coşkun

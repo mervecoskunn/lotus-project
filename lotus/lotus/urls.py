@@ -21,6 +21,7 @@ from django.urls import path, include
 from authentication import views as authentication_views
 from . import views as lotus_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('authentication.urls')),
@@ -28,7 +29,7 @@ urlpatterns = [
     path('contact/', lotus_views.contact, name="contact"),
     path('shopping/', include('shopping.urls')),
     path('user/', include('user.urls')),
-
+    path('order/', include('order.urls')),
 ]
 
 
