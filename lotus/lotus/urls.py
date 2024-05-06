@@ -24,7 +24,7 @@ from . import views as lotus_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include('authentication.urls')),
+    path("auth/", include('authentication.urls')),
     path('', lotus_views.home, name="home"),
     path('contact/', lotus_views.contact, name="contact"),
     path('shopping/', include('shopping.urls')),
