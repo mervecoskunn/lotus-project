@@ -2,7 +2,7 @@ from .models import Product
 
 
 filter_keys = [
-    'bracelet', 'pendulum', 'natural-stones', 'incense', 'chackra-stones'
+    'bracelet', 'pendulum', 'natural-stones', 'incense', 'chackra-stones', 'none'
 ]
 
 sort_options = [

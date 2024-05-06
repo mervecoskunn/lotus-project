@@ -14,36 +14,47 @@
                 <p class="poppins-400 ms-1 mb-0">Filter</p>
             </button>
 
-            <form action="{% url "shopping" %}" method="post" class="dropdown-menu p-4">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <input type="checkbox" id="bracelet" name="bracelet" value="bracelet">
-                    <label for="bracelet">Bracelet</label>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox" id="pendulum" name="pendulum" value="pendulum">
-                    <label for="pendulum">Pendulum</label>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"
-                           id="natural-stones"
-                           name="natural-stones"
-                           value="natural-stones">
-                    <label for="natural-stones">Natural Stones</label>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox" id="incence" name="incence" value="incence">
-                    <label for="incence">Incence</label>
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox"
-                           id="chakra-stones"
-                           name="chakra-stones"
-                           value="chakra-stones">
-                    <label for="chakra-stones">Chakra Stones</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Filter</button>
-            </form>
+            <div class="dropdown-menu p-4">
+
+                <form action="{% url "shopping" %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="checkbox" id="bracelet" name="bracelet" value="bracelet">
+                        <label for="bracelet">Bracelet</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" id="pendulum" name="pendulum" value="pendulum">
+                        <label for="pendulum">Pendulum</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox"
+                               id="natural-stones"
+                               name="natural-stones"
+                               value="natural-stones">
+                        <label for="natural-stones">Natural Stones</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" id="incence" name="incence" value="incence">
+                        <label for="incence">Incence</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox"
+                               id="chakra-stones"
+                               name="chakra-stones"
+                               value="chakra-stones">
+                        <label for="chakra-stones">Chakra Stones</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+                <hr>
+
+                <form action="{% url "shopping" %}" method="post">
+                    <input type="hidden" id="none" name="none" value="none">
+                    <button type="submit" class="btn btn-outline-secondary border-0 p-0 px-1">Remove filters</button>
+
+                </form>
+
+            </div>
 
         </div>
 

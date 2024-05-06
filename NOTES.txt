@@ -22,6 +22,8 @@
     - Bootstrap 5
     -
 
+# Cloudinary
+py manage.py collectstatic --upload-unhashed-files
 
 
 # Stripe Test Data
