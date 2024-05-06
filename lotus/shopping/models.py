@@ -100,6 +100,9 @@ class Cart(models.Model):
         self.total = self.subtotal + self.shipping
         self.save()
 
+    def get_total_product_count(self):
+        return sum([item.quantity for item in self.items.all()])
+
     def __str__(self):
         return '[ Cart id:' + str(self.id) + ' ]'
 

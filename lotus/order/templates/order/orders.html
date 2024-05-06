@@ -1,0 +1,25 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'order/css/order-row.css' %}">
+{% endblock lotus_css_files %}
+
+{% block page_title %}
+    Lotus - Orders
+{% endblock page_title %}
+
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Orders" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+    <section class="container my-5">
+        {% for order in orders %}
+            {% include "order/includes/order-row.html" with order=order %}
+        {% endfor %}
+    </section>
+{% endblock lotus_content %}

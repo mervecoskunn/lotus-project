@@ -1,0 +1,23 @@
+.order {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer; /* Change cursor to pointer when hovering */
+}
+.order-id {
+  font-weight: bold;
+}
+.order-status {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.order-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}

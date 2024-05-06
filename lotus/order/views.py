@@ -9,6 +9,12 @@ from order.models import Order
 from django.contrib.auth.decorators import login_required
 
 
+def orders(request):
+    user_profile = request.user.profile
+    orders = user_profile.orders.all()
+    return render(request, 'order/orders.html', {'orders': orders})
+
+
 @login_required
 def success(request):
     user_profile = request.user.profile
