@@ -1,7 +1,6 @@
 /* Banner Styling */
 .banner {
   height: 80vh;
-  /* background-image: url('/static/images/banner.png'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
