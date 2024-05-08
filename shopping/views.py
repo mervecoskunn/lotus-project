@@ -11,6 +11,12 @@ from .utils import get_search_results, get_filter_results, get_filter_key_values
 @login_required
 def shopping(request):
     if request.method == 'POST':
+        if request.POST.get('remove_filters') is not None:
+            context = {
+                "products": models.Product.objects.all()
+            }
+            return render(request, 'shopping/shopping.html', context)
+
         search_key = request.POST.get('search_key')
         filter_key_values = get_filter_key_values(request.POST)
         order_by = request.POST.get('sort_option')
