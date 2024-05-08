@@ -80,7 +80,9 @@ def add_to_cart(request):
     post_type = request.POST.get('post_type')
     if post_type == 'update':
         product = models.Product.objects.get(id=product_id)
-        cart_product = models.CartProduct.objects.get(product=product)
+        cart = Profile.objects.get(user=request.user).cart
+        cart_product = models.CartProduct.objects.get(
+            product=product, cart=cart)
         cart_product.quantity = quantity
         cart_product.subtotal = product.price * quantity
         cart_product.save()
