@@ -15,3 +15,7 @@ def home(request):
 @login_required
 def contact(request):
     return render(request, 'lotus/contact.html')
+
+
+def privacy_policy(request):
+    return render(request, 'lotus/privacy-policy.html')

@@ -1,0 +1,71 @@
+{% extends "lotus/base.html" %}
+
+{% block page_title %}
+    Lotus - Privacy Policy
+{% endblock page_title %}
+
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Privacy Policy" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+
+    <section class="px-5 my-4">
+
+        <h1 class="text-center">PRIVACY POLICY</h1>
+        <p>
+            This privacy policy outlines the collection, use, and disclosure of personal information on the <a href="https://lotus-project-433bebe152ef.herokuapp.com/">website</a> operated by [Lotus Aura Natural].
+        </p>
+
+        <h3>Collection and Use of Personal Information</h3>
+        <p>
+            When you visit our Site, you may be asked to provide certain personal information to us. This information may be used to communicate with you or to identify you. Personally identifiable information may include your name, email address, phone number, and mailing address.
+        </p>
+
+        <h3>Browser Information</h3>
+        <p>
+            When you visit our Site, we automatically receive certain information sent by your browser. This information may include the type of browser you are using, the URLs of the pages you visit, date and time of your visit, and other statistical data.
+        </p>
+
+        <h3>Cookies</h3>
+
+        <p>
+            Cookies are small text files stored as data on your computer's hard drive. They help us better understand and improve your use of our website and preferences. You can adjust your browser preferences to accept or decline cookies. However, some parts of our site may not function properly if you disable cookies.
+        </p>
+
+        <h3>Sharing of Information</h3>
+
+        <p>
+            We do not share or sell your personal information with third parties. However, we may share your information with our service providers (e.g., payment processing services) but only to the extent necessary for them to provide their services.
+        </p>
+
+        <h3>Security</h3>
+
+        <p>
+            We use industry-standard security measures to protect your personal information. However, please note that no data transmission over the internet is 100% secure, and we cannot guarantee the complete security of any information transmitted or stored online.
+        </p>
+
+        <h3>Links to Other Websites</h3>
+
+        <p>
+            Our Site may contain links to other websites. We have no control over the content or privacy practices of these sites and are not responsible for their use.
+        </p>
+
+        <h3>Updates to Privacy Policy</h3>
+
+        <p>We may update this privacy policy from time to time. Any updates will be effective upon posting on our site.</p>
+
+        <h3>Contact</h3>
+
+        <p>
+            If you have any questions or concerns about this privacy policy, please <a href="{% url "contact" %}">contact</a> us
+        </p>
+        <br>
+        <small>Last Updated: [30.05.2024]</small>
+
+    </section>
+
+{% endblock lotus_content %}

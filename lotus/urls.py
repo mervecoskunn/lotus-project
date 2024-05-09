@@ -30,6 +30,7 @@ urlpatterns = [
     path('shopping/', include('shopping.urls')),
     path('user/', include('user.urls')),
     path('order/', include('order.urls')),
+    path('privacy-policy/', lotus_views.privacy_policy, name="privacy_policy"),
 ]
 
 
