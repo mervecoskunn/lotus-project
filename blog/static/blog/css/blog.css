@@ -22,3 +22,18 @@
   -webkit-box-orient: vertical;
   line-height: 1.8em; /* Adjust the line height as needed */
 }
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.post-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
