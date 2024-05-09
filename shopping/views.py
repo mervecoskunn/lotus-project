@@ -5,6 +5,7 @@ from . import models
 from user.models import Profile
 from .models import CartProduct
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from .utils import (get_search_results, get_filter_results,
                     get_filter_key_values, sort_products, get_empty_filters, get_filter_values)
 
@@ -49,9 +50,13 @@ def shopping(request):
                 "filters": get_empty_filters()
             }
     else:
+        product_list = models.Product.objects.all()
+        p = Paginator(product_list, 6)
+        page = request.GET.get('page')
+        products = p.get_page(page)
         context = {
-            "products": models.Product.objects.all(),
-            "filters": get_empty_filters()
+            "products": products,
+            "filters": get_empty_filters(),
         }
     return render(request, 'shopping/shopping.html', context)
 
