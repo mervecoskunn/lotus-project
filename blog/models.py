@@ -1,14 +1,17 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
 
-class Post:
-    def __init__(self, img_path, title, content, date):
-        self.img_path = img_path
-        self.title = title
-        self.content = content
-        self.date = date
+class Post(models.Model):
+    img = models.ImageField(upload_to='posts', null=True)
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
 
 
 # TODO will be removed
