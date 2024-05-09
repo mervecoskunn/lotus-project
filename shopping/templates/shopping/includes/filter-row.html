@@ -19,30 +19,45 @@
                 <form action="{% url "shopping" %}" method="post">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <input type="checkbox" id="bracelet" name="bracelet" value="bracelet">
+                        <input type="checkbox"
+                               id="bracelet"
+                               name="bracelet"
+                               value="bracelet"
+                               {% if filters.bracelet %}checked{% endif %}>
+
                         <label for="bracelet">Bracelet</label>
                     </div>
                     <div class="mb-3">
-                        <input type="checkbox" id="pendulum" name="pendulum" value="pendulum">
+                        <input type="checkbox"
+                               id="pendulum"
+                               name="pendulum"
+                               value="pendulum"
+                               {% if filters.pendulum %}checked{% endif %}>
                         <label for="pendulum">Pendulum</label>
                     </div>
                     <div class="mb-3">
                         <input type="checkbox"
-                               id="natural-stones"
-                               name="natural-stones"
-                               value="natural-stones">
-                        <label for="natural-stones">Natural Stones</label>
+                               id="natural_stone"
+                               name="natural_stone"
+                               value="natural_stone"
+                               {% if filters.natural_stone %}checked{% endif %}>
+                        <label for="natural_stone">Natural Stones</label>
                     </div>
                     <div class="mb-3">
-                        <input type="checkbox" id="incence" name="incence" value="incence">
+                        <input type="checkbox"
+                               id="incence"
+                               name="incence"
+                               value="incence"
+                               {% if filters.incence %}checked{% endif %}>
                         <label for="incence">Incence</label>
                     </div>
                     <div class="mb-3">
                         <input type="checkbox"
-                               id="chakra-stones"
-                               name="chakra-stones"
-                               value="chakra-stones">
-                        <label for="chakra-stones">Chakra Stones</label>
+                               id="chakra_stone"
+                               name="chakra_stone"
+                               value="chakra_stone"
+                               {% if filters.chakra_stone %}checked{% endif %}>
+                        <label for="chakra_stone">Chakra Stones</label>
                     </div>
                     <button type="submit" class="btn btn-primary">Filter</button>
                 </form>
@@ -50,7 +65,10 @@
 
                 <form action="{% url "shopping" %}" method="post">
                     {% csrf_token %}
-                    <input type="hidden" id="remove_filters" name="remove_filters" value="remove_filters">
+                    <input type="hidden"
+                           id="remove_filters"
+                           name="remove_filters"
+                           value="remove_filters">
                     <button type="submit" class="btn btn-outline-secondary border-0 p-0 px-1">Remove filters</button>
 
                 </form>

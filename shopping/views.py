@@ -5,7 +5,8 @@ from . import models
 from user.models import Profile
 from .models import CartProduct
 from django.contrib.auth.decorators import login_required
-from .utils import get_search_results, get_filter_results, get_filter_key_values, sort_products
+from .utils import (get_search_results, get_filter_results,
+                    get_filter_key_values, sort_products, get_empty_filters, get_filter_values)
 
 
 @login_required
@@ -13,7 +14,8 @@ def shopping(request):
     if request.method == 'POST':
         if request.POST.get('remove_filters') is not None:
             context = {
-                "products": models.Product.objects.all()
+                "products": models.Product.objects.all(),
+                "filters": get_empty_filters()
             }
             return render(request, 'shopping/shopping.html', context)
 
@@ -23,26 +25,33 @@ def shopping(request):
         if search_key is not None:
             search_results = get_search_results(search_key)
             context = {
-                "products": search_results
+                "products": search_results,
+                "filters": get_empty_filters()
             }
+
         elif filter_key_values.__len__() > 0:
             filter_results = get_filter_results(filter_key_values)
             context = {
-                "products": filter_results
+                "products": filter_results,
+                "filters": get_filter_values(filter_results)
             }
+
         elif order_by is not None:
             products = sort_products(order_by)
             context = {
-                "products": products
+                "products": products,
+                "filters": get_empty_filters()
             }
 
         else:
             context = {
-                "products": []
+                "products": [],
+                "filters": get_empty_filters()
             }
     else:
         context = {
-            "products": models.Product.objects.all()
+            "products": models.Product.objects.all(),
+            "filters": get_empty_filters()
         }
     return render(request, 'shopping/shopping.html', context)
 

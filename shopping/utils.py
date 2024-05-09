@@ -2,7 +2,7 @@ from .models import Product
 
 
 filter_keys = [
-    'bracelet', 'pendulum', 'natural-stones', 'incense', 'chackra-stones'
+    'bracelet', 'pendulum', 'natural_stone', 'incence', 'chakra_stone'
 ]
 
 sort_options = [
@@ -13,8 +13,9 @@ sort_options = [
 
 
 def get_filter_key_values(post_data) -> list:
-    return list(filter(lambda key: post_data.get(key) is not None,
-                       [post_data.get(key) for key in filter_keys]))
+    sent_keys = [post_data.get(key) for key in filter_keys]
+    print(sent_keys)
+    return list(filter(lambda key: post_data.get(key) is not None, sent_keys))
 
 
 def get_search_results(search_key) -> list:
@@ -42,6 +43,17 @@ def sort_products(order_by) -> list:
         return sorted(product_list, key=lambda product: product.name, reverse=True)
     else:
         return []
+
+
+def get_empty_filters() -> dict:
+    return {key: False for key in filter_keys}
+
+
+def get_filter_values(filter_results) -> dict:
+    filter_values = get_empty_filters()
+    for product in filter_results:
+        filter_values[product.category] = True
+    return filter_values
 
 
 # TODO will be removed
