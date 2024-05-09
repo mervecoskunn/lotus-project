@@ -1,0 +1,190 @@
+{% extends "lotus/base.html" %}
+
+{% block page_title %}
+    Lotus - FAQ
+{% endblock page_title %}
+
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="FAQ" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+
+    <section class="px-5 my-4">
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link"
+                                data-toggle="collapse"
+                                data-target="#collapseOne"
+                                aria-expanded="true"
+                                aria-controls="collapseOne">When will I receive my order?</button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne"
+                     class="collapse show"
+                     aria-labelledby="headingOne"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        Orders are typically processed and prepared for shipment within 1-3 business days. The delivery time varies depending on the shipping method you choose and your location. For more information, please visit our shipping process page.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="collapseTwo">What is your return and exchange policy?</button>
+                    </h5>
+                </div>
+                <div id="collapseTwo"
+                     class="collapse"
+                     aria-labelledby="headingTwo"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        Customer satisfaction is our priority. If you are not satisfied with the product you received or wish to exchange it for any reason, you may return or exchange it within 30 days of receiving the product. Please review our return and exchange policy for more information.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree">Are your products made of real natural stones?</button>
+                    </h5>
+                </div>
+                <div id="collapseThree"
+                     class="collapse"
+                     aria-labelledby="headingThree"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        Yes, all our products are made of genuine natural stones. We design our products using the unique energies and properties of natural stones.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree">How can I contact you?</button>
+                    </h5>
+                </div>
+                <div id="collapseThree"
+                     class="collapse"
+                     aria-labelledby="headingThree"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        If you have any questions or concerns, you can reach us via our <a href="{% url "contact" %}">contact</a> form. Our team will respond to you as soon as possible.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree">What payment methods do you accept?</button>
+                    </h5>
+                </div>
+                <div id="collapseThree"
+                     class="collapse"
+                     aria-labelledby="headingThree"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        We accept various payment methods including credit card, bank transfer. Payment transactions are processed securely, and customer information is kept confidential.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree">How are your products packaged and shipped?</button>
+                    </h5>
+                </div>
+                <div id="collapseThree"
+                     class="collapse"
+                     aria-labelledby="headingThree"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        Our products are carefully packaged and securely shipped. Extra precautions are taken for fragile items, and all our shipments are trackable.
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree">How can I cleanse the energy of your products?</button>
+                    </h5>
+                </div>
+                <div id="collapseThree"
+                     class="collapse"
+                     aria-labelledby="headingThree"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        There are several methods to cleanse and recharge the energy of our products. You can expose them to sunlight or moonlight, cleanse them with saltwater, or use cleansing crystals like selenite.
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree">Do you offer international shipping?</button>
+                    </h5>
+                </div>
+                <div id="collapseThree"
+                     class="collapse"
+                     aria-labelledby="headingThree"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        Yes, we offer international shipping. However, international delivery times and fees may vary depending on the country and shipping method selected.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <p class="lead">
+            In addition to these frequently asked questions, if you have any other questions, please feel free to <a href="{% url "contact" %}">contact</a> us
+        </p>
+
+    </section>
+
+{% endblock lotus_content %}

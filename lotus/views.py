@@ -19,3 +19,7 @@ def contact(request):
 
 def privacy_policy(request):
     return render(request, 'lotus/privacy-policy.html')
+
+
+def faq(request):
+    return render(request, 'lotus/faq.html')
