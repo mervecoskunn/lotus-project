@@ -10,7 +10,6 @@ from .utils import (get_search_results, get_filter_results,
                     get_filter_key_values, sort_products, get_empty_filters, get_filter_values)
 
 
-@login_required
 def shopping(request):
     if request.method == 'POST':
         if request.POST.get('remove_filters') is not None:
@@ -61,23 +60,28 @@ def shopping(request):
     return render(request, 'shopping/shopping.html', context)
 
 
-@login_required
 def product_detail(request, product_id):
     product = models.Product.objects.get(id=product_id)
-    is_favorited = Profile.objects.get(
-        user=request.user).favorites.filter(id=product_id).exists()
-    is_added_to_cart = Profile.objects.get(
-        user=request.user).cart.items.filter(product_id=product_id).exists()
-    quantity = 1
-    if is_added_to_cart:
-        quantity = Profile.objects.get(user=request.user).cart.items.get(
-            product_id=product_id).quantity
-    context = {
-        "product": product,
-        "is_favorited": is_favorited,
-        "is_added_to_cart": is_added_to_cart,
-        "quantity": quantity
-    }
+    if not request.user.is_anonymous:
+        is_favorited = Profile.objects.get(
+            user=request.user).favorites.filter(id=product_id).exists()
+        is_added_to_cart = Profile.objects.get(
+            user=request.user).cart.items.filter(product_id=product_id).exists()
+        quantity = 1
+        if is_added_to_cart:
+            quantity = Profile.objects.get(user=request.user).cart.items.get(
+                product_id=product_id).quantity
+        context = {
+            "product": product,
+            "is_favorited": is_favorited,
+            "is_added_to_cart": is_added_to_cart,
+            "quantity": quantity
+        }
+    else:
+        context = {
+            "product": product,
+            "quantity": 1
+        }
     return render(request, 'shopping/product_detail.html', context)
 
 
