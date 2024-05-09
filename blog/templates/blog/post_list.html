@@ -1,0 +1,28 @@
+{% extends "lotus/base.html" %}
+
+{% block page_title %}
+    Lotus - Posts
+{% endblock page_title %}
+
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Posts" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+
+    <section class="px-5 my-4">
+        {% for post in post_list %}
+            {% include "blog/post.html" with post=post %}
+        {% endfor %}
+
+
+    </section>
+
+{% endblock lotus_content %}

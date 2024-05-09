@@ -1,0 +1,14 @@
+<div class="col-4 p-4 blog-container">
+    <div class="card text-center">
+        <img src="{{ post.img.url }}"
+             class="card-img-top"
+             alt="post image"
+             class="blog-img">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text blog-content">{{ post.content }}</p>
+            <a href="#" class="btn btn-outline-secondary">Read more</a>
+        </div>
+        <div class="card-footer text-body-secondary">By Admin | {{ post.date_posted }}</div>
+    </div>
+</div>

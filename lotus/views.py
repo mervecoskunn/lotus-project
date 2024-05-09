@@ -5,8 +5,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
+    latest_posts = models.Post.objects.all().order_by('-date_posted')
+    if len(latest_posts) > 3:
+        latest_posts = latest_posts[:3]
     context = {
-        'latest_blogs': models.post_list[:3]
+        'latest_posts': latest_posts
     }
     return render(request, 'lotus/home.html', context)
 
