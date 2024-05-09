@@ -23,3 +23,7 @@ def privacy_policy(request):
 
 def faq(request):
     return render(request, 'lotus/faq.html')
+
+
+def custom_500(request):
+    return render(request, '500.html')

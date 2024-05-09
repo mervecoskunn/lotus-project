@@ -20,6 +20,9 @@ from django.contrib import admin
 from django.urls import path, include
 from authentication import views as authentication_views
 from . import views as lotus_views
+from django.conf.urls import handler500
+
+handler500 = 'lotus.views.custom_500'
 
 
 urlpatterns = [
