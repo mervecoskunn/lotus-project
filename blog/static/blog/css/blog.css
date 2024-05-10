@@ -1,5 +1,6 @@
 .blog-container {
   max-width: 450px !important;
+  min-width: 450px !important;
 }
 
 .blog-container h5 {
