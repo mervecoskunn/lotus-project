@@ -1,0 +1,53 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Lotus - Edit Post
+{% endblock page_title %}
+
+
+{% block lotus_css_files %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock lotus_css_files %}
+
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Edit Post" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+
+    <main class="container-fluid">
+        <form method="post" enctype="multipart/form-data" class="my-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.img.label_tag }}</div>
+                    <div class="col">{{ form.img }}</div>
+                </div>
+                {% if form.img.errors %}<small class="form-text text-danger">{{ form.img.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.title.label_tag }}</div>
+                    <div class="col">{{ form.title }}</div>
+                </div>
+                {% if form.title.errors %}<small class="form-text text-danger">{{ form.title.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.content.label_tag }}</div>
+                    <div class="col">{{ form.content }}</div>
+                </div>
+                {% if form.content.errors %}<small class="form-text text-danger">{{ form.content.errors }}</small>{% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </main>
+
+{% endblock lotus_content %}
