@@ -1,0 +1,67 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block lotus_css_files %}
+
+    <link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Post Detail" %}
+    </section>
+{% endblock header %}
+
+
+{% block lotus_content %}
+
+    <section class="post-detail-container mt-5">
+
+        {% comment %} {%if post.author == user %}
+			<div>
+				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">Update</a>
+				<a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">Delete</a>
+			</div>
+        {% endif %} {% endcomment %}
+        <article class="media content-section" style="width: 60%">
+
+            <div class="card text-center pb-3">
+
+                <div class="card-header">{{ post.post_type }}</div>
+
+                <div class="card-body">
+
+                    <h5 class="card-title">{{ post.title }}</h5>
+
+                    <img class="card-img-top" src="{{ post.img.url }}">
+
+
+                </div>
+
+                <p class="card-text" style="text-align: start; margin-left: 20px">{{ post.content }}</p>
+
+                <div class="card-footer text-muted" style="text-align: start">
+
+                    {% comment %} <a href="{% url 'like-post' post.id %}" class="btn btn-link icon">
+                        <i class="{{ thumb_up_class }}">thumb_up</i>
+                    </a>
+
+                    <p class="like-count">{{ post.liked_by.count }}</p>
+
+                    <a href="{% url 'dislike-post' post.id %}" class="btn btn-link icon">
+                        <i class="{{ thumb_down_class }}">thumb_down</i>
+                    </a> {% endcomment %}
+
+
+
+                    <p style="display: inline; margin-left: 20px">By Admin - {{ post.date_posted|date:"F d, Y" }}</p>
+
+
+                </div>
+
+            </div>
+        </article>
+
+    </section>
+
+{% endblock lotus_content %}
