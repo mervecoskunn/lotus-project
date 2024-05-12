@@ -29,11 +29,14 @@ def profile(request):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         address = request.POST.get('address')
-        profile = User.objects.filter(
+        user = User.objects.filter(
             username=request.user.username
-        ).first().profile
-        profile.first_name = first_name
-        profile.last_name = last_name
+        ).first()
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
+
+        profile = user.profile
         profile.address = address
         profile.save()
         messages.success(request, 'Profile updated successfully')
