@@ -81,6 +81,11 @@
 
             <button type="submit" class="btn _btn">Update Profile</button>
         </form>
-        <a href="{% url "orders" %}" class="btn _btn my-2">See Orders</a>
+        <a href="{% url "orders" %}" class="btn _btn mt-2">See Orders</a>
+
+        {% if user.is_superuser %}
+            <a href="{% url "all_orders" %}" class="btn _btn mt-2">See All Orders</a>
+        {% endif %}
+
     </section>
 {% endblock lotus_content %}

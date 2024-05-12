@@ -18,6 +18,12 @@ def orders(request):
 
 
 @login_required
+def all_orders(request):
+    orders = Order.objects.all()
+    return render(request, 'order/orders.html', {'orders': orders})
+
+
+@login_required
 def order_detail(request, order_id):
     order = Order.objects.get(id=order_id)
     return render(request, 'order/order_detail.html', {'order': order})

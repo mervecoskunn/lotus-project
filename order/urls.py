@@ -8,6 +8,7 @@ urlpatterns = [
     path('success/', order_views.success, name='success'),
     path('cancel/', order_views.cancel, name='cancel'),
     path('orders/', order_views.orders, name='orders'),
+    path('all_orders/', order_views.all_orders, name='all_orders'),
     path('order_detail/<int:order_id>/',
          order_views.order_detail, name='order_detail'),
     path('edit_order/<int:order_id>/', order_views.edit_order, name='edit_order')
