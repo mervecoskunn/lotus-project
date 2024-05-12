@@ -1,0 +1,85 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Lotus - Order Detail
+{% endblock page_title %}
+
+{% block lotus_css_files %}
+    {% comment %} <link rel="stylesheet" href="{% static 'shopping/css/product-detail.css' %}"> {% endcomment %}
+{% endblock lotus_css_files %}
+
+{% block lotus_content %}
+    <section class="container-fluid product-detail my-5">
+        {% if messages %}
+            {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+        {% endif %}
+        <div class="col">
+            <h2>Order Detail</h2>
+        </div>
+        {% if user.is_superuser %}
+        <div class="col">
+            <p>
+                <strong>Owner:</strong> {{ order.user_profile.user.username }}
+            </p>
+        </div>
+        {% endif %}
+
+        <div class="col-4">
+            <h5>Status</h5>
+            {% if user.is_superuser %}
+                <form action="{% url "edit_order" order.id %}" method="post">
+                    {% csrf_token %}
+                    <select name="status" id="status" class="form-select">
+                        <option value="Pending" {% if order.status == "Pending" %}selected{% endif %}>Pending</option>
+
+                        <option value="Delivered"
+                                {% if order.status == "Delivered" %}selected{% endif %}>Delivered</option>
+
+                        <option value="Cancelled"
+                                {% if order.status == "Cancelled" %}selected{% endif %}>Cancelled</option>
+                    </select>
+                    <button type="submit" class="btn btn-outline-secondary btn-sm mt-2">Update</button>
+                </form>
+            {% else %}
+                <i>{{ order.status }}</i>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-12">
+        <table class="table table-borderless product-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Shipping</th>
+                    <th scope="col">Total</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cart_product in order.cart.items.all %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>
+                            <a href="{% url "product_detail" cart_product.product.id %}">{{ cart_product.product.name }}</a>
+                        </td>
+                        <td>${{ cart_product.product.price }}</td>
+                        <td>
+                            {{ cart_product.quantity }}
+                        </td>
+                        <td>${{ cart_product.subtotal }}</td>
+                        <td>${{ order.cart.shipping }}</td>
+                        <td>${{ order.cart.total }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock lotus_content %}

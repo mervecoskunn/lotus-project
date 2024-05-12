@@ -1,6 +1,13 @@
 <div class="order">
-    <a href="#" class="order-link"></a>
+    <a href="{% url "order_detail" order.id %}" class="order-link"></a>
     <div class="order-id">Order ID: {{ order.id }}</div>
+    {% if user.is_superuser %}
+        <div>
+            <p>
+                <strong>Owner:</strong> {{ order.user_profile.user.username }}
+            </p>
+        </div>
+    {% endif %}
     <div>Product Count: {{ order.cart.get_total_product_count }}</div>
     <div class="order-status">Status: {{ order.status }}</div>
     <div>Total Amount: €{{ order.cart.total }}</div>

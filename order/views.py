@@ -3,16 +3,36 @@ from django.views import View
 import stripe
 from django.conf import settings
 from django.http import JsonResponse
+from django.contrib import messages
 
 from shopping.models import Cart
 from order.models import Order
 from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def orders(request):
     user_profile = request.user.profile
     orders = user_profile.orders.all()
     return render(request, 'order/orders.html', {'orders': orders})
+
+
+@login_required
+def order_detail(request, order_id):
+    order = Order.objects.get(id=order_id)
+    return render(request, 'order/order_detail.html', {'order': order})
+
+
+@login_required
+def edit_order(request, order_id):
+    order = Order.objects.get(id=order_id)
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        order.status = status
+        order.save()
+        messages.success(request, 'Order status updated successfully.')
+        return redirect('orders')
+    return render(request, 'order/edit_order.html', {'order': order})
 
 
 @login_required
