@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Post
 from django.contrib import messages
 from .forms import PostForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -22,6 +23,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', context)
 
 
+@login_required
 def post_delete(request, pk):
     post = Post.objects.get(pk=pk)
     post.delete()
@@ -29,6 +31,7 @@ def post_delete(request, pk):
     return redirect('post_list')
 
 
+@login_required
 def post_confirm_delete(request, pk):
     post = Post.objects.get(pk=pk)
     context = {
@@ -37,6 +40,7 @@ def post_confirm_delete(request, pk):
     return render(request, 'blog/post_confirm_delete.html', context)
 
 
+@login_required
 def post_edit(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
@@ -50,6 +54,7 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+@login_required
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
