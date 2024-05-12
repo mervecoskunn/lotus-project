@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 from django.contrib import messages
 from . import models
@@ -6,6 +7,7 @@ from user.models import Profile
 from .models import CartProduct
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from .forms import ProductForm
 from .utils import (get_search_results, get_filter_results,
                     get_filter_key_values, sort_products, get_empty_filters, get_filter_values)
 
@@ -160,3 +162,51 @@ def decrease_quantity(request, cart_product_id):
     messages.success(request, 'Product quantity decreased by one')
 
     return redirect('cart')
+
+
+@login_required
+def add_product(request):
+    print(request.POST)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product added successfully')
+            return redirect('shopping')
+
+    else:
+        form = ProductForm()
+    return render(request, 'shopping/add_product.html', {'form': form})
+
+
+@login_required
+def edit_product(request, product_id):
+    product = models.Product.objects.get(id=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully')
+            return redirect(reverse('product_detail', args=[product_id]))
+
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'shopping/edit_product.html', {'form': form})
+
+
+@login_required
+def delete_product(request, product_id):
+    product = models.Product.objects.get(id=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted successfully')
+
+    return redirect('shopping')
+
+
+@login_required
+def product_confirm_delete(request, product_id):
+    product = models.Product.objects.get(id=product_id)
+    context = {
+        'product': product
+    }
+    return render(request, 'shopping/product_confirm_delete.html', context)

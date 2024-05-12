@@ -1,0 +1,76 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Lotus - Add New Product
+{% endblock page_title %}
+
+
+{% block lotus_css_files %}
+{% endblock lotus_css_files %}
+
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="New Product" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+
+    <main class="container-fluid">
+        <form method="post" enctype="multipart/form-data" class="my-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.name.label_tag }}</div>
+                    <div class="col">{{ form.name }}</div>
+                </div>
+                {% if form.name.errors %}<small class="form-text text-danger">{{ form.name.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.price.label_tag }}</div>
+                    <div class="col">{{ form.price }}</div>
+                </div>
+                {% if form.price.errors %}<small class="form-text text-danger">{{ form.price.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.category.label_tag }}</div>
+                    <div class="col">{{ form.category }}</div>
+                </div>
+                {% if form.category.errors %}<small class="form-text text-danger">{{ form.category.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.description.label_tag }}</div>
+                    <div class="col">{{ form.description }}</div>
+                </div>
+                {% if form.description.errors %}<small class="form-text text-danger">{{ form.description.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.rating.label_tag }}</div>
+                    <div class="col">{{ form.rating }}</div>
+                </div>
+                {% if form.rating.errors %}<small class="form-text text-danger">{{ form.rating.errors }}</small>{% endif %}
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">{{ form.img.label_tag }}</div>
+                    <div class="col">{{ form.img }}</div>
+                </div>
+                {% if form.img.errors %}<small class="form-text text-danger">{{ form.img.errors }}</small>{% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </main>
+
+
+{% endblock lotus_content %}

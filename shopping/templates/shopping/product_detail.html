@@ -15,6 +15,17 @@
         {% if messages %}
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
+
+        {% if user.is_superuser %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                   href="{% url 'edit_product' product.id %}">Edit</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1"
+                   href="{% url 'product_confirm_delete' product.id %}">Delete</a>
+
+            </div>
+        {% endif %}
+
         <div class="row justify-content-center px-5">
             <div class="col img-col">
                 <img src="{{ product.img.url }}"

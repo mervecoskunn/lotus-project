@@ -17,9 +17,18 @@
 {% endblock header %}
 
 {% block lotus_content %}
+    {% if messages %}
+        {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+    {% endif %}
+
     <section>
         {% include "shopping/includes/filter-row.html" %}
     </section>
+
+    {% if user.is_superuser %}
+        <a href="{% url "add_product" %}" class="btn btn-primary ms-5 mt-2">Add New Product</a>
+    {% endif %}
+
 
     <section class="my-5">
         {% include "shopping/includes/products.html" with products=products %}

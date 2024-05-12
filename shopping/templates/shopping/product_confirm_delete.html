@@ -1,0 +1,28 @@
+{% extends "lotus/base.html" %}
+{% block content %}
+
+    <section class="container">
+
+        <form method="post" action="{% url "delete_product" product.id %}">
+            {% csrf_token %}
+
+            <fieldset class="form-group">
+
+                <legend class="border-bottom mb-4">Delete Product</legend>
+
+                <p>
+                    Delete product with name:
+                    {{ product.name }}
+                </p>
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                <a class="btn btn-outline-secondary"
+                   href="{% url 'product_detail' product.id %}">Cancel</a>
+            </div>
+
+        </form>
+
+    </section>
+{% endblock content %}

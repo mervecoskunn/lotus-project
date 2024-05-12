@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+import os
 
 
 cat_bracelet = 'bracelet'
@@ -38,6 +39,14 @@ class Product(models.Model):
     rating = models.DecimalField(
         max_digits=2, decimal_places=1, validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
     img = models.ImageField(upload_to=get_image_upload_path, null=True)
+
+    def delete(self, *args, **kwargs):
+        # Delete the image file associated with the post
+        if self.img:
+            if os.path.isfile(self.img.path):
+                os.remove(self.img.path)
+        # Call the parent class' delete method to delete the Post instance
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return '[' + self.name + ' ' + str(self.price) + ' ' + str(self.rating) + ']'
