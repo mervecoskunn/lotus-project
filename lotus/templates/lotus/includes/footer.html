@@ -30,9 +30,15 @@
             </div>
             <div class="col mt-4 mt-sm-0">
                 <p class="gray-text mb-0">Newsletter</p>
-                <form action="#" class="footer-form mt-4">
+                <form action="{% url "subscription" %}"
+                      method="post"
+                      class="footer-form mt-4">
+                    {% csrf_token %}
                     <div class="d-flex">
-                        <input type="email" class="footer-form-input" placeholder="Enter your email">
+                        <input type="email"
+                               name="email"
+                               class="footer-form-input"
+                               placeholder="Enter your email">
                         <button type="submit" class="footer-form-button ms-2">SUBSCRIBE</button>
                     </div>
                 </form>

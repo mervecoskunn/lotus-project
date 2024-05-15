@@ -18,7 +18,6 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from authentication import views as authentication_views
 from . import views as lotus_views
 from django.conf.urls import handler500
 
@@ -36,6 +35,7 @@ urlpatterns = [
     path('privacy-policy/', lotus_views.privacy_policy, name="privacy_policy"),
     path('faq/', lotus_views.faq, name="faq"),
     path('blog/', include('blog.urls')),
+    path("subscription", lotus_views.subscription, name="subscription"),
 ]
 
 

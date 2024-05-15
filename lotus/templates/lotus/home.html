@@ -11,6 +11,9 @@
 
 {% block header %}
     <section id="banner-section">
+        {% if messages %}
+            {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+        {% endif %}
         {% include "lotus/includes/home-banner.html" %}
     </section>
 {% endblock header %}
