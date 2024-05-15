@@ -1,5 +1,24 @@
 # References
-    - https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0
+    - ElephantSql:
+        https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0
+    - Stripe:
+        https://docs.stripe.com/checkout/quickstart?lang=python
+    - Mailchimp:
+        https://www.pythonstacks.com/blog/post/integrating-mailchimp-django/
+
+# Links
+
+https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/users/details/django_user?section=security_credentials
+https://us-east-1.console.aws.amazon.com/s3/home?region=us-east-1#
+
+
+# Stripe Payments
+https://dashboard.stripe.com/test/payments
+
+
+# Mailchimp Contacts
+https://us22.admin.mailchimp.com/audience/contacts/
+
 
 
 # Windows Virtual Env with Powershell
