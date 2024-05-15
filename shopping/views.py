@@ -15,20 +15,28 @@ from .utils import (get_search_results, get_filter_results,
 def shopping(request):
     if request.method == 'POST':
         if request.POST.get('remove_filters') is not None:
+            product_list = models.Product.objects.all()
+            p = Paginator(product_list, 6)
+            page = request.GET.get('page')
+            products = p.get_page(page)
             context = {
-                "products": models.Product.objects.all(),
+                "products": products,
                 "filters": get_empty_filters()
             }
             return render(request, 'shopping/shopping.html', context)
 
         search_key = request.POST.get('search_key')
         filter_key_values = get_filter_key_values(request.POST)
-        order_by = request.POST.get('sort_option')
+        sort_option = request.POST.get('sort_option')
+        print('sort_option', sort_option)
         if search_key is not None:
             search_results = get_search_results(search_key)
+            p = Paginator(search_results, 6)
+            page = request.GET.get('page')
+            products = p.get_page(page)
             context = {
-                "products": search_results,
-                "filters": get_empty_filters()
+                "products": products,
+                "filters": get_empty_filters(),
             }
 
         elif filter_key_values.__len__() > 0:
@@ -38,11 +46,15 @@ def shopping(request):
                 "filters": get_filter_values(filter_results)
             }
 
-        elif order_by is not None:
-            products = sort_products(order_by)
+        elif sort_option is not None:
+            products = sort_products(sort_option)
+            p = Paginator(products, 6)
+            page = request.GET.get('page')
+            products = p.get_page(page)
             context = {
                 "products": products,
-                "filters": get_empty_filters()
+                "filters": get_empty_filters(),
+                "sort_option": sort_option
             }
 
         else:

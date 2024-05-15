@@ -99,7 +99,8 @@
                     <input type="radio"
                            id="price-low-to-high"
                            name="sort_option"
-                           value="price-low-to-high">
+                           value="price-low-to-high"
+                           {% if sort_option == "price-low-to-high" %}checked{% endif %}>
                     <label for="price-low-to-high">Price (low to high)</label>
                 </div>
 
@@ -107,17 +108,26 @@
                     <input type="radio"
                            id="price-high-to-low"
                            name="sort_option"
-                           value="price-high-to-low">
+                           value="price-high-to-low"
+                           {% if sort_option == "" %}checked{% endif %}>
                     <label for="price-high-to-low">Price (high to low)</label>
                 </div>
 
                 <div class="mb-3">
-                    <input type="radio" id="name-a-z" name="sort_option" value="name-a-z">
+                    <input type="radio"
+                           id="name-a-z"
+                           name="sort_option"
+                           value="name-a-z"
+                           {% if sort_option == "name-a-z" %}checked{% endif %}>
                     <label for="name-a-z">Name (A-Z)</label>
                 </div>
 
                 <div class="mb-3">
-                    <input type="radio" id="name-z-a" name="sort_option" value="name-z-a">
+                    <input type="radio"
+                           id="name-z-a"
+                           name="sort_option"
+                           value="name-z-a"
+                           {% if sort_option == "name-z-a" %}checked{% endif %}>
                     <label for="name-z-a">Name (Z-A)</label>
                 </div>
 
