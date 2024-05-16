@@ -110,27 +110,3 @@ def create_checkout_session(request):
     )
 
     return redirect(checkout_session.url, code=303)
-
-
-# class CreateCheckoutSessionView(View):
-#     def post(self, request, *args, **kwargs):
-#         cart_id = self.kwargs['cart_id']
-#         cart = Cart.objects.get(id=cart_id)
-
-#         checkout_session = stripe.checkout.Session.create(
-#             payment_method_types=['card'],
-#             line_items=[
-#                 {
-#                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-#                     'price': '{{PRICE_ID}}',
-#                     'quantity': 1,
-#                 },
-#             ],
-#             mode='payment',
-#             success_url=YOUR_DOMAIN + '/success',
-#             cancel_url=YOUR_DOMAIN + '/cancel',
-#         )
-
-#         return JsonResponse({
-#             'id': checkout_session.id
-#         })
