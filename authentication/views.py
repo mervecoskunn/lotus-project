@@ -100,6 +100,38 @@ def activate(request, uidb64, token):
 
 
 @login_required
+def change_email(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        user = request.user
+        user.email = email
+        user.username = email.split('@')[0]
+        user.is_active = False
+        user.save()
+
+        # Send activation email
+        mail_subject = 'Activation link has been sent to your email id'
+        message = render_to_string('authentication/activate_email.html', {
+            'user': user.username,
+            'domain': get_current_site(request).domain,
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            'token': account_activation_token.make_token(user),
+            "protocol": "https" if request.is_secure() else "http",
+        })
+
+        email_message = EmailMessage(
+            mail_subject, message, to=[email]
+        )
+        email_message.send()
+
+        messages.success(
+            request, 'Email changed successfully. Please check your email for activation link.')
+        auth_logout(request)
+        return redirect('login')
+    return render(request, 'authentication/change_email.html')
+
+
+@login_required
 def logout(request):
     auth_logout(request)
     messages.success(request, 'You have been logged out successfully.')

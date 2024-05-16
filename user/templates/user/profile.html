@@ -55,6 +55,8 @@
                        required
                        disabled
                        value="{{ user.email }}">
+                <a href="{% url "change_email" %}" class="ms-2 my-auto w-25">Change Email</a>
+
             </div>
 
             <div class="input-group mb-3">
@@ -67,6 +69,7 @@
                        required
                        disabled
                        value="********">
+                <a href="{% url "password_reset" %}" class="ms-2 my-auto w-25">Change Password</a>
             </div>
 
 

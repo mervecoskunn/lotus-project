@@ -1,0 +1,18 @@
+{% extends 'authentication/base.html' %}
+
+{% block form_block %}
+    <form method="post" class="my-4">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   placeholder="New Email"
+                   class="form-control gold-outline"
+                   required>
+
+            <button type="submit" class="btn btn-primary">Change Email</button>
+        </form>
+    {% endblock form_block %}
