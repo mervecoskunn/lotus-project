@@ -5,6 +5,12 @@
         https://docs.stripe.com/checkout/quickstart?lang=python
     - Mailchimp:
         https://www.pythonstacks.com/blog/post/integrating-mailchimp-django/
+    - Rregistration Email Confirmation
+        https://www.youtube.com/watch?v=wB1qOExDsYY
+    - Forgot Password
+        https://www.youtube.com/watch?v=OF8ucdDmp2Q
+    - Send Email
+        https://medium.com/@arifcse21/send-and-email-with-html-template-and-context-data-from-a-django-project-e9606644185c
 
 # Links
 
