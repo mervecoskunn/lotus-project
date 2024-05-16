@@ -56,7 +56,6 @@ def get_filter_values(filter_results) -> dict:
     return filter_values
 
 
-# TODO will be removed
 # Create your models here.
 cat_bracelet = 'bracelet'
 cat_chackra_stone = 'chakra_stone'
