@@ -6,6 +6,9 @@ from django.contrib import messages
 from django.conf import settings
 from mailchimp_marketing import Client
 from mailchimp_marketing.api_client import ApiClientError
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 def home(request):
@@ -70,3 +73,34 @@ def subscription(request):
         messages.success(request, "Email received. thank You! ")  # message
 
     return redirect("home")
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        user = request.user
+        # Get contact email
+        html_content = render_to_string(
+            template_name="lotus/contact_email.html",
+            context={
+                'name': name,
+                'email': email,
+                'message': message,
+                "protocol": "https" if request.is_secure() else "http",
+            }
+        )
+        plain_message = strip_tags(html_content)
+
+        send_mail(
+            subject='New Contact Message',
+            message=plain_message,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[settings.EMAIL_HOST_USER],
+            html_message=html_content,
+            fail_silently=True
+        )
+
+        messages.success(request, "Your message has been sent successfully!")
+    return render(request, 'lotus/contact.html')
