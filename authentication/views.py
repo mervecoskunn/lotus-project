@@ -4,9 +4,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
-
-
-# Create your views here.
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_str
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
 
 
 def login(request):
@@ -20,6 +24,9 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             return redirect('home')
+        elif not user.is_active:
+            messages.error(
+                request, 'Account is not activated. Please check your email for activation link.')
         else:
             messages.error(request, 'Email or password is incorrect.')
 
@@ -28,8 +35,8 @@ def login(request):
 
 def register(request):
     if request.method == 'POST':
-        first_name = request.POST.get('firstName')
-        last_name = request.POST.get('lastName')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
         username = email.split('@')[0]
@@ -47,13 +54,50 @@ def register(request):
                 # Hash the password before saving
                 password=make_password(password)
             )
+            new_user.is_active = False
+            new_user.save()
+
+            # Send activation email
+            mail_subject = 'Activation link has been sent to your email id'
+            message = render_to_string('authentication/activate_email.html', {
+                'user': new_user.username,
+                'domain': get_current_site(request).domain,
+                'uid': urlsafe_base64_encode(force_bytes(new_user.pk)),
+                'token': account_activation_token.make_token(new_user),
+                "protocol": "https" if request.is_secure() else "http",
+            })
+
+            email_message = EmailMessage(
+                mail_subject, message, to=[email]
+            )
+            email_message.send()
+
             messages.success(request, 'Account was created for ' +
-                             email + '. You can login now.')
+                             email + '. Please activate your account.')
         return redirect('login')
 
     return render(request, 'authentication/register.html',)
 
 
+def activate(request, uidb64, token):
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except Exception as e:
+        print("Mail send error: ", e)
+        user = None
+
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(request, 'Account activated successfully.')
+        return redirect('login')
+    else:
+        messages.error(request, 'Activation link is invalid.')
+        return redirect('login')
+
+
+@login_required
 def logout(request):
     auth_logout(request)
     messages.success(request, 'You have been logged out successfully.')

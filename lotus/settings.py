@@ -185,6 +185,18 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
 
 django_heroku.settings(locals(), staticfiles=False)
+
+# Email settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = os.environ.get('EMAIL_FROM')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
+PASSWORD_RESET_TIMEOUT = 14400
+
+
 # Mailchimp settings
 MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
 MAILCHIMP_DATA_CENTER = os.environ.get('MAILCHIMP_DATA_CENTER')
