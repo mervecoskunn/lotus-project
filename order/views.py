@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
-from django.views import View
 import stripe
 from django.conf import settings
-from django.http import JsonResponse
 from django.contrib import messages
-
+from django.core.mail import EmailMessage
 from shopping.models import Cart
 from order.models import Order
 from django.contrib.auth.decorators import login_required
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.html import strip_tags
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 @login_required
@@ -44,9 +47,30 @@ def edit_order(request, order_id):
 @login_required
 def success(request):
     user_profile = request.user.profile
-    Order.create_order(user_profile.cart, user_profile)
+    order = Order.create_order(user_profile.cart, user_profile)
 
     user_profile.create_new_cart()
+    user = user_profile.user
+    # Send email to user
+    html_content = render_to_string(
+        template_name="order/order_email.html",
+        context={
+            'user': user.username,
+            'domain': get_current_site(request).domain,
+            "protocol": "https" if request.is_secure() else "http",
+            "order_id": order.id,
+        }
+    )
+    plain_message = strip_tags(html_content)
+
+    send_mail(
+        subject='Order Confirmation',
+        message=plain_message,
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[user.email],
+        html_message=html_content,
+        fail_silently=True
+    )
 
     return render(request, 'order/success.html')
 
