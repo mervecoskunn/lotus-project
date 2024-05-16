@@ -21,8 +21,16 @@
         {% if messages %}
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
-        {% for order in orders %}
-            {% include "order/includes/order-row.html" with order=order %}
-        {% endfor %}
+        {% if orders.count == 0 %}
+            <div class="col-12 text-center">
+                <h2>No order yet</h2>
+                <a href="{% url "shopping" %}" class="btn btn-outline-secondary">Continue Shopping</a>
+            </div>
+        {% else %}
+            {% for order in orders %}
+                {% include "order/includes/order-row.html" with order=order %}
+            {% endfor %}
+        {% endif %}
+
     </section>
 {% endblock lotus_content %}
