@@ -24,11 +24,13 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             return redirect('home')
-        elif not user.is_active:
-            messages.error(
-                request, 'Account is not activated. Please check your email for activation link.')
         else:
-            messages.error(request, 'Email or password is incorrect.')
+            user = User.objects.filter(email=email).first()
+            if user is not None and not user.is_active:
+                messages.error(
+                    request, 'Account is not activated. Please check your email for activation link.')
+            else:
+                messages.error(request, 'Email or password is incorrect.')
 
     return render(request, 'authentication/login.html')
 
