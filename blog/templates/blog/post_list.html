@@ -22,13 +22,16 @@
         {% if messages %}
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
-        <a href="{% url "post_new" %}" class="btn btn-primary">Add New Post</a>
-        <div class="row justify-content-center">
-            {% for post in post_list %}
-                {% include "blog/includes/post.html" with post=post %}
-            {% endfor %}
+        {% if user.is_superuser %}
+            <a href="{% url "post_new" %}" class="btn btn-primary">Add New Post</a>
         </div>
-    </main>
+    {% endif %}
+    <div class="row justify-content-center">
+        {% for post in post_list %}
+            {% include "blog/includes/post.html" with post=post %}
+        {% endfor %}
+    </div>
+</main>
 
 
 {% endblock lotus_content %}
