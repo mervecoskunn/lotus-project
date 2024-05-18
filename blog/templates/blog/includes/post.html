@@ -8,7 +8,9 @@
              height="400">
         <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text blog-content">{{ post.content }}</p>
+            <p class="card-text blog-content"
+               style="max-height: 58px;
+                      min-height:58px">{{ post.content }}</p>
             <a href="{% url "post_detail" post.id %}"
                class="btn btn-outline-secondary">Read more</a>
         </div>
