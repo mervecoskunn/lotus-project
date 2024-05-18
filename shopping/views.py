@@ -37,6 +37,7 @@ def shopping(request):
             context = {
                 "products": products,
                 "filters": get_empty_filters(),
+                "is_empty": search_results.__len__() == 0
             }
 
         elif filter_key_values.__len__() > 0:
