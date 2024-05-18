@@ -15,6 +15,7 @@
 
     <section class="px-5 my-4">
         <div id="accordion">
+            {% comment %} 1 {% endcomment %}
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
@@ -22,7 +23,7 @@
                                 data-toggle="collapse"
                                 data-target="#collapseOne"
                                 aria-expanded="true"
-                                aria-controls="collapseOne">When will I receive my order?</button>
+                                aria-controls="collapseOne">1. When will I receive my order?</button>
                     </h5>
                 </div>
 
@@ -36,6 +37,7 @@
                 </div>
             </div>
 
+            {% comment %} 2 {% endcomment %}
             <div class="card">
                 <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
@@ -43,7 +45,7 @@
                                 data-toggle="collapse"
                                 data-target="#collapseTwo"
                                 aria-expanded="false"
-                                aria-controls="collapseTwo">What is your return and exchange policy?</button>
+                                aria-controls="collapseTwo">2. What is your return and exchange policy?</button>
                     </h5>
                 </div>
                 <div id="collapseTwo"
@@ -56,6 +58,7 @@
                 </div>
             </div>
 
+            {% comment %} 3 {% endcomment %}
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
@@ -63,7 +66,7 @@
                                 data-toggle="collapse"
                                 data-target="#collapseThree"
                                 aria-expanded="false"
-                                aria-controls="collapseThree">Are your products made of real natural stones?</button>
+                                aria-controls="collapseThree">3.Are your products made of real natural stones?</button>
                     </h5>
                 </div>
                 <div id="collapseThree"
@@ -76,19 +79,20 @@
                 </div>
             </div>
 
+            {% comment %} 4 {% endcomment %}
             <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="heading4">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed"
                                 data-toggle="collapse"
-                                data-target="#collapseThree"
+                                data-target="#collapse4"
                                 aria-expanded="false"
-                                aria-controls="collapseThree">How can I contact you?</button>
+                                aria-controls="collapse4">4. How can I contact you?</button>
                     </h5>
                 </div>
-                <div id="collapseThree"
+                <div id="collapse4"
                      class="collapse"
-                     aria-labelledby="headingThree"
+                     aria-labelledby="heading4"
                      data-parent="#accordion">
                     <div class="card-body">
                         If you have any questions or concerns, you can reach us via our <a href="{% url "contact" %}">contact</a> form. Our team will respond to you as soon as possible.
@@ -96,19 +100,20 @@
                 </div>
             </div>
 
+            {% comment %} 5 {% endcomment %}
             <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="heading5">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed"
                                 data-toggle="collapse"
-                                data-target="#collapseThree"
+                                data-target="#collapse5"
                                 aria-expanded="false"
-                                aria-controls="collapseThree">What payment methods do you accept?</button>
+                                aria-controls="collapse5">5. What payment methods do you accept?</button>
                     </h5>
                 </div>
-                <div id="collapseThree"
+                <div id="collapse5"
                      class="collapse"
-                     aria-labelledby="headingThree"
+                     aria-labelledby="heading5"
                      data-parent="#accordion">
                     <div class="card-body">
                         We accept various payment methods including credit card, bank transfer. Payment transactions are processed securely, and customer information is kept confidential.
@@ -116,19 +121,20 @@
                 </div>
             </div>
 
+            {% comment %} 6 {% endcomment %}
             <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="heading6">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed"
                                 data-toggle="collapse"
-                                data-target="#collapseThree"
+                                data-target="#collapse6"
                                 aria-expanded="false"
-                                aria-controls="collapseThree">How are your products packaged and shipped?</button>
+                                aria-controls="collapse6">6. How are your products packaged and shipped?</button>
                     </h5>
                 </div>
-                <div id="collapseThree"
+                <div id="collapse6"
                      class="collapse"
-                     aria-labelledby="headingThree"
+                     aria-labelledby="heading6"
                      data-parent="#accordion">
                     <div class="card-body">
                         Our products are carefully packaged and securely shipped. Extra precautions are taken for fragile items, and all our shipments are trackable.
@@ -137,19 +143,20 @@
                 </div>
             </div>
 
+            {% comment %} 7 {% endcomment %}
             <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="heading7">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed"
                                 data-toggle="collapse"
-                                data-target="#collapseThree"
+                                data-target="#collapse7"
                                 aria-expanded="false"
-                                aria-controls="collapseThree">How can I cleanse the energy of your products?</button>
+                                aria-controls="collapse7">7. How can I cleanse the energy of your products?</button>
                     </h5>
                 </div>
-                <div id="collapseThree"
+                <div id="collapse7"
                      class="collapse"
-                     aria-labelledby="headingThree"
+                     aria-labelledby="heading7"
                      data-parent="#accordion">
                     <div class="card-body">
                         There are several methods to cleanse and recharge the energy of our products. You can expose them to sunlight or moonlight, cleanse them with saltwater, or use cleansing crystals like selenite.
@@ -158,19 +165,20 @@
                 </div>
             </div>
 
+            {% comment %} 8 {% endcomment %}
             <div class="card">
-                <div class="card-header" id="headingThree">
+                <div class="card-header" id="heading8">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed"
                                 data-toggle="collapse"
-                                data-target="#collapseThree"
+                                data-target="#collapse8"
                                 aria-expanded="false"
-                                aria-controls="collapseThree">Do you offer international shipping?</button>
+                                aria-controls="collapse8">8. Do you offer international shipping?</button>
                     </h5>
                 </div>
-                <div id="collapseThree"
+                <div id="collapse8"
                      class="collapse"
-                     aria-labelledby="headingThree"
+                     aria-labelledby="heading8"
                      data-parent="#accordion">
                     <div class="card-body">
                         Yes, we offer international shipping. However, international delivery times and fees may vary depending on the country and shipping method selected.
