@@ -42,8 +42,11 @@ def shopping(request):
 
         elif filter_key_values.__len__() > 0:
             filter_results = get_filter_results(filter_key_values)
+            p = Paginator(filter_results, 6)
+            page = request.GET.get('page')
+            products = p.get_page(page)
             context = {
-                "products": filter_results,
+                "products": products,
                 "filters": get_filter_values(filter_results)
             }
 
