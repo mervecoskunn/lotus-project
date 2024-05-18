@@ -4,6 +4,7 @@
 {% block lotus_css_files %}
 
     <link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock lotus_css_files %}
 
 {% block header %}
@@ -26,7 +27,7 @@
 
             </div>
         {% endif %}
-        <article class="media content-section" style="width: 60%">
+        <article class="media content-section" style="max-width: 60%">
             <div class="card text-center pb-3">
                 <div class="card-header">{{ post.post_type }}</div>
                 <div class="card-body">
