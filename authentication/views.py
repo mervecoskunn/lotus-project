@@ -23,6 +23,8 @@ def login(request):
         # Check if user exists
         if user is not None:
             auth_login(request, user)
+            messages.success(
+                request, 'You have been logged in as ' + username + '.')
             return redirect('home')
         else:
             user = User.objects.filter(email=email).first()
