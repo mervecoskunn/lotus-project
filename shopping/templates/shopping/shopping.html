@@ -24,23 +24,24 @@
         {% include "shopping/includes/filter-row.html" %}
     </section>
 
-    {% if user.is_superuser %}
-        <a href="{% url "add_product" %}" class="btn btn-primary ms-5 mt-2">Add New Product</a>
-    {% endif %}
+    <article style="max-width: 1400px; margin: auto">
+        {% if user.is_superuser %}
+            <a href="{% url "add_product" %}" class="btn btn-primary ms-5 mt-2">Add New Product</a>
+        {% endif %}
 
-    {% if is_empty %}
-        <div class="col-12 text-center">
-            <h2>Nothing Found</h2>
-            <a href="{% url "shopping" %}" class="btn btn-outline-secondary">Continue Shopping</a>
-        </div>
-    {% else %}
-        <section class="my-5">
-            {% include "shopping/includes/products.html" with products=products %}
-        </section>
-    {% endif %}
+        {% if is_empty %}
+            <div class="col-12 text-center">
+                <h2>Nothing Found</h2>
+                <a href="{% url "shopping" %}" class="btn btn-outline-secondary">Continue Shopping</a>
+            </div>
+        {% else %}
+            <section class="my-5">
+                {% include "shopping/includes/products.html" with products=products %}
+            </section>
+        {% endif %}
 
 
-
+    </article>
 
 
 
