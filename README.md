@@ -442,11 +442,11 @@ When an ordinary user is logged in the my account gets more available options, m
     
  * Navigation - Admin Logged In - Blog Management - Edit
    
-    ![Navigation - Admin Logged In](documentation/admin-edit-posts-1.png)
+    ![Navigation - Admin Logged In](documentation/admin-edit-post-1.png)
    
 * Navigation - Admin Logged In - Blog Management - Delete
   
-    ![Navigation - Admin Logged In](documentation/admin-edit-posts-1.png)
+    ![Navigation - Admin Logged In](documentation/admin-edit-post-1.png)
   
  * Navigation - Admin Logged In - Blog Management - Add
    
@@ -460,25 +460,25 @@ When an ordinary user is logged in the my account gets more available options, m
 
 #### Home Page Top Area
 
-There are buttons on the home page that direct you to start shopping or to subscribe to be informed about blog posts, and apart from that, there are a few of the posts shared on the blog page, and the user can click on the read more button to read more details, or if he wishes, he can click on the button that goes to the blog page to go to the blog page where he can see all the posts. can go.
+There are buttons on the home page that direct you to start shopping or to subscribe to be informed about blog posts, and apart from that, there are a few of the posts shared on the blog page, and the user can click on the read more button to read more details, or if he wishes, he can click on the button that goes to the blog page to go to the blog page where he can see all the posts can go.
 
-![Home page top photo section](!!!add top section part home page)
+![Home page top photo section](documentation/home-page-top-area.png)
 
 #### Home Page Blog Area
 
 Blog Area - The blog area shows several blog posts. Above the posts there is a button that directs the user to a specific page where all the posts are listed. When a site user clicks on the blog post, a blog detail view is shown. If the administrator is logged in, there is the possibility to go to the edit blog administration page from the blog area and blog detail view (via the edit button).
 
-![Home page blog section](!!!add blog section home page)
+![Home page blog section](documentation/home-page-blog-area.png)
 
 #### Blog Detail
 
-![one blog post detail page](!!add one blog post detail page)
+![one blog post detail page](documentation/blog-detail.png)
 
 #### Blog - View All Blog Posts
 
 We list all the posts shared on the blog page and we can click on the post we want to see in more detail and go to the detail page.
 
-![blog page](!!! ADD BLOG PAGE VIEWS !!!)
+![blog page](documentation/all-blog-posts.png)
 
 ### Products
 
