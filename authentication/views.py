@@ -11,11 +11,15 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
+import os
 
 
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
+        is_admin = True if email.lower() == 'admin' else False
+        print('is_admin: ', is_admin)
+        email = email if email.lower() != 'admin' else os.environ.get('ADMIN_EMAIL')
         username = email.split('@')[0]
         password = request.POST.get('password')
 
@@ -23,8 +27,9 @@ def login(request):
         # Check if user exists
         if user is not None:
             auth_login(request, user)
-            messages.success(
-                request, 'You have been logged in as ' + username + '.')
+            m = f'You have been logged in as {
+                username}.' if not is_admin else 'You have been logged in as admin.'
+            messages.success(request, m)
             return redirect('home')
         else:
             user = User.objects.filter(email=email).first()
