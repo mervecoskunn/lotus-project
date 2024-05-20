@@ -84,10 +84,12 @@
 
             <button type="submit" class="btn _btn">Update Profile</button>
         </form>
-        <a href="{% url "orders" %}" class="btn _btn mt-2">See Orders</a>
+        <a href="{% url "orders" %}" class="btn _btn mt-2">See Your Orders</a>
 
         {% if user.is_superuser %}
-            <a href="{% url "all_orders" %}" class="btn _btn mt-2">See All Orders</a>
+            <a href="{% url "all_orders" %}" class="btn _btn mt-2">Manage All Orders</a>
+            <a href="{% url "shopping" %}" class="btn _btn mt-2">Manage All Products</a>
+            <a href="{% url "post_list" %}" class="btn _btn mt-2">Manage All Posts</a>
         {% endif %}
 
     </section>
