@@ -1467,7 +1467,7 @@ To clone and set up this project you need to follow the steps below.
 ## Credits
          
 * All text content written by [Merve Coskun](https://www.linkedin.com/in/merve-coskun-fullstack/).
-* Template for read.me provided by Code Institute (with some additional changes that my mentor Precious Ijege) suggested.
+* Template for read.me provided by [Code Institute](https://codeinstitute.net/) (with some additional changes that my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) suggested.
 * ElephantSql - [ElephantSql](https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0)
 * Stripe - [Stripe](https://docs.stripe.com/checkout/quickstart?lang=python)
 * Registration Email Confirmation - [Registration Email Confirmation](https://www.youtube.com/watch?v=wB1qOExDsYY)
