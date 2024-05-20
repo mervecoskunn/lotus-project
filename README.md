@@ -315,23 +315,41 @@ The navigation bar includes the same basic options for the user (logged in or no
 
 #### Navigation - User Logged In
 
-When an ordinary user is logged in the my account gets more available options, my profile and my wishlist.
+When an ordinary user is logged in the my account gets more available options, my profile and my favorites.
 
  * My Profile - On the profile page the user can change delivery information and see the order history (and confirmations from earlier purchases)
   
  * My Favorites - On the favorites page the user can find their favorite products that is populated when the user adds items to the favorites from the product detail area. From this view the user also can remove products from the favorites. Or user can add to cart from favorites products and choose quantity.
   
  * Navigation my account- User Logged In
-  
-   ![Navigation my account](!!!ADD my account dropdown !!)
 
- * Navigation - My Account - My Profile - Empty
-  
-  ![Navigation my account my profile-empty](!!!ADD MY PROFILE EMPTY)
+    ![Navigation user login status](documentation/user-login-status.png)
+   
+ * Profile page for login user 
 
- * Navigation - My Account - My profile - with delivery information with order history 
+   ![Navigation my profile page as user](documentation/user-profile-page.png)
+
+ * Navigation - My Profile - Order list Empty
   
-  ![Navigation my account my profile with order](!!!ADD MY PROFILE delivery information with order history)
+  ![Navigation my profile order list empty](documentation/my-profile-order-list-empty.png)
+
+ * Navigation - My Profile - with delivery information with order history
+ * User can see own order list and their status on this section.
+  
+  ![Navigation my profile order list](documentation/Order List.png)
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
  * Navigation - My Account- My Wishlist
   
