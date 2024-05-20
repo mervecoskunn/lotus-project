@@ -320,7 +320,19 @@ When an ordinary user is logged in the my account gets more available options, m
  * My Profile - On the profile page the user can change delivery information and see the order history (and confirmations from earlier purchases)
   
  * My Favorites - On the favorites page the user can find their favorite products that is populated when the user adds items to the favorites from the product detail area. From this view the user also can remove products from the favorites. Or user can add to cart from favorites products and choose quantity.
-  
+   
+ * User Register Page
+   
+   ![Navigation user register](documentation/user-register-page.png)
+
+ * If user try to register again, user will see an information "e-mail already exist". User should try to login page.
+
+   ![Navigation user try double register](documentation/e-mail-already-exist.png) 
+   
+ * User Login Page
+   
+   ![Navigation user login](documentation/user-login-page.png)
+   
  * Navigation my account- User Logged In
 
     ![Navigation user login status](documentation/user-login-status.png)
