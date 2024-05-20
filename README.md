@@ -2,9 +2,8 @@
 Lotus Aura Natural is an e-commerce website that aims to reach interested people who care about natural stones, spiritual items and energy, and allows these people to access up-to-date information and purchase the products they want.
 This is a fictional project that will most likely never be released to the masses. This site was created for Portfolio Project #5 (E-Commerce Applications Portfolio Project), Diploma in Full Stack Software Development at [Code Institute.](https://codeinstitute.net/se/)
 
-[View live website here](!!!!! add heroku link!!!!)
+[View live website here](https://lotus-project-433bebe152ef.herokuapp.com/)
  
-  !!!!! ADD AMIRESPONSIVE DESIGN SCREENSHOT HERE   !!!!!!
 
 ## Table of Content
 
@@ -114,12 +113,12 @@ Required Authentication: 4000002500003155
 Declined Card Number: 4000000000009995
 Exp Date: Any date in the future using the format MM/YY
 CVN: any 3 digit number
-Postcode: any 5 numerals
 Any payments made using a valid debit/credit card will not be processed and the card will not be charged. No orders made will be fulfilled.
 
-For full Admin access to Django Admin panel with relevant sign-in credentials: [Lotus Admin](!!!!!!! django admin panelinin linkini ver!!!!!)
+For full Admin access to Django Admin panel with relevant sign-in credentials: [Lotus Django - Admin](https://lotus-project-433bebe152ef.herokuapp.com/admin/login/?next=/admin/)
 
-For access to Admin Dashboard frontend view with relevant sign-in credentials: [Lotus Admin Dashboard](!!!!frontend admin panelinin lionkini ver!!!!!)
+For access to Admin Dashboard frontend view with relevant sign-in credentials: [Lotus Admin Dashboard](https://lotus-project-433bebe152ef.herokuapp.com/auth/login/)
+If you want to login as super user, you should login as super user(admin) on login section.
 
 
 
@@ -159,7 +158,9 @@ Social Media marketing is a great tool if it's done in the right way. Lotus Aura
 * Lotus Aura Natural - Facebook
   
   ![Lotus aura natural facebook page](documentation/facebook.png)
-
+  
+   [Lotus Aura Natural Facebook  Page Link](https://www.facebook.com/share/WuToGyaF3BRaTbZq/?mibextid=LQQJ4d)
+  
   
   * E-mail marketing One form of reaching out to the customers in an effective way is through e-mail marketing. But in a world with a lot of challenges with spam it is very important to think about the content and who is being targeted. Lotus Aura Natural gives the site users / customers a possibility to sign up for a Lotus Aura Natural newsletter on the Lotus Aura Natural site. The service being used is [Mailchimp](https://mailchimp.com/?currency=SEK) and is an easy way to let the customers know what is happening at Lotus Aura Natural. The content being sent out is personal and can include i.e. advertisment for new blog posts, product of the month, events, co-operations, and discount codes).
   
@@ -280,15 +281,15 @@ Read more about the different pages in the [Features](#Features) section.
 
 In this e-commerce site, plain colors have been used in order to keep the information and products to be presented to the customer as simple and user-oriented as possible. The colors and codes used throughout the site construction are as follows.
 
-!!!!!! ADD COLOURS SCHEMA !!!! 
+![color schema](documentation/color-schema.png)
 
  * Typography
   
-The fonts used for the site are .............!!!!!!!!
- * write here which one font used to project !!!!!!!!!
+The fonts used for the site are poppins because of I wanted to create very simply and usefuly and clear webpage. 
+ * I used poppins , 'sans-serif' font family for this project
+ * I used different font-weights for this project and they are 300, 400,500,600,700
  * 
- * 
- [!!! ADD FONTAWSOME screenshots about fonts !!!!! ]()
+ ![Font Family](documentation/font-family.png)
 
 # Features
 
@@ -308,181 +309,351 @@ The navigation bar includes the same basic options for the user (logged in or no
  * My Account - The user can enter the site through a menu that opens to log in or register.
  * Favorites - The user can click to favorites icon and user can see added products to own favorites page.
  * Cart - The user can see cart icon on navigation so that user can click it for to own go cart page.
+ * * Login - The user can click to login section so user can register or login so that user can buy something or add product to favorites page.
   
-![Navigation- User Not Logged In](documentation/home-navbar.png)
+![Navigation- User Not Logged In](documentation/usernotlogin-navbar.png)
 
 #### Navigation - User Logged In
 
-When an ordinary user is logged in the my account gets more available options, my profile and my wishlist.
+When an ordinary user is logged in the my account gets more available options, my profile and my favorites.
 
  * My Profile - On the profile page the user can change delivery information and see the order history (and confirmations from earlier purchases)
   
  * My Favorites - On the favorites page the user can find their favorite products that is populated when the user adds items to the favorites from the product detail area. From this view the user also can remove products from the favorites. Or user can add to cart from favorites products and choose quantity.
-  
+   
+ * User Register Page
+   
+   ![Navigation user register](documentation/user-register-page.png)
+
+ * User Register Success
+   
+   User will see one flash message register success.
+
+ * If user try to register again, user will see an information "e-mail already exist". User should try to login page.
+
+   ![Navigation user try double register](documentation/e-mail-already-exist.png) 
+   
+ * User Login Page
+   
+   ![Navigation user login](documentation/user-login-page.png)
+   
  * Navigation my account- User Logged In
-  
-   ![Navigation my account](!!!ADD my account dropdown !!)
 
- * Navigation - My Account - My Profile - Empty
-  
-  ![Navigation my account my profile-empty](!!!ADD MY PROFILE EMPTY)
+    ![Navigation user login status](documentation/user-login-status.png)
+   
+ * Profile page for login user 
 
- * Navigation - My Account - My profile - with delivery information with order history 
-  
-  ![Navigation my account my profile with order](!!!ADD MY PROFILE delivery information with order history)
+   ![Navigation my profile page as user](documentation/user-profile-page.png)
 
- * Navigation - My Account- My Wishlist
-  
-   ![Navigation my account my wishlist](!!!ADD MY PROFILE my wishlist)
+  * User can update own personal information on this page and change e-mail and change password
+    
+  * Change e-mail
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-1.png)
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-2.png)
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-3.png)
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-4.png)
+    
+  * Change password
+    
+    ![Navigation my profile page as user change password](documentation/password-change-1.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-2.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-3.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-4.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-5.png)
 
- * Navigation - My Account - My Wishlist - Removal Confirmation
-  ![wishlist removel message](documentation/menu_my_wishlist_removal.png)
+ * Navigation - My Profile - Order list Empty
+  
+  ![Navigation my profile order list empty](documentation/my-profile-order-list-empty.png)
+
+ * Navigation - My Profile - with status with order list
+
+  ![Navigation my profile order list](documentation/order-list.png)
+   
+ * Navigation - My Account- My Favorites
+   
+ * User can see empty favorites page when click to navigation bar heart icon 
+   
+   ![Navigation my account my favorites](documentation/favorite-page-1.png)
+
+ 
+ *  User can add a product to favorites page  
+   ![Navigation my account my favorites](documentation/favorite-page-2.png)
+
+ * User can remove products from favorites page 
+   
+   ![Navigation my account my favorites](documentation/favorite-page-3.png)
+
+ * User can add to cart products from favorites page to cart page and user can select also quantity for the add to cart page  
+   
+   ![Navigation my account my favorites](documentation/favorite-page-4.png)
+
+  * User can click on the navigation bar to logout section and so that user can logout successfully.
+
+    ![Navigation user logout](documentation/user-logged-out.png)
+
 
  * Navigation - Admin Logged In 
   
    * When a superuser / administrator is logged in the my account gets more avilable options, manage products and manage blog
+     
+   ![Navigation admin login](documentation/login-admin.png) 
   
  * Navigation - My Account - Admin Logged In
-  
-   * Manage Products - On this page the admin can add, edit, remove and search for products. The page consists of two columns. The left one is the add, edit, remove area. Here admin can add all product information including i.e. multiple tags for a product. The right column views the products in the database. Here the admin i.e. can see if the product is published or not. If the admin clicks edit on a product the form is pre-filled with all the product information (and a 'You are editing this product' gets visible in the action column). If the admin chooses to delete a product a confirmation/warning modal will be triggered. There is also possible for admin to do a search within the product management area which can be very convinient if there are a lot of products in the store. If the product is not published it will not be shown to the site users.
-  
- * Navigation - Admin Logged In - Product Management
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page !!!!) 
- * Navigation - Admin Logged In - Product Management - Edit 
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - edit !!!!)
+   
+   * Admin can use different features on navigation bar when login.
+   * Admin can click profile icon on the navbar and manage website and own information.
+   * Admin can manage products edit products, delete products, add products, search and read all about web site.
+   * Admin can manage blog posts edit posts,delete, read, add blog post
+   * Admin can see all orders.
+   * Admin can see own order list alson on this page.
+   * Admin can update  own profile information as other user.
+   
+   * Navigation - Admin Logged In - Product Management- Admin can click to manage product button and go product page for admin.This page is different than other normal users of product page. Admin has edit delete add products buttons on this page so that admin can manage products.
+   
+    ![Navigation - Admin Logged In](documentation/login-admin.png)
+   
+ * Navigation - Admin Logged In - Product Management - Edit
+   
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
+   
  * Navigation - Admin Logged In - Product Management - Delete
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - delete !!!!)
- * Navigation - Admin Logged In - Product Management - Search
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - search !!!!)
- * Navigation - Admin Logged In - Product Management - Search Results
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - search-results !!!!)
-   * Manage Blog - On this page the admin can add, edit, remove blog posts. The page consists of two columns. The left one is the add, edit, remove area. Here admin can add all blog information. The right column views the blog posts in the database. Here the admin i.e. can see if the blog post is published or not. If the admin clicks edit on a blog post the form is pre-filled with all the blog post information (and a 'You are editing this post' gets visible in the action column). If the admin chooses to delete a blog post a confirmation/warning modal will be triggered. There is also possible for admin to do a search within the blog management area which can be very convinient if there are a lot of blog posts in the store. If the blog post is not published it will not be shown to the site users. 
- * Navigation - Admin Logged In - Blog Management - Edit 
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-edit !!!!)
+   
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-2.png)
+
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-3.png)
+   
+ * Navigation - Admin Logged In - Product Management - Add products
+   
+   ![Navigation - Admin Edit Products](documentation/admin-add-products.png)
+   
+ * Navigation - Admin Logged In - Product Management - Read Detail
+  
+   ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
+   
+   * Manage Blog - Admin can click to manage blog posts button and go blog page for admin.This page is different than other normal users of blog page. Admin has edit delete add  buttons on this page so that admin can manage blog posts.
+    
+ * Navigation - Admin Logged In - Blog Management - Edit
+   
+    ![Navigation - Admin Logged In](documentation/admin-edit-post-1.png)
+   
 * Navigation - Admin Logged In - Blog Management - Delete
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-delete !!!!)
- * Navigation - Admin Logged In - Blog Management - Search 
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-search !!!!)
- * Navigation - Admin Logged In - Blog Management - Search Results
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-search-results !!!!) 
+  
+    ![Navigation - Admin Logged In](documentation/admin-edit-post-1.png)
+  
+ * Navigation - Admin Logged In - Blog Management - Add
+   
+    ![Navigation - Admin Logged In](documentation/admin-add-post-1.png)
+   
+ * Navigation - Admin Logged In - Blog Management - list all blog posts and read  of select one post. Admin can click the read more button and read one post.
+    
+    ![Navigation - Admin Logged In](documentation/admin-read-posts.png)
      
 ### Home
 
 #### Home Page Top Area
 
-There are buttons on the home page that direct you to start shopping or to subscribe to be informed about blog posts, and apart from that, there are a few of the posts shared on the blog page, and the user can click on the read more button to read more details, or if he wishes, he can click on the button that goes to the blog page to go to the blog page where he can see all the posts. can go.
+There are buttons on the home page that direct you to start shopping or to subscribe to be informed about blog posts, and apart from that, there are a few of the posts shared on the blog page, and the user can click on the read more button to read more details, or if he wishes, he can click on the button that goes to the blog page to go to the blog page where he can see all the posts can go.
 
-![Home page top photo section](!!!add top section part home page)
+![Home page top photo section](documentation/home-page-top-area.png)
 
 #### Home Page Blog Area
 
 Blog Area - The blog area shows several blog posts. Above the posts there is a button that directs the user to a specific page where all the posts are listed. When a site user clicks on the blog post, a blog detail view is shown. If the administrator is logged in, there is the possibility to go to the edit blog administration page from the blog area and blog detail view (via the edit button).
 
-![Home page blog section](!!!add blog section home page)
+![Home page blog section](documentation/home-page-blog-area.png)
 
 #### Blog Detail
 
-![one blog post detail page](!!add one blog post detail page)
+![one blog post detail page](documentation/blog-detail.png)
 
 #### Blog - View All Blog Posts
 
 We list all the posts shared on the blog page and we can click on the post we want to see in more detail and go to the detail page.
 
-![blog page](!!! ADD BLOG PAGE VIEWS !!!)
+![blog page](documentation/all-blog-posts.png)
+
+#### Contact Page
+
+If user want to contact and send a message to lotus team, user can click the contact on navbar or footer contact link and so that can write a message and send to lotus team and lotus team e-mail adress (lotusauranaturall@gmail.com) take a new mail from message sender.
+
+![contact page](documentation/contact-page.png)
 
 ### Products
 
 Listing of products will vary depending on the selected filter and sort by. When we first enter the shop page, the products are listed as mixed.
 
-![Product View](!!!Add products page screenshot !!!)
+![Product View](documentation/all-products-list.png)
 
 #### Product Detail
 
-![Product Detail View](!!!Add products detail page screenshot !!!)
+User can click one selected product and go to directly product detail page.
 
-#### Product Detail - Added To Wishlist
+![Product Detail View](documentation/product-detail.png)
 
-![Product add to wishlist button ](!!!Add product to wishlist !!!)
+User can click the filter section on shop page and select categories and list  products of each category on page.
+
+![Product Filter](documentation/filter-products.png)
+
+User can click the filter section on shop page and select categories and list  products of each category on page.
+
+![Product Sort by](documentation/sortby-products.png)
+
+### Search Product
+
+User can use also search section on the top of the page(product page and home page) and so that user can search specific product and find it easly. But if user write a wrong name or a product that is not available on this website, user will see a message "Nothing Found". If user want to contunie shopping, user can click the button "Continue Shopping" or write another keyword to seach section for find another product.
+
+![Seacrh Product](documentation/nothing-found.png)
+
+#### Product Detail - Add To Favorite or Cart
+
+User can select one product and if user wish to add this product to favorite, user should click the button name of add to favorite on product detail page.
+
+![Product add to favorite](documentation/product-detail-add-favorite.png)
+
+User can select one product and if user wish to add this product to cart, user should click the button name of add to cart on product detail page.And user can select also quantity of products for add to cart on product detail page.
+
+![Product add to favorite button ](documentation/product-detail-add-favorite.png)
 
 ####  Select Quantity of Product
 
 When adding products to the cart, the user can choose how many items to add.
 User can then edit the number of products user chooses and increase or decrease them.
 
-![ Select Product quantity](select-product-quantity)
+![Select Product quantity](documentation/select-quantity.png)
 
-### Shopping Bag
+### Cart Page
 
 When the site user had added products by pressing the add to bag button the products are being stored in the shopping bag that can be accessed via the 'cart'-button in the navigation menu. In the shopping bag area the user can update and delete the products they have added and get an understandig about the total cost for the products incl. and excl. delivery cost. From this view the user can either continue to shop or go to the secure checkout page.
 
-![Cart page view](cart-page-view)
+* If user click to button name of Add to cart so that user will see one flash message.
+
+![Add to cart flash message](documentation/add-product-success.png)
+
+* User can see own cart page with added products
+
+![Cart page view](documentation/cart-page.png)
 
 
 ### Secure Checkout
 
-![Secure Checkout page ](!!!add!!!)
+![Secure Checkout page ](documentation/checkout-page-testtuserr.png)
+
 
 
 ### Order Confirmation
 
 If everything goes according to plan and the webhooks between Stripe and the site are OK an order confirmation page will be shown to the user (and a confirmation e-mail will be sent to the users registered e-mail address).
+  
+![order confirm  view](documentation/order-success.png)
 
-![order confirm  view](!!!add!!!)
+![order canceled  view](documentation/order-cancelled.png)
+
 
 ## Confirmation Email
 
 When the order is confirmed the user gets an confirmation e-mail to the registered e-mail.
 
-![confirm email view](!!add!!)
+![confirm email view](documentation/order-confirmation-mail.png)
+
+* User can list own order on profile page
+  
+  ![order list view](documentation/order-list.png)
+  
+*  User can see order status and information about order
+  
+  ![order detail view](documentation/order-detail.png)
 
 ### Sign Up
 
 On this page the user can sign in to Lotus Aura Natural.
 
-![Sign up page](!!!)
+![Sign up page](documentation/signup-page.png)
 
 ### Sign In 
 
-![Sign in page](!!!)
+![Sign in page](documentation/signin-page.png)
 
 ### Password Reset
 
 If the user has forgotten the password they can ask for a password reset through this page.
 
-![Password reset](!!!!!)
+![Password reset](documentation/password-reset.png)
 
 
 ### Sign Out
 
 When the user clicks sign out in the menu bar a confirmation page is being showed so that the user don't accidently sign out.
 
-![sign out confirm message](!!!!)
+![sign out confirm message](documentation/signout-confirm.png)
 
 ### Footer
+
+![Footer](documentation/footer.png)
 
 * Home Page -  User can click the home link and go to home page.
 * Shop Page -  User can click the shop link and go to shop page and  see mix list of products.  
 * Blog Page -  User can click the blog link and go to blog page and see blog posts.
+* Privacy Policy - User can click the privacy policy link an go to privacy page and see rules about Lotus Aura Natural.
 * Contact Page - User can click the contact link and go to contact page.
 * FAQ - User can click the FAQ link and go to FAQ page and read the popular questions and their answers.
+* Newsletter - User can write own real email and subscripe for get information when lotus team add new blog post.
+* Social Media icons -  User can click the facebook icon and see lotus aura natural facebook page.
+* Instagram - If user want to go instagram dashboard click the instagram icon for now Lotus Aura Natural does not have instagram page for marketing.
+* Youtube - If user want to go youtube dashboard click the youtube icon for now Lotus Aura Natural does not have youtube page for marketing.
   
-  ![FAQ PAGE](!!!!!!!!!!!!ekle ekran goruntusu!!!!!!!)
+  
+  ![FAQ PAGE](documentation/questions.png)
 
 * Privacy Policy - User can click the Privacy Policy link and go to hprivacy policy page and get information about site owner and sites' privacy policies.
   
-  ![Privacy Policy](!!!!!!!!!!!!ekle ekran goruntusu!!!!!!!)
+  ![Privacy Policy](documentation/privacy.png)
 
 * Subscribe section - User can write own e mail and subcsribe sites newsletters and get information all about site.
   
-  ![Subscribe section](!!!!!!!!!!!!ekle ekran goruntusu!!!!!!!)
+  ![Subscribe success](documentation/success-subscribe.png)
 
+  
+  ![Subscribe wrong](documentation/wrong-mail-subscribe.png)
 
+### 404 Error Page
 
+Our application features a custom 404 error page that appears when users attempt to access a non-existent page. This page is designed to inform users and redirect them to the homepage or other important sections of the site. The purpose of the 404 error page is to improve user experience and help lost visitors find their way back.
+
+   ![404 page](documentation/404-page.png)
+   
+### 500 Error Page
+
+Our application includes a custom 500 error page that is displayed when the server encounters an internal error. This page informs users that something has gone wrong on our end and provides them with options to return to the homepage or contact support. The goal of the 500 error page is to enhance user experience by providing clear communication and guidance when unexpected issues occur.   
+   
 ### Visual Feedback To The User
 
 The sites incorporates flash messages when an action has been performed (i.e. delete/update/add to bag-actions). Examples of this in the screenshots below.
 
-      !!!! ADD ALERT MESSAGE ekran goruntulerini !!!! 
+  * ![Flash Messages](documentation/delete.png)
+    
+  * ![Flash Messages](documentation/login.png)
+   
+  * ![Flash Messages](documentation/update.png)
+    
+  * ![Flash Messages](documentation/favorite.png)
+    
+  * ![Flash Messages](documentation/remove.png)
+   
+  * ![Flash Messages](documentation/quantity.png)
+   
+  * ![Flash Messages](documentation/cart.png)
+   
+  * ![Flash Messages](documentation/confirm.png)
+
+    
 
 ### Features Left to Implement
 
@@ -492,6 +663,7 @@ The sites incorporates flash messages when an action has been performed (i.e. de
 * Give the logged in site user the ability to add comments and likes to posts on the blog page
 * Add an admin area with general information (like number of logged in users, number of products and so on)
 * Add more e-mail functionality (i.e email is being sent out when the order has been handled)
+* Add more visual feedback to the user
 
 ## Technologies Used
 
@@ -517,13 +689,13 @@ The sites incorporates flash messages when an action has been performed (i.e. de
  * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness.
  * [Github Board](https://github.com/users/mervecoskunn/projects/9) - A project management tool to organize the project.
  * [Mailchimp](https://mailchimp.com/?currency=SEK) - Used for the newsletter functionality on the site.
- * [AWS](https://aws.amazon.com/) - A service that hosts all static files and images in the project.
+ * [Amazon Web Service](https://aws.amazon.com/) - A service that hosts all static files and images in the project.
  * [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
  * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
  * [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to lint the Python code in the project
  * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
 
-### Libraries                        !!!!!!! kontrol et hepsini !!!!!!!!
+### Libraries                        
 
 The libraries used in this project are located in the requirements.txt file and have been documented below
 
@@ -1232,60 +1404,75 @@ The project was deployed to [Heroku](https://www.heroku.com/github-students). To
 
   import env 
 * Heroku Step 15
+  
   ![Heroku step 15](documentation/heroku_15.png)
 
 * Heroku Step 16
+  
   ![Heroku step 16](documentation/heroku_16.png)
 
-  17. Now we need to make some changes in the database settings the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
-* Heroku Step 17 
+17. Now we need to make some changes in the database settings the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
+    
+* Heroku Step 17
+  
   ![Heroku step 17](documentation/heroku_17.png)
 
   18. Save all your fields and migrate the changes. 
    
   python3 manage.py migrate 
 
-  19. In this project there are quite a lot of config variables that needs to be setup (i.e. Claudinary, Stripe, e-mail hosts). Some of these settings also needs to be added to the env.py file in Gitpod. The config variables in this projects are:
+19. In this project there are quite a lot of config variables that needs to be setup (i.e. AWS, Stripe, e-mail hosts). Some of these settings also needs to be added to the env.py file in Gitpod. The config variables in this projects are:
   
 * Heroku Step 19
-  ![Heroku confiq vars screenshot]()
+  
+  ![Heroku confiq vars screenshot](documentation/heroku_19.png)
 
-  20. Some of these settings needs to be added to the env.py file in gitpod
+20. Some of these settings needs to be added to the env.py file in gitpod
    
 * Heroku Step 20  
   ![Heroku step 20](documentation/heroku_20.png)
 
-  21.It's very important to add the correct installed apps (that also can be found in the requirements file) in the settings file.
+21.It's very important to add the correct installed apps (that also can be found in the requirements file) in the settings file.
 
 * Heroku Step 21 
-   ![Heroku installed_apps screenshot]()
+   ![Heroku installed_apps screenshot](documentation/heroku_21.png)
   
-  22. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file. We also add some rows connected to Amazon Web Services(which this project uses).
+22. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file. We also add some rows connected to Amazon Web Services(which this project uses).
    
    ![Heroku step 22](documentation/heroku_22.png)
 * Heroku step 23
-   23. Now it's time to link the file to the Heroku templates directory and change the templates directory to TEMPLATES_DIR in the templates array.
+  
+23. Now it's time to link the file to the Heroku templates directory and change the templates directory to TEMPLATES_DIR in the templates array.
 
 * Heroku Step 24
-  24. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to which hosts that are allowed. You might also need to add a CSRF_TRUSTED_ORIGINS line if you are going to run the project locally.
+  
+24. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to which hosts that are allowed. You might also need to add a CSRF_TRUSTED_ORIGINS line if you are going to run the project locally.
+    
    ![Heroku step 24](documentation/heroku_24.png) 
 
-  25. Now we just need to add some files to Gitpod.
+25. Now we just need to add some files to Gitpod.
+    
      * Create 3 folders in the top level directory: media, static, templates
      * Create a file called *Procfile and add the line web: gunicorn PROJ_NAME.wsgi? to it.
   
-  26. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+ 26. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+      
      * git add .
      * git commit -m "Deployment Commit
      * git push
-  27. Before moving on to the Heroku deployment we just need to add one more thing in the config vars. We need to add "PORT" in the KEY input field and "8000" in the VALUE field. If we don't add this there might be problems with the deployment.
-  28. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
-  29. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
+     
+ 27. Before moving on to the Heroku deployment we just need to add one more thing in the config vars. We need to add "PORT" in the KEY input field and "8000" in the VALUE field. If we don't add this there might be problems with the deployment.
+     
+ 28. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+     
+ 29. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
   
   The live link to the 'Lotus Aura Natural' site on Heroku an be found [here](!!!ADD HEROKU LINK!!!). And the Github repository can be found [here](https://github.com/mervecoskunn/lotus-project).
 
 ## How To Fork The Repository On GitHub
+
  To make an independent copy of a repository on Github you can fork the GitHub account. You can then be viewed and it is also possible to do changes in the copy without affecting the original repository. To fork the repository, take these steps:
+ 
   1. After logging in to GitHub, locate the repository. On the top right side of the page there is a 'Fork' button. Click on the button to create a copy of the original repository.
   
 * Github Fork
@@ -1315,12 +1502,15 @@ To clone and set up this project you need to follow the steps below.
     ![Setup env.py](documentation/github_clone_02.png)
 
 ## Credits
-
-         !!!!!! ADD CREDITS FOR PHOTOS OR OTHER CONTENTS !!!!!
          
-* All text content written by Merve Coskun.
-* Template for read.me provided by Code Institute (with some additional changes that my mentor Precious Ijege) suggested.
-
+* All text content written by [Merve Coskun](https://www.linkedin.com/in/merve-coskun-fullstack/).
+* Template for read.me provided by [Code Institute](https://codeinstitute.net/) (with some additional changes that my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/) suggested.
+* ElephantSql - [ElephantSql](https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0)
+* Stripe - [Stripe](https://docs.stripe.com/checkout/quickstart?lang=python)
+* Registration Email Confirmation - [Registration Email Confirmation](https://www.youtube.com/watch?v=wB1qOExDsYY)
+* Forgot Password - [Forgot Password](https://www.youtube.com/watch?v=OF8ucdDmp2Q)
+* Send Email - [Send Email](https://medium.com/@arifcse21/send-and-email-with-html-template-and-context-data-from-a-django-project-e9606644185c)
+  
 ## Technical
 
 Some parts of this project are heavily inspired by the 'Building an E-commerce Platform - Project - Boutique Ado' provided by the Code Institute.
