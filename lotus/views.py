@@ -95,7 +95,10 @@ def subscription(request):
             html_message=html_content,
             fail_silently=True
         )
-        messages.success(request, "Email received. thank You! ")
+
+        models.Newsletter.objects.create(email=email).save()
+
+        messages.success(request, "Subscription successfull. Thank You! ")
 
     return redirect("home")
 
