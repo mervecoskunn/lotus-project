@@ -325,6 +325,10 @@ When an ordinary user is logged in the my account gets more available options, m
    
    ![Navigation user register](documentation/user-register-page.png)
 
+ * User Register Success
+   
+   User will see one flash message register success.
+
  * If user try to register again, user will see an information "e-mail already exist". User should try to login page.
 
    ![Navigation user try double register](documentation/e-mail-already-exist.png) 
@@ -341,62 +345,116 @@ When an ordinary user is logged in the my account gets more available options, m
 
    ![Navigation my profile page as user](documentation/user-profile-page.png)
 
+  * User can update own personal information on this page and change e-mail and change password
+    
+  * Change e-mail
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-1.png)
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-2.png)
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-3.png)
+    
+    ![Navigation my profile page as user change e-mail](documentation/email-change-4.png)
+    
+  * Change password
+    
+    ![Navigation my profile page as user change password](documentation/password-change-1.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-2.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-3.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-4.png)
+    
+    ![Navigation my profile page as user change password](documentation/password-change-5.png)
+
  * Navigation - My Profile - Order list Empty
   
   ![Navigation my profile order list empty](documentation/my-profile-order-list-empty.png)
 
- * Navigation - My Profile - with delivery information with order history
- * User can see own order list and their status on this section.
-  
-  ![Navigation my profile order list](documentation/Order List.png)
+ * Navigation - My Profile - with status with order list
 
+  ![Navigation my profile order list](documentation/order-list.png)
+   
+ * Navigation - My Account- My Favorites
+   
+ * User can see empty favorites page when click to navigation bar heart icon 
+   
+   ![Navigation my account my favorites](documentation/favorite-page-1.png)
 
+ 
+ *  User can add a product to favorites page  
+   ![Navigation my account my favorites](documentation/favorite-page-2.png)
 
+ * User can remove products from favorites page 
+   
+   ![Navigation my account my favorites](documentation/favorite-page-3.png)
 
+ * User can add to cart products from favorites page to cart page and user can select also quantity for the add to cart page  
+   
+   ![Navigation my account my favorites](documentation/favorite-page-4.png)
 
+  * User can click on the navigation bar to logout section and so that user can logout successfully.
 
+    ![Navigation user logout](documentation/user-logged-out.png)
 
-
-
-
-
-
-  
-
- * Navigation - My Account- My Wishlist
-  
-   ![Navigation my account my wishlist](!!!ADD MY PROFILE my wishlist)
-
- * Navigation - My Account - My Wishlist - Removal Confirmation
-  ![wishlist removel message](documentation/menu_my_wishlist_removal.png)
 
  * Navigation - Admin Logged In 
   
    * When a superuser / administrator is logged in the my account gets more avilable options, manage products and manage blog
+     
+   ![Navigation admin login](documentation/login-admin.png) 
   
  * Navigation - My Account - Admin Logged In
-  
-   * Manage Products - On this page the admin can add, edit, remove and search for products. The page consists of two columns. The left one is the add, edit, remove area. Here admin can add all product information including i.e. multiple tags for a product. The right column views the products in the database. Here the admin i.e. can see if the product is published or not. If the admin clicks edit on a product the form is pre-filled with all the product information (and a 'You are editing this product' gets visible in the action column). If the admin chooses to delete a product a confirmation/warning modal will be triggered. There is also possible for admin to do a search within the product management area which can be very convinient if there are a lot of products in the store. If the product is not published it will not be shown to the site users.
-  
- * Navigation - Admin Logged In - Product Management
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page !!!!) 
- * Navigation - Admin Logged In - Product Management - Edit 
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - edit !!!!)
+   
+   * Admin can use different features on navigation bar when login.
+   * Admin can click profile icon on the navbar and manage website and own information.
+   * Admin can manage products edit products, delete products, add products, search and read all about web site.
+   * Admin can manage blog posts edit posts,delete, read, add blog post
+   * Admin can see all orders.
+   * Admin can see own order list alson on this page.
+   * Admin can update  own profile information as other user.
+   
+   * Navigation - Admin Logged In - Product Management- Admin can click to manage product button and go product page for admin.This page is different than other normal users of product page. Admin has edit delete add products buttons on this page so that admin can manage products.
+   
+    ![Navigation - Admin Logged In](documentation/login-admin.png)
+   
+ * Navigation - Admin Logged In - Product Management - Edit
+   
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
+   
  * Navigation - Admin Logged In - Product Management - Delete
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - delete !!!!)
- * Navigation - Admin Logged In - Product Management - Search
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - search !!!!)
- * Navigation - Admin Logged In - Product Management - Search Results
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - search-results !!!!)
-   * Manage Blog - On this page the admin can add, edit, remove blog posts. The page consists of two columns. The left one is the add, edit, remove area. Here admin can add all blog information. The right column views the blog posts in the database. Here the admin i.e. can see if the blog post is published or not. If the admin clicks edit on a blog post the form is pre-filled with all the blog post information (and a 'You are editing this post' gets visible in the action column). If the admin chooses to delete a blog post a confirmation/warning modal will be triggered. There is also possible for admin to do a search within the blog management area which can be very convinient if there are a lot of blog posts in the store. If the blog post is not published it will not be shown to the site users. 
- * Navigation - Admin Logged In - Blog Management - Edit 
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-edit !!!!)
+   
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-2.png)
+
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-3.png)
+   
+ * Navigation - Admin Logged In - Product Management - Add products
+   
+   ![Navigation - Admin Edit Products](documentation/admin-add-products.png)
+   
+ * Navigation - Admin Logged In - Product Management - Read Detail
+  
+   ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
+   
+   * Manage Blog - Admin can click to manage blog posts button and go blog page for admin.This page is different than other normal users of blog page. Admin has edit delete add  buttons on this page so that admin can manage blog posts.
+    
+ * Navigation - Admin Logged In - Blog Management - Edit
+   
+    ![Navigation - Admin Logged In](documentation/admin-edit-posts-1.png)
+   
 * Navigation - Admin Logged In - Blog Management - Delete
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-delete !!!!)
- * Navigation - Admin Logged In - Blog Management - Search 
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-search !!!!)
- * Navigation - Admin Logged In - Blog Management - Search Results
-    ![Navigation - Admin Logged In](!!!!ADD product management - admin-page - blog-search-results !!!!) 
+  
+    ![Navigation - Admin Logged In](documentation/admin-edit-posts-1.png)
+  
+ * Navigation - Admin Logged In - Blog Management - Add
+   
+    ![Navigation - Admin Logged In](documentation/admin-add-post-1.png)
+   
+ * Navigation - Admin Logged In - Blog Management - list all blog posts and read  of select one post. Admin can click the read more button and read one post.
+    
+    ![Navigation - Admin Logged In](documentation/admin-read-posts.png)
      
 ### Home
 
