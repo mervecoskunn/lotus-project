@@ -660,13 +660,13 @@ The sites incorporates flash messages when an action has been performed (i.e. de
  * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness.
  * [Github Board](https://github.com/users/mervecoskunn/projects/9) - A project management tool to organize the project.
  * [Mailchimp](https://mailchimp.com/?currency=SEK) - Used for the newsletter functionality on the site.
- * [AWS](https://aws.amazon.com/) - A service that hosts all static files and images in the project.
+ * [Amazon Web Service](https://aws.amazon.com/) - A service that hosts all static files and images in the project.
  * [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
  * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
  * [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to lint the Python code in the project
  * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
 
-### Libraries                        !!!!!!! kontrol et hepsini !!!!!!!!
+### Libraries                        
 
 The libraries used in this project are located in the requirements.txt file and have been documented below
 
@@ -1458,12 +1458,15 @@ To clone and set up this project you need to follow the steps below.
     ![Setup env.py](documentation/github_clone_02.png)
 
 ## Credits
-
-         !!!!!! ADD CREDITS FOR PHOTOS OR OTHER CONTENTS !!!!!
          
-* All text content written by Merve Coskun.
+* All text content written by [Merve Coskun](https://www.linkedin.com/in/merve-coskun-fullstack/).
 * Template for read.me provided by Code Institute (with some additional changes that my mentor Precious Ijege) suggested.
-
+* [ElephantSql](https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0)
+* [Stripe](https://docs.stripe.com/checkout/quickstart?lang=python)
+* [Registration Email Confirmation](https://www.youtube.com/watch?v=wB1qOExDsYY)
+* [Forgot Password](https://www.youtube.com/watch?v=OF8ucdDmp2Q)
+* [Send Email](https://medium.com/@arifcse21/send-and-email-with-html-template-and-context-data-from-a-django-project-e9606644185c)
+  
 ## Technical
 
 Some parts of this project are heavily inspired by the 'Building an E-commerce Platform - Project - Boutique Ado' provided by the Code Institute.
