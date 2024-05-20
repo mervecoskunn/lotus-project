@@ -620,11 +620,11 @@ The sites incorporates flash messages when an action has been performed (i.e. de
   ![Flash Messages](documentation/delete.png)
   ![Flash Messages](documentation/login.png)
   ![Flash Messages](documentation/update.png)
-  ![Flash Messages](documentation/confirm.png)
   ![Flash Messages](documentation/favorite.png)
   ![Flash Messages](documentation/remove.png)
   ![Flash Messages](documentation/quantity.png)
   ![Flash Messages](documentation/cart.png)
+  ![Flash Messages](documentation/confirm.png)
 
 ### Features Left to Implement
 
