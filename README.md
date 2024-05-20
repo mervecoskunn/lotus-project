@@ -480,73 +480,108 @@ We list all the posts shared on the blog page and we can click on the post we wa
 
 ![blog page](documentation/all-blog-posts.png)
 
+
 ### Products
 
 Listing of products will vary depending on the selected filter and sort by. When we first enter the shop page, the products are listed as mixed.
 
-![Product View](!!!Add products page screenshot !!!)
+![Product View](documentation/all-products-list.png)
 
 #### Product Detail
 
-![Product Detail View](!!!Add products detail page screenshot !!!)
+User can click one selected product and go to directly product detail page.
 
-#### Product Detail - Added To Wishlist
+![Product Detail View](documentation/product-detail-png)
 
-![Product add to wishlist button ](!!!Add product to wishlist !!!)
+User can click the filter section on shop page and select categories and list  products of each category on page.
+
+![Product Filter](documentation/filter-products.png)
+
+User can click the filter section on shop page and select categories and list  products of each category on page.
+
+![Product Sort by](documentation/sortby-products.png)
+
+#### Product Detail - Add To Favorite or Cart
+
+User can select one product and if user wish to add this product to favorite, user should click the button name of add to favorite on product detail page.
+
+![Product add to favorite](documentation/product-detail-add-favorite.png)
+
+User can select one product and if user wish to add this product to cart, user should click the button name of add to cart on product detail page.And user can select also quantity of products for add to cart on product detail page.
+
+![Product add to favorite button ](documentation/product-detail-add-favorite.png)
 
 ####  Select Quantity of Product
 
 When adding products to the cart, the user can choose how many items to add.
 User can then edit the number of products user chooses and increase or decrease them.
 
-![ Select Product quantity](select-product-quantity)
+![Select Product quantity](documentation/select-quantity.png)
 
-### Shopping Bag
+### Cart Page
 
 When the site user had added products by pressing the add to bag button the products are being stored in the shopping bag that can be accessed via the 'cart'-button in the navigation menu. In the shopping bag area the user can update and delete the products they have added and get an understandig about the total cost for the products incl. and excl. delivery cost. From this view the user can either continue to shop or go to the secure checkout page.
 
-![Cart page view](cart-page-view)
+* If user click to button name of Add to cart so that user will see one flash message.
+
+![Add to cart flash message](documentation/add-product-success.png)
+
+* User can see own cart page with added products
+
+![Cart page view](documentation/cart-page.png)
 
 
 ### Secure Checkout
 
-![Secure Checkout page ](!!!add!!!)
+![Secure Checkout page ](documentation/checkout-page-testtuserr.png)
+
 
 
 ### Order Confirmation
 
 If everything goes according to plan and the webhooks between Stripe and the site are OK an order confirmation page will be shown to the user (and a confirmation e-mail will be sent to the users registered e-mail address).
+  
+![order confirm  view](documentation/order-success.png)
 
-![order confirm  view](!!!add!!!)
+![order canceled  view](documentation/order-canceled.png)
+
 
 ## Confirmation Email
 
 When the order is confirmed the user gets an confirmation e-mail to the registered e-mail.
 
-![confirm email view](!!add!!)
+![confirm email view](documentation/order-confirmation-mail.png)
+
+* User can list own order on profile page
+  
+  ![order list view](documentation/order-list.png)
+  
+*  User can see order status and information about order
+  
+  ![order detail view](documentation/order-detail.png)
 
 ### Sign Up
 
 On this page the user can sign in to Lotus Aura Natural.
 
-![Sign up page](!!!)
+![Sign up page](documentation/signup-page.png)
 
 ### Sign In 
 
-![Sign in page](!!!)
+![Sign in page](documentation/signin-page.png)
 
 ### Password Reset
 
 If the user has forgotten the password they can ask for a password reset through this page.
 
-![Password reset](!!!!!)
+![Password reset](documentation/password-reset.png)
 
 
 ### Sign Out
 
 When the user clicks sign out in the menu bar a confirmation page is being showed so that the user don't accidently sign out.
 
-![sign out confirm message](!!!!)
+![sign out confirm message](documentation/signout-confirm.png)
 
 ### Footer
 
