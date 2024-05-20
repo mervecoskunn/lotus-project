@@ -18,11 +18,11 @@
             <h2>Order Detail</h2>
         </div>
         {% if user.is_superuser %}
-        <div class="col">
-            <p>
-                <strong>Owner:</strong> {{ order.user_profile.user.username }}
-            </p>
-        </div>
+            <div class="col">
+                <p>
+                    <strong>Owner:</strong> {{ order.user_profile.user.username }}
+                </p>
+            </div>
         {% endif %}
 
         <div class="col-4">
@@ -68,13 +68,11 @@
                         <td>
                             <a href="{% url "product_detail" cart_product.product.id %}">{{ cart_product.product.name }}</a>
                         </td>
-                        <td>${{ cart_product.product.price }}</td>
-                        <td>
-                            {{ cart_product.quantity }}
-                        </td>
-                        <td>${{ cart_product.subtotal }}</td>
-                        <td>${{ order.cart.shipping }}</td>
-                        <td>${{ order.cart.total }}</td>
+                        <td>€{{ cart_product.product.price }}</td>
+                        <td>{{ cart_product.quantity }}</td>
+                        <td>€{{ cart_product.subtotal }}</td>
+                        <td>€{{ order.cart.shipping }}</td>
+                        <td>€{{ order.cart.total }}</td>
                         <td></td>
                     </tr>
                 {% endfor %}

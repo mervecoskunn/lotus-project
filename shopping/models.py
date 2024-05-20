@@ -99,7 +99,7 @@ class Cart(models.Model):
         self.subtotal = 0
         for item in self.items.all():
             self.subtotal += item.subtotal
-        self.shipping = 0 if self.subtotal >= 150 else 10
+        self.shipping = 0 if self.subtotal >= 50 else 10
         self.total = self.subtotal + self.shipping
         self.save()
 
