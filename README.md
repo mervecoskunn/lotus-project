@@ -617,7 +617,16 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
   
   ![Subscribe wrong](documentation/wrong-mail-subscribe.png)
 
+### 404 Error Page
 
+Our application features a custom 404 error page that appears when users attempt to access a non-existent page. This page is designed to inform users and redirect them to the homepage or other important sections of the site. The purpose of the 404 error page is to improve user experience and help lost visitors find their way back.
+
+   ![404 page](documentation/404-page.png)
+   
+### 500 Error Page
+
+Our application includes a custom 500 error page that is displayed when the server encounters an internal error. This page informs users that something has gone wrong on our end and provides them with options to return to the homepage or contact support. The goal of the 500 error page is to enhance user experience by providing clear communication and guidance when unexpected issues occur.   
+   
 ### Visual Feedback To The User
 
 The sites incorporates flash messages when an action has been performed (i.e. delete/update/add to bag-actions). Examples of this in the screenshots below.
