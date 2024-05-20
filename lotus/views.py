@@ -1,3 +1,4 @@
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from blog import models
@@ -61,16 +62,40 @@ def subscribe(email):
 
     try:
         response = mailchimp.lists.add_list_member(list_id, member_info)
-        print("response: {}".format(response))
+        # print("response: {}".format(response))
+        return True
     except ApiClientError as error:
         print("An exception occurred: {}".format(error.text))
+        return False
 
 
 def subscription(request):
     if request.method == "POST":
         email = request.POST.get('email')
-        subscribe(email)                    # function to access mailchimp
-        messages.success(request, "Email received. thank You! ")  # message
+
+        if not subscribe(email):  # function to access mailchimp
+            messages.error(request, "Email alredy subscribed.")
+            return redirect("home")
+
+        # Send email to user
+        html_content = render_to_string(
+            template_name="lotus/subscription_email.html",
+            context={
+                'domain': get_current_site(request).domain,
+                "protocol": "https" if request.is_secure() else "http",
+            }
+        )
+        plain_message = strip_tags(html_content)
+
+        send_mail(
+            subject='Newsletter Subscription',
+            message=plain_message,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],
+            html_message=html_content,
+            fail_silently=True
+        )
+        messages.success(request, "Email received. thank You! ")
 
     return redirect("home")
 
