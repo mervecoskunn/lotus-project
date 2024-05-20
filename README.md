@@ -309,8 +309,9 @@ The navigation bar includes the same basic options for the user (logged in or no
  * My Account - The user can enter the site through a menu that opens to log in or register.
  * Favorites - The user can click to favorites icon and user can see added products to own favorites page.
  * Cart - The user can see cart icon on navigation so that user can click it for to own go cart page.
+ * * Login - The user can click to login section so user can register or login so that user can buy something or add product to favorites page.
   
-![Navigation- User Not Logged In](documentation/home-navbar.png)
+![Navigation- User Not Logged In](documentation/usernotlogin-navbar.png)
 
 #### Navigation - User Logged In
 
