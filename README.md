@@ -491,7 +491,7 @@ Listing of products will vary depending on the selected filter and sort by. When
 
 User can click one selected product and go to directly product detail page.
 
-![Product Detail View](documentation/product-detail-png)
+![Product Detail View](documentation/product-detail.png)
 
 User can click the filter section on shop page and select categories and list  products of each category on page.
 
@@ -543,7 +543,7 @@ If everything goes according to plan and the webhooks between Stripe and the sit
   
 ![order confirm  view](documentation/order-success.png)
 
-![order canceled  view](documentation/order-canceled.png)
+![order canceled  view](documentation/order-cancelled.png)
 
 
 ## Confirmation Email
@@ -585,29 +585,46 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
 
 ### Footer
 
+![Footer](documentation/footer.png)
+
 * Home Page -  User can click the home link and go to home page.
 * Shop Page -  User can click the shop link and go to shop page and  see mix list of products.  
 * Blog Page -  User can click the blog link and go to blog page and see blog posts.
+* Privacy Policy - User can click the privacy policy link an go to privacy page and see rules about Lotus Aura Natural.
 * Contact Page - User can click the contact link and go to contact page.
 * FAQ - User can click the FAQ link and go to FAQ page and read the popular questions and their answers.
+* Newsletter - User can write own real email and subscripe for get information when lotus team add new blog post.
+* Social Media icons -  User can click the facebook icon and see lotus aura natural facebook page.
+* Instagram - If user want to go instagram dashboard click the instagram icon for now Lotus Aura Natural does not have instagram page for marketing.
+* Youtube - If user want to go youtube dashboard click the youtube icon for now Lotus Aura Natural does not have youtube page for marketing.
   
-  ![FAQ PAGE](!!!!!!!!!!!!ekle ekran goruntusu!!!!!!!)
+  
+  ![FAQ PAGE](documentation/questions.png)
 
 * Privacy Policy - User can click the Privacy Policy link and go to hprivacy policy page and get information about site owner and sites' privacy policies.
   
-  ![Privacy Policy](!!!!!!!!!!!!ekle ekran goruntusu!!!!!!!)
+  ![Privacy Policy](documentation/privacy.png)
 
 * Subscribe section - User can write own e mail and subcsribe sites newsletters and get information all about site.
   
-  ![Subscribe section](!!!!!!!!!!!!ekle ekran goruntusu!!!!!!!)
+  ![Subscribe success](documentation/success-subscribe.png)
 
+  
+  ![Subscribe wrong](documentation/wrong-email-subscribe.png)
 
 
 ### Visual Feedback To The User
 
 The sites incorporates flash messages when an action has been performed (i.e. delete/update/add to bag-actions). Examples of this in the screenshots below.
 
-      !!!! ADD ALERT MESSAGE ekran goruntulerini !!!! 
+  ![Flash Messages](documentation/delete.png)
+  ![Flash Messages](documentation/login.png)
+  ![Flash Messages](documentation/update.png)
+  ![Flash Messages](documentation/confirm.png)
+  ![Flash Messages](documentation/favorite.png)
+  ![Flash Messages](documentation/remove.png)
+  ![Flash Messages](documentation/quantity.png)
+  ![Flash Messages](documentation/cart.png)
 
 ### Features Left to Implement
 
@@ -617,6 +634,7 @@ The sites incorporates flash messages when an action has been performed (i.e. de
 * Give the logged in site user the ability to add comments and likes to posts on the blog page
 * Add an admin area with general information (like number of logged in users, number of products and so on)
 * Add more e-mail functionality (i.e email is being sent out when the order has been handled)
+* Add more visual feedback to the user
 
 ## Technologies Used
 
