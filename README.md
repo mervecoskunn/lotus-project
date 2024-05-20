@@ -610,21 +610,28 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
   ![Subscribe success](documentation/success-subscribe.png)
 
   
-  ![Subscribe wrong](documentation/wrong-email-subscribe.png)
+  ![Subscribe wrong](documentation/wrong-mail-subscribe.png)
 
 
 ### Visual Feedback To The User
 
 The sites incorporates flash messages when an action has been performed (i.e. delete/update/add to bag-actions). Examples of this in the screenshots below.
 
-  ![Flash Messages](documentation/delete.png)
-  ![Flash Messages](documentation/login.png)
-  ![Flash Messages](documentation/update.png)
-  ![Flash Messages](documentation/favorite.png)
-  ![Flash Messages](documentation/remove.png)
-  ![Flash Messages](documentation/quantity.png)
-  ![Flash Messages](documentation/cart.png)
-  ![Flash Messages](documentation/confirm.png)
+  * ![Flash Messages](documentation/delete.png
+    
+  * ![Flash Messages](documentation/login.png)
+   
+  * ![Flash Messages](documentation/update.png)
+    
+  * ![Flash Messages](documentation/favorite.png)
+    
+  * ![Flash Messages](documentation/remove.png)
+   
+  * ![Flash Messages](documentation/quantity.png)
+   
+  * ![Flash Messages](documentation/cart.png)
+   
+  * ![Flash Messages](documentation/confirm.png)
 
 ### Features Left to Implement
 
@@ -1461,11 +1468,11 @@ To clone and set up this project you need to follow the steps below.
          
 * All text content written by [Merve Coskun](https://www.linkedin.com/in/merve-coskun-fullstack/).
 * Template for read.me provided by Code Institute (with some additional changes that my mentor Precious Ijege) suggested.
-* [ElephantSql](https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0)
-* [Stripe](https://docs.stripe.com/checkout/quickstart?lang=python)
-* [Registration Email Confirmation](https://www.youtube.com/watch?v=wB1qOExDsYY)
-* [Forgot Password](https://www.youtube.com/watch?v=OF8ucdDmp2Q)
-* [Send Email](https://medium.com/@arifcse21/send-and-email-with-html-template-and-context-data-from-a-django-project-e9606644185c)
+* ElephantSql - [ElephantSql](https://dev.to/diegorramos84/connect-django-to-elephantsql-10g0)
+* Stripe - [Stripe](https://docs.stripe.com/checkout/quickstart?lang=python)
+* Registration Email Confirmation - [Registration Email Confirmation](https://www.youtube.com/watch?v=wB1qOExDsYY)
+* Forgot Password - [Forgot Password](https://www.youtube.com/watch?v=OF8ucdDmp2Q)
+* Send Email - [Send Email](https://medium.com/@arifcse21/send-and-email-with-html-template-and-context-data-from-a-django-project-e9606644185c)
   
 ## Technical
 
