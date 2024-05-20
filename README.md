@@ -480,6 +480,11 @@ We list all the posts shared on the blog page and we can click on the post we wa
 
 ![blog page](documentation/all-blog-posts.png)
 
+#### Contact Page
+
+If user want to contact and send a message to lotus team, user can click the contact on navbar or footer contact link and so that can write a message and send to lotus team and lotus team e-mail adress (lotusauranaturall@gmail.com) take a new mail from message sender.
+
+![contact page](documentation/contact-page.png)
 
 ### Products
 
@@ -632,6 +637,8 @@ The sites incorporates flash messages when an action has been performed (i.e. de
   * ![Flash Messages](documentation/cart.png)
    
   * ![Flash Messages](documentation/confirm.png)
+
+    
 
 ### Features Left to Implement
 
