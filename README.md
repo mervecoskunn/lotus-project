@@ -1389,60 +1389,75 @@ The project was deployed to [Heroku](https://www.heroku.com/github-students). To
 
   import env 
 * Heroku Step 15
+  
   ![Heroku step 15](documentation/heroku_15.png)
 
 * Heroku Step 16
+  
   ![Heroku step 16](documentation/heroku_16.png)
 
-  17. Now we need to make some changes in the database settings the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
-* Heroku Step 17 
+17. Now we need to make some changes in the database settings the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
+    
+* Heroku Step 17
+  
   ![Heroku step 17](documentation/heroku_17.png)
 
   18. Save all your fields and migrate the changes. 
    
   python3 manage.py migrate 
 
-  19. In this project there are quite a lot of config variables that needs to be setup (i.e. AWS, Stripe, e-mail hosts). Some of these settings also needs to be added to the env.py file in Gitpod. The config variables in this projects are:
+19. In this project there are quite a lot of config variables that needs to be setup (i.e. AWS, Stripe, e-mail hosts). Some of these settings also needs to be added to the env.py file in Gitpod. The config variables in this projects are:
   
 * Heroku Step 19
+  
   ![Heroku confiq vars screenshot](documentation/heroku_19.png)
 
-  20. Some of these settings needs to be added to the env.py file in gitpod
+20. Some of these settings needs to be added to the env.py file in gitpod
    
 * Heroku Step 20  
   ![Heroku step 20](documentation/heroku_20.png)
 
-  21.It's very important to add the correct installed apps (that also can be found in the requirements file) in the settings file.
+21.It's very important to add the correct installed apps (that also can be found in the requirements file) in the settings file.
 
 * Heroku Step 21 
    ![Heroku installed_apps screenshot](documentation/heroku_21.png)
   
-  22. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file. We also add some rows connected to Amazon Web Services(which this project uses).
+22. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file. We also add some rows connected to Amazon Web Services(which this project uses).
    
    ![Heroku step 22](documentation/heroku_22.png)
 * Heroku step 23
-   23. Now it's time to link the file to the Heroku templates directory and change the templates directory to TEMPLATES_DIR in the templates array.
+  
+23. Now it's time to link the file to the Heroku templates directory and change the templates directory to TEMPLATES_DIR in the templates array.
 
 * Heroku Step 24
-  24. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to which hosts that are allowed. You might also need to add a CSRF_TRUSTED_ORIGINS line if you are going to run the project locally.
+  
+24. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to which hosts that are allowed. You might also need to add a CSRF_TRUSTED_ORIGINS line if you are going to run the project locally.
+    
    ![Heroku step 24](documentation/heroku_24.png) 
 
-  25. Now we just need to add some files to Gitpod.
+25. Now we just need to add some files to Gitpod.
+    
      * Create 3 folders in the top level directory: media, static, templates
      * Create a file called *Procfile and add the line web: gunicorn PROJ_NAME.wsgi? to it.
   
-  26. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+ 26. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+      
      * git add .
      * git commit -m "Deployment Commit
      * git push
-  27. Before moving on to the Heroku deployment we just need to add one more thing in the config vars. We need to add "PORT" in the KEY input field and "8000" in the VALUE field. If we don't add this there might be problems with the deployment.
-  28. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
-  29. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
+     
+ 27. Before moving on to the Heroku deployment we just need to add one more thing in the config vars. We need to add "PORT" in the KEY input field and "8000" in the VALUE field. If we don't add this there might be problems with the deployment.
+     
+ 28. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+     
+ 29. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
   
   The live link to the 'Lotus Aura Natural' site on Heroku an be found [here](!!!ADD HEROKU LINK!!!). And the Github repository can be found [here](https://github.com/mervecoskunn/lotus-project).
 
 ## How To Fork The Repository On GitHub
+
  To make an independent copy of a repository on Github you can fork the GitHub account. You can then be viewed and it is also possible to do changes in the copy without affecting the original repository. To fork the repository, take these steps:
+ 
   1. After logging in to GitHub, locate the repository. On the top right side of the page there is a 'Fork' button. Click on the button to create a copy of the original repository.
   
 * Github Fork
