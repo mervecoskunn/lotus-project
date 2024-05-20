@@ -14,6 +14,7 @@
         {% if messages %}
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
+        <a href="{{ prev_page }}" class="btn btn-secondary">Go Back</a>
         <div class="col">
             <h2>Order Detail</h2>
         </div>

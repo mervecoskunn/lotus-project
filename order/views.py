@@ -29,7 +29,8 @@ def all_orders(request):
 @login_required
 def order_detail(request, order_id):
     order = Order.objects.get(id=order_id)
-    return render(request, 'order/order_detail.html', {'order': order})
+    prev_page = request.META.get('HTTP_REFERER', '/')
+    return render(request, 'order/order_detail.html', {'order': order, 'prev_page': prev_page})
 
 
 @login_required

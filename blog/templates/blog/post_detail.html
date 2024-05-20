@@ -27,23 +27,26 @@
 
             </div>
         {% endif %}
-        <article class="media content-section" style="max-width: 1000px">
-            <div class="card text-center pb-3">
-                <div class="card-header">{{ post.post_type }}</div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <img class="card-img-top"
-                         src="{{ post.img.url }}"
-                         width="1000"
-                         height="1000">
-                </div>
+        <article style="max-width: 1000px">
+                <a href="{{ prev_page }}" class="btn btn-secondary">Go Back</a>
+            <section class="media content-section">
+                <div class="card text-center pb-3">
+                    <div class="card-header">{{ post.post_type }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <img class="card-img-top"
+                             src="{{ post.img.url }}"
+                             width="1000"
+                             height="1000">
+                    </div>
 
-                <p class="card-text" style="text-align: start; margin-left: 20px">{{ post.content }}</p>
+                    <p class="card-text" style="text-align: start; margin-left: 20px">{{ post.content }}</p>
 
-                <div class="card-footer text-muted" style="text-align: start">
-                    <p style="display: inline; margin-left: 20px">By Admin - {{ post.date_posted|date:"F d, Y" }}</p>
+                    <div class="card-footer text-muted" style="text-align: start">
+                        <p style="display: inline; margin-left: 20px">By Admin - {{ post.date_posted|date:"F d, Y" }}</p>
+                    </div>
                 </div>
-            </div>
+            </section>
         </article>
 
     </section>

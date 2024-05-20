@@ -80,6 +80,7 @@ def shopping(request):
 
 def product_detail(request, product_id):
     product = models.Product.objects.get(id=product_id)
+    prev_page = request.META.get('HTTP_REFERER', '/')
     if not request.user.is_anonymous:
         is_favorited = Profile.objects.get(
             user=request.user).favorites.filter(id=product_id).exists()
@@ -93,12 +94,14 @@ def product_detail(request, product_id):
             "product": product,
             "is_favorited": is_favorited,
             "is_added_to_cart": is_added_to_cart,
-            "quantity": quantity
+            "quantity": quantity,
+            "prev_page": prev_page
         }
     else:
         context = {
             "product": product,
-            "quantity": 1
+            "quantity": 1,
+            "prev_page": prev_page
         }
     return render(request, 'shopping/product_detail.html', context)
 

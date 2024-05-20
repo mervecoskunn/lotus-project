@@ -16,9 +16,12 @@ def post_list(request):
 
 
 def post_detail(request, pk):
+    prev_page = request.META.get('HTTP_REFERER', '/')
+
     post = Post.objects.get(pk=pk)
     context = {
-        'post': post
+        'post': post,
+        'prev_page': prev_page
     }
     return render(request, 'blog/post_detail.html', context)
 
