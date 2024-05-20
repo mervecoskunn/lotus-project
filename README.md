@@ -506,6 +506,12 @@ User can click the filter section on shop page and select categories and list  p
 
 ![Product Sort by](documentation/sortby-products.png)
 
+### Search Product
+
+User can use also search section on the top of the page(product page and home page) and so that user can search specific product and find it easly. But if user write a wrong name or a product that is not available on this website, user will see a message "Nothing Found". If user want to contunie shopping, user can click the button "Continue Shopping" or write another keyword to seach section for find another product.
+
+![Seacrh Product](documentation/nothing-found.png)
+
 #### Product Detail - Add To Favorite or Cart
 
 User can select one product and if user wish to add this product to favorite, user should click the button name of add to favorite on product detail page.
