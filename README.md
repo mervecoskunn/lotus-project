@@ -2,9 +2,8 @@
 Lotus Aura Natural is an e-commerce website that aims to reach interested people who care about natural stones, spiritual items and energy, and allows these people to access up-to-date information and purchase the products they want.
 This is a fictional project that will most likely never be released to the masses. This site was created for Portfolio Project #5 (E-Commerce Applications Portfolio Project), Diploma in Full Stack Software Development at [Code Institute.](https://codeinstitute.net/se/)
 
-[View live website here](!!!!! add heroku link!!!!)
+[View live website here](https://lotus-project-433bebe152ef.herokuapp.com/)
  
-  !!!!! ADD AMIRESPONSIVE DESIGN SCREENSHOT HERE   !!!!!!
 
 ## Table of Content
 
@@ -114,12 +113,12 @@ Required Authentication: 4000002500003155
 Declined Card Number: 4000000000009995
 Exp Date: Any date in the future using the format MM/YY
 CVN: any 3 digit number
-Postcode: any 5 numerals
 Any payments made using a valid debit/credit card will not be processed and the card will not be charged. No orders made will be fulfilled.
 
-For full Admin access to Django Admin panel with relevant sign-in credentials: [Lotus Admin](!!!!!!! django admin panelinin linkini ver!!!!!)
+For full Admin access to Django Admin panel with relevant sign-in credentials: [Lotus Django - Admin](https://lotus-project-433bebe152ef.herokuapp.com/admin/login/?next=/admin/)
 
-For access to Admin Dashboard frontend view with relevant sign-in credentials: [Lotus Admin Dashboard](!!!!frontend admin panelinin lionkini ver!!!!!)
+For access to Admin Dashboard frontend view with relevant sign-in credentials: [Lotus Admin Dashboard](https://lotus-project-433bebe152ef.herokuapp.com/auth/login/)
+If you want to login as super user, you should login as super user(admin) on login section.
 
 
 
@@ -159,7 +158,9 @@ Social Media marketing is a great tool if it's done in the right way. Lotus Aura
 * Lotus Aura Natural - Facebook
   
   ![Lotus aura natural facebook page](documentation/facebook.png)
-
+  
+   [Lotus Aura Natural Facebook  Page Link](https://www.facebook.com/share/WuToGyaF3BRaTbZq/?mibextid=LQQJ4d)
+  
   
   * E-mail marketing One form of reaching out to the customers in an effective way is through e-mail marketing. But in a world with a lot of challenges with spam it is very important to think about the content and who is being targeted. Lotus Aura Natural gives the site users / customers a possibility to sign up for a Lotus Aura Natural newsletter on the Lotus Aura Natural site. The service being used is [Mailchimp](https://mailchimp.com/?currency=SEK) and is an easy way to let the customers know what is happening at Lotus Aura Natural. The content being sent out is personal and can include i.e. advertisment for new blog posts, product of the month, events, co-operations, and discount codes).
   
@@ -280,15 +281,15 @@ Read more about the different pages in the [Features](#Features) section.
 
 In this e-commerce site, plain colors have been used in order to keep the information and products to be presented to the customer as simple and user-oriented as possible. The colors and codes used throughout the site construction are as follows.
 
-!!!!!! ADD COLOURS SCHEMA !!!! 
+![color schema](documentation/color-schema.png)
 
  * Typography
   
-The fonts used for the site are .............!!!!!!!!
- * write here which one font used to project !!!!!!!!!
+The fonts used for the site are poppins because of I wanted to create very simply and usefuly and clear webpage. 
+ * I used poppins , 'sans-serif' font family for this project
+ * I used different font-weights for this project and they are 300, 400,500,600,700
  * 
- * 
- [!!! ADD FONTAWSOME screenshots about fonts !!!!! ]()
+ ![Font Family](documentation/font-family.png)
 
 # Features
 
