@@ -17,13 +17,13 @@ from django.conf import settings
 def orders(request):
     user_profile = request.user.profile
     orders = user_profile.orders.all()
-    return render(request, 'order/orders.html', {'orders': orders})
+    return render(request, 'order/orders.html', {'orders': orders, 'prev_page': 'orders'})
 
 
 @login_required
 def all_orders(request):
     orders = Order.objects.all()
-    return render(request, 'order/orders.html', {'orders': orders})
+    return render(request, 'order/orders.html', {'orders': orders, 'prev_page': 'all_orders'})
 
 
 @login_required
@@ -38,11 +38,11 @@ def edit_order(request, order_id):
     order = Order.objects.get(id=order_id)
     if request.method == 'POST':
         status = request.POST.get('status')
+        prev_page = request.POST.get('prev_page')
         order.status = status
         order.save()
         messages.success(request, 'Order status updated successfully.')
-        return redirect('orders')
-    return render(request, 'order/edit_order.html', {'order': order})
+        return redirect(prev_page)
 
 
 @login_required
