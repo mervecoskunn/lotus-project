@@ -11,13 +11,5 @@ class Post(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
 
-    def delete(self, *args, **kwargs):
-        # Delete the image file associated with the post
-        if self.img:
-            if os.path.isfile(self.img.path):
-                os.remove(self.img.path)
-        # Call the parent class' delete method to delete the Post instance
-        super().delete(*args, **kwargs)
-
     def __str__(self):
         return self.title
