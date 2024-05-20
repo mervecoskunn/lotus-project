@@ -1402,10 +1402,10 @@ The project was deployed to [Heroku](https://www.heroku.com/github-students). To
    
   python3 manage.py migrate 
 
-  19. In this project there are quite a lot of config variables that needs to be setup (i.e. Claudinary, Stripe, e-mail hosts). Some of these settings also needs to be added to the env.py file in Gitpod. The config variables in this projects are:
+  19. In this project there are quite a lot of config variables that needs to be setup (i.e. AWS, Stripe, e-mail hosts). Some of these settings also needs to be added to the env.py file in Gitpod. The config variables in this projects are:
   
 * Heroku Step 19
-  ![Heroku confiq vars screenshot]()
+  ![Heroku confiq vars screenshot](documentation/heroku_19.png)
 
   20. Some of these settings needs to be added to the env.py file in gitpod
    
@@ -1415,7 +1415,7 @@ The project was deployed to [Heroku](https://www.heroku.com/github-students). To
   21.It's very important to add the correct installed apps (that also can be found in the requirements file) in the settings file.
 
 * Heroku Step 21 
-   ![Heroku installed_apps screenshot]()
+   ![Heroku installed_apps screenshot](documentation/heroku_21.png)
   
   22. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file. We also add some rows connected to Amazon Web Services(which this project uses).
    
