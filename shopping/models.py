@@ -32,7 +32,9 @@ class Product(models.Model):
     )
 
     name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6,
+                                decimal_places=2,
+                                validators=[MinValueValidator(0.0)])
     category = models.CharField(
         max_length=255, choices=category_choices)
     description = models.TextField()
