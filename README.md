@@ -637,7 +637,7 @@ Our application includes a custom 500 error page that is displayed when the serv
 
 The sites incorporates flash messages when an action has been performed (i.e. delete/update/add to bag-actions). Examples of this in the screenshots below.
 
-  * ![Flash Messages](documentation/delete.png
+  * ![Flash Messages](documentation/delete.png)
     
   * ![Flash Messages](documentation/login.png)
    
