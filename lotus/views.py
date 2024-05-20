@@ -105,7 +105,6 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        user = request.user
         # Get contact email
         html_content = render_to_string(
             template_name="lotus/contact_email.html",
@@ -126,6 +125,9 @@ def contact(request):
             html_message=html_content,
             fail_silently=True
         )
+
+        models.Contact.objects.create(
+            name=name, email=email, message=message).save()
 
         messages.success(request, "Your message has been sent successfully!")
     return render(request, 'lotus/contact.html')
