@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Post</title>
+    </head>
+    <body>
+        <p>A new post has been added. Check it out on the blog page.</p>
+        <a href="{{ protocol }}://{{ domain }}/{% url 'post_detail' post_id %}">New Post</a>
+    </body>
+</html>
