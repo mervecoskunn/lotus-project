@@ -28,7 +28,6 @@ def shopping(request):
         search_key = request.POST.get('search_key')
         filter_key_values = get_filter_key_values(request.POST)
         sort_option = request.POST.get('sort_option')
-        print('sort_option', sort_option)
         if search_key is not None:
             search_results = get_search_results(search_key)
             p = Paginator(search_results, 6)
@@ -185,7 +184,6 @@ def decrease_quantity(request, cart_product_id):
 
 @login_required
 def add_product(request):
-    print(request.POST)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():

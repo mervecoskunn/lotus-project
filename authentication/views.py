@@ -21,7 +21,6 @@ def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         is_admin = True if email.lower() == 'admin' else False
-        print('is_admin: ', is_admin)
         email = email if email.lower() != 'admin' else os.environ.get('ADMIN_EMAIL')
         username = email.split('@')[0]
         password = request.POST.get('password')

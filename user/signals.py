@@ -22,4 +22,3 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         # Create a Profile associated with the newly created User
         Profile.objects.create(user=instance).save()
-        print('Profile created')

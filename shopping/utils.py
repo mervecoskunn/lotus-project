@@ -14,7 +14,6 @@ sort_options = [
 
 def get_filter_key_values(post_data) -> list:
     sent_keys = [post_data.get(key) for key in filter_keys]
-    print(sent_keys)
     return list(filter(lambda key: post_data.get(key) is not None, sent_keys))
 
 

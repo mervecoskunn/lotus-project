@@ -89,7 +89,6 @@ def create_checkout_session(request):
     cart_id = request.POST.get('cart_id')
     cart = Cart.objects.get(id=cart_id)
     total_price = int(cart.total * 100)
-    print(cart)
     checkout_session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[
