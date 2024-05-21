@@ -924,6 +924,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | Main Website - User Logged Out - Navigation                            |
 |--------- |----------------------------------------------------------------------- |
+| ✓        |Home page top menu has a section is there write a message about freeshipping|
 | ✓        |Typing in a incorrect URL on the page loads the 404 error page          |
 | ✓        |Pasting page that needs authentication opens the sing in page or views a forbidden page|
 | ✓        | 	Clicking the nav logo loads the home page                              |
@@ -940,15 +941,15 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | ✓        | 	Clicking the incence link in the filter menu lists all products within the category incence|
 | ✓        | 	Clicking the Register link in the menu loads the sign up page           |
 | ✓        | 	Clicking the Login link in the  menu loads the loginpage                |
-| ✓        | 	Clicking on the cart link in the menu bar loads the shopping bag page   |
+| ✓        | 	Clicking on the cart link in the menu bar loads the cart page           |
 | ✓        | 	Clicking on the favorites link in the menu bar loads the favorites page |
-| ✓        | 	Input an empty query in the search box triggers an error messages and lists all products|
 | ✓        | 	Input a valid query in the search box lists the correct products        |
 
 
-| Status   | 	Main Website - User Logged Out - Home Page Top Image                    |
-|--------- |--------------------------------------------------------------------------|
-| ✓        | 	1 image is being looded in the top of home page                         |
+| Status   | 	Main Website - User Logged Out - Home Page Top Image                      |
+|--------- |----------------------------------------------------------------------------|
+| ✓        |Home page top menu has a section is there write a message about freeshipping|
+| ✓        | 	1 image is being looded in the top of home page                           |
 | ✓        | 	On image 1 the call to action button 'Start Shopping' loads the product page and lists all products. |
 
 
@@ -963,7 +964,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | 	Main Website - User Logged Out - Blog - View All Blog Posts                    |
 |--------- |---------------------------------------------------------------------------------|
-| ✓        | 	6 Products are rendered for the user on the product pages before pagination is activated  |
+| ✓        | 	6 posts are rendered for the user on the blog page before pagination is activated|
 | ✓        | 	Clicking the Read More button on a blog post card loads the blog detail page   |
 | ✓        | 	When clicking on the pagination previous / next buttons the previous / next 6 posts are being rendered   |
 | ✓        | 	When clicking on the pagination first / last buttons the first / last 6 posts are being rendered|
@@ -972,53 +973,53 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | 	Main Website - User Logged Out - Products                                      |
 |--------- |---------------------------------------------------------------------------------|
-| ✓        | 	When using the sorting function below the shop page headline the products are being sorted accordingly.  |
+| ✓        | 	When using the sorting function below the cart page headline the products are being sorted accordingly.  |
 | ✓        | 	6 Products are rendered for the user on the shop pages before pagination is activated  |
 | ✓        | 	When clicking on the pagination previous / next buttons the previous / next 6 products are being rendered   |
 | ✓        | 	When clicking on the pagination first / last buttons the first / last 9 products are being rendered|
 | ✓        | 	Clicking the Read More button on a product loads the product detail page        |
 | ✓        | 	When adding products to the cart the total updates correctly to the right of the cart symbol in the menu.  |
-| ✓        | 	Clicking the Keep Shopping button on the product detail page lists all products  |
-| ✓        | 	Clicking the Add To Bag button on the product detail page adds the quantity to the shopping bag and shows a flash message with the bag content and totals in the top right together (with a working link to the shopping bag)  |
-| ✓        | 	Clicking the Add To Favorites button on the product detail page opens the sign-in page because wishlists only works for logged in users  |
+| ✓        | 	Clicking the Continue Shopping button on the product detail page lists all products  |
+| ✓        | 	Clicking the Add To Cart button on the product detail page adds the quantity to the shopping cart and shows a flash message with the cart content and totals in the top right together (with a working link to the shopping cart)  |
+| ✓        | 	Clicking the Add To Favorites button on the product detail page opens the sign-in page because favorites only works for logged in users  |
 | ✓        | 	It's possible to change the quantity on the product detail page                 |
 | ✓        | 	When clicking on the product image on the product detail page a modal opens with the image                 |
 
 
-| Status   | 	Main Website - User Logged Out - Cart                                  |
-|--------- |----------------------------------------------------------------------------------|
-| ✓        | 	The correct products and information are showing in the cart           |
-| ✓        | 	When changing the quantity and click update the quantity updates                |
-| ✓        | 	When clicking the remove link the product is being removed from the cart|
-| ✓        | 	Clicking the Keep Shopping button on the product detail page lists all products |
-| ✓        | 	Clicking the Secure Checkout button on the product detail page loads the secure checkout page   |
+| Status   | 	Main Website - User Logged Out - Cart                                                        |
+|--------- |-----------------------------------------------------------------------------------------------|
+| ✓        | 	The correct products and information are showing in the cart                                 |
+| ✓        | 	When changing the quantity and click update the quantity updates                             |
+| ✓        | 	When clicking the remove link the product is being removed from the cart                     |
+| ✓        | 	Clicking the Contunie Shopping button on the product detail page lists all products          |
+| ✓        | 	Clicking the Secure Checkout button on the product detail page loads the secure checkout page|
 
 
 | Status   | 	Main Website - User Logged Out - Checkout                                       |
 |--------- |----------------------------------------------------------------------------------|
 | ✓        | 	The correct products, information and delivery amount are showing in the order summary (including correct quantity of product) |
-| ✓        |  The form validation is working except that the Full Name field can include numbers and the phone number field can include text                |
+| ✓        |  The form validation is working except that the Full Name field can include numbers and the phone number field can include text |
 | ✓        | 	In the bottom of the form an option log in or sign up is visible                |
 | ✓        | 	When clicking the Adjust Bag Button the Shopping Bag page loads                 |
 | ✓        | 	The payment with card number is working correctly (tested with Stripe test numbers)   |
 | ✓        | 	The payment with card number that needs to be authenticated is working correctly (tested with Stripe test numbers). The authentication window is visible.   |
 
 
-| Status   | 	Main Website - User Logged Out - Order Confirmation Page                                       |
+| Status   | 	Main Website - User Logged Out - Order Confirmation Page                        |
 |--------- |----------------------------------------------------------------------------------|
 | ✓        | The correct products, information and delivery amount are showing in the order confirmation and an e-mail has been sent to the registered site user e-mail                   |
 | ✓        | Webhooks are working and is confirmed in Stripe developer dashboard              |
-| ✓        | When clicking the Back To The Store button all products are being listed                |
+| ✓        | When clicking the Back To The Store button all products are being listed         |
 
 | Status   | 	Main Website - User Logged Out - Footer                                         |
 |--------- |----------------------------------------------------------------------------------|
-| ✓        | Clicking the Instagram link in the footer area opens Instagram in a new window                  |
-| ✓        | Clicking the Facebook link in the footer area opens Facebook in a new window                  |
-| ✓        | Register a valid e-mail address in the e-mail signup in the footer is working         |
-| ✓        | Register a non-valid e-mail address in the e-mail signup in the footer triggers an error message                   |
-| ✓        | Clicking the Lotus Aura Natural link in the footer area opens the Lotus Aura Natural site in a new window             |
-| ✓        | Clicking the Privacy Policy link in the footer area opens loads the privacy policy page        |
-| ✓        | Clicking the FAQ link in the footer area opens loads the FAQ page                   |
+| ✓        | Clicking the Instagram link in the footer area opens Instagram in a new window   |
+| ✓        | Clicking the Facebook link in the footer area opens Facebook in a new window     |
+| ✓        | Register a valid e-mail address in the e-mail signup in the footer is working    |
+| ✓        | Register a non-valid e-mail address in the e-mail signup in the footer triggers an error message|
+| ✓        | Clicking the Lotus Aura Natural link in the footer area opens the Lotus Aura Natural site in a new window|
+| ✓        | Clicking the Privacy Policy link in the footer area opens loads the privacy policy page|
+| ✓        | Clicking the FAQ link in the footer area opens loads the FAQ page                |
 
 
 
@@ -1028,8 +1029,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | Status   | Main Website - User Logged In - Navigation                            |
 |--------- |----------------------------------------------------------------------- |
 | ✓        |Typing in a incorrect URL on the page loads the 404 error page          |
-| ✓        |Pasting page that needs authentication opens the sing in page or views a forbidden page|
-| ✓        | 	Clicking the nav logo loads the home page                              |
+| ✓        | 	Clicking the nav logo loads the home page                             |
 | ✓        | 	Clicking the Home button on the nav bar loads the home page and views the carousel and blog posts|
 | ✓        | 	Clicking the By Price link in the Products menu lists all products and sorts them by price.|
 | ✓        | 	Clicking the By Name link in the Products menu lists all products and sorts them by name.|
@@ -1168,13 +1168,15 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | Main Website - Admin Logged In - Blog                                            |
 |--------- |----------------------------------------------------------------------------------|
-| ✓        | The 3 latest blog posts are rendered for the user on the home page                                        |
-| ✓        | Clicking the View All Blog Posts button loads the View All Blog Posts page                  |
+| ✓        | The 3 latest blog posts are rendered for the user on the home page               |
+| ✓        | Clicking the View All Blog Posts button loads the View All Blog Posts page       |
 | ✓        | The correct image and information for each blog post is being shown.             |
 | ✓        | Clicking the Read More button on a blog post card loads the blog detail page    |
-| ✓        | Clicking the Tag on the blog post card loads the blog posts with the same tags             |
 | ✓        | Clicking the Back To Home button on the blog detail page loads the home page    |
-| ✓        | When clicking the Edit button to the right of the Read More button below the blog post the blog management edit page is loaded    |
+| ✓        | When clicking the Edit button the up blog post the blog management edit page is loaded|
+| ✓        | When clicking the Delete button the up blog post the blog management delete confirm message page is loaded|
+| ✓        | When clicking the Save Draft button admin can save as draft post and so that admin can contunie and finish blog post later|
+| ✓        | When clicking the Draft posts button admin can view all draft posts and its page is loaded|
 
 | Status   | Main Website - Admin Logged In - Blog - View All Blog Posts                      |
 |--------- |----------------------------------------------------------------------------------|
@@ -1183,7 +1185,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | ✓        | When clicking on the pagination previous / next buttons the previous / next 6 posts are being rendered   |
 | ✓        | When clicking on the pagination first / last buttons the first / last 6 posts are being rendered   |
 | ✓        | Clicking the Back To Home button on the blog detail page loads the home page   |
-| ✓        | When clicking the Edit button to the right of the Read More button below the blog post the blog management edit page is loaded    |
+| ✓        | When clicking the Edit button below the blog post the blog management edit page is loaded    |
 
 
 | Status   | Main Website - Admin Logged In - Products                                        |
@@ -1194,33 +1196,32 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | ✓        | When clicking on the pagination first / last buttons the first / last 6 products are being rendered   |
 | ✓        | Clicking the Read More button on a product loads the product detail page   |
 | ✓        | Clicking the Category on the product card / product detail loads the products with the same category   |
-| ✓        | When clicking the Edit button to the right of the Read More button below the product the product management edit page is loaded   |
+| ✓        | When clicking the Edit button below the product the product management edit page is loaded   |
 | ✓        | The correct image and information for each product is being shown    |
 | ✓        | When adding products to the cart the total updates correctly to the right of the cart symbol in the menu.    |
-| ✓        | Clicking the Keep Shopping button on the product detail page lists all products    |
-| ✓        | Clicking the Add To Bag button on the product detail page adds the quantity to the cart and shows a flash message with the cart content and totals in the top right together (with a working link to the cart)   |
+| ✓        | Clicking the Contunie Shopping button on the product detail page lists all mix products    |
+| ✓        | Clicking the Add To Cart button on the product detail page adds the quantity to the cart and shows a flash message with the cart content and totals in the top right together (with a working link to the cart)   |
 | ✓        | Clicking the Add To favorites button on the product detail page adds the product to the users favorites |
 | ✓        | It's possible to change the quantity on the product detail page                    |
 | ✓        | When clicking on the product image on the product detail page a modal opens with the image  |
-| ✓        | When clicking the Edit button to the right of the Add To The Wishlist button below the product the product management edit page is loaded   |
+| ✓        | When clicking the Edit button admin can view the product management edit page is loaded   |
 
 
 
 | Status   | Main Website - Admin Logged In - Product Management - Add Product                                       |
 |--------- |---------------------------------------------------------------------------------------------------------|
 | ✓        | The form validation is working and does not accept negative numbers on price field |
+| ✓        | The form validation is working and does not accept negative numbers on rating field |
 | ✓        | When setting the status to draft the product is not visible in the product list for ordinary users |
-| ✓        | When not adding an image to the product a default image is being used instead automatically        |
 | ✓        | When doing a search in the product list the correct products are being shown in the list (and the correct amount is being shown as well) |
 | ✓        | When clicking the Cancel button the standard product view is being loaded and all products are being listed|
-| ✓        | When clicking the Add Product button the standard product view is being loaded viewing the newly added product |
+| ✓        | When clicking the add product button, admin can create a new product |
 
 
 | Status   | Main Website - Admin Logged In - Product Management - Edit Product                                      |
 |--------- |---------------------------------------------------------------------------------------------------------|
-| ✓        | When clicking the Edit button the form is prefilled with the product information and the action is changed to 'You are editing this product'.    |
-| ✓        | When clicking the Delete Product button a warning modal is being loaded for confirmation. After confirmation the Add Product page is being loaded|
-| ✓        | When doing a search in the blog history list the correct blog posts are being shown in the list (and the correct amount is being shown as well)  |
+| ✓        | When clicking the Edit button the product, admin can update or change something on the product and save it so that updated product |
+| ✓        | When clicking the Delete Product button admin can delete it after this section admin can see a flash message "product deleted"|
 | ✓        | When clicking the Cancel button the Add Product page is being loaded                                    |
 | ✓        | When clicking the Update button Product Detail page is being loaded viewing the newly updated product   |
 
@@ -1229,27 +1230,25 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 |--------- |---------------------------------------------------------------------------------------------------------|
 | ✓        | The form validation is working                                                                          |
 | ✓        | When setting the status to draft the blog post is not visible in the blog area on the home page for ordinary users|
-| ✓        | When not adding an image to the blog post a default image is being used instead automatically           |
+| ✓        | Admin add a photo 400X400 size(This is for a cower site design), add title, content                     |
 | ✓        | When clicking the Cancel button the home page is being loaded                                           |
 | ✓        | When clicking the Add Blog Post button the product detail is being loaded viewing the newly created blog post   |
-| ✓        | When doing a search in the blog history list the correct blog posts are being shown in the list (and the correct amount is being shown as well)  |
+
 
 
 | Status   | Main Website - Admin Logged In - Product Management - Edit Blog Post                                    |
 |--------- |---------------------------------------------------------------------------------------------------------|
-| ✓        | When clicking the Edit button the form is prefilled with the blog post information and the action is changed to 'You are editing this post'.|
-| ✓        | When clicking the Delete Post button a warning modal is being loaded for confirmation. After confirmation the Add Blog Post page is being loaded|
+| ✓        | When clicking the Edit button admin can update something on this post and update the post.              |
+| ✓        | When clicking the Delete Post button admin can delete the post and then admin will see a flash message "deleted success"|
 | ✓        | When clicking the Cancel button the Add Blog Post page is being loaded|
 | ✓        | When clicking the Update button Blog Post Detail page is being loaded viewing the newly updated blog post|
-| ✓        | When doing a search in the blog history list the correct blog posts are being shown in the list (and the correct amount is being shown as well)|
 
 
 | Status   | Main Website - Admin Logged In - Checkout                                                               |
 |--------- |---------------------------------------------------------------------------------------------------------|
 | ✓        | The correct products, information and delivery amount are showing in the order summary                  |
 | ✓        | It the user has updated the profile information the information is prefilled in the form.               |
-| ✓        | If the bottom of the form an option to save the delivery inforation to the users profile is visible     |
-| ✓        | When clicking the Adjust Bag Button the cart page loads                                                 |
+| ✓        | If the bottom of the form an option to save the delivery information to the users profile is visible     |
 | ✓        | The payment with card number is working correctly (tested with Stripe test numbers)                     |
 | ✓        | The payment with card number that needs to be authenticated is working correctly (tested with Stripe test numbers). The authentication window is visible.|
 
@@ -1259,18 +1258,17 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 |--------- |---------------------------------------------------------------------------------------------------------|
 | ✓        | The correct products, information and delivery amount are showing in the order confirmation and an e-mail has been sent to the registered site user e-mail|
 | ✓        | Webhooks are working and is confirmed in Stripe developer dashboard                                     |
-| ✓        | When clicking the Back To The Store button all products are being listed                                |
 
 
-| Status   | Main Website - Admin Logged In - Footer                                                                 |
-|--------- |---------------------------------------------------------------------------------------------------------|
-| ✓        | Clicking the Instagram link in the footer area opens Instagram in a new window                          |
-| ✓        | Clicking the Facebook link in the footer area opens Facebook in a new window                            |
-| ✓        | Register a valid e-mail address in the e-mail signup in the footer is working                           |
-| ✓        | Register a non-valid e-mail address in the e-mail signup in the footer triggers an error message        |
-| ✓        | Clicking the Privacy Policy link in the footer area opens loads the privacy policy page                 |
-| ✓        | Clicking the FAQ link in the footer area opens loads the FAQ page                                       |
-
+| Status   | Main Website - Admin Logged In - Footer                                                                        |
+|--------- |----------------------------------------------------------------------------------------------------------------|
+| ✓        | Clicking the Instagram link in the footer area opens Instagram in a new window                                 |
+| ✓        | Clicking the Facebook link in the footer area opens Facebook in a new window (Lotus Aura Natural facebook page)|
+| ✓        | Register a valid e-mail address in the e-mail subscribtion                                                     |
+| ✓        | Register a non-valid e-mail address in the e-mail subscribtion in the footer triggers an error message         |
+| ✓        | Clicking the Privacy Policy link in the footer area opens loads the privacy policy page                        |
+| ✓        | Clicking the FAQ link in the footer area opens loads the FAQ page                                              |
+| ✓        | Clicking the Blog link in the footer area opens loads the all blog posts page                                  |
 
 
 
@@ -1312,20 +1310,27 @@ The responsive design tests were carried out manually with [Google Chrome DevToo
 
 Google Lighthouse in Chrome Developer Tools was used to test the site within the areas of Performance, Accessibility, Best Practices and SEO. I tested the home page, view all blog posts page, view all products page, product management page and blog management page. The testing showed the following:
 
-  * Home Page - 
-  * View All Blog Posts Page -
-  * View All Products Page - 
-  * Product Management - 
-  * Blog Management - 
+  * Home Page  
+  * View All Blog Posts Page 
+  * View All Products Page  
+  * Product Management  
+  * Blog Management  
 
 * Lighthouse Home Result
-  [Lighthouse Home Result](!!!add!!!)
+  
+![Lighthouse Home Result](documentation/lighthouse-test.png)
+  
 * Lighthouse View All ProductsPage Results
-  [Lighthouse Home Result](!!!add!!!)
+  
+![Lighthouse Home Result](documentation/lighthouse-1.png)
+  
 * Lighthouse Product Management Result
-  [Lighthouse Home Result](!!!add!!!)
+  
+![Lighthouse Home Result](documentation/lighthouse-2.png)
+  
 * Lighthouse Blog Management Result
-  [Lighthouse Home Result](!!!add!!!)
+  
+![Lighthouse Home Result](documentation/lighthouse-3.png)
 
 ### Known Bugs
 
