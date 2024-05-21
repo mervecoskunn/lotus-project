@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_title %}
-    Lotus - Posts
+    Lotus - Draft Posts
 {% endblock page_title %}
 
 
@@ -12,7 +12,7 @@
 
 {% block header %}
     <section>
-        {% include "includes/banner.html" with page_name="Posts" %}
+        {% include "includes/banner.html" with page_name="Draft Posts" %}
     </section>
 {% endblock header %}
 
@@ -22,13 +22,10 @@
         {% if messages %}
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
-        {% if user.is_superuser %}
-            <a href="{% url "post_new" %}" class="btn btn-primary">Add New Post</a>
-            <a href="{% url "draft_post_list" %}" class="btn btn-secondary">See Draft Posts</a>
-        {% endif %}
+
         <div class="row justify-content-center">
-            {% for post in post_list %}
-                {% include "blog/includes/post.html" with post=post is_draft=False %}
+            {% for post in draft_post_list %}
+                {% include "blog/includes/post.html" with post=post is_draft=True %}
             {% endfor %}
         </div>
     </main>

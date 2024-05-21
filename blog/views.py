@@ -1,7 +1,7 @@
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.shortcuts import render, redirect
-from .models import Post, Newsletter
+from .models import Post, Newsletter, DraftPost
 from django.contrib import messages
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
@@ -92,10 +92,81 @@ def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            post = form.save()
-            messages.success(request, 'Post added successfully')
-            send_email_to_subscribers(request, post)
-            return redirect('post_list')  # Redirect to the post list page
+            if 'save_as_draft' in request.POST:
+                # Save as draft
+                draft_post = DraftPost(
+                    img=form.cleaned_data['img'],
+                    title=form.cleaned_data['title'],
+                    content=form.cleaned_data['content']
+                )
+                draft_post.save()
+                # Redirect to the list of draft posts or any other appropriate page
+                return redirect('draft_post_list')
+            else:
+                post = form.save()
+                messages.success(request, 'Post added successfully')
+                send_email_to_subscribers(request, post)
+                return redirect('post_list')  # Redirect to the post list page
     else:
         form = PostForm()
     return render(request, 'blog/post_new.html', {'form': form})
+
+
+@login_required
+def draft_post_list(request):
+    draft_post_list = DraftPost.objects.all()
+    context = {
+        'draft_post_list': draft_post_list
+    }
+    return render(request, 'blog/draft_post_list.html', context)
+
+
+@login_required
+def draft_post_detail(request, pk):
+    draft_post = DraftPost.objects.get(pk=pk)
+    prev_page = request.META.get('HTTP_REFERER', '/')
+    context = {
+        'post': draft_post,
+        'prev_page': prev_page
+    }
+    return render(request, 'blog/draft_post_detail.html', context)
+
+
+@login_required
+def draft_post_edit(request, pk):
+    draft_post = DraftPost.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=draft_post)
+        if form.is_valid():
+            draft_post = form.save(commit=False)
+            post = Post.objects.create(
+                img=draft_post.img,
+                title=draft_post.title,
+                content=draft_post.content
+            )
+            post.save()
+            draft_post.delete()
+            messages.success(request, 'Draft post finished successfully')
+            send_email_to_subscribers(request, post)
+            return redirect('draft_post_list')
+
+    else:
+        form = PostForm(instance=draft_post)
+    return render(request, 'blog/draft_post_edit.html', {'form': form})
+
+
+@login_required
+def draft_post_delete(request, pk):
+    draft_post = DraftPost.objects.get(pk=pk)
+    draft_post.delete()
+    messages.success(request, 'Draft post deleted successfully')
+    return redirect('draft_post_list')
+
+
+@login_required
+def draft_post_confirm_delete(request, pk):
+    draft_post = DraftPost.objects.get(pk=pk)
+    context = {
+        'post': draft_post
+    }
+    return render(request, 'blog/draft_post_confirm_delete.html', context)

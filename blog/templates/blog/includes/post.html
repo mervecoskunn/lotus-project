@@ -11,8 +11,15 @@
             <p class="card-text blog-content"
                style="max-height: 58px;
                       min-height:58px">{{ post.content }}</p>
-            <a href="{% url "post_detail" post.id %}"
-               class="btn btn-outline-secondary">Read more</a>
+
+            {% if is_draft == True %}
+                <a href="{% url "draft_post_detail" post.id %}"
+                   class="btn btn-outline-secondary">Read more</a>
+            {% else %}
+                <a href="{% url "post_detail" post.id %}"
+                   class="btn btn-outline-secondary">Read more</a>
+            {% endif %}
+
         </div>
         <div class="card-footer text-body-secondary">By Admin | {{ post.date_posted }}</div>
     </div>

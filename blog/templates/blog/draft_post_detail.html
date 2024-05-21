@@ -1,0 +1,54 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block lotus_css_files %}
+
+    <link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="Draft Post Detail" %}
+    </section>
+{% endblock header %}
+
+
+{% block lotus_content %}
+
+    <section class="post-detail-container mt-5">
+
+        {% if user.is_superuser %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                   href="{% url 'draft_post_edit' post.id %}">Finish</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1"
+                   href="{% url 'draft_post_confirm_delete' post.id %}">Delete</a>
+
+            </div>
+        {% endif %}
+        <article style="max-width: 1000px">
+            <a href="{{ prev_page }}" class="btn btn-secondary">Go Back</a>
+            <section class="media content-section">
+                <div class="card text-center pb-3">
+                    <div class="card-header">{{ post.post_type }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <img class="card-img-top"
+                             src="{{ post.img.url }}"
+                             width="1000"
+                             height="1000">
+                    </div>
+
+                    <p class="card-text" style="text-align: start; margin-left: 20px">{{ post.content }}</p>
+
+                    <div class="card-footer text-muted" style="text-align: start">
+                        <p style="display: inline; margin-left: 20px">By Admin - {{ post.date_posted|date:"F d, Y" }}</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+    </section>
+
+{% endblock lotus_content %}

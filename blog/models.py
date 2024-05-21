@@ -12,6 +12,15 @@ class Post(models.Model):
         return self.title
 
 
+class DraftPost(models.Model):
+    img = models.ImageField(upload_to='drafts', null=True)
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

@@ -9,4 +9,13 @@ urlpatterns = [
     path('post/<int:pk>/post_confirm_delete/', blog_views.post_confirm_delete,
          name='post_confirm_delete'),
     path('post/<int:pk>/delete/', blog_views.post_delete, name='post_delete'),
+    path('drafts/', blog_views.draft_post_list, name='draft_post_list'),
+    path('drafts/<int:pk>', blog_views.draft_post_detail, name='draft_post_detail'),
+    path('drafts/<int:pk>/edit/', blog_views.draft_post_edit,
+         name='draft_post_edit'),
+    path('drafts/<int:pk>/delete/', blog_views.draft_post_delete,
+         name='draft_post_delete'),
+    path('drafts/<int:pk>/draft_post_confirm_delete/',
+         blog_views.draft_post_confirm_delete, name='draft_post_confirm_delete'),
+
 ]
