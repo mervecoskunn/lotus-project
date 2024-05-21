@@ -22,10 +22,6 @@ def home(request):
     return render(request, 'lotus/home.html', context)
 
 
-def contact(request):
-    return render(request, 'lotus/contact.html')
-
-
 def privacy_policy(request):
     return render(request, 'lotus/privacy-policy.html')
 
