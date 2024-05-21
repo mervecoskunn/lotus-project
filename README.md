@@ -628,7 +628,7 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
   
   ![Subscribe wrong](documentation/wrong-mail-subscribe.png)
 
-* When a new blog is added to the blog page, an informative e-mail is sent to those who subscribe, and in this way, those who subscribe are provided with new and up-to-date information.
+* When a new blog post is added to the blog page, an informative e-mail is sent to those who subscribe, and in this way, those who subscribe are provided with new and up-to-date information.
 
  ![Subscribe wrong](documentation/new-post-mail.png)
 
@@ -673,6 +673,7 @@ The sites incorporates flash messages when an action has been performed (i.e. de
 * Add an admin area with general information (like number of logged in users, number of products and so on)
 * Add more e-mail functionality (i.e email is being sent out when the order has been handled)
 * Add more visual feedback to the user
+* Add product draft feature to admin page
 
 ## Technologies Used
 
@@ -909,7 +910,7 @@ App User
 
 
 
-#### Javascript Validation                  !!!!!!!!!!!!!
+#### Javascript Validation
 The [JSHint](https://jshint.com/) validator results can be seen below:
 
 No errors were returned when passing through JSHint but the test with no errors.
@@ -952,8 +953,8 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | 	Main Website - User Logged Out - Home Page Top Image                      |
 |--------- |----------------------------------------------------------------------------|
-| ✓        |Home page top menu has a section is there write a message about freeshipping|
-| ✓        | 	1 image is being looded in the top of home page                           |
+| ✓        |  Home page top menu has a section is there write a message about freeshipping|
+| ✓        | 	1 image is being looded in the top of home page                             |
 | ✓        | 	On image 1 the call to action button 'Start Shopping' loads the product page and lists all products. |
 
 
@@ -1181,6 +1182,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | ✓        | When clicking the Delete button the up blog post the blog management delete confirm message page is loaded|
 | ✓        | When clicking the Save Draft button admin can save as draft post and so that admin can contunie and finish blog post later|
 | ✓        | When clicking the Draft posts button admin can view all draft posts and its page is loaded|
+| ✓        | When clicking the finish on the single draft post admin can contunie create a post and when save this draft post, status of this post will change and this post created and published on blog page |
 
 | Status   | Main Website - Admin Logged In - Blog - View All Blog Posts                      |
 |--------- |----------------------------------------------------------------------------------|
