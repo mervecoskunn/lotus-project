@@ -628,6 +628,10 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
   
   ![Subscribe wrong](documentation/wrong-mail-subscribe.png)
 
+* When a new blog is added to the blog page, an informative e-mail is sent to those who subscribe, and in this way, those who subscribe are provided with new and up-to-date information.
+
+ ![Subscribe wrong](documentation/new-post-mail.png)
+
 ### 404 Error Page
 
 Our application features a custom 404 error page that appears when users attempt to access a non-existent page. This page is designed to inform users and redirect them to the homepage or other important sections of the site. The purpose of the 404 error page is to improve user experience and help lost visitors find their way back.
