@@ -83,8 +83,11 @@ def cancel(request):
 
 @login_required
 def create_checkout_session(request):
+    print("Lotus Log: create_checkout_session")
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    DOMAIN = get_current_site(request).domain,
+    protocol = "https" if request.is_secure() else "http"
+    DOMAIN = protocol + '://' + get_current_site(request).domain
+    print("Lotus Log: DOMAIN: ", DOMAIN)
 
     cart_id = request.POST.get('cart_id')
     cart = Cart.objects.get(id=cart_id)
@@ -108,5 +111,6 @@ def create_checkout_session(request):
         success_url=DOMAIN + '/order/success',
         cancel_url=DOMAIN + '/order/cancel',
     )
+    print("Lotus Log: checkout_session: ", checkout_session)
 
     return redirect(checkout_session.url, code=303)

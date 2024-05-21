@@ -100,10 +100,13 @@ def subscription(request):
 
 
 def contact(request):
+    print("Lotus Log: def contact")
     if request.method == "POST":
         name = request.POST.get('name')
-        email = request.POST.get('email')
+        email = request.POST.get('email').strip()
         message = request.POST.get('message')
+        print("Lotus Log: name: ", name, " email: ",
+              email, " message: ", message)
         # Get contact email
         html_content = render_to_string(
             template_name="lotus/contact_email.html",
@@ -116,7 +119,7 @@ def contact(request):
         )
         plain_message = strip_tags(html_content)
 
-        send_mail(
+        send_mail_return = send_mail(
             subject='New Contact Message',
             message=plain_message,
             from_email=settings.EMAIL_HOST_USER,
@@ -124,9 +127,12 @@ def contact(request):
             html_message=html_content,
             fail_silently=True
         )
+        print("Lotus Log: send_mail_return: ", send_mail_return)
 
-        models.Contact.objects.create(
-            name=name, email=email, message=message).save()
+        contact = models.Contact.objects.create(
+            name=name, email=email, message=message)
+        contact.save()
+        print("Lotus Log: contact: ", contact)
 
         messages.success(request, "Your message has been sent successfully!")
     return render(request, 'lotus/contact.html')
