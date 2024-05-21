@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.utils.html import strip_tags
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -67,19 +70,26 @@ def register(request):
             new_user.save()
 
             # Send activation email
-            mail_subject = 'Activation link has been sent to your email id'
-            message = render_to_string('authentication/activate_email.html', {
-                'user': new_user.username,
-                'domain': get_current_site(request).domain,
-                'uid': urlsafe_base64_encode(force_bytes(new_user.pk)),
-                'token': account_activation_token.make_token(new_user),
-                "protocol": "https" if request.is_secure() else "http",
-            })
-
-            email_message = EmailMessage(
-                mail_subject, message, to=[email]
+            html_content = render_to_string(
+                template_name='authentication/activate_email.html',
+                context={
+                    'user': new_user.username,
+                    'domain': get_current_site(request).domain,
+                    'uid': urlsafe_base64_encode(force_bytes(new_user.pk)),
+                    'token': account_activation_token.make_token(new_user),
+                    "protocol": "https" if request.is_secure() else "http",
+                }
             )
-            email_message.send()
+            plain_message = strip_tags(html_content)
+
+            send_mail(
+                subject='Activation Link',
+                message=plain_message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[email],
+                html_message=html_content,
+                fail_silently=True
+            )
 
             messages.success(request, 'Account was created for ' +
                              email + '. Please activate your account.')
