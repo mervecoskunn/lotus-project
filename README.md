@@ -1310,20 +1310,20 @@ The responsive design tests were carried out manually with [Google Chrome DevToo
 
 Google Lighthouse in Chrome Developer Tools was used to test the site within the areas of Performance, Accessibility, Best Practices and SEO. I tested the home page, view all blog posts page, view all products page, product management page and blog management page. The testing showed the following:
 
-  * Home Page - 
-  * View All Blog Posts Page -
-  * View All Products Page - 
-  * Product Management - 
-  * Blog Management - 
+  * Home Page  
+  * View All Blog Posts Page 
+  * View All Products Page  
+  * Product Management  
+  * Blog Management  
 
 * Lighthouse Home Result
-  [Lighthouse Home Result](!!!add!!!)
+  [Lighthouse Home Result](documentation/lighthouse-test.png)
 * Lighthouse View All ProductsPage Results
-  [Lighthouse Home Result](!!!add!!!)
+  [Lighthouse Home Result](documentation/lighthouse-1.png)
 * Lighthouse Product Management Result
-  [Lighthouse Home Result](!!!add!!!)
+  [Lighthouse Home Result](documentation/lighthouse-2.png)
 * Lighthouse Blog Management Result
-  [Lighthouse Home Result](!!!add!!!)
+  [Lighthouse Home Result](documentation/lighthouse-3.png)
 
 ### Known Bugs
 
