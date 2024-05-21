@@ -1317,13 +1317,13 @@ Google Lighthouse in Chrome Developer Tools was used to test the site within the
   * Blog Management  
 
 * Lighthouse Home Result
-  [Lighthouse Home Result](documentation/lighthouse-test.png)
+  ![Lighthouse Home Result](documentation/lighthouse-test.png)
 * Lighthouse View All ProductsPage Results
-  [Lighthouse Home Result](documentation/lighthouse-1.png)
+  ![Lighthouse Home Result](documentation/lighthouse-1.png)
 * Lighthouse Product Management Result
-  [Lighthouse Home Result](documentation/lighthouse-2.png)
+  ![Lighthouse Home Result](documentation/lighthouse-2.png)
 * Lighthouse Blog Management Result
-  [Lighthouse Home Result](documentation/lighthouse-3.png)
+  ![Lighthouse Home Result](documentation/lighthouse-3.png)
 
 ### Known Bugs
 
