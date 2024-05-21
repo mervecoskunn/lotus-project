@@ -105,14 +105,19 @@ Lotus Aura Natural is an e-commerce site that aims to supply and deliver natural
   * As registered users, view past orders
   * Subscribe and get new content.
   
-
+### Stripe Dummy Card Details
 If you wish to make a test purchase, you can use the following Stripe Dummy Card details:
 
 Success Card Number: 4242424242424242
+
 Required Authentication: 4000002500003155
+
 Declined Card Number: 4000000000009995
+
 Exp Date: Any date in the future using the format MM/YY
+
 CVN: any 3 digit number
+
 Any payments made using a valid debit/credit card will not be processed and the card will not be charged. No orders made will be fulfilled.
 
 For full Admin access to Django Admin panel with relevant sign-in credentials: [Lotus Django - Admin](https://lotus-project-433bebe152ef.herokuapp.com/admin/login/?next=/admin/)
