@@ -84,7 +84,7 @@ def cancel(request):
 @login_required
 def create_checkout_session(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    YOUR_DOMAIN = 'http://127.0.0.1:8000'
+    DOMAIN = get_current_site(request).domain,
 
     cart_id = request.POST.get('cart_id')
     cart = Cart.objects.get(id=cart_id)
@@ -106,8 +106,8 @@ def create_checkout_session(request):
             },
         ],
         mode='payment',
-        success_url=YOUR_DOMAIN + '/order/success',
-        cancel_url=YOUR_DOMAIN + '/order/cancel',
+        success_url=DOMAIN + '/order/success',
+        cancel_url=DOMAIN + '/order/cancel',
     )
 
     return redirect(checkout_session.url, code=303)
