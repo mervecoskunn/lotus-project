@@ -762,7 +762,7 @@ The libraries used in this project are located in the requirements.txt file and 
 * As a Customer I want to view a list of products so that I can read more about it and purchase it
   * At the top of the site there is a navigation bar with links that lists products based on categories(filter), sorting or through a search query.
 * As a Customer I want to click on a specific product so that I view its details like price, description, product rating and image 
-  * At the top of the site there is a navigation bar with links that lists products based on categories, sorting or through a search query. When a user clicks on a product a detail view of the product opens. 
+  * At the top of the site there is a navigation bar with links that lists products based on shop , user can filter which one category products list and  sorting or through a search query. When a user clicks on a product a detail view of the product opens. 
 * As a Customer I want to click on a specific product so that I view its details like price, description, product rating and image
   * At the top of the site there is a navigation bar with links that lists products based on categories, sorting or through a search query. When a user clicks on a product a detail view of the product opens.
 * As a Customer I want to read the reviews that are connected to a specific product so that I can base my purchase decision on that
@@ -783,7 +783,7 @@ The libraries used in this project are located in the requirements.txt file and 
 #### Registration And User Accounts  
 
 * As a Site User I want to register an account so that I have a personal account and get access to my profile
-  *  In the navigation bar the user can click the Register link in the menu sign up for a new account. When this is done the user can access the personal account.
+  *  In the navigation bar the user can click the Login link in the menu sign up for a new account Login page has a register link if user doesnot have a account. User can register and lotur team send a email to register mail adress for register confirmation. When user click this link user can see login page and can login. When this is done the user can access the personal account.
 *  As a Site User I want to have my own user profile so that I can view my personal order history, update my contact / payment information
   *  When the user has created an account and is logged in the menu My Profile in the menu takes them to a profile page were they can access personal information and order history. The write reviews function is not implemented yet.
 * As a Site User I want to log out from the site so that I can feel safe that nobody can access my information 
@@ -791,9 +791,9 @@ The libraries used in this project are located in the requirements.txt file and 
   
 #### Sorting And Searching 
 
-* As a Customer I want to sort the list of all products in different ways so that I can identify the best rated, best prices and products based on category
+* As a Customer I want to sort the list of all products in different ways so that I can identify the name(A-Z) or name(Z-A), best prices(high-low) or opposite option and  customer also can filter products and select one of filter option and list products based on category
   * At the top of the site there is a navigation bar with links that lists products based on categories(filter), sorting or through a search query.
-* As a Customer I want to sort a specific category of products so that I can identify the best rated, best prices or just sort the products by name.
+* As a Customer I want to sort a specific category of products so that I can identify the best prices or just sort the products by name.
   * At the top of the site there is a navigation bar with links that lists products based on categories(filter), sorting or through a search query. 
 * As a Customer I want to easily get information about what I have searched for and how many results the search generated so that I can see if the product is available. 
   * At the top of the site there is a navigation bar with a search field that lists the searched products. 
@@ -813,22 +813,23 @@ The libraries used in this project are located in the requirements.txt file and 
   * When the checkout process is completed the user is taken to a confirmation success page with information about which products that have been purchased. 
 * As a Customer I want to receive an email confirmation after the checkout process is done so that I can keep the information for future use if needed
    * When the checkout process is completed the user recieves a confirmation e-mail to the e-mail that has been registered in the checkout process.
-* As a Customer I want to create a wishlist so that I can come back later to purchase the products
-  * On the product detail page the logged in user can add the specific product to their whislist and then access the wishlist from the menu.
+* As a Customer I want to create a favorite so that I can come back later to purchase the products
+  * On the product detail page the logged in user can add the specific product to their favorite page  and then access the favorite page from the menu.
+* As a Customer I want to move a favorite product from the favorite page to cart page so that customer can buy it and customer also select quantitiy of product that add to cart.
   
 #### Site Admin
-* As a Site Admin I want to search, create, update and delete product posts so that I can manage my product content
-  * When admin is logged the product management page can be reached through the 'my account'-menu.
+* As a Site Admin I want to select a product and read detail, create, update and delete product posts so that I can manage my product content
+  * When admin is logged the product management page can be reached through the 'my profile' menu.
 * As a Site Admin I want to log out from the site so that I can feel safe that nobody can access my information 
-  * When admin is logged in it is possible to choose the 'Log Out'-option in the navigation menu. 
+  * When admin is logged in it is possible to choose the 'Log Out' option in the navigation menu. 
 * As a Site Admin I want to create draft product posts so that I can finish writing the content later
-  * In the product management page the administrator can choose to put the product in 'draft'-mode before publishing it. 
+  * In the product management page the administrator can choose to put the product in 'draft' mode before publishing it. 
 *  As a Site Admin I want to get visual feedback when interacting with the content so that I can be sure how I have interacted with the page 
-  * When the site user performs actions on the sites flash messages shows (i.e. delete/update/add to bag/ actions).
-* As a Site Admin I want to search, create, update and delete blog posts so that I can manage my blog content  
-  * When admin is logged the blog management page can be reached through the 'my account'-menu. 
+  * When the site user performs actions on the sites flash messages shows (i.e. delete/update/add to cart/ actions).
+* As a Site Admin I want to select one blog post and read, create, update and delete blog posts so that I can manage my blog content  
+  * When admin is logged the blog management page can be reached through the 'my profile' menu so that admin can view blog page for admin.
 * As a Site Admin I want to create draft blog posts so that I can finish writing the content later
-  * In the blog management page the administrator can choose to put the blog post in 'draft'-mode before publishing it.   
+  * In the blog management page the administrator can choose to put the blog post in 'draft' mode before publishing it.   
   
 
 ### Code Validation
