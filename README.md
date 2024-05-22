@@ -1535,6 +1535,44 @@ To clone and set up this project you need to follow the steps below.
   
     ![Setup env.py](documentation/github_clone_02.png)
 
+ ### Creating a read.me file via the GITHUB WEB PAGE
+
+ * Since this e-commerce project was a big project, the documentation was also very detailed. For this reason, and for the first time, I experienced making updates to my project via github web and realized that it was a much more practical work. In this project, I created a large part of the read.me file via github web and was able to follow its appearance more easily. This caused a commit like a merge change. You can see such a commit since I uploaded it both via github web and with vsc. But I still think that working via github web is much more comfortable.
+   
+ * We open my project from github and click on the read.me file to open it.
+   
+   ![Github web service](documentation/github-web-1.png)
+
+* On the page we want to make changes to, we click on the edit button at the top right and go to the active page to edit.
+
+  ![Github web service](documentation/github-web-2.png)
+
+* Just as we do in VSC and other code environments, we can create our read.me file using markdown in the same way.
+
+    ![Github web service](documentation/github-web-3.png)
+  
+*  To save the changes, we can press the green button in the upper right corner and save, 
+
+   ![Github web service](documentation/github-web-4.png)
+
+*  First we need to write a commit about the changes and then save them, as we normally do.
+
+   ![Github web service](documentation/github-web-5.png)
+
+* If there are screenshots or images that we want to use in the read.me file, we can save them to the file where we normally save these documents by dragging and dropping them from github web.
+
+* First select file for to add screenshots on this project.
+  
+   ![Github web service](documentation/github-web-6.png)
+  
+* On the page that opens, select the upload file option in the upper right corner.
+  
+  ![Github web service](documentation/github-web-7.png)
+
+* On the page that opens, we can upload the screenshots we want to upload by drag and drop, write the relevant commit and save it.
+
+  ![Github web service](documentation/github-web-8.png)
+ 
 ## Credits
          
 * All text content written by [Merve Coskun](https://www.linkedin.com/in/merve-coskun-fullstack/).
