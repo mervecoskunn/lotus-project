@@ -720,7 +720,7 @@ The sites incorporates flash messages when an action has been performed (i.e. de
  * [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
  * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
  * [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to lint the Python code in the project
- * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+ 
 
 ### Libraries                        
 
@@ -862,7 +862,7 @@ The code on the Lotus Aura Natural site has been tested through W3C Markup Valid
 
 * HTML Validation Result
 
-![Markup Validation](documentation/html-validation.png)
+  All HTML files - No errors reported
 
 #### CSS Validation
 
@@ -1131,7 +1131,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | 	Main Website - User Logged In - Order Confirmation Page                                       |
 |--------- |----------------------------------------------------------------------------------|
-| ✓        | The correct products, information and delivery amount are showing in the order confirmation and an e-mail has been sent to the registered site user e-mail                   |
+| ✓        | The correct products, information and delivery amount are showing in the order confirmation and an e-mail has been sent to the registered site user e-mail|
 | ✓        | Webhooks are working and is confirmed in Stripe developer dashboard              |
 | ✓        | When clicking the Back To The Store button all products are being listed         |
 
