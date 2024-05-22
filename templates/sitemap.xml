@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/contact/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/auth/login/?next=/shopping/cart/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/auth/login/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/blog/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/blog/post/3/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/blog/post/2/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/blog/post/1/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/privacy-policy/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/faq/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/1/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/5/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/3/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/7/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/9/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/8/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/?page=2</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/?page=3</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/auth/register/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/auth/password-reset/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/11/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/14/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/13/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/15/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/12/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/10/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/?page=1</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/6/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/4/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lotus-project-433bebe152ef.herokuapp.com/shopping/2/</loc>
+  <lastmod>2024-05-22T04:47:09+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

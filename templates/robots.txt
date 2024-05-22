@@ -32,3 +32,5 @@ Disallow: /drafts/
 Disallow: /drafts/*/edit/
 Disallow: /drafts/*/delete/
 Disallow: /drafts/*/draft_post_confirm_delete/
+
+Sitemap: https://lotus-project-433bebe152ef.herokuapp.com/sitemap.xml

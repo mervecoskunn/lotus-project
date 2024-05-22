@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views as lotus_views
 from django.conf.urls import handler500
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, RedirectView
 
 handler500 = 'lotus.views.custom_500'
 
@@ -43,6 +43,9 @@ urlpatterns = [
         TemplateView.as_view(template_name="robots.txt",
                              content_type="text/plain"),
     ),
+    path('sitemap.xml', TemplateView.as_view(
+        template_name='sitemap.xml', content_type='text/xml')),
+
 ]
 
 
