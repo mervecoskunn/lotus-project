@@ -1,0 +1,34 @@
+# Allow all robots to visit the site
+User-agent: *
+
+# Allow specific paths
+Allow: /
+Allow: /login/
+Allow: /register/
+Allow: /contact/
+Allow: /shopping/
+Allow: /privacy-policy/
+Allow: /faq/
+Allow: /subscription
+Allow: /blog/
+Allow: /post/
+
+# Disallow sensitive paths
+Disallow: /admin/
+Disallow: /logout/
+Disallow: /activate/
+Disallow: /password-reset/
+Disallow: /password-reset-done/
+Disallow: /password-reset-confirm/
+Disallow: /password-reset-complete/
+Disallow: /change_email/
+Disallow: /user/
+Disallow: /order/
+Disallow: /post/new/
+Disallow: /post/*/edit/
+Disallow: /post/*/post_confirm_delete/
+Disallow: /post/*/delete/
+Disallow: /drafts/
+Disallow: /drafts/*/edit/
+Disallow: /drafts/*/delete/
+Disallow: /drafts/*/draft_post_confirm_delete/

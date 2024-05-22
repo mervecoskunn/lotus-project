@@ -20,14 +20,15 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views as lotus_views
 from django.conf.urls import handler500
+from django.views.generic.base import TemplateView
 
 handler500 = 'lotus.views.custom_500'
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("auth/", include('authentication.urls')),
     path('', lotus_views.home, name="home"),
+    path("auth/", include('authentication.urls')),
     path('contact/', lotus_views.contact, name="contact"),
     path('shopping/', include('shopping.urls')),
     path('user/', include('user.urls')),
@@ -36,6 +37,12 @@ urlpatterns = [
     path('faq/', lotus_views.faq, name="faq"),
     path('blog/', include('blog.urls')),
     path("subscription", lotus_views.subscription, name="subscription"),
+    # robots.txt path below
+    path(
+        "robots.txt",
+        TemplateView.as_view(template_name="robots.txt",
+                             content_type="text/plain"),
+    ),
 ]
 
 
