@@ -404,10 +404,16 @@ When an ordinary user is logged in the my account gets more available options, m
 
     ![Navigation user logout](documentation/user-logged-out.png)
 
+  * Admin can click the profil icon on navbar menu and can go to admin manage page. Admin can click the manage blog posts or manage product, see all orders or see own order.
+      
+    ![Navigation admin profile page](documentation/admin-profile.png)
 
  * Navigation - Admin Logged In 
   
    * When a superuser / administrator is logged in the my account gets more avilable options, manage products and manage blog
+   * In this project, admin login is provided with an e-mail address and password.
+   * Superuser/admin mail adress merve_coskun2013@hotmail.com
+  
      
    ![Navigation admin login](documentation/login-admin.png) 
   
@@ -422,30 +428,41 @@ When an ordinary user is logged in the my account gets more available options, m
    * Admin can update  own profile information as other user.
    
    * Navigation - Admin Logged In - Product Management- Admin can click to manage product button and go product page for admin.This page is different than other normal users of product page. Admin has edit delete add products buttons on this page so that admin can manage products.
+   * When you log in as admin, a flash message appears and the part of the email used up to @ is automatically accepted as the username.
+   * Admin username   merve_coskun2013
    
     ![Navigation - Admin Logged In](documentation/login-admin.png)
    
  * Navigation - Admin Logged In - Product Management - Edit
+
+   Admin can edit all products or delete them on product detail page and also admin can add  product to favorite or add to cart and so that admin can buy something like other customers.
    
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
    
  * Navigation - Admin Logged In - Product Management - Delete
+
+   Admin can delete item on product detail page.
    
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-2.png)
 
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-3.png)
    
  * Navigation - Admin Logged In - Product Management - Add products
+
+   Admin can add new product on product detail page.
    
    ![Navigation - Admin Edit Products](documentation/admin-add-products.png)
    
  * Navigation - Admin Logged In - Product Management - Read Detail
+
+   Admin can read product detail like other customer on product detail page.
   
    ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
    
    * Manage Blog - Admin can click to manage blog posts button and go blog page for admin.This page is different than other normal users of blog page. Admin has edit delete add  buttons on this page so that admin can manage blog posts.
     
  * Navigation - Admin Logged In - Blog Management - Edit
+ * Admin can select manage blog all posts on admin profile page so that admin view blog page for admin and admin cana edit or delete post.
    
     ![Navigation - Admin Logged In](documentation/admin-edit-post-1.png)
    
