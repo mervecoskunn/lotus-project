@@ -862,14 +862,16 @@ The code on the Lotus Aura Natural site has been tested through W3C Markup Valid
 
 * HTML Validation Result
 
-[Markup Validation](!!!HTML VALIDATION !!!!)
+![Markup Validation](documentation/html-validation.png)
 
 #### CSS Validation
 
-[CSS Validation](!!!CSS VALIDATION !!!!)
+![CSS Validation](documentation/css-validation.png)
 
 #### PEP Validation
 CI Python Linter [Code Institute Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code in the project. Following files have been validated:
+
+![CI Python Linter](documentation/python-validation.png)
 
 App Shopping
 
@@ -892,51 +894,45 @@ App Blog
   
 App Order
 
-* init.py - No errors reported
 * admin.py - No errors reported
 * apps.py - No errors reported
-* forms.py - No errors reported
 * models.py - No errors reported
-* signals.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
   
 App Lotus
-
-* apps.py - No errors reported
+* asgi.py - No errors reported
+* settings.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
+* wsgi.py - No errors reported
 
 App Products
 
 * admin.py - No errors reported
 * apps.py - No errors reported
 * forms.py - No errors reported
-* models.py - No errors reported       !!!!!!!!!!
+* models.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
   
 App User
 * admin.py - No errors reported
 * apps.py - No errors reported
-* forms.py - No errors reported
 * models.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
 * signals.py - No errors reported
+  
+manage.py - No errors reported
 
-
-
-#### Javascript Validation
-The [JSHint](https://jshint.com/) validator results can be seen below:
-
-No errors were returned when passing through JSHint but the test with no errors.
-
-* stripe_elements.js in checkout app - No errors reported
-* inline jscript in bag.html in bag app - No errors reported
-* inline jscript in products.html in products app - No errors reported
-* inline jscript in base.html in root templates - No errors reported
-* inline jscript in footer.html in root templates - No errors reported
+Authentication
+* admin.py - No errors reported 
+* apps.py - No errors reported
+* models.py - No errors reported
+* tokens.py - No errors reported
+* urls.py - No errors reported
+* views.py - No errors reported
   
 ### Additional Testing
 
