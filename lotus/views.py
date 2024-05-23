@@ -130,4 +130,4 @@ def contact(request):
         contact.save()
 
         messages.success(request, "Your message has been sent successfully!")
-        return render(request, 'lotus/contact.html')
+    return render(request, 'lotus/contact.html')
