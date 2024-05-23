@@ -404,10 +404,16 @@ When an ordinary user is logged in the my account gets more available options, m
 
     ![Navigation user logout](documentation/user-logged-out.png)
 
+  * Admin can click the profil icon on navbar menu and can go to admin manage page. Admin can click the manage blog posts or manage product, see all orders or see own order.
+      
+    ![Navigation admin profile page](documentation/admin-profile.png)
 
  * Navigation - Admin Logged In 
   
    * When a superuser / administrator is logged in the my account gets more avilable options, manage products and manage blog
+   * In this project, admin login is provided with an e-mail address and password.
+   * Superuser/admin mail adress merve_coskun2013@hotmail.com
+  
      
    ![Navigation admin login](documentation/login-admin.png) 
   
@@ -422,30 +428,41 @@ When an ordinary user is logged in the my account gets more available options, m
    * Admin can update  own profile information as other user.
    
    * Navigation - Admin Logged In - Product Management- Admin can click to manage product button and go product page for admin.This page is different than other normal users of product page. Admin has edit delete add products buttons on this page so that admin can manage products.
+   * When you log in as admin, a flash message appears and the part of the email used up to @ is automatically accepted as the username.
+   * Admin username   merve_coskun2013
    
     ![Navigation - Admin Logged In](documentation/login-admin.png)
    
  * Navigation - Admin Logged In - Product Management - Edit
+
+   Admin can edit all products or delete them on product detail page and also admin can add  product to favorite or add to cart and so that admin can buy something like other customers.
    
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
    
  * Navigation - Admin Logged In - Product Management - Delete
+
+   Admin can delete item on product detail page.
    
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-2.png)
 
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-3.png)
    
  * Navigation - Admin Logged In - Product Management - Add products
+
+   Admin can add new product on product detail page.
    
    ![Navigation - Admin Edit Products](documentation/admin-add-products.png)
    
  * Navigation - Admin Logged In - Product Management - Read Detail
+
+   Admin can read product detail like other customer on product detail page.
   
    ![Navigation - Admin Edit Products](documentation/admin-edit-products-1.png)
    
    * Manage Blog - Admin can click to manage blog posts button and go blog page for admin.This page is different than other normal users of blog page. Admin has edit delete add  buttons on this page so that admin can manage blog posts.
     
  * Navigation - Admin Logged In - Blog Management - Edit
+ * Admin can select manage blog all posts on admin profile page so that admin view blog page for admin and admin cana edit or delete post.
    
     ![Navigation - Admin Logged In](documentation/admin-edit-post-1.png)
    
@@ -703,7 +720,7 @@ The sites incorporates flash messages when an action has been performed (i.e. de
  * [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
  * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
  * [CI Python Linter](https://pep8ci.herokuapp.com/) - Used to lint the Python code in the project
- * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+ 
 
 ### Libraries                        
 
@@ -845,14 +862,16 @@ The code on the Lotus Aura Natural site has been tested through W3C Markup Valid
 
 * HTML Validation Result
 
-[Markup Validation](!!!HTML VALIDATION !!!!)
+  All HTML files - No errors reported
 
 #### CSS Validation
 
-[CSS Validation](!!!CSS VALIDATION !!!!)
+![CSS Validation](documentation/css-validation.png)
 
 #### PEP Validation
 CI Python Linter [Code Institute Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code in the project. Following files have been validated:
+
+![CI Python Linter](documentation/python-validation.png)
 
 App Shopping
 
@@ -875,51 +894,45 @@ App Blog
   
 App Order
 
-* init.py - No errors reported
 * admin.py - No errors reported
 * apps.py - No errors reported
-* forms.py - No errors reported
 * models.py - No errors reported
-* signals.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
   
 App Lotus
-
-* apps.py - No errors reported
+* asgi.py - No errors reported
+* settings.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
+* wsgi.py - No errors reported
 
 App Products
 
 * admin.py - No errors reported
 * apps.py - No errors reported
 * forms.py - No errors reported
-* models.py - No errors reported       !!!!!!!!!!
+* models.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
   
 App User
 * admin.py - No errors reported
 * apps.py - No errors reported
-* forms.py - No errors reported
 * models.py - No errors reported
 * urls.py - No errors reported
 * views.py - No errors reported
 * signals.py - No errors reported
+  
+manage.py - No errors reported
 
-
-
-#### Javascript Validation
-The [JSHint](https://jshint.com/) validator results can be seen below:
-
-No errors were returned when passing through JSHint but the test with no errors.
-
-* stripe_elements.js in checkout app - No errors reported
-* inline jscript in bag.html in bag app - No errors reported
-* inline jscript in products.html in products app - No errors reported
-* inline jscript in base.html in root templates - No errors reported
-* inline jscript in footer.html in root templates - No errors reported
+Authentication
+* admin.py - No errors reported 
+* apps.py - No errors reported
+* models.py - No errors reported
+* tokens.py - No errors reported
+* urls.py - No errors reported
+* views.py - No errors reported
   
 ### Additional Testing
 
@@ -1118,7 +1131,7 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 | Status   | 	Main Website - User Logged In - Order Confirmation Page                                       |
 |--------- |----------------------------------------------------------------------------------|
-| ✓        | The correct products, information and delivery amount are showing in the order confirmation and an e-mail has been sent to the registered site user e-mail                   |
+| ✓        | The correct products, information and delivery amount are showing in the order confirmation and an e-mail has been sent to the registered site user e-mail|
 | ✓        | Webhooks are working and is confirmed in Stripe developer dashboard              |
 | ✓        | When clicking the Back To The Store button all products are being listed         |
 
@@ -1518,6 +1531,44 @@ To clone and set up this project you need to follow the steps below.
   
     ![Setup env.py](documentation/github_clone_02.png)
 
+ ### Creating a read.me file via the GITHUB WEB PAGE
+
+ * Since this e-commerce project was a big project, the documentation was also very detailed. For this reason, and for the first time, I experienced making updates to my project via github web and realized that it was a much more practical work. In this project, I created a large part of the read.me file via github web and was able to follow its appearance more easily. This caused a commit like a merge change. You can see such a commit since I uploaded it both via github web and with vsc. But I still think that working via github web is much more comfortable.
+   
+ * We open my project from github and click on the read.me file to open it.
+   
+   ![Github web service](documentation/github-web-1.png)
+
+* On the page we want to make changes to, we click on the edit button at the top right and go to the active page to edit.
+
+  ![Github web service](documentation/github-web-2.png)
+
+* Just as we do in VSC and other code environments, we can create our read.me file using markdown in the same way.
+
+    ![Github web service](documentation/github-web-3.png)
+  
+*  To save the changes, we can press the green button in the upper right corner and save, 
+
+   ![Github web service](documentation/github-web-4.png)
+
+*  First we need to write a commit about the changes and then save them, as we normally do.
+
+   ![Github web service](documentation/github-web-5.png)
+
+* If there are screenshots or images that we want to use in the read.me file, we can save them to the file where we normally save these documents by dragging and dropping them from github web.
+
+* First select file for to add screenshots on this project.
+  
+   ![Github web service](documentation/github-web-6.png)
+  
+* On the page that opens, select the upload file option in the upper right corner.
+  
+  ![Github web service](documentation/github-web-7.png)
+
+* On the page that opens, we can upload the screenshots we want to upload by drag and drop, write the relevant commit and save it.
+
+  ![Github web service](documentation/github-web-8.png)
+ 
 ## Credits
          
 * All text content written by [Merve Coskun](https://www.linkedin.com/in/merve-coskun-fullstack/).
