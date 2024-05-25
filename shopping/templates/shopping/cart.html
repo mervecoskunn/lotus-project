@@ -46,60 +46,57 @@
                                 <tr>
                                     <th scope="row">{{ forloop.counter }}</th>
                                     <td>
-                                        <a href="{% url "product_detail" cart_product.product.id %}">
-                                            {{ cart_product.product.name }}
+                                        <a href="{% url "product_detail" cart_product.product.id %}">{{ cart_product.product.name }}</a>
+                                        <td>{{ cart_product.product.price }}</td>
+                                        <td>
+                                            {{ cart_product.quantity }}
+
+                                            <a href="{% url "decrease_quantity" cart_product.id %}"
+                                               class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-minus" style="color: #888"></i>
+                                            </a>
+                                            <a href="{% url "increase_quantity" cart_product.id %}"
+                                               class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-plus" style="color: #888"></i>
+                                            </a>
                                         </td>
-                                    </a>
-                                    <td>{{ cart_product.product.price }}</td>
-                                    <td>
-                                        {{ cart_product.quantity }}
-
-                                        <a href="{% url "decrease_quantity" cart_product.id %}"
-                                           class="btn btn-outline-secondary">
-                                            <i class="fa-solid fa-minus" style="color: #888"></i>
-                                        </a>
-                                        <a href="{% url "increase_quantity" cart_product.id %}"
-                                           class="btn btn-outline-secondary">
-                                            <i class="fa-solid fa-plus" style="color: #888"></i>
-                                        </a>
-                                    </td>
-                                    <td>{{ cart_product.subtotal }}</td>
-                                    <td>
-                                        <a href="{% url "remove_from_cart" cart_product.id %}">
-                                            <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
-                                        </a>
-                                    </td>
+                                        <td>{{ cart_product.subtotal }}</td>
+                                        <td>
+                                            <a href="{% url "remove_from_cart" cart_product.id %}">
+                                                <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-4 summary-col py-4 px-4">
+                        <h2>Cart Totals</h2>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Subtotal</th>
+                                    <td>€ {{ cart.subtotal }}</td>
                                 </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-4 summary-col py-4 px-4">
-                    <h2>Cart Totals</h2>
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Subtotal</th>
-                                <td>€ {{ cart.subtotal }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Shipping</th>
-                                <td>€ {{ cart.shipping }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Total</th>
-                                <td>€ {{ cart.total }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <form action="{% url "create_checkout_session" %}" method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="cart_id" value="{{ cart.id }}">
-                        <button class="btn lotus-btn-primary mt-4">Checkout</button>
-                    </form>
-                </div>
-            {% endif %}
+                                <tr>
+                                    <th scope="row">Shipping</th>
+                                    <td>€ {{ cart.shipping }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Total</th>
+                                    <td>€ {{ cart.total }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <form action="{% url "create_checkout_session" %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="cart_id" value="{{ cart.id }}">
+                            <button class="btn lotus-btn-primary mt-4">Checkout</button>
+                        </form>
+                    </div>
+                {% endif %}
 
-        </div>
-    </section>
-{% endblock lotus_content %}
+            </div>
+        </section>
+    {% endblock lotus_content %}

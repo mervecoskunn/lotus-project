@@ -47,39 +47,38 @@
                 <i>{{ order.status }}</i>
             {% endif %}
         </div>
-    </div>
 
-    <div class="col-12">
-        <table class="table table-borderless product-table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Subtotal</th>
-                    <th scope="col">Shipping</th>
-                    <th scope="col">Total</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cart_product in order.cart.items.all %}
+        <div class="col-12">
+            <table class="table table-borderless product-table">
+                <thead>
                     <tr>
-                        <th scope="row">{{ forloop.counter }}</th>
-                        <td>
-                            <a href="{% url "product_detail" cart_product.product.id %}">{{ cart_product.product.name }}</a>
-                        </td>
-                        <td>€{{ cart_product.product.price }}</td>
-                        <td>{{ cart_product.quantity }}</td>
-                        <td>€{{ cart_product.subtotal }}</td>
-                        <td>€{{ order.cart.shipping }}</td>
-                        <td>€{{ order.cart.total }}</td>
-                        <td></td>
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col">Shipping</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
+                </thead>
+                <tbody>
+                    {% for cart_product in order.cart.items.all %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>
+                                <a href="{% url "product_detail" cart_product.product.id %}">{{ cart_product.product.name }}</a>
+                            </td>
+                            <td>€{{ cart_product.product.price }}</td>
+                            <td>{{ cart_product.quantity }}</td>
+                            <td>€{{ cart_product.subtotal }}</td>
+                            <td>€{{ order.cart.shipping }}</td>
+                            <td>€{{ order.cart.total }}</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
 {% endblock lotus_content %}
