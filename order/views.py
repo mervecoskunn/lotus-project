@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import stripe
 from django.conf import settings
@@ -11,6 +12,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.html import strip_tags
 from django.core.mail import send_mail
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 
 @login_required
@@ -53,32 +55,7 @@ def edit_order(request, order_id):
 
 @login_required
 def success(request):
-    user_profile = request.user.profile
-    order = Order.create_order(user_profile.cart, user_profile)
-
-    user_profile.create_new_cart()
-    user = user_profile.user
-    # Send email to user
-    html_content = render_to_string(
-        template_name="order/order_email.html",
-        context={
-            'user': user.username,
-            'domain': get_current_site(request).domain,
-            "protocol": "https" if request.is_secure() else "http",
-            "order_id": order.id,
-        }
-    )
-    plain_message = strip_tags(html_content)
-
-    send_mail(
-        subject='Order Confirmation',
-        message=plain_message,
-        from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[user.email],
-        html_message=html_content,
-        fail_silently=True
-    )
-
+    send_order_email(request)
     return render(request, 'order/success.html')
 
 
@@ -117,3 +94,63 @@ def create_checkout_session(request):
     )
 
     return redirect(checkout_session.url, code=303)
+
+
+def send_order_email(request):
+    user_profile = request.user.profile
+    order = Order.create_order(user_profile.cart, user_profile)
+
+    user_profile.create_new_cart()
+    user = user_profile.user
+    # Send email to user
+    html_content = render_to_string(
+        template_name="order/order_email.html",
+        context={
+            'user': user.username,
+            'domain': get_current_site(request).domain,
+            "protocol": "https" if request.is_secure() else "http",
+            "order_id": order.id,
+        }
+    )
+    plain_message = strip_tags(html_content)
+
+    send_mail(
+        subject='Order Confirmation',
+        message=plain_message,
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[user.email],
+        html_message=html_content,
+        fail_silently=True
+    )
+
+
+def send_order_not_confirmed_email(request):
+    user = request.user
+    # Send email to user
+    html_content = render_to_string(
+        template_name="order/order_not_confirmed_email.html",
+        context={
+            'user': user.username,
+            'domain': get_current_site(request).domain,
+            "protocol": "https" if request.is_secure() else "http",
+        }
+    )
+    plain_message = strip_tags(html_content)
+
+    send_mail(
+        subject='Order Not Confirmed',
+        message=plain_message,
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[user.email],
+        html_message=html_content,
+        fail_silently=True
+    )
+
+
+@csrf_exempt
+def stripe_webhook(request):
+    payload = request.body
+    print("Webhook payload: ", payload)
+
+    # Passed signature verification
+    return HttpResponse(status=200)

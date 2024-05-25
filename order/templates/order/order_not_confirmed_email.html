@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Not Confirmation</title>
+    </head>
+    <body>
+        <p>Hi {{ user.username }},</p>
+        <p>We want to inform you that there has been a problem and your order is not confirmed.</p>
+        <p>
+            You can try again with <a href="{{ protocol }}://{{ domain }}{% url 'cart' %}">here.</a>
+        </p>
+    </body>
+</html>
