@@ -9,7 +9,7 @@
         <p>Hi {{ user.username }},</p>
         <p>Thank you for your order. Your order has been placed successfully.</p>
         <p>
-            You can see the details of your order <a href="{{ protocol }}://{{ domain }}/{% url 'order_detail' order_id=order_id %}">here.</a>
+            You can see the details of your order <a href="{{ protocol }}://{{ domain }}{% url 'order_detail' order_id=order_id %}">here.</a>
         </p>
     </body>
 </html>

@@ -7,6 +7,6 @@
     </head>
     <body>
         <p>A new post has been added. Check it out on the blog page.</p>
-        <a href="{{ protocol }}://{{ domain }}/{% url 'post_detail' post_id %}">New Post</a>
+        <a href="{{ protocol }}://{{ domain }}{% url 'post_detail' post_id %}">New Post</a>
     </body>
 </html>
