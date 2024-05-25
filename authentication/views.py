@@ -21,7 +21,8 @@ def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         is_admin = True if email.lower() == 'admin' else False
-        email = email if email.lower() != 'admin' else os.environ.get('ADMIN_EMAIL')
+        key = 'ADMIN_EMAIL'
+        email = email if email.lower() != 'admin' else os.environ.get(key)
         username = email.split('@')[0]
         password = request.POST.get('password')
 
@@ -29,15 +30,19 @@ def login(request):
         # Check if user exists
         if user is not None:
             auth_login(request, user)
-            m = f'You have been logged in as {
-                username}.' if not is_admin else 'You have been logged in as admin.'
+            m = 'You have been logged in as '
+            if not is_admin:
+                m += username + '.'
+            else:
+                m += 'You have been logged in as admin.'
             messages.success(request, m)
             return redirect('home')
         else:
             user = User.objects.filter(email=email).first()
             if user is not None and not user.is_active:
-                messages.error(
-                    request, 'Account is not activated. Please check your email for activation link.')
+                m = 'Account is not activated. '
+                m += 'Please check your email for activation link.'
+                messages.error(request, m)
             else:
                 messages.error(request, 'Email or password is incorrect.')
 
@@ -139,9 +144,9 @@ def change_email(request):
             mail_subject, message, to=[email]
         )
         email_message.send()
-
-        messages.success(
-            request, 'Email changed successfully. Please check your email for activation link.')
+        m = 'Email changed successfully. '
+        m += 'Please check your email for activation link.'
+        messages.success(request, m)
         auth_logout(request)
         return redirect('login')
     return render(request, 'authentication/change_email.html')

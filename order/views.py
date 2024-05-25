@@ -17,20 +17,26 @@ from django.conf import settings
 def orders(request):
     user_profile = request.user.profile
     orders = user_profile.orders.all()
-    return render(request, 'order/orders.html', {'orders': orders, 'prev_page': 'orders'})
+    return render(request, 'order/orders.html', {
+        'orders': orders, 'prev_page': 'orders'
+    })
 
 
 @login_required
 def all_orders(request):
     orders = Order.objects.all()
-    return render(request, 'order/orders.html', {'orders': orders, 'prev_page': 'all_orders'})
+    return render(request, 'order/orders.html', {
+        'orders': orders, 'prev_page': 'all_orders'
+    })
 
 
 @login_required
 def order_detail(request, order_id):
     order = Order.objects.get(id=order_id)
     prev_page = request.META.get('HTTP_REFERER', '/')
-    return render(request, 'order/order_detail.html', {'order': order, 'prev_page': prev_page})
+    return render(request, 'order/order_detail.html', {
+        'order': order, 'prev_page': prev_page
+    })
 
 
 @login_required

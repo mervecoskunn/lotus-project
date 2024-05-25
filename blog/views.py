@@ -100,7 +100,8 @@ def post_new(request):
                     content=form.cleaned_data['content']
                 )
                 draft_post.save()
-                # Redirect to the list of draft posts or any other appropriate page
+                # Redirect to the list of draft posts or
+                # any other appropriate page
                 return redirect('draft_post_list')
             else:
                 post = form.save()

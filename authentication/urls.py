@@ -28,5 +28,6 @@ urlpatterns = [
          reset_confirm_view, name="password_reset_confirm"),
     path('password-reset-complete/', reset_complete_view,
          name="password_reset_complete"),
-    path('change_email/', authentication_views.change_email, name='change_email'),
+    path('change_email/', authentication_views.change_email,
+         name='change_email'),
 ]

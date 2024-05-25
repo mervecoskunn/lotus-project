@@ -39,11 +39,15 @@ class Product(models.Model):
         max_length=255, choices=category_choices)
     description = models.TextField()
     rating = models.DecimalField(
-        max_digits=2, decimal_places=1, validators=[MinValueValidator(0.0), MaxValueValidator(5.0)])
+        max_digits=2, decimal_places=1,
+        validators=[MinValueValidator(0.0),
+                    MaxValueValidator(5.0)])
     img = models.ImageField(upload_to=get_image_upload_path, null=True)
 
     def __str__(self):
-        return '[' + self.name + ' ' + str(self.price) + ' ' + str(self.rating) + ']'
+        s = '[' + self.name + ' ' + str(self.price)
+        s += ' ' + str(self.rating) + ']'
+        return s
 
 
 class Cart(models.Model):
@@ -53,8 +57,10 @@ class Cart(models.Model):
 
     def add_product(self, cart_product):
         # Check if the product is already in the cart
-        existing_product = next(
-            (product for product in self.items.all() if product.product.id == cart_product.product.id), None)
+        cp_id = cart_product.product.id
+        func = (product for product in self.items.all()
+                if product.product.id == cp_id)
+        existing_product = next(func, None)
         if existing_product:
             existing_product.quantity += cart_product.quantity
             existing_product.subtotal += cart_product.subtotal
@@ -65,8 +71,9 @@ class Cart(models.Model):
         self.recalculate()
 
     def remove_product(self, product_id):
-        product = next(
-            (cart_product for cart_product in self.items.all() if cart_product.id == product_id), None)
+        func = (cart_product for cart_product in self.items.all()
+                if cart_product.id == product_id)
+        product = next(func, None)
         product.delete()
         self.recalculate()
 
@@ -74,8 +81,9 @@ class Cart(models.Model):
         return self.items.all()
 
     def increase_quantity(self, cart_product_id):
-        product = next(
-            (cart_product for cart_product in self.items.all() if cart_product.id == cart_product_id), None)
+        func = (cart_product for cart_product in self.items.all()
+                if cart_product.id == cart_product_id)
+        product = next(func, None)
         if product is not None:
             product.quantity += 1
             product.subtotal = product.product.price * product.quantity
@@ -85,8 +93,9 @@ class Cart(models.Model):
         return False
 
     def decrease_quantity(self, cart_product_id):
-        product = next(
-            (cart_product for cart_product in self.items.all() if cart_product.id == cart_product_id), None)
+        func = (cart_product for cart_product in self.items.all()
+                if cart_product.id == cart_product_id)
+        product = next(func, None)
         if product.quantity == 1:
             product.delete()
         else:
@@ -118,4 +127,6 @@ class CartProduct(models.Model):
         Cart, on_delete=models.CASCADE, related_name='items', null=True)
 
     def __str__(self):
-        return '[' + str(self.product.name) + ' ' + str(self.quantity) + ' ' + str(self.subtotal) + ']'
+        s = '[' + self.product.name + ' ' + str(self.quantity)
+        s += ' ' + str(self.subtotal) + ']'
+        return s
