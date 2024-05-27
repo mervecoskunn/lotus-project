@@ -63,6 +63,7 @@ This is a fictional project that will most likely never be released to the masse
     - [Footer](#footer)
     - [404 Error Page](#404-error-page)
     - [500 Error Page](#500-error-page)
+    - [Mailchimp](#mailchimp)
     - [Visual Feedback To The User](#visual-feedback-to-the-user)
     - [Features Left to Implement](#features-left-to-implement)
   - [Technologies Used](#technologies-used)
@@ -572,6 +573,10 @@ When the site user had added products by pressing the add to bag button the prod
 
 ### Secure Checkout
 
+There is an important detail at this stage: the user uses own  e-mail address to register. User must use the same e-mail address when making payments.
+
+Because information about payment transactions is sent to users e-mail, and if we write the same e-mail address in our project at this stage, the system works without any problems. This feature has been left to be developed in the future to enable us to write any e-mail address.
+
 ![Secure Checkout page ](documentation/checkout-page-testtuserr.png)
 
 ### Webhook
@@ -668,7 +673,13 @@ Our application features a custom 404 error page that appears when users attempt
 ### 500 Error Page
 
 Our application includes a custom 500 error page that is displayed when the server encounters an internal error. This page informs users that something has gone wrong on our end and provides them with options to return to the homepage or contact support. The goal of the 500 error page is to enhance user experience by providing clear communication and guidance when unexpected issues occur.   
-   
+
+### Mailchimp 
+
+![Mailchimp](documentation/mailchimp-lotus.png)
+
+In this project, we created an effective email marketing system using Mailchimp. Thanks to Mailchimp integration, we can easily inform our users about our newly added blog posts. In this way, we strengthen our customer relations and offer a better user experience.
+
 ### Visual Feedback To The User
 
 The sites incorporates flash messages when an action has been performed (i.e. delete/update/add to bag-actions). Examples of this in the screenshots below.
