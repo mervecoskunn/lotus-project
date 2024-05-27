@@ -341,17 +341,26 @@ When an ordinary user is logged in the my account gets more available options, m
 
  * User Register Success
    
-   User will see one flash message register success.
+   User will see one flash message register success. A registration confirmation link will be sent to the e-mail address where the user is registered. By clicking on that link, you will be directed to the login page of our website and the user will be able to log in with the registered information.
+
+   This registration confirm link will be sent to our website's e-mail address, lotusauranaturall@gmail.com. Although this is not generally a problem, I would like to warn you that it may sometimes end up in junk mail.
+
+   ![register-mail](documentation/register-mail.png)
+
 
  * If user try to register again, user will see an information "e-mail already exist". User should try to login page.
 
    ![Navigation user try double register](documentation/e-mail-already-exist.png) 
    
  * User Login Page
+  
+  The user can log in by typing the registered e-mail address and password.
    
    ![Navigation user login](documentation/user-login-page.png)
    
  * Navigation my account- User Logged In
+   
+   There is currently a person registered as an admin on our site and he can log in with the admin username without typing his e-mail address and he is greeted with the message that you are logged in as admin in a flash message. But all other registered users can log in with their e-mail addresses and passwords, and if it is a flash message they encounter when they log in at this stage, we accept the front part of the e-mail as the username and address it that way and see the flash message. I think this is another issue that needs to be developed in the future.
 
     ![Navigation user login status](documentation/user-login-status.png)
    
