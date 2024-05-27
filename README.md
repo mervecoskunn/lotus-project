@@ -64,6 +64,8 @@ This is a fictional project that will most likely never be released to the masse
     - [404 Error Page](#404-error-page)
     - [500 Error Page](#500-error-page)
     - [Mailchimp](#mailchimp)
+    - [Stripe](#stripe)
+    - [Amazon Web Service](#amazon-web-service)
     - [Visual Feedback To The User](#visual-feedback-to-the-user)
     - [Features Left to Implement](#features-left-to-implement)
   - [Technologies Used](#technologies-used)
@@ -679,6 +681,18 @@ Our application includes a custom 500 error page that is displayed when the serv
 ![Mailchimp](documentation/mailchimp-lotus.png)
 
 In this project, we created an effective email marketing system using Mailchimp. Thanks to Mailchimp integration, we can easily inform our users about our newly added blog posts. In this way, we strengthen our customer relations and offer a better user experience.
+
+### Stripe 
+
+![Stripe](documentation/stripe-lotus.png)
+
+In this project, we integrated Stripe to provide secure and fast payment processing. With Stripe, our users can easily make credit card payments, create subscriptions, and manage their transactions. This ensures that our users can perform financial transactions securely and enjoy a seamless shopping experience.
+
+### Amazon Web Service
+
+![AWS](documentation/aws-lotus.png)
+
+In this project, we utilized Amazon Web Services (AWS) to provide scalable and reliable cloud services. With AWS integration, we can easily manage our servers, databases, and storage, and deploy our application globally. This enhances the project's flexibility and performance, ensuring uninterrupted service for our users.
 
 ### Visual Feedback To The User
 
