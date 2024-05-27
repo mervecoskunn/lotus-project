@@ -371,32 +371,58 @@ When an ordinary user is logged in the my account gets more available options, m
   * User can update own personal information on this page and change e-mail and change password
     
   * Change e-mail
+  
+    If the user wants to change his e-mail address, he can change it and a new registration e-mail will be sent to the user. When he clicks on that link, his new e-mail will be activated.
     
     ![Navigation my profile page as user change e-mail](documentation/email-change-1.png)
     
+    Flash message about success
+     
     ![Navigation my profile page as user change e-mail](documentation/email-change-2.png)
     
+    A link is provided for both the security of the e-mail change request sent from the company e-mail to the user e-mail and to confirm the change. (Please check junk mail box if you cannot see mail on inbox)
+
     ![Navigation my profile page as user change e-mail](documentation/email-change-3.png)
+
+    User can login again with new mail adress and see a flash message about changing success.
     
     ![Navigation my profile page as user change e-mail](documentation/email-change-4.png)
     
   * Change password
     
+    User can change also own password via profile page.
+
     ![Navigation my profile page as user change password](documentation/password-change-1.png)
     
+    The user encounters a warning message and is informed.
+
     ![Navigation my profile page as user change password](documentation/password-change-2.png)
     
+     A link is provided for both the security of the e-mail change request sent from the company e-mail to the user e-mail and to confirm the change.
+
     ![Navigation my profile page as user change password](documentation/password-change-3.png)
     
+    When you click on the link in the incoming e-mail, you will be automatically directed to the change password page, where you can change anything you want.
+
     ![Navigation my profile page as user change password](documentation/password-change-4.png)
     
+    The user encounters a warning message and is informed.
+
     ![Navigation my profile page as user change password](documentation/password-change-5.png)
 
+    As you can see, there is a link to go to the login page after making the change. With this link, you can log in again with your new information.
+    
+    ![Navigation my profile page as user change password](documentation/login-again.png)
+
  * Navigation - My Profile - Order list Empty
+  
+  When the user clicks on the see your order button on the Profile page, user will be presented with this page if user does not have any orders yet.
   
   ![Navigation my profile order list empty](documentation/my-profile-order-list-empty.png)
 
  * Navigation - My Profile - with status with order list
+  
+   By clicking the See Your Order button on the profile page, the user can see own orders and get detailed information about the status of the orders. User can also click on the order and view the details of the product again.
 
   ![Navigation my profile order list](documentation/order-list.png)
    
@@ -429,8 +455,8 @@ When an ordinary user is logged in the my account gets more available options, m
  * Navigation - Admin Logged In 
   
    * When a superuser / administrator is logged in the my account gets more avilable options, manage products and manage blog
-   * In this project, admin login is provided with an e-mail address and password.
-   * Superuser/admin mail adress merve_coskun2013@hotmail.com
+   * In this project, admin login is provided with admin username and password.
+   * Superuser/admin mail adress lotusauranaturall@gmail.com 
   
      
    ![Navigation admin login](documentation/login-admin.png) 
@@ -467,7 +493,7 @@ When an ordinary user is logged in the my account gets more available options, m
    
  * Navigation - Admin Logged In - Product Management - Add products
 
-   Admin can add new product on product detail page.
+   Admin can add new product on product detail page. If we choose the size of the photo to be added as 400x400, it will be square and compatible with the appearance of the page.
    
    ![Navigation - Admin Edit Products](documentation/admin-add-products.png)
    
@@ -526,6 +552,12 @@ If user want to contact and send a message to lotus team, user can click the con
 
 ![contact page](documentation/contact-page.png)
 
+The user can contact the company by writing any message on the contact page and sending an e-mail to the company's e-mail address. 
+
+This e-mail will be sent from the user to loturauranatural@gmail.com, which is the company e-mail address.
+
+![contact mail](documentation/contact-mail.png)
+
 ### Products
 
 Listing of products will vary depending on the selected filter and sort by. When we first enter the shop page, the products are listed as mixed.
@@ -538,7 +570,7 @@ User can click one selected product and go to directly product detail page.
 
 ![Product Detail View](documentation/product-detail.png)
 
-User can click the filter section on shop page and select categories and list  products of each category on page.
+User can click the filter section on shop page and select categories and list  products of each category on page. If user wants to exit the filter and sort the products in a mixed order, click on the remove filter button and the products will be listed first.
 
 ![Product Filter](documentation/filter-products.png)
 
@@ -611,13 +643,19 @@ When the order is confirmed the user gets an confirmation e-mail to the register
 
 ![confirm email view](documentation/order-confirmation-mail.png)
 
-* User can list own order on profile page
+* User /admin can list own order on profile page
   
   ![order list view](documentation/order-list.png)
   
 *  User can see order status and information about order
   
   ![order detail view](documentation/order-detail.png)
+
+* Admin can click the  profile page and manage all order and Admin can click the order status and admin can change order status.
+
+  ![order status](documentation/admin-status.png)
+
+ * If admin will also see detail of order product click the order product name as link so view all detail about this product.
 
 ### Sign Up
 
@@ -631,9 +669,11 @@ On this page the user can sign in to Lotus Aura Natural.
 
 ### Password Reset
 
-If the user has forgotten the password they can ask for a password reset through this page.
-
 ![Password reset](documentation/password-reset.png)
+
+If the user has forgotten the password they can ask for a password reset through this page. User will get an e-mail from lotusauranatural@gmail.com and reset link.
+
+![Password reset link](documentation/reset-link.png)
 
 
 ### Sign Out
