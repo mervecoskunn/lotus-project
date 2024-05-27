@@ -17,7 +17,7 @@
 {% endblock header %}
 
 {% block lotus_content %}
-    <section class="container">
+    <section class="container my-5">
         <div class="row">
             {% if messages %}
                 {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
@@ -29,7 +29,7 @@
                 </div>
 
             {% else %}
-                <div class="col-12">
+                <div class="col-8">
                     <table class="table table-borderless product-table">
                         <thead>
                             <tr>
@@ -52,12 +52,12 @@
                                             {{ cart_product.quantity }}
 
                                             <a href="{% url "decrease_quantity" cart_product.id %}"
-                                               class="btn btn-outline-secondary btn-sm">
-                                                <i class="fa-solid fa-minus fa-2xs" style="color: #888; font-weight:550;"></i>
+                                               class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-minus" style="color: #888"></i>
                                             </a>
                                             <a href="{% url "increase_quantity" cart_product.id %}"
-                                               class="btn btn-outline-secondary btn-sm">
-                                                <i class="fa-solid fa-plus fa-xs"  style="color: #888; font-weight:500;"></i>
+                                               class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-plus" style="color: #888"></i>
                                             </a>
                                         </td>
                                         <td>{{ cart_product.subtotal }}</td>
@@ -71,7 +71,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-12  py-4 px-4">
+                    <div class="col-4 summary-col py-4 px-4">
                         <h2>Cart Totals</h2>
                         <table class="table table-borderless">
                             <tbody>

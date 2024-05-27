@@ -20,14 +20,6 @@ td {
   background-color: #faf3ea !important;
 }
 
-
 .summary-col h2 {
   text-align: center;
-}
-
-@media (max-width: 768px) {
-  .btn-sm .fa-minus,
-  .btn-sm .fa-plus {
-    font-size: 24px;
-  }
 }
