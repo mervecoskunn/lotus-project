@@ -53,6 +53,7 @@ This is a fictional project that will most likely never be released to the masse
       - [Select Quantity of Product](#select-quantity-of-product)
     - [Cart Page](#cart-page)
     - [Secure Checkout](#secure-checkout)
+    - [Webhook](#webhook)
     - [Order Confirmation](#order-confirmation)
   - [Confirmation Email](#confirmation-email)
     - [Sign Up](#sign-up)
@@ -573,7 +574,11 @@ When the site user had added products by pressing the add to bag button the prod
 
 ![Secure Checkout page ](documentation/checkout-page-testtuserr.png)
 
+### Webhook
 
+A request comes to our site from the Stripe payment system and if the webhook works successfully, the payment process is made. The 200 code seen in the image here shows that it is working successfully.
+
+![Webhook](documentation/webhook.jpg)
 
 ### Order Confirmation
 
