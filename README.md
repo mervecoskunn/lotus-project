@@ -1388,8 +1388,18 @@ Google Lighthouse in Chrome Developer Tools was used to test the site within the
 
 ### Known Bugs
 
-Known bugs and issues.
+* Profile update fixed
+* Contact page not working
+* Login Required Pages are wrong
+* Update cart not working
+* Search is not working
+* Make views login required
+* Update product quantity in product detail page
+* Add remove filters to filtering
+* Filters are not shown selected after applied
 
+These are some of the bugs encountered during the project development phase, and according to the agile methodology, you can list these bugs in the bug label among closed issues in the github board section, which I actively use, and commit numbers have been added where you will see the changes made when you enter into each issue. You can easily access the details from [there.](https://github.com/mervecoskunn/lotus-project/issues?q=label%3Abug+is%3Aclosed)
+  
 ## Deployment
 
 ### Deployment to Heroku
