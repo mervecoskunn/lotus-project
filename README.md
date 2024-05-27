@@ -189,7 +189,7 @@ In order to develop my project in a planned manner and keep it organized, I used
 
 ### Database Schema
 
-!!!!! Add database schemaaa!!!!!
+![Database schema](documentation/lotus_er_diagram.png)
 
 ## User Experience (UX)
 
