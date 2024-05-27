@@ -591,7 +591,7 @@ If everything goes according to plan and the webhooks between Stripe and the sit
 
 ## Confirmation Email
 
-When the order is confirmed the user gets an confirmation e-mail to the registered e-mail.
+When the order is confirmed the user gets an confirmation e-mail to the registered e-mail. Incoming e-mails may end up in junk, it is necessary to check them.
 
 ![confirm email view](documentation/order-confirmation-mail.png)
 
@@ -655,7 +655,7 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
   
   ![Subscribe wrong](documentation/wrong-mail-subscribe.png)
 
-* When a new blog post is added to the blog page, an informative e-mail is sent to those who subscribe, and in this way, those who subscribe are provided with new and up-to-date information.
+* When a new blog post is added to the blog page, an informative e-mail is sent to those who subscribe, and in this way, those who subscribe are provided with new and up-to-date information. Incoming e-mails may end up in junk, it is necessary to check them.
 
  ![Subscribe wrong](documentation/new-post-mail.png)
 
