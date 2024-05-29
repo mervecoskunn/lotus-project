@@ -29,7 +29,7 @@
         <div class="col-4">
             <h5>Status</h5>
             {% if user.is_superuser %}
-                <form action="{% url "edit_order" order.id %}" method="post">
+                <form action="{% url 'edit_order' order.id %}" method="post">
                     {% csrf_token %}
                     <select name="status" id="status" class="form-select">
                         <option value="Pending" {% if order.status == "Pending" %}selected{% endif %}>Pending</option>
@@ -57,8 +57,6 @@
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Subtotal</th>
-                        <th scope="col">Shipping</th>
-                        <th scope="col">Total</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -67,16 +65,29 @@
                         <tr>
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>
-                                <a href="{% url "product_detail" cart_product.product.id %}">{{ cart_product.product.name }}</a>
+                                <a href="{% url 'product_detail' cart_product.product.id %}">{{ cart_product.product.name }}</a>
                             </td>
                             <td>€{{ cart_product.product.price }}</td>
                             <td>{{ cart_product.quantity }}</td>
                             <td>€{{ cart_product.subtotal }}</td>
-                            <td>€{{ order.cart.shipping }}</td>
-                            <td>€{{ order.cart.total }}</td>
                             <td></td>
                         </tr>
                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-12" style="text-align:center;">
+            <table class="table table-borderless">
+                <tbody>
+                <tr>
+                    <th scope="row">Shipping</th>
+                    <td>€ {{ order.cart.shipping }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Total</th>
+                    <td>€ {{ order.cart.total }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
