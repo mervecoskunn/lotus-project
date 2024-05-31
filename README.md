@@ -44,6 +44,7 @@ This is a fictional project that will most likely never be released to the masse
       - [Home Page Top Area](#home-page-top-area)
       - [Home Page Blog Area](#home-page-blog-area)
       - [Blog Detail](#blog-detail)
+    - [Blog Detail Like and Comment Features](#blog-detail-like-and-comment-features)
       - [Blog - View All Blog Posts](#blog---view-all-blog-posts)
       - [Contact Page](#contact-page)
     - [Products](#products)
@@ -539,6 +540,25 @@ Blog Area - The blog area shows several blog posts. Above the posts there is a b
 #### Blog Detail
 
 ![one blog post detail page](documentation/blog-detail.png)
+
+### Blog Detail Like and Comment Features
+
+Users can view blog post detail page and so read to the a single post and then if user also  want to like to this post or write something select the commit area and so comment on post or click to the like icon and like or dislike.
+
+![one blog post detail page like](documentation/blog-post-like.png)
+
+
+![one blog post detail page comment](documentation/blog-post-comment.png)
+
+
+If the user is not logged in and wants to add comments or likes, he/she will receive a warning to log in to the blog posts as follows and will be directed to the login page.
+
+![one blog post detail page join](documentation/login-join-discussion.png)
+
+User can edit own comment or delete it. After these action user will inform with flash messages about what happend. 
+
+![one blog post detail page edit comment](documentation/comment-blog-post-edit.png)
+
 
 #### Blog - View All Blog Posts
 
@@ -1061,6 +1081,8 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 | ✓        | 	The 3 latest blog posts are rendered for the user on the home page             |
 | ✓        | 	Clicking the View All Blog Posts button loads the View All Blog Posts page     |
 | ✓        | 	Clicking the Read More button on a blog post card loads the blog detail page   |
+| ✓        | 	Clicking the like icon or comment section user will see a message about login to website for join discussion|
+| ✓        | 	Clicking to the join to discussion button user will view login page            |
 | ✓        | 	Clicking the Back To Home button on the blog detail page loads the home page   |
 
 
@@ -1159,12 +1181,16 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 
 
 
-| Status   | 	Main Website - User Logged In - Blog                                          |
+| Status   | 	Main Website - User Logged In - Blog                                           |
 |--------- |---------------------------------------------------------------------------------|
 | ✓        | 	The 3 latest blog posts are rendered for the user on the home page             |
 | ✓        | 	Clicking the View All Blog Posts button loads the View All Blog Posts page     |
 | ✓        | 	Clicking the Read More button on a blog post card loads the blog detail page   |
-| ✓        | 	Clicking the Back To Home button on the blog detail page loads the home page   |
+| ✓        |	If user click on the like icon to like the post, user will leave a like and the number will be updated.|
+| ✓        | 	If user gives up liking and clicks on the like icon again, the previous like will be taken back.| 
+| ✓        |  If the user wants to add a comment, user can click on the comment section under the post and write.| 
+| ✓        |  User can edit or delete your own comments later.                                |   
+| ✓        | 	Clicking the Back To Home button on the blog detail page loads the home page    |
 
 
 
@@ -1343,15 +1369,20 @@ In addition to tests stated above I have performed a series of manual tests. Bel
 |--------- |---------------------------------------------------------------------------------------------------------|
 | ✓        | When clicking the Edit button admin can update something on this post and update the post.              |
 | ✓        | When clicking the Delete Post button admin can delete the post and then admin will see a flash message "deleted success"|
-| ✓        | When clicking the Cancel button the Add Blog Post page is being loaded|
+| ✓        | When clicking the Cancel button the Add Blog Post page is being loaded                                   |
 | ✓        | When clicking the Update button Blog Post Detail page is being loaded viewing the newly updated blog post|
+| ✓        |	If user click on the like icon to like the post, user will leave a like and the number will be updated. |
+| ✓        | 	If user gives up liking and clicks on the like icon again, the previous like will be taken back.        | 
+| ✓        |  If the user wants to add a comment, user can click on the comment section under the post and write.     | 
+| ✓        |  User can edit or delete your own comments later.                                                        |   
+| ✓        | 	Clicking the Back To Home button on the blog detail page loads the home page                            |
 
 
 | Status   | Main Website - Admin Logged In - Checkout                                                               |
 |--------- |---------------------------------------------------------------------------------------------------------|
 | ✓        | The correct products, information and delivery amount are showing in the order summary                  |
 | ✓        | It the user has updated the profile information the information is prefilled in the form.               |
-| ✓        | If the bottom of the form an option to save the delivery information to the users profile is visible     |
+| ✓        | If the bottom of the form an option to save the delivery information to the users profile is visible    |
 | ✓        | The payment with card number is working correctly (tested with Stripe test numbers)                     |
 | ✓        | The payment with card number that needs to be authenticated is working correctly (tested with Stripe test numbers). The authentication window is visible.|
 
@@ -1672,13 +1703,17 @@ To clone and set up this project you need to follow the steps below.
 * Registration Email Confirmation - [Registration Email Confirmation](https://www.youtube.com/watch?v=wB1qOExDsYY)
 * Forgot Password - [Forgot Password](https://www.youtube.com/watch?v=OF8ucdDmp2Q)
 * Send Email - [Send Email](https://medium.com/@arifcse21/send-and-email-with-html-template-and-context-data-from-a-django-project-e9606644185c)
+*  
   
 ## Technical
 
 Some parts of this project are heavily inspired by the 'Building an E-commerce Platform - Project - Boutique Ado' provided by the Code Institute.
 
+Some parts (Blog page edit comment like unlike features) of this project are heavily inspired by the  my 4th project blog project but these features were written more function-based in this project. 
+[My 4th project ](https://github.com/mervecoskunn/project-portfolio-4)
+
 ## Acknowledgements
 
 This fictional site was created for Portfolio Project #5 (E-Commerce Applications Portfolio Project) - Diploma in Full Stack Software Development Diploma at the [Code Institute](https://codeinstitute.net/se/). I would like to thank my mentor Precious Ijege for relevant feedback during the project.
 
-Merve Coskun, 2024-05-25
+Merve Coskun, 2024-05-30
