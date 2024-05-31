@@ -22,5 +22,7 @@ urlpatterns = [
          blog_views.draft_post_confirm_delete,
          name='draft_post_confirm_delete'
          ),
-
+    path('post/<int:post_id>/comment/<int:comment_id>', blog_views.comment_edit, name='comment_edit'),
+    path('post/<int:post_id>/comment/<int:comment_id>/delete', blog_views.comment_delete, name='comment_delete'),
+    path('post/<int:post_id>/like', blog_views.post_like, name='like_post'),
 ]

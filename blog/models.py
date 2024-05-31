@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
 
@@ -8,8 +9,47 @@ class Post(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
 
+    like = models.ManyToManyField(
+        get_user_model(),
+        related_name='post_likes',
+        blank=True
+    )
+
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    """
+    A comment on a post, with an author, post, body, and creation date.
+    """
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.PROTECT,
+        related_name='user_comments',
+        verbose_name='Comment Creator',
+        help_text='Comment creator'
+    )
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.PROTECT,
+        related_name='post_comments', verbose_name='Post',
+        help_text='Select the post to which this comment will be associated.'
+    )
+    body = models.TextField()
+    created_on = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Created On',
+        help_text='The date and time the comment was created.',
+    )
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
+        ordering = ('-created_on',)
+
+    def __str__(self):
+        return self.post.__str__()
 
 
 class DraftPost(models.Model):

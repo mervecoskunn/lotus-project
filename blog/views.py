@@ -1,7 +1,11 @@
+from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
+from django.urls import reverse
 from django.utils.html import strip_tags
-from django.shortcuts import render, redirect
-from .models import Post, Newsletter, DraftPost
+from django.shortcuts import render, redirect, get_object_or_404
+
+from . import forms
+from .models import Post, Newsletter, DraftPost, Comment
 from django.contrib import messages
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
@@ -19,14 +23,28 @@ def post_list(request):
 
 
 def post_detail(request, pk):
-    prev_page = request.META.get('HTTP_REFERER', '/')
+    if request.method == 'GET':
+        prev_page = request.META.get('HTTP_REFERER', '/')
 
-    post = Post.objects.get(pk=pk)
-    context = {
-        'post': post,
-        'prev_page': prev_page
-    }
-    return render(request, 'blog/post_detail.html', context)
+        post = Post.objects.get(pk=pk)
+        liked = post.like.filter(id=request.user.id).exists()
+
+        form = forms.CommentCreateForm()
+        context = {
+            'post': post,
+            'prev_page': prev_page,
+            'liked': liked,
+            'comment_form': form
+        }
+        return render(request, 'blog/post_detail.html', context)
+    elif request.method == 'POST':
+        form = forms.CommentCreateForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post_id = pk
+            comment.save()
+            return redirect(reverse('post_detail', args=[pk]))
 
 
 @login_required
@@ -171,3 +189,38 @@ def draft_post_confirm_delete(request, pk):
         'post': draft_post
     }
     return render(request, 'blog/draft_post_confirm_delete.html', context)
+
+
+@login_required
+def post_like(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if post.like.filter(id=request.user.id).exists():
+        post.like.remove(request.user)
+    else:
+        post.like.add(request.user)
+    return HttpResponseRedirect(reverse('post_detail', args=[post_id]))
+
+
+def comment_edit(request, post_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    prev_page = request.META.get('HTTP_REFERER', '/')
+    if request.method == 'POST':
+        form = forms.CommentEditForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.instance.author = request.user
+            form.instance.post_id = post_id
+            form.save()
+            messages.success(request, 'Comment update successful')
+            return redirect(reverse('post_detail', args=[post_id]))
+    else:
+        form = forms.CommentEditForm(instance=comment)
+    return render(request, 'blog/comment_edit.html', {'form': form, 'prev_page': prev_page})
+
+
+def comment_delete(request, post_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.method == 'POST':
+        comment.delete()
+        messages.success(request, 'Comment delete successful')
+        return redirect(reverse('post_detail', args=[post_id]))
+    return redirect(reverse('post_detail', args=[post_id]))
