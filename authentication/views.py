@@ -3,9 +3,8 @@ from django.utils.html import strip_tags
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, get_user_model
 from django.contrib.auth import logout as auth_logout
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_str
@@ -14,55 +13,46 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
-import os
 
 
 def login(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        is_admin = True if email.lower() == 'admin' else False
-        key = 'ADMIN_EMAIL'
-        email = email if email.lower() != 'admin' else os.environ.get(key)
-        username = email.split('@')[0]
+        username = request.POST.get('username')
         password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
         # Check if user exists
         if user is not None:
             auth_login(request, user)
-            m = 'You have been logged in as '
-            if not is_admin:
-                m += username + '.'
-            else:
-                m += 'You have been logged in as admin.'
+            m = f'You have been logged in as {user.username}'
             messages.success(request, m)
             return redirect('home')
         else:
-            user = User.objects.filter(email=email).first()
+            user = get_user_model().objects.filter(username=username).first()
             if user is not None and not user.is_active:
                 m = 'Account is not activated. '
                 m += 'Please check your email for activation link.'
                 messages.error(request, m)
             else:
-                messages.error(request, 'Email or password is incorrect.')
+                messages.error(request, 'Username or password is incorrect.')
 
     return render(request, 'authentication/login.html')
 
 
 def register(request):
     if request.method == 'POST':
+        username = request.POST.get('username')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        username = email.split('@')[0]
 
         # Check if username or email already exists
-        if User.objects.filter(email=email).exists():
+        if get_user_model().objects.filter(email=email).exists():
             messages.error(request, 'Email already exists.')
             return render(request, 'authentication/register.html')
         else:
-            new_user = User.objects.create(
+            new_user = get_user_model().objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 username=username,
@@ -99,13 +89,13 @@ def register(request):
                              email + '. Please activate your account.')
         return redirect('login')
 
-    return render(request, 'authentication/register.html',)
+    return render(request, 'authentication/register.html', )
 
 
 def activate(request, uidb64, token):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
+        user = get_user_model().objects.get(pk=uid)
     except Exception as e:
         print("Mail send error: ", e)
         user = None

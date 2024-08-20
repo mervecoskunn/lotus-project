@@ -131,11 +131,7 @@
                                         <div class="d-flex flex-row justify-content-between bg-light align-items-center p-2">
                                             <div class="d-flex flex-row align-items-center">
                                                 <h6 class="fw-bold mb-0 mr-2">
-                                                    {% if comment.author.is_superuser %}
-                                                    By Admin
-                                                    {% else %}
                                                      By {{comment.author}}
-                                                     {% endif %}
                                                     </h6>
                                                 <p class="mb-0">
                                                     {{comment.created_on | date:"M d, Y"}}
@@ -211,7 +207,7 @@
     </div>
 
                 <div class="card-footer text-muted" style="text-align: start">
-                    <p style="display: inline; margin-left: 20px">By Admin - {{ post.date_posted|date:"F d, Y" }}</p>
+                    <p style="display: inline; margin-left: 20px">{{post.author}} - {{ post.date_posted|date:"F d, Y" }}</p>
                 </div>
             </div>
         </section>

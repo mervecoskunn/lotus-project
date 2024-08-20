@@ -43,7 +43,7 @@
                     <p class="card-text" style="text-align: start; margin-left: 20px">{{ post.content }}</p>
 
                     <div class="card-footer text-muted" style="text-align: start">
-                        <p style="display: inline; margin-left: 20px">By Admin - {{ post.date_posted|date:"F d, Y" }}</p>
+                        <p style="display: inline; margin-left: 20px">{{post.author}} - {{ post.date_posted|date:"F d, Y" }}</p>
                     </div>
                 </div>
             </section>

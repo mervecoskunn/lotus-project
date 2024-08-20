@@ -22,10 +22,10 @@
                 <form method="post" action="{% url "login" %}">
                     {% csrf_token %}
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        <input name="email"
-                               id="email"
-                               placeholder="Email"
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input name="username"
+                               id="username"
+                               placeholder="Username"
                                class="form-control gold-outline"
                                required>
                     </div>

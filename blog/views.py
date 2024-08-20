@@ -161,7 +161,8 @@ def draft_post_edit(request, pk):
             post = Post.objects.create(
                 img=draft_post.img,
                 title=draft_post.title,
-                content=draft_post.content
+                content=draft_post.content,
+                author=request.user
             )
             post.save()
             draft_post.delete()

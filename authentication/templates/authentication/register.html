@@ -20,6 +20,15 @@
                 <p class="subtitle">Sign Up to Get Started</p>
                 <form method="post" action="{% url "register" %}">
                     {% csrf_token %}
+                <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text"
+                               name="username"
+                               id="username"
+                               placeholder="Username"
+                               class="form-control gold-outline"
+                               required>
+                    </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                         <input type="text"

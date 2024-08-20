@@ -1,12 +1,20 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 
 class Post(models.Model):
     img = models.ImageField(upload_to='posts', null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
+    author = models.ForeignKey(
+        get_user_model(), verbose_name=_('Author'),
+        help_text=_('Post creator'),
+        on_delete=models.PROTECT,
+        related_name='user_posts',
+        blank=True
+    )
     date_posted = models.DateTimeField(default=timezone.now)
 
     like = models.ManyToManyField(
@@ -68,7 +76,7 @@ class Contact(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.name + ' - ' + self.email
+        return str(self.name) + ' - ' + str(self.email)
 
 
 class Newsletter(models.Model):
