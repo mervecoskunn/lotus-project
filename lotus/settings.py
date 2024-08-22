@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -95,10 +95,19 @@ WSGI_APPLICATION = 'lotus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#}
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bdeioqfx',
+        'USER': 'postgres',
+        'PASSWORD': 'Mervecoskun2024!',
+        'HOST': '127.0.0.1',
+        'PORT': 5433,
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -194,12 +203,13 @@ django_heroku.settings(locals(), staticfiles=False)
 
 # Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_FROM = os.environ.get('EMAIL_FROM')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
 PASSWORD_RESET_TIMEOUT = 14400
 DEFAULT_FROM_EMAIL = EMAIL_FROM
 SERVER_EMAIL = EMAIL_FROM

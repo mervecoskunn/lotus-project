@@ -8,6 +8,8 @@
 {% block lotus_css_files %}
     <link rel="stylesheet"
           href="{% static 'shopping/css/product-detail.css' %}">
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
 {% endblock lotus_css_files %}
 
 {% block lotus_content %}
@@ -37,14 +39,7 @@
             </div>
             <div class="col detail-col">
                 <h1>{{ product.name }}</h1>
-                <div class="d-flex justify-content-start">
-                    <img src="{% static 'shopping/images/ic_star.png' %}"
-                         alt="star"
-                         width="24"
-                         height="24"
-                         class="me-2">
-                    {{ product.rating }}/5
-                </div>
+
                 <p>
                     <strong>€ {{ product.price }}</strong>
                 </p>
@@ -76,5 +71,80 @@
                 {% endif %}
             </div>
         </div>
+
+
     </section>
+
+<!-- Rating Block -->
+<div class="row">
+    <div class="infoBar">
+
+        <div class="rating">
+            <small class="starSmallText" data-value=" {{ rating_average | floatformat:1 }}"> {{ rating_average | floatformat:1 }}</small>
+            <i class="fa fa-star starSmall" data-value="1"></i>
+            <i class="fa fa-star starSmall" data-value="2"></i>
+            <i class="fa fa-star starSmall" data-value="3"></i>
+            <i class="fa fa-star starSmall" data-value="4"></i>
+            <i class="fa fa-star starSmall" data-value="5"></i>
+        </div>
+        <div class="p-reviews-header-seperator"></div>
+        <p class="rate-count">{{ rating_count }} Rating</p>
+    </div>
+</div>
+<div class="row scrolling-wrapper">
+
+
+{% for rate in product.product_ratings.all %}
+        <div class="col-md-3 card">
+        <div class="row no-gutters">
+            <div class="card-body">
+                <div class="rating">
+                    <small class="starSmallText" data-value="{{rate.score}}">{{rate.score}}</small>
+                    <i class="fa fa-star starSmall" data-value="1"></i>
+                    <i class="fa fa-star starSmall" data-value="2"></i>
+                    <i class="fa fa-star starSmall" data-value="3"></i>
+                    <i class="fa fa-star starSmall" data-value="4"></i>
+                    <i class="fa fa-star starSmall" data-value="5"></i>
+                </div>
+                <h5 class="card-title">{{rate.rater}}</h5>
+                <small class="card-title">{{rate.comment}}</small>
+
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.starSmallText').each(function (index) {
+            var value = $(this).data("value");
+            var $parent = $(this).parent();
+            $parent.find('.starSmall').each(function (index) {
+
+
+                if (index < value) {
+                    $(this).addClass('selected');
+                    var diff = value - index;
+                    if (diff > 1) {
+                        $(this).css('background', 'linear-gradient(to right, gold 100%, #ddd 0%)');
+
+                    } else {
+                        var percent = diff * 100;
+                        $(this).css('background', 'linear-gradient(to right, gold ' + percent + '%, #ddd 0%)');
+
+                    }
+                }
+            });
+
+        });
+
+    });
+</script>
+<!-- Rating End Block-->
 {% endblock lotus_content %}

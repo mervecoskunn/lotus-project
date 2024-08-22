@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponse
@@ -94,7 +95,9 @@ def product_detail(request, product_id):
             "is_favorited": is_favorited,
             "is_added_to_cart": is_added_to_cart,
             "quantity": quantity,
-            "prev_page": prev_page
+            "prev_page": prev_page,
+            "rating_count": product.product_ratings.all().count(),
+            "rating_average": product.product_ratings.all().aggregate(Avg("score", default=0))['score__avg']
         }
     else:
         context = {

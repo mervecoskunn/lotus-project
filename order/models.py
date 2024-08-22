@@ -1,8 +1,8 @@
+from django.contrib.auth import get_user_model
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from shopping.models import Cart
+from shopping.models import Cart, Product
 from user.models import Profile
-
-# Create your models here.
 
 
 class Order(models.Model):
@@ -30,3 +30,18 @@ class Order(models.Model):
 
     def __str__(self):
         return self.user_profile.user.username + ' - ' + self.status
+
+
+class Rating(models.Model):
+    rater = models.ForeignKey(get_user_model(), on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_ratings')
+    score = models.DecimalField(decimal_places=1, max_digits=3,
+                                validators=[MinValueValidator(1), MaxValueValidator(5)])
+    comment = models.TextField(max_length=2000, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('rater', 'product')
+
+    def __str__(self):
+        return f"{self.rater.username} - {self.product.name}"

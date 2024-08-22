@@ -1,0 +1,175 @@
+{% extends "lotus/base.html" %}
+{% load static %}
+
+{% block page_title %}
+    Lotus - My Assessment
+{% endblock page_title %}
+
+{% block lotus_css_files %}
+    <link rel="stylesheet"
+          href="{% static 'order/css/my-assessment.css' %}">
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+{% endblock lotus_css_files %}
+
+{% block header %}
+    <section>
+        {% include "includes/banner.html" with page_name="My Assessments" %}
+    </section>
+{% endblock header %}
+
+{% block lotus_content %}
+
+<div class="row">
+    {% if products %}
+{% for product in products %}
+
+        <div class="col-md-6 col-lg-4">
+            <div class="row no-gutters productBox">
+                <div class="col-md-4 col-sm-4 col-4">
+                    <img src="/media/{{product.product_img}}" width="100"  alt="{{product.product_name}}">
+                </div>
+                <div class="col-md-8 col-sm-8 col-8">
+                    <div class="">
+                        <h6 class="card-title">{{product.product_name}}</h6>
+                        <div class="rating">
+                            <small class="starSmallText" data-value="{{product.rating_average}}">{{product.rating_average | floatformat:1}}</small>
+
+                            <i class="fa fa-star starSmall" data-value="1"></i>
+                            <i class="fa fa-star starSmall" data-value="2"></i>
+                            <i class="fa fa-star starSmall" data-value="3"></i>
+                            <i class="fa fa-star starSmall" data-value="4"></i>
+                            <i class="fa fa-star starSmall" data-value="5"></i>
+                            ({{product.rating_count}})
+                        </div>
+                        <button type="button" class="reviewButton" data-product-id="{{product.product_id}}" data-product-name="{{product.product_name}}" data-product-image="/media/{{product.product_img}}">
+                            Rate Product
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="ratingModal" tabindex="-1" aria-labelledby="ratingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"> Ürünü Nasıl Buldunuz ?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" name="rating" id="rating" value="" />
+                    <input type="hidden" name="productId" id="productId" value="" />
+
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-lg-3">
+
+                            <img id="productImage" src="" width="100" />
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-lg-9">
+                            <h5 id="productName">
+                            </h5>
+                            <div class="rating">
+                                <i class="fa fa-star star" data-value="1"></i>
+                                <i class="fa fa-star star" data-value="2"></i>
+                                <i class="fa fa-star star" data-value="3"></i>
+                                <i class="fa fa-star star" data-value="4"></i>
+                                <i class="fa fa-star star" data-value="5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Yıldız Derecelendirme -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="review">Yorumunuz</label>
+                            <textarea class="form-control rating-text" name="review" id="review" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" disabled id="ratingSubmitButton" class="btn btn-primary">Yorum Yap</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+     $('.starSmallText').each(function (index) {
+     var value = $(this).data("value");
+     var $parent = $(this).parent();
+     $parent.find('.starSmall').each(function (index) {
+
+
+         if (index < value) {
+             $(this).addClass('selected');
+             var diff = value - index;
+             if (diff > 1) {
+                 $(this).css('background', 'linear-gradient(to right, gold 100%, #ddd 0%)');
+
+             } else {
+                 var percent = diff * 100;
+                 $(this).css('background', 'linear-gradient(to right, gold ' + percent + '%, #ddd 0%)');
+
+             }
+         }
+     });
+
+ });
+ $('.close').on('click', function () {
+     $("#ratingModal").modal("toggle")
+
+ });
+
+        $('.reviewButton').on('click', function () {
+            $("#ratingModal").modal("toggle")
+
+            $('.rating .star').each(function (index) {
+                $(this).removeClass('selected');
+
+            });
+            $('#ratingSubmitButton').prop("disabled", true);
+
+            $("#rating").text("");
+            $("#productId").val($(this).data("productId"));
+            $("#productName").text($(this).data("productName"));
+            $("#productImage").attr("src", $(this).data("productImage"))
+        });
+        $('.rating .star').on('click', function () {
+            var value = $(this).data('value');
+            if (value > 0) {
+                $('#ratingSubmitButton').prop("disabled", false);
+
+            } else {
+                $('#ratingSubmitButton').prop("disabled", true);
+
+            }
+            $("#rating").val(value);
+            // clear all the stars
+            $('.rating .star').removeClass('selected');
+
+            // Highlight selected stars
+            $('.rating .star').each(function (index) {
+                if (index < value) {
+                    $(this).addClass('selected');
+                }
+            });
+        });
+    });
+</script>
+{% else %}
+<div style="padding-top:10%; padding-bottom:10%;">
+    <p style="text-align:center; font-size:30px;">No products found for evaluation </p>
+</div>
+{% endif %}
+{% endblock lotus_content %}

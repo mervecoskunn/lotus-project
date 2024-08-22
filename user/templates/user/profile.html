@@ -85,6 +85,7 @@
             <button type="submit" class="btn _btn">Update Profile</button>
         </form>
         <a href="{% url "orders" %}" class="btn _btn mt-2">See Your Orders</a>
+        <a href="{% url "my_assessment" %}" class="btn _btn mt-2">My Assessments</a>
 
         {% if user.is_superuser %}
             <a href="{% url "all_orders" %}" class="btn _btn mt-2">Manage All Orders</a>

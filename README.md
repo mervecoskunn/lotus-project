@@ -232,7 +232,7 @@ Below the user stories for the project are listed to clarify why particular feat
 #### As a Customer
 
 * I want to view a list of products so that I can read more about it and purchase it
-* I want to click on a specific product so that I view its details like price, description, product rating and image
+* I want to click on a specific product so that I view its details like price, description, product rating ,reviews and image
 * I want to read the posts that are connected to a specific product so that I can base my purchase decision on that
 * I want to view the total of my purchases at any time so that I can keep track of my expenses
 * I want to like and unlike a review on a product I have purchased so that it is possible for me to raise my opinion
@@ -338,7 +338,7 @@ When an ordinary user is logged in the my account gets more available options, m
    
  * User Register Page
    
-   ![Navigation user register](documentation/user-register-page.png)
+   ![Navigation user register](documentation/username-register.png)
 
  * User Register Success
    
@@ -355,13 +355,13 @@ When an ordinary user is logged in the my account gets more available options, m
    
  * User Login Page
   
-  The user can log in by typing the registered e-mail address and password.
+  The user can log in by typing the registered username and password.
    
-   ![Navigation user login](documentation/user-login-page.png)
+   ![Navigation user login](documentation/login-username.png)
    
  * Navigation my account- User Logged In
    
-   There is currently a person registered as an admin on our site and he can log in with the admin username without typing his e-mail address and he is greeted with the message that you are logged in as admin in a flash message. But all other registered users can log in with their e-mail addresses and passwords, and if it is a flash message they encounter when they log in at this stage, we accept the front part of the e-mail as the username and address it that way and see the flash message. I think this is another issue that needs to be developed in the future.
+  There is already a person registered as an admin on our site, and the admin can log in with the admin username and password, and the admin is greeted with a flash message stating that you are logged in as an admin. In addition, all other registered users can log in with their username and password, and at this stage, when they log in as their username, the flash message they encounter is like this and they see the flash message.
 
     ![Navigation user login status](documentation/user-login-status.png)
    
@@ -370,10 +370,11 @@ When an ordinary user is logged in the my account gets more available options, m
    ![Navigation my profile page as user](documentation/user-profile-page.png)
 
   * User can update own personal information on this page and change e-mail and change password
+  * User can later rate the products user purchased and write comments as a review.
     
   * Change e-mail
   
-    If the user wants to change his e-mail address, he can change it and a new registration e-mail will be sent to the user. When he clicks on that link, his new e-mail will be activated.
+    If the user wants to change own e-mail address, user can change it and a new registration e-mail will be sent to the user. When user clicks on that link, users new e-mail will be activated.
     
     ![Navigation my profile page as user change e-mail](documentation/email-change-1.png)
     
@@ -385,7 +386,7 @@ When an ordinary user is logged in the my account gets more available options, m
 
     ![Navigation my profile page as user change e-mail](documentation/email-change-3.png)
 
-    User can login again with new mail adress and see a flash message about changing success.
+    User can login again with username and see a flash message about changing success.
     
     ![Navigation my profile page as user change e-mail](documentation/email-change-4.png)
     
@@ -413,7 +414,7 @@ When an ordinary user is logged in the my account gets more available options, m
 
     As you can see, there is a link to go to the login page after making the change. With this link, you can log in again with your new information.
     
-    ![Navigation my profile page as user change password](documentation/login-again.png)
+    ![Navigation my profile page as user change password](documentation/hello-again.png)
 
  * Navigation - My Profile - Order list Empty
   
@@ -469,14 +470,13 @@ When an ordinary user is logged in the my account gets more available options, m
    * Admin can manage products edit products, delete products, add products, search and read all about web site.
    * Admin can manage blog posts edit posts,delete, read, add blog post
    * Admin can see all orders.
-   * Admin can see own order list alson on this page.
+   * Admin can see own order list also on this page.
    * Admin can update  own profile information as other user.
+   * Admin can review to product and rating to product as all other users.
    
    * Navigation - Admin Logged In - Product Management- Admin can click to manage product button and go product page for admin.This page is different than other normal users of product page. Admin has edit delete add products buttons on this page so that admin can manage products.
-   * When you log in as admin, a flash message appears and the part of the email used up to @ is automatically accepted as the username.
-   * Admin username   merve_coskun2013
-   
-    ![Navigation - Admin Logged In](documentation/login-admin.png)
+  
+    ![Navigation - Admin Logged In](documentation/admin-loginnn.png)
    
  * Navigation - Admin Logged In - Product Management - Edit
 
@@ -488,9 +488,9 @@ When an ordinary user is logged in the my account gets more available options, m
 
    Admin can delete item on product detail page.
    
-    ![Navigation - Admin Edit Products](documentation/admin-edit-products-2.png)
-
     ![Navigation - Admin Edit Products](documentation/admin-edit-products-3.png)
+
+    ![Navigation - Admin Edit Products](documentation/admin-edit-products-2.png)
    
  * Navigation - Admin Logged In - Product Management - Add products
 
@@ -548,7 +548,7 @@ Users can view blog post detail page and so read to the a single post and then i
 ![one blog post detail page like](documentation/blog-post-like.png)
 
 
-![one blog post detail page comment](documentation/blog-post-comment.png)
+![one blog post detail page comment](documentation/post-comment-new.png)
 
 
 If the user is not logged in and wants to add comments or likes, he/she will receive a warning to log in to the blog posts as follows and will be directed to the login page.
@@ -586,7 +586,7 @@ Listing of products will vary depending on the selected filter and sort by. When
 
 #### Product Detail
 
-User can click one selected product and go to directly product detail page.
+User can click one selected product and go to directly product detail page. User can read all about of this product and can see reviews and avarage rating.
 
 ![Product Detail View](documentation/product-detail.png)
 
@@ -681,11 +681,11 @@ When the order is confirmed the user gets an confirmation e-mail to the register
 
 On this page the user can sign in to Lotus Aura Natural.
 
-![Sign up page](documentation/signup-page.png)
+![Sign up page](documentation/signup-username.png)
 
 ### Sign In 
 
-![Sign in page](documentation/signin-page.png)
+![Sign in page](documentation/signin-username.png)
 
 ### Password Reset
 
@@ -788,9 +788,6 @@ The sites incorporates flash messages when an action has been performed (i.e. de
 ### Features Left to Implement
 
 * Give the logged in site user the possibility to add a promotion code
-* Give the logged in site user the possibility to rate a product
-* Give the logged in site user the possibility to write a product review
-* Give the logged in site user the ability to add comments and likes to posts on the blog page
 * Add an admin area with general information (like number of logged in users, number of products and so on)
 * Add more e-mail functionality (i.e email is being sent out when the order has been handled)
 * Add more visual feedback to the user
@@ -887,12 +884,13 @@ The libraries used in this project are located in the requirements.txt file and 
 
 * As a Customer I want to view a list of products so that I can read more about it and purchase it
   * At the top of the site there is a navigation bar with links that lists products based on categories(filter), sorting or through a search query.
-* As a Customer I want to click on a specific product so that I view its details like price, description, product rating and image 
+* As a Customer I want to click on a specific product so that I view its details like price, description, avarage rating of product and reviews comments and image 
   * At the top of the site there is a navigation bar with links that lists products based on shop , user can filter which one category products list and  sorting or through a search query. When a user clicks on a product a detail view of the product opens. 
 * As a Customer I want to click on a specific product so that I view its details like price, description, product rating and image
   * At the top of the site there is a navigation bar with links that lists products based on categories, sorting or through a search query. When a user clicks on a product a detail view of the product opens.
 * As a Customer I want to read the reviews that are connected to a specific product so that I can base my purchase decision on that
-  * Not implemented yet
+  * User can visit to profil page and click the my assesments section and give to rating to products if I bought it before and user can write a review comment to product if user bought it before.
+  * The user can view the products user has purchased by clicking on the assesments section on user profile, and when user gives a rating to those products or makes a review comment, that product will now go to the my assesments section.
 * As a Customer I want to view the total of my purchases at any time so that I can keep track of my expenses
   * At the top of the screen the user can see the cart icon. The user can  click the cart icon to open the shopping bag page where the totals of the purchases also can be viewed.
 * As a Site User I want to navigate easy on the site through paginated list of products and posts so that I feel comfortable using the site
@@ -909,9 +907,9 @@ The libraries used in this project are located in the requirements.txt file and 
 #### Registration And User Accounts  
 
 * As a Site User I want to register an account so that I have a personal account and get access to my profile
-  *  In the navigation bar the user can click the Login link in the menu sign up for a new account Login page has a register link if user doesnot have a account. User can register and lotur team send a email to register mail adress for register confirmation. When user click this link user can see login page and can login. When this is done the user can access the personal account.
+  *  In the navigation bar the user can click the Login link in the menu sign up for a new account Login page has a register link if user doesnot have a account. User can register and lotus team send a email to register mail adress for register confirmation. When user click this link user can see login page and can login. When this is done the user can access the personal account.
 *  As a Site User I want to have my own user profile so that I can view my personal order history, update my contact / payment information
-  *  When the user has created an account and is logged in the menu My Profile in the menu takes them to a profile page were they can access personal information and order history. The write reviews function is not implemented yet.
+  *  When the user has created an account and is logged in the menu My Profile in the menu takes them to a profile page were they can access personal information and order history.
 * As a Site User I want to log out from the site so that I can feel safe that nobody can access my information 
   * When the user is logged in it is possible to choose the 'Log Out'-option in the navigation menu.
   

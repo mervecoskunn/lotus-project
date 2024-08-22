@@ -1,11 +1,14 @@
-from django.http import HttpResponse
+from django.db.models import Avg
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import stripe
 from django.conf import settings
 from django.contrib import messages
 from django.core.mail import EmailMessage
-from shopping.models import Cart
-from order.models import Order
+from django.urls import reverse
+
+from shopping.models import Cart, Product, CartProduct
+from order.models import Order, Rating
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
@@ -39,6 +42,46 @@ def order_detail(request, order_id):
     return render(request, 'order/order_detail.html', {
         'order': order, 'prev_page': prev_page
     })
+
+
+@login_required
+def my_assessments(request):
+    prev_page = request.META.get('HTTP_REFERER', '/')
+
+    if request.method == 'GET':
+        ratings = Rating.objects.filter(rater=request.user).values_list('product__id', flat=True)
+        queryset = CartProduct.objects.exclude(product__id__in=ratings).filter(
+            cart__order__user_profile__user=request.user
+        )
+        data = []
+        product_ids = []
+
+        for cp in queryset:
+            if cp.product.id not in product_ids:
+                product_ids.append(cp.product.id)
+                rate = Rating.objects.filter(product=cp.product)
+
+                context = {
+                    "product_id": cp.product.id,
+                    "product_name": cp.product.name,
+                    "product_img": cp.product.img,
+                    "rating_average": rate.aggregate(Avg("score", default=0))['score__avg'],
+                    "rating_count": rate.count()
+                }
+                data.append(context)
+
+        return render(request, 'order/my_assessment.html', {
+            'products': data, 'prev_page': prev_page
+        })
+
+    elif request.method == 'POST':
+        product_id = request.POST.get('productId')
+        score = request.POST.get('rating')
+        comment = request.POST.get('review')
+        product = Product.objects.get(id=product_id)
+
+        Rating.objects.create(rater=request.user, product=product, score=score, comment=comment)
+        return HttpResponseRedirect(reverse('my_assessment'))
 
 
 @login_required
