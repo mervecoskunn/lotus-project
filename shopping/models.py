@@ -36,15 +36,14 @@ class Product(models.Model):
     category = models.CharField(
         max_length=255, choices=category_choices)
     description = models.TextField()
-    rating = models.DecimalField(
-        max_digits=2, decimal_places=1,
-        validators=[MinValueValidator(0.0),
-                    MaxValueValidator(5.0)])
+
     img = models.ImageField(upload_to=get_image_upload_path, null=True)
 
+    def get_ratings_average(self):
+        return self.product_ratings.all().aggregate(models.Avg("score", default=0))['score__avg']
+
     def __str__(self):
-        s = '[' + self.name + ' ' + str(self.price)
-        s += ' ' + str(self.rating) + ']'
+        s = '[' + str(self.name) + ' ' + str(self.price)
         return s
 
 

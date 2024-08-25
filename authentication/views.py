@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
 from django.utils.html import strip_tags
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
@@ -10,6 +11,8 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
+
+from . import forms
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
@@ -71,7 +74,7 @@ def register(request):
                     'domain': get_current_site(request).domain,
                     'uid': urlsafe_base64_encode(force_bytes(new_user.pk)),
                     'token': account_activation_token.make_token(new_user),
-                    "protocol": "https" if request.is_secure() else "http",
+                    "protocol": "https://" if request.is_secure() else "http://",
                 }
             )
             plain_message = strip_tags(html_content)
@@ -116,7 +119,6 @@ def change_email(request):
         email = request.POST.get('email')
         user = request.user
         user.email = email
-        user.username = email.split('@')[0]
         user.is_active = False
         user.save()
 
@@ -127,7 +129,7 @@ def change_email(request):
             'domain': get_current_site(request).domain,
             'uid': urlsafe_base64_encode(force_bytes(user.pk)),
             'token': account_activation_token.make_token(user),
-            "protocol": "https" if request.is_secure() else "http",
+            "protocol": "https://" if request.is_secure() else "http://",
         })
 
         email_message = EmailMessage(
@@ -147,3 +149,13 @@ def logout(request):
     auth_logout(request)
     messages.success(request, 'You have been logged out successfully.')
     return render(request, 'authentication/login.html')
+
+
+class CustomPasswordResetView(PasswordResetView):
+    form_class = forms.CustomPasswordResetForm
+    template_name = "authentication/password_reset.html"
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = forms.CustomSetPasswordForm
+    template_name = "authentication/password_reset_confirm.html"

@@ -44,7 +44,7 @@
                     <strong>€ {{ product.price }}</strong>
                 </p>
                 <pre>{{ product.description }}</pre>
-                <form method="post" action="{% url "add_to_cart" %}" class="my-4">
+                <form method="post" action="{% url 'add_to_cart' %}" class="my-4">
                     {% csrf_token %}
                     <input type="number"
                            name="quantity"
@@ -63,10 +63,10 @@
                     {% endif %}
                 </form>
                 {% if not is_favorited %}
-                    <a href="{% url "add_to_favorites" product.id %}"
+                    <a href="{% url 'add_to_favorites' product.id %}"
                        class="btn lotus-btn-primary">Add to Favorites</a>
                 {% else %}
-                    <a href="{% url "remove_from_favorites" product.id %}"
+                    <a href="{% url 'remove_from_favorites' product.id %}"
                        class="btn lotus-btn-primary">Remove from Favorites</a>
                 {% endif %}
             </div>
@@ -87,7 +87,6 @@
             <i class="fa fa-star starSmall" data-value="4"></i>
             <i class="fa fa-star starSmall" data-value="5"></i>
         </div>
-        <div class="p-reviews-header-seperator"></div>
         <p class="rate-count">{{ rating_count }} Rating</p>
     </div>
 </div>

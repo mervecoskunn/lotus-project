@@ -1,7 +1,6 @@
 from django.db.models import Avg
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import HttpResponse
 from django.contrib import messages
 from . import models
 from user.models import Profile
@@ -97,7 +96,7 @@ def product_detail(request, product_id):
             "quantity": quantity,
             "prev_page": prev_page,
             "rating_count": product.product_ratings.all().count(),
-            "rating_average": product.product_ratings.all().aggregate(Avg("score", default=0))['score__avg']
+            "rating_average": product.get_ratings_average()
         }
     else:
         context = {

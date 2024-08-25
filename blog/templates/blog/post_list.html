@@ -23,8 +23,8 @@
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
         {% if user.is_superuser %}
-            <a href="{% url "post_new" %}" class="btn btn-primary">Add New Post</a>
-            <a href="{% url "draft_post_list" %}" class="btn btn-secondary">See Draft Posts</a>
+            <a href="{% url 'post_new' %}" class="btn btn-primary">Add New Post</a>
+            <a href="{% url 'draft_post_list' %}" class="btn btn-secondary">See Draft Posts</a>
         {% endif %}
         <div class="row justify-content-center">
             {% for post in post_list %}

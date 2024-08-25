@@ -17,11 +17,11 @@
 {% endblock header %}
 
 {% block lotus_content %}
-    <section class="container my-5">
+    <div class="container my-5">
         {% if messages %}
             {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
-        <form method="post" action="{% url "profile" %}">
+        <form method="post" action="{% url 'profile' %}">
             {% csrf_token %}
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -55,7 +55,7 @@
                        required
                        disabled
                        value="{{ user.email }}">
-                <a href="{% url "change_email" %}" class="ms-2 my-auto w-25">Change Email</a>
+                <a href="{% url 'change_email' %}" class="ms-2 my-auto w-25">Change Email</a>
 
             </div>
 
@@ -69,7 +69,7 @@
                        required
                        disabled
                        value="********">
-                <a href="{% url "password_reset" %}" class="ms-2 my-auto w-25">Change Password</a>
+                <a href="{% url 'password_reset' %}" class="ms-2 my-auto w-25">Change Password</a>
             </div>
 
 
@@ -84,14 +84,14 @@
 
             <button type="submit" class="btn _btn">Update Profile</button>
         </form>
-        <a href="{% url "orders" %}" class="btn _btn mt-2">See Your Orders</a>
-        <a href="{% url "my_assessment" %}" class="btn _btn mt-2">My Assessments</a>
+        <a href="{% url 'orders' %}" class="btn _btn mt-2">See Your Orders</a>
+        <a href="{% url 'my_assessment' %}" class="btn _btn mt-2">My Assessments</a>
 
         {% if user.is_superuser %}
-            <a href="{% url "all_orders" %}" class="btn _btn mt-2">Manage All Orders</a>
-            <a href="{% url "shopping" %}" class="btn _btn mt-2">Manage All Products</a>
-            <a href="{% url "post_list" %}" class="btn _btn mt-2">Manage All Posts</a>
+            <a href="{% url 'all_orders' %}" class="btn _btn mt-2">Manage All Orders</a>
+            <a href="{% url 'shopping' %}" class="btn _btn mt-2">Manage All Products</a>
+            <a href="{% url 'post_list' %}" class="btn _btn mt-2">Manage All Posts</a>
         {% endif %}
 
-    </section>
+    </div>
 {% endblock lotus_content %}

@@ -6,7 +6,7 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'price', 'category', 'description', 'rating', 'img']
+        fields = ['name', 'price', 'category', 'description', 'img']
         widgets = {
             'name': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -21,10 +21,6 @@ class ProductForm(forms.ModelForm):
             'description': forms.Textarea(attrs={
                 'class': 'form-control',
                 'rows': 3,
-                'style': 'max-width: 300px;'}),
-            'rating': forms.NumberInput(attrs={
-                'class': 'form-control',
-                'min': '0',
                 'style': 'max-width: 300px;'}),
             'img': forms.ClearableFileInput(attrs={
                 'class': 'form-control-file',

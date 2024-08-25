@@ -16,7 +16,7 @@
 
 {% block lotus_content %}
 
-<section class="post-detail-container mt-5">
+<div class="post-detail-container mt-5">
 
     {% if user.is_superuser %}
     <div>
@@ -27,7 +27,7 @@
 
     </div>
     {% endif %}
-    <article style="width: 100vw;">
+    <div style="width: 100vw;">
         <a href="{{ prev_page }}" class="btn btn-secondary">Go Back</a>
         <section class="media content-section">
             <div class="card text-center pb-3">
@@ -184,7 +184,7 @@
                                                                 data-bs-dismiss="modal">Cancel
                                                         </button>
                                                         <button type="submit" class="btn btn-danger btn-sm mt-3 mb-3">
-                                                            Delete Post
+                                                            Delete Comment
                                                         </button>
                                                     </form>
                                                 </div>
@@ -211,8 +211,8 @@
                 </div>
             </div>
         </section>
-    </article>
+    </div>
 
-</section>
+</div>
 
 {% endblock lotus_content %}

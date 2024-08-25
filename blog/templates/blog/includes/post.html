@@ -12,10 +12,10 @@
                       min-height:58px">{{ post.content }}</p>
 
             {% if is_draft == True %}
-                <a href="{% url "draft_post_detail" post.id %}"
+                <a href="{% url 'draft_post_detail' post.id %}"
                    class="btn btn-outline-secondary">Read more</a>
             {% else %}
-                <a href="{% url "post_detail" post.id %}"
+                <a href="{% url 'post_detail' post.id %}"
                    class="btn btn-outline-secondary">Read more</a>
             {% endif %}
 
