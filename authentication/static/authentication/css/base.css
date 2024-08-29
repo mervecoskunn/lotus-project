@@ -5,11 +5,25 @@
 
 @media screen and (max-width: 1200px) {
   ._container {
-    height: 50vh;
-    max-height: 50vh;
+    height: auto;
   }
 }
 
 ._img {
   object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  ._img {
+    height: 300px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  ._img {
+    height: 50vh;
+  }
 }
