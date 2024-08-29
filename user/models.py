@@ -1,9 +1,7 @@
 from django.db import models
 from shopping.models import Cart
 from django.contrib.auth.models import User
-from shopping.models import Cart
 
-# Create your models here.
 
 
 class Profile(models.Model):

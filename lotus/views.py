@@ -1,8 +1,6 @@
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from blog import models
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.conf import settings
 from mailchimp_marketing import Client

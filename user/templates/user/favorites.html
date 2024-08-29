@@ -22,7 +22,7 @@
             {% if is_empty %}
                 <div class="col-12 text-center">
                     <h2 class="display-6">Your favorites list is empty</h2>
-                    <a href="{% url "shopping" %}" class="btn lotus-btn-primary">Go to products</a>
+                    <a href="{% url 'shopping' %}" class="btn lotus-btn-primary">Go to products</a>
                 </div>
             {% else %}
                 {% for product in favorites %}
@@ -38,14 +38,14 @@
                                  width="24"
                                  height="24"
                                  class="me-2">
-                            {{ product.rating }}/5
+                            {{ product.get_ratings_average | floatformat:1 }}/5
                         </div>
                         <p>
                             <strong>€ {{ product.price }}</strong>
                         </p>
-                        <a href="{% url "product_detail" product.id %}"
+                        <a href="{% url 'product_detail' product.id %}"
                            class="btn lotus-btn-primary">Read More</a>
-                        <a href="{% url "remove_from_favorites" product.id %}"
+                        <a href="{% url 'remove_from_favorites' product.id %}"
                            class="btn btn-outline-secondary mt-4">Remove from favorites</a>
                     </div>
                 {% endfor %}

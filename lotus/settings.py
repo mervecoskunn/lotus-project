@@ -97,8 +97,8 @@ WSGI_APPLICATION = 'lotus.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-  'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+ }
 
 # DATABASES = {
 #     'default': {
@@ -205,13 +205,12 @@ django_heroku.settings(locals(), staticfiles=False)
 
 # Email settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.yandex.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_FROM = os.environ.get('EMAIL_FROM')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 PASSWORD_RESET_TIMEOUT = 14400
 DEFAULT_FROM_EMAIL = EMAIL_FROM
 SERVER_EMAIL = EMAIL_FROM

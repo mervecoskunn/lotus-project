@@ -122,6 +122,7 @@ def post_new(request):
                 # any other appropriate page
                 return redirect('draft_post_list')
             else:
+                form.instance.author = request.user
                 post = form.save()
                 messages.success(request, 'Post added successfully')
                 send_email_to_subscribers(request, post)

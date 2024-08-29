@@ -367,10 +367,11 @@ When an ordinary user is logged in the my account gets more available options, m
    
  * Profile page for login user 
 
-   ![Navigation my profile page as user](documentation/user-profile-page.png)
+   ![Navigation my profile page as user](documentation/user-profilepage.png)
 
   * User can update own personal information on this page and change e-mail and change password
   * User can later rate the products user purchased and write comments as a review.
+  * User can see own orders.
     
   * Change e-mail
   
@@ -452,7 +453,7 @@ When an ordinary user is logged in the my account gets more available options, m
 
   * Admin can click the profil icon on navbar menu and can go to admin manage page. Admin can click the manage blog posts or manage product, see all orders or see own order.
       
-    ![Navigation admin profile page](documentation/admin-profile.png)
+    ![Navigation admin profile page](documentation/admin-profile-last.png)
 
  * Navigation - Admin Logged In 
   

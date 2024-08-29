@@ -2,9 +2,7 @@ from django.db.models import Avg
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import stripe
-from django.conf import settings
 from django.contrib import messages
-from django.core.mail import EmailMessage
 from django.urls import reverse
 
 from shopping.models import Cart, Product, CartProduct
