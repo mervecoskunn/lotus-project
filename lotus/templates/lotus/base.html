@@ -3,29 +3,20 @@
 
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'lotus/css/base.css' %}">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 {% block lotus_css_files %}
 {% endblock lotus_css_files %}
 {% endblock css_files %}
 
 {% block content %}
-<header class="container-fluid">
+<header>
     {% include "lotus/includes/navbar.html" %}
     {% block header %}
     {% endblock header %}
 </header>
 
-<div class="container-fluid">
-    {% block lotus_content %}
-    {% endblock lotus_content %}
-</div>
+{% block lotus_content %}
+{% endblock lotus_content %}
 
 <hr class="hr">
-<footer class="container-fluid">
-    {% include "lotus/includes/footer.html" %}
-</footer>
+{% include "lotus/includes/footer.html" %}
 {% endblock content %}
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
