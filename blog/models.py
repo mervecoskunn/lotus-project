@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Post(models.Model):
-    img = models.ImageField(upload_to='posts', null=True)
+    img = models.ImageField(upload_to='posts', blank =True, null=True, default="images/default_image.png")
     title = models.CharField(max_length=255)
     content = models.TextField()
     author = models.ForeignKey(

@@ -68,7 +68,7 @@ def subscription(request):
         email = request.POST.get('email')
 
         if not subscribe(email):  # function to access mailchimp
-            messages.error(request, "Email alredy subscribed.")
+            messages.error(request, "Email already subscribed.")
             return redirect("home")
 
         # Send email to user

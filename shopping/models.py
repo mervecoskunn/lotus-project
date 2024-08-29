@@ -37,7 +37,7 @@ class Product(models.Model):
         max_length=255, choices=category_choices)
     description = models.TextField()
 
-    img = models.ImageField(upload_to=get_image_upload_path, null=True)
+    img = models.ImageField(upload_to=get_image_upload_path, blank= True, null=True, default="images/default_image.png")
 
     def get_ratings_average(self):
         return self.product_ratings.all().aggregate(models.Avg("score", default=0))['score__avg']
