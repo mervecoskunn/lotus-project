@@ -1,18 +1,20 @@
 {% extends 'authentication/base.html' %}
 
 {% block form_block %}
+<section>
+    {% include "includes/banner.html" with page_name="Change Email" %}
+</section>
+
+<section class="container my-5">
+    <a href="javascript:history.back()" class="btn btn-secondary mb-3">Go Back</a>
     <form method="post" class="my-4">
         {% csrf_token %}
-
         <div class="input-group mb-3">
             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-            <input type="email"
-                   name="email"
-                   id="email"
-                   placeholder="New Email"
-                   class="form-control gold-outline"
-                   required>
-
-            <button type="submit" class="btn btn-primary">Change Email</button>
-        </form>
+            <input type="email" name="email" id="email" placeholder="New Email" class="form-control gold-outline"
+                required>
+        </div>
+        <button style="background-color: #B88E2F; color: #ffffff;" type="submit" class="btn">Change Email</button>
+    </form>
+</section>
 {% endblock form_block %}

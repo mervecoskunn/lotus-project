@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 {% if messages %}
-                    {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+                    {% for message in messages %}<div class="alert logout-alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
                 {% endif %}
 
                 <h1 class="title">Hello Again!</h1>
@@ -49,4 +49,10 @@
             </div>
         </div>
     </div>
+        <script src="{% static 'js/close-alerts.js' %}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                closeAlerts('logout-alert', 5000);
+            });
+        </script>
 {% endblock form_block %}

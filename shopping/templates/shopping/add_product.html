@@ -22,7 +22,7 @@
         <form method="post" enctype="multipart/form-data" class="my-4">
             {% csrf_token %}
             <div class="form-group">
-                <div class="row">
+                <div class="row" style="gap: 25px;">
                     <div class="col-2">{{ form.name.label_tag }}</div>
                     <div class="col">{{ form.name }}</div>
                 </div>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="form-group">
-                <div class="row">
+                <div class="row" style="gap: 25px;">
                     <div class="col-2">{{ form.price.label_tag }}</div>
                     <div class="col">{{ form.price }}</div>
                 </div>
@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group">
-                <div class="row">
+                <div class="row" style="gap: 25px;">
                     <div class="col-2">{{ form.category.label_tag }}</div>
                     <div class="col">{{ form.category }}</div>
                 </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="form-group">
-                <div class="row">
+                <div class="row"style="gap: 25px;">
                     <div class="col-2">{{ form.description.label_tag }}</div>
                     <div class="col">{{ form.description }}</div>
                 </div>
@@ -54,21 +54,21 @@
             </div>
 
             <div class="form-group">
-                <div class="row">
+                <div class="row" style="gap: 25px;">
                     <div class="col-2">{{ form.rating.label_tag }}</div>
                     <div class="col">{{ form.rating }}</div>
                 </div>
                 {% if form.rating.errors %}<small class="form-text text-danger">{{ form.rating.errors }}</small>{% endif %}
             </div>
 
-            <div class="form-group">
-                <div class="row">
+            <div class="form-group" style="gap: 25px;">
+                <div class="row" style="gap: 25px;">
                     <div class="col-2">{{ form.img.label_tag }}</div>
                     <div class="col">{{ form.img }}</div>
                 </div>
                 {% if form.img.errors %}<small class="form-text text-danger">{{ form.img.errors }}</small>{% endif %}
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button style="background-color: #B88E2F; color: #ffffff;" type="submit" class="btn">Submit</button>
         </form>
     </main>
 

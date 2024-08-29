@@ -1,28 +1,29 @@
 {% extends "lotus/base.html" %}
 {% block content %}
 
-    <section class="container">
+<section class="container mt-5">
 
-        <form method="post" action="{% url "delete_product" product.id %}">
-            {% csrf_token %}
+    <div class="card">
+        <div class="card-header text-center">
+            <h2>Delete Product</h2>
+        </div>
+        <div class="card-body text-center">
+            <img style="display: flex; justify-content: center; align-items: center; width: 300px; margin: auto;" src="{{ product.img.url }}" alt="{{ product.name }}" class="product-img">
+                
+            <p style="margin-top: 20px;" class="lead">
+                Are you sure you want to delete the product with name:
+                <strong>{{ product.name }}</strong>?
+            </p>
+            <form method="post" action="{% url 'delete_product' product.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                    <a class="btn btn-outline-secondary" href="{% url 'product_detail' product.id %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            <fieldset class="form-group">
+</section>
 
-                <legend class="border-bottom mb-4">Delete Product</legend>
-
-                <p>
-                    Delete product with name:
-                    {{ product.name }}
-                </p>
-
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-danger" type="submit">Delete</button>
-                <a class="btn btn-outline-secondary"
-                   href="{% url 'product_detail' product.id %}">Cancel</a>
-            </div>
-
-        </form>
-
-    </section>
 {% endblock content %}

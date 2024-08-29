@@ -19,7 +19,7 @@
 {% block lotus_content %}
     <div class="container my-5">
         {% if messages %}
-            {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+            {% for message in messages %}<div class="alert alert-profile alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
         <form method="post" action="{% url 'profile' %}">
             {% csrf_token %}
@@ -56,7 +56,6 @@
                        disabled
                        value="{{ user.email }}">
                 <a href="{% url 'change_email' %}" class="ms-2 my-auto w-25">Change Email</a>
-
             </div>
 
             <div class="input-group mb-3">
@@ -81,17 +80,24 @@
                           class="form-control gold-outline">{{ profile.address }}</textarea>
             </div>
 
-
-            <button type="submit" class="btn _btn">Update Profile</button>
+    <div class="d-flex justify-content-center align-items-center flex-column mt-2">
+        <button style="max-width: 300px;" type="submit" class="btn _btn">Update Profile</button>
         </form>
-        <a href="{% url 'orders' %}" class="btn _btn mt-2">See Your Orders</a>
-        <a href="{% url 'my_assessment' %}" class="btn _btn mt-2">My Assessments</a>
+        <a href="{% url 'orders' %}" style="max-width: 300px;" class="btn _btn mt-2">See Your Orders</a>
+        <a href="{% url 'my_assessment' %}" style="max-width: 300px;"  class="btn _btn mt-2">My Assessments</a>
 
         {% if user.is_superuser %}
-            <a href="{% url 'all_orders' %}" class="btn _btn mt-2">Manage All Orders</a>
-            <a href="{% url 'shopping' %}" class="btn _btn mt-2">Manage All Products</a>
-            <a href="{% url 'post_list' %}" class="btn _btn mt-2">Manage All Posts</a>
+            <a href="{% url 'all_orders' %}" style="max-width: 300px;" class="btn _btn mt-2">Manage All Orders</a>
+            <a href="{% url 'shopping' %}" style="max-width: 300px;" class="btn _btn mt-2">Manage All Products</a>
+            <a href="{% url 'post_list' %}" style="max-width: 300px;" class="btn _btn mt-2">Manage All Posts</a>
         {% endif %}
+    </div>
 
     </div>
+    <script src="{% static 'js/close-alerts.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            closeAlerts('alert-profile', 5000);
+        });
+    </script>
 {% endblock lotus_content %}

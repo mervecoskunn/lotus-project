@@ -1,16 +1,19 @@
 .title {
   font-family: 'Poppins', sans-serif;
-  font-size: 26px;
+  font-size: 2rem;
+  /* rem is more suitable */
   font-weight: 700;
   color: #333;
+  text-align: center;
 }
 
 .subtitle {
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #333;
-  margin-bottom: 48px;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .form-input {
@@ -28,6 +31,7 @@
   border-radius: 5px;
   background-color: #b88e2f;
   color: #fff;
+  font-size: 1.25rem;
 }
 
 ._btn:hover {
@@ -50,4 +54,42 @@ span {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ._btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  ._btn {
+    font-size: 1.5rem;
+  }
 }

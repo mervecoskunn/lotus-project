@@ -19,7 +19,7 @@
 {% block lotus_content %}
     <section class="container my-5">
         {% if messages %}
-            {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+            {% for message in messages %}<div class="alert alert-order alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
         {% if orders.count == 0 %}
             <div class="col-12 text-center">
@@ -33,4 +33,10 @@
         {% endif %}
 
     </section>
+    <script src="{% static 'js/close-alerts.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            closeAlerts('alert-order', 5000);
+        });
+    </script>
 {% endblock lotus_content %}

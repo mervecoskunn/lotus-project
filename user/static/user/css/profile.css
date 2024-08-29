@@ -6,3 +6,15 @@
   background-color: #b88e2f;
   color: #fff;
 }
+
+
+.btn._btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin: 10px auto;
+
+}

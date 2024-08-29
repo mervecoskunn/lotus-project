@@ -21,7 +21,7 @@
     <main class="container-fluid">
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
+                <div class="alert draft-alert alert-{{ message.tags }}">
                     {{ message }} - <a href="{% url "post_list" %}">Go to blog</a>
                 </div>
             {% endfor %}
@@ -41,6 +41,12 @@
 
 
     </main>
+        <script src="{% static 'js/close-alerts.js' %}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                closeAlerts('draft-alert', 5000);
+            });
+        </script>
 
 
 {% endblock lotus_content %}

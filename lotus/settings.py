@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG = False
 SITE_ID=1
 ALLOWED_HOSTS = []
 
@@ -96,20 +96,20 @@ WSGI_APPLICATION = 'lotus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
- }
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'bdeioqfx',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Mervecoskun2024!',
-#         'HOST': '127.0.0.1',
-#         'PORT': 5433,
-#     },
-# }
+#    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#  }
+
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bdeioqfx',
+        'USER': 'postgres',
+        'PASSWORD': 'Mervecoskun2024!',
+        'HOST': '127.0.0.1',
+        'PORT': 5433,
+    },
+   }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

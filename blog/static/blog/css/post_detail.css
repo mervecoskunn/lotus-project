@@ -10,3 +10,14 @@
   font-size: 16px;
   font-weight: bold;
 }
+.post-detail-container .btn-secondary {
+  margin-left: 200px;
+}
+.custom-btn-width {
+  background-color: #4CAF50;
+  color: white;
+}
+.custom-btn {
+  margin-left: 22px;
+  margin-bottom: 10px;
+}

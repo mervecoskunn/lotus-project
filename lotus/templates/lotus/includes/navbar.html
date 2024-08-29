@@ -44,7 +44,8 @@
                        name="search_key"
                        placeholder="Search"
                        aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn" type="submit"
+                    style="border: 2px solid #B88E2F; color: #B88E2F; background-color: transparent; transition: background-color 0.3s, color 0.3s;">Search</button>
             </form>
         </div>
         <ul class="navbar-nav nav-icons flex-row justify-content-around">
@@ -60,7 +61,7 @@
                 <a class="nav-link active"
                    aria-current="page"
                    href="{% url "favorites" %}">
-                    <i class="fa-solid fa-heart" style="color: #000"></i>
+                    <i class="fa-solid fa-heart"></i>
                 </a>
             </li>
 

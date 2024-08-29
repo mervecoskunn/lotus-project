@@ -1,6 +1,8 @@
 {% load static %}
 <div class="container-fluid filter-row">
-    <div class="row ps-5 py-3">
+    <div 
+     style="gap: 30px;"
+     class="row ps-3 py-3">
         <div class="col-2 dropdown">
             <button type="button"
                     class="btn d-flex poppins-400 ms-1 mb-0"
@@ -60,7 +62,7 @@
                                {% if filters.chakra_stone %}checked{% endif %}>
                         <label for="chakra_stone">Chakra Stones</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <button style="background-color: #B88E2F; color: #ffffff;" type="submit" class="btn">Filter</button>
                 </form>
                 <hr>
 
@@ -133,7 +135,7 @@
                     <label for="name-z-a">Name (Z-A)</label>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Sort Products</button>
+                <button style="background-color: #B88E2F; color: #ffffff;" type="submit" class="btn">Sort Products</button>
             </form>
         </div>
 

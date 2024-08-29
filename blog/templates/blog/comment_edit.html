@@ -5,6 +5,13 @@
 
 <link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
 <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<style>
+    @media (max-width: 415px) {
+        .btn-go-back {
+            margin-left: 22px;
+        }
+    }
+</style>
 {% endblock lotus_css_files %}
 
 {% block header %}
@@ -20,7 +27,7 @@
 
 
     <article style="max-width: 1000px">
-        <a href="{{ prev_page }}" class="btn btn-secondary">Go Back</a>
+        <a href="{{ prev_page }}" style="margin-bottom: 10px;" class="btn btn-secondary btn-go-back">Go Back</a>
         <section class="media content-section">
 
             <!-- Comment -->
@@ -57,7 +64,7 @@
                                                 </div>
                                                 <hr>
                                                 <div class="flex d-flex justify-content-center">
-                                                    <button class="btn btn-primary btn-block btn-sm" type="submit">
+                                                    <button style="max-width: 250px;" class="btn btn-primary btn-block btn-sm" type="submit">
                                                         Send
                                                     </button>
                                                 </div>

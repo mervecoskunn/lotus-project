@@ -21,7 +21,7 @@ Shopping Cart
     <div class="row">
         {% if messages %}
         {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        <div class="alert alert-card alert-{{ message.tags }}">{{ message }}</div>
         {% endfor %}
         {% endif %}
         {% if is_empty %}
@@ -51,16 +51,15 @@ Shopping Cart
                         <a href="{% url 'product_detail' cart_product.product.id %}">{{ cart_product.product.name }}</a>
                     <td>{{ cart_product.product.price }}</td>
                     <td>
-                        {{ cart_product.quantity }}
-
-                        <a href="{% url 'decrease_quantity' cart_product.id %}"
-                           class="btn btn-outline-secondary btn-sm">
-                            <i class="fa-solid fa-minus fa-2xs" style="color: #888; font-weight:550;"></i>
-                        </a>
-                        <a href="{% url 'increase_quantity' cart_product.id %}"
-                           class="btn btn-outline-secondary btn-sm">
-                            <i class="fa-solid fa-plus fa-xs" style="color: #888; font-weight:500;"></i>
-                        </a>
+                        <div class="quantity-buttons d-flex align-items-center">
+                            <span class="quantity me-3">{{ cart_product.quantity }}</span>
+                            <a href="{% url 'decrease_quantity' cart_product.id %}" class="btn btn-outline-secondary btn-sm me-2">
+                                <i class="fa-solid fa-minus fa-2xs" style="color: #888; font-weight:550;"></i>
+                            </a>
+                            <a href="{% url 'increase_quantity' cart_product.id %}" class="btn btn-outline-secondary btn-sm">
+                                <i class="fa-solid fa-plus fa-xs" style="color: #888; font-weight:500;"></i>
+                            </a>
+                        </div>
                     </td>
                     <td>{{ cart_product.subtotal }}</td>
                     <td>
@@ -101,4 +100,10 @@ Shopping Cart
 
     </div>
 </section>
+<script src="{% static 'js/close-alerts.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        closeAlerts('alert-card', 5000);
+    });
+</script>
 {% endblock lotus_content %}

@@ -1,15 +1,24 @@
 <!-- templates/500.html -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Server Error</title>
-    </head>
-    <body style="display: flex; justify-content: center; ">
-        <div>
-            <h1 style="font-size: 64px">500 - Server Error</h1>
-            <p style="font-size: 32px">Sorry, something went wrong on our server. We're working to fix it.</p>
-            <a href="{% url 'home' %}" style="font-size: 24px">Go to home page</a>
-        </div>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Server Error</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex justify-content-center align-items-start vh-100">
+    <div class="text-center">
+        <h1 class="display-1">500</h1>
+        <h2 class="display-4">Server Error</h2>
+        <p class="lead">Sorry, something went wrong on our server. We're working to fix it.</p>
+        <a href="{% url 'home' %}" style="background-color: #B88E2F; color: #ffffff;" class="btn">Go to Home Page</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 </html>

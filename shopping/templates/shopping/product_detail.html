@@ -15,7 +15,7 @@
 {% block lotus_content %}
     <section class="container-fluid product-detail my-5">
         {% if messages %}
-            {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+            {% for message in messages %}<div class="alert alert-pdetail alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}
 
         <div>
@@ -143,6 +143,12 @@
 
         });
 
+    });
+</script>
+<script src="{% static 'js/close-alerts.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        closeAlerts('alert-pdetail', 5000);
     });
 </script>
 <!-- Rating End Block-->
