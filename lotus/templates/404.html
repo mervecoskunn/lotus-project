@@ -1,21 +1,70 @@
-<!-- templates/404.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Page Not Found</title>
+    <title>Page Not Found - 404</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Helvetica', sans-serif;
+            background: linear-gradient(135deg, rgba(34, 49, 63, 0.8), rgba(44, 62, 80, 0.8)), url('https://source.unsplash.com/1920x1080/?lost');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+
+        .error-container {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .error-container h1 {
+            font-size: 9rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #e74c3c;
+        }
+
+        .error-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .error-container p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .error-container a {
+            background-color: #B88E2F;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+
+        .error-container a:hover {
+            background-color: #a67924;
+        }
+    </style>
 </head>
 
-<body class="d-flex justify-content-center align-items-start vh-100">
-    <div class="text-center" style="margin-top: -50px;">
-        <h1 class="display-1">404</h1>
-        <h2 class="display-4">Page Not Found</h2>
-        <p class="lead">The page you are looking for does not exist.</p>
-        <a href="{% url 'home' %}" style="background-color: #B88E2F; color: #ffffff;" class="btn btn-lg">Go to Home
-            Page</a>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>Oops! Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <a href="{% url 'home' %}">Go to Home Page</a>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

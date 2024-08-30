@@ -1,28 +1,34 @@
 {% extends "lotus/base.html" %}
 {% block content %}
 
-    <section class="container">
+<section class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4 class="m-0">Confirm Delete</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'draft_post_delete' post.id %}">
+                        {% csrf_token %}
 
-        <form method="POST" action="{% url "draft_post_delete" post.id %}">
-            {% csrf_token %}
+                        <div class="alert alert-warning text-center">
+                            <strong>Warning:</strong> You are about to delete the draft post titled:
+                            <em>{{ post.title }}</em>
+                        </div>
 
-            <fieldset class="form-group">
+                        <p class="text-center mb-4">Are you sure you want to delete this draft post? This action cannot
+                            be undone.</p>
 
-                <legend class="border-bottom mb-4">Delete Draft Post</legend>
-
-                <p>
-                    Delete draft post with title:
-                    {{ post.title }}
-                </p>
-
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-danger" type="submit">Delete</button>
-                <a class="btn btn-outline-secondary"
-                   href="{% url 'draft_post_detail' post.id %}">Cancel</a>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-danger me-2" type="submit">Yes, Delete</button>
+                            <a class="btn btn-secondary" href="{% url 'draft_post_detail' post.id %}">Cancel</a>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
 
-        </form>
-
-    </section>
 {% endblock content %}

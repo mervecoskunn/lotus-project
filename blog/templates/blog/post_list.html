@@ -12,7 +12,7 @@
 
 {% block header %}
     <section>
-        {% include "includes/banner.html" with page_name="Posts" %}
+        {% include "includes/banner.html" with page_name="Blog Posts" %}
     </section>
 {% endblock header %}
 
@@ -26,7 +26,7 @@
             <a href="{% url 'post_new' %}" style="background-color: #B88E2F ; color: #ffffff;" class="btn">Add New Post</a>
             <a href="{% url 'draft_post_list' %}" class="btn btn-secondary">See Draft Posts</a>
         {% endif %}
-        <div class="row justify-content-center">
+        <div style="margin-left: 15px; margin-right: 15px;" class="row justify-content-center">
             {% for post in post_list %}
                 {% include "blog/includes/post.html" with post=post is_draft=False %}
             {% endfor %}

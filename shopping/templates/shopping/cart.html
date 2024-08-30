@@ -63,7 +63,7 @@ Shopping Cart
                     </td>
                     <td>{{ cart_product.subtotal }}</td>
                     <td>
-                        <a href="{% url 'remove_from_cart' cart_product.id %}">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-product-id="{{ cart_product.id }}">
                             <i class="fa-solid fa-trash" style="color: #B88E2F"></i>
                         </a>
                     </td>
@@ -100,10 +100,38 @@ Shopping Cart
 
     </div>
 </section>
+
+<!-- Confirm Delete Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this item from your cart?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="#" id="confirmDeleteButton" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="{% static 'js/close-alerts.js' %}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         closeAlerts('alert-card', 5000);
+
+        var confirmDeleteModal = document.getElementById('confirmDeleteModal');
+        confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var productId = button.getAttribute('data-product-id');
+            var confirmDeleteButton = document.getElementById('confirmDeleteButton');
+            confirmDeleteButton.href = "{% url 'remove_from_cart' 0 %}".replace('0', productId);
+        });
     });
 </script>
 {% endblock lotus_content %}

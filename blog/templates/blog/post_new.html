@@ -20,6 +20,9 @@
 {% block lotus_content %}
 
     <main class="container-fluid">
+        <div class="mb-2">
+            <a href="/blog" class="btn btn-secondary">Go Back</a>
+        </div>
         <form method="post" enctype="multipart/form-data" class="my-4">
             {% csrf_token %}
             <div class="form-group">

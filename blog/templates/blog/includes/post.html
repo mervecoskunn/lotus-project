@@ -1,25 +1,21 @@
-<div class="col-4 p-4 blog-container">
-    <div class="card text-center">
+<div class="col-12 col-md-6 col-lg-5 p-4 blog-container">
+    <div class="card text-center h-100">
         <img src="{{ post.img.url }}"
-             class="card-img-top blog-img"
-             alt="post image"
-             width="400"
-             height="400">
-        <div class="card-body">
+             class="card-img-top blog-img img-fluid"
+             alt="post image">
+        <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text blog-content"
-               style="max-height: 58px;
-                      min-height:58px">{{ post.content }}</p>
+            <p class="card-text blog-content flex-grow-1">{{ post.content }}</p>
 
             {% if is_draft == True %}
                 <a href="{% url 'draft_post_detail' post.id %}"
-                   class="btn btn-outline-secondary">Read more</a>
+                   class="btn btn-outline-secondary mt-auto">Read more</a>
             {% else %}
                 <a href="{% url 'post_detail' post.id %}"
-                   class="btn btn-outline-secondary">Read more</a>
+                   class="btn btn-outline-secondary mt-auto">Read more</a>
             {% endif %}
 
         </div>
-        <div class="card-footer text-body-secondary">{{post.author}} | {{ post.date_posted }}</div>
+        <div class="card-footer text-body-secondary">{{ post.author }} | {{ post.date_posted }}</div>
     </div>
 </div>

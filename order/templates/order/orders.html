@@ -14,10 +14,15 @@
     <section>
         {% include "includes/banner.html" with page_name="Orders" %}
     </section>
+    
 {% endblock header %}
 
 {% block lotus_content %}
     <section class="container my-5">
+        <div class="mb-2">
+            <a href="/user/profile" class="btn btn-secondary">Go Back</a>
+        </div>
+
         {% if messages %}
             {% for message in messages %}<div class="alert alert-order alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
         {% endif %}

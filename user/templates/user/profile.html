@@ -2,102 +2,115 @@
 {% load static %}
 
 {% block page_title %}
-    Profile
+Profile
 {% endblock page_title %}
 
 {% block lotus_css_files %}
-    <link rel="stylesheet" href="{% static 'css/banner.css' %}">
-    <link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/banner.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
 {% endblock lotus_css_files %}
 
 {% block header %}
-    <section>
-        {% include "includes/banner.html" with page_name="Profile" %}
-    </section>
+<section>
+    {% include "includes/banner.html" with page_name="Profile" %}
+</section>
 {% endblock header %}
 
 {% block lotus_content %}
-    <div class="container my-5">
-        {% if messages %}
-            {% for message in messages %}<div class="alert alert-profile alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
-        {% endif %}
-        <form method="post" action="{% url 'profile' %}">
-            {% csrf_token %}
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                <input type="text"
-                       name="first_name"
-                       id="first_name"
-                       placeholder="First Name"
-                       class="form-control gold-outline"
-                       required
-                       value="{{ user.first_name }}">
-            </div>
+<div class="container my-5">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    <form method="post" action="{% url 'profile' %}">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <input type="text"
+                   name="first_name"
+                   id="first_name"
+                   placeholder="First Name"
+                   class="form-control gold-outline"
+                   required
+                   value="{{ user.first_name }}">
+        </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                <input type="text"
-                       name="last_name"
-                       id="last_name"
-                       placeholder="Last Name"
-                       class="form-control gold-outline"
-                       required
-                       value="{{ user.last_name }}">
-            </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <input type="text"
+                   name="last_name"
+                   id="last_name"
+                   placeholder="Last Name"
+                   class="form-control gold-outline"
+                   required
+                   value="{{ user.last_name }}">
+        </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                <input type="email"
-                       name="email"
-                       id="email"
-                       placeholder="Email"
-                       class="form-control gold-outline"
-                       required
-                       disabled
-                       value="{{ user.email }}">
-                <a href="{% url 'change_email' %}" class="ms-2 my-auto w-25">Change Email</a>
-            </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   placeholder="Email"
+                   class="form-control gold-outline"
+                   required
+                   disabled
+                   value="{{ user.email }}">
+            <a href="{% url 'change_email' %}" class="ms-2 my-auto w-25">Change Email</a>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                <input type="password"
-                       name="password"
-                       id="password"
-                       placeholder="Password"
-                       class="form-control gold-outline"
-                       required
-                       disabled
-                       value="********">
-                <a href="{% url 'password_reset' %}" class="ms-2 my-auto w-25">Change Password</a>
-            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            <input type="password"
+                   name="password"
+                   id="password"
+                   placeholder="Password"
+                   class="form-control gold-outline"
+                   required
+                   disabled
+                   value="********">
+            <a href="{% url 'password_reset' %}" class="ms-2 my-auto w-25">Change Password</a>
+        </div>
+
+            {% if user_profile.address %}
+        <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fa-solid fa-address-book"></i></span>
+
+            <textarea name="address"
+                      id="address"
+                      placeholder="Address"
+                      class="form-control gold-outline">
+                    {{ user_profile.address }}
+                </textarea>
 
 
-            <div class="input-group mb-3">
-                <span class="input-group-text"><i class="fa-solid fa-address-book"></i></span>
-                <textarea name="address"
-                          id="address"
-                          placeholder="Address"
-                          class="form-control gold-outline">{{ profile.address }}</textarea>
-            </div>
+        </div>
+        {% else %}
+                <div class="input-group mb-3">
+            <span class="input-group-text"><i class="fa-solid fa-address-book"></i></span>
 
-    <div class="d-flex justify-content-center align-items-center flex-column mt-2">
-        <button style="max-width: 300px;" type="submit" class="btn _btn">Update Profile</button>
-        </form>
-        <a href="{% url 'orders' %}" style="max-width: 300px;" class="btn _btn mt-2">See Your Orders</a>
-        <a href="{% url 'my_assessment' %}" style="max-width: 300px;"  class="btn _btn mt-2">My Assessments</a>
+            <textarea name="address"
+                      placeholder="Address"
+                      class="form-control gold-outline"></textarea>
 
-        {% if user.is_superuser %}
-            <a href="{% url 'all_orders' %}" style="max-width: 300px;" class="btn _btn mt-2">Manage All Orders</a>
-            <a href="{% url 'shopping' %}" style="max-width: 300px;" class="btn _btn mt-2">Manage All Products</a>
-            <a href="{% url 'post_list' %}" style="max-width: 300px;" class="btn _btn mt-2">Manage All Posts</a>
-        {% endif %}
-    </div>
 
-    </div>
-    <script src="{% static 'js/close-alerts.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            closeAlerts('alert-profile', 5000);
-        });
-    </script>
+        </div>
+  {% endif %}
+
+
+        <button type="submit" class="btn _btn">Update Profile</button>
+    </form>
+
+    <a href="{% url 'orders' %}" class="btn _btn mt-2">See Your Orders</a>
+    <a href="{% url 'my_assessment' %}" class="btn _btn mt-2">My Assessments</a>
+
+    {% if user.is_superuser %}
+    <a href="{% url 'all_orders' %}" class="btn _btn mt-2">Manage All Orders</a>
+    <a href="{% url 'shopping' %}" class="btn _btn mt-2">Manage All Products</a>
+    <a href="{% url 'post_list' %}" class="btn _btn mt-2">Manage All Posts</a>
+    {% endif %}
+
+</div>
 {% endblock lotus_content %}

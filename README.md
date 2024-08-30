@@ -259,6 +259,7 @@ Below the user stories for the project are listed to clarify why particular feat
 * I want to sort the list of all products in different ways so that I can identify the name, low-high prices and products based on category
 * I want to sort a specific category of products so that I can identify filter or just sort the products by name.
 * I want to easily get information about what I have searched for and how many results the search generated so that I can see if the product is available.
+* I want to see user comments and scores about the products and I want also like to see the average score.
 
 ### Purchasing And Checkout
 
@@ -784,7 +785,7 @@ The sites incorporates flash messages when an action has been performed (i.e. de
    
   * ![Flash Messages](documentation/confirm.png)
 
-    
+ As a user-friendly behavior, user will frequently encounter informative alert messages on the site, and these messages are for guidance purposes and will automatically disappear in approximately 5 seconds.   
 
 ### Features Left to Implement
 
@@ -941,13 +942,18 @@ The libraries used in this project are located in the requirements.txt file and 
 * As a Customer I want to create a favorite so that I can come back later to purchase the products
   * On the product detail page the logged in user can add the specific product to their favorite page  and then access the favorite page from the menu.
 * As a Customer I want to move a favorite product from the favorite page to cart page so that customer can buy it and customer also select quantitiy of product that add to cart.
+* As a customer, I can review the products I have purchased from my assessment page by clicking on the my assessment button on my profile page. After this process, these products will disappear from my assessment page.
+* As a customer, when I visit the detail page of the products, I can see the scores and comments about them from people who have purchased them before.
+* As a customer, I can see the average of the scores given by users, star icons and average scores under the products.
   
 #### Site Admin
 * As a Site Admin I want to select a product and read detail, create, update and delete product posts so that I can manage my product content
   * When admin is logged the product management page can be reached through the 'my profile' menu.
 * As a Site Admin I want to log out from the site so that I can feel safe that nobody can access my information 
   * When admin is logged in it is possible to choose the 'Log Out' option in the navigation menu. 
-* As a Site Admin I want to create draft product posts so that I can finish writing the content later
+* As a Site Admin I want to create draft blog posts so that I can finish writing the content later
+* As an  Site Admin, I can use the default image in the posts I will add to the blog page and update it later.
+* As an admin, I do not have to add images to the products I will add, and if I do not add them, the image will automatically be added as the default image and I can update it later as an admin.
   * In the product management page the administrator can choose to put the product in 'draft' mode before publishing it. 
 *  As a Site Admin I want to get visual feedback when interacting with the content so that I can be sure how I have interacted with the page 
   * When the site user performs actions on the sites flash messages shows (i.e. delete/update/add to cart/ actions).
@@ -955,6 +961,7 @@ The libraries used in this project are located in the requirements.txt file and 
   * When admin is logged the blog management page can be reached through the 'my profile' menu so that admin can view blog page for admin.
 * As a Site Admin I want to create draft blog posts so that I can finish writing the content later
   * In the blog management page the administrator can choose to put the blog post in 'draft' mode before publishing it.   
+* As a Site Admin, I can review the products I have purchased from my assessment page by clicking on the my assessment button on my profile page. After this process, these products will disappear from my assessment page.
   
 
 ### Code Validation

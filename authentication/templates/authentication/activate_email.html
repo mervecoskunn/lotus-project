@@ -1,6 +1,6 @@
 {% autoescape off %}
     Hi {{ user }},
 
-    Please <a href="{{protocol}}{{ domain }}{% url 'activate' uidb64=uid token=token %}">click</a> on the link to confirm your registration.
+    Please <a href="{{protocol}}{{ domain }}{% url 'activate' uidb64=uid token=token %}" target="_blank">click</a> on the link to confirm your registration.
     <p>Lotus Team</p>
 {% endautoescape %}
