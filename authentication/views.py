@@ -124,18 +124,27 @@ def change_email(request):
 
         # Send activation email
         mail_subject = 'Activation link has been sent to your email id'
-        message = render_to_string('authentication/activate_email.html', {
-            'user': user.username,
-            'domain': get_current_site(request).domain,
-            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            'token': account_activation_token.make_token(user),
-            "protocol": "https://" if request.is_secure() else "http://",
-        })
-
-        email_message = EmailMessage(
-            mail_subject, message, to=[email]
+        html_content = render_to_string(
+            template_name='authentication/activate_email.html',
+            context={
+                'user': user.username,
+                'domain': get_current_site(request).domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': account_activation_token.make_token(user),
+                "protocol": "https://" if request.is_secure() else "http://",
+            }
         )
-        email_message.send()
+        plain_message = strip_tags(html_content)
+
+        send_mail(
+            subject=mail_subject,
+            message=plain_message,
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],
+            html_message=html_content,
+            fail_silently=True
+        )
+
         m = 'Email changed successfully. '
         m += 'Please check your email for activation link.'
         messages.success(request, m)
