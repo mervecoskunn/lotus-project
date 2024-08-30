@@ -28,7 +28,7 @@
 
     <div style="max-width: 1400px; margin: auto">
         {% if user.is_superuser %}
-            <a href="{% url 'add_product' %}" style="background-color: #B88E2F; color: #ffffff;" class="btn ms-5 mt-2">Add New Product</a>
+            <a href="{% url 'add_product' %}" style="background-color: #B88E2F; color: #ffffff;" class="btn ms-2 mt-3">Add New Product</a>
         {% endif %}
 
         {% if is_empty %}
@@ -37,7 +37,7 @@
                 <a href="{% url 'shopping' %}" class="btn btn-outline-secondary">Continue Shopping</a>
             </div>
         {% else %}
-            <section class="my-5">
+            <section class="my-4">
                 {% include "shopping/includes/products.html" with products=products %}
             </section>
         {% endif %}
@@ -45,11 +45,7 @@
 
     </div>
 
-
-
-
-
-    <section class="my-5">
+    <section class="my-3">
         {% include "includes/badge-row.html" %}
     </section>
     <script src="{% static 'js/close-alerts.js' %}"></script>

@@ -8,7 +8,7 @@
 <style>
     @media (max-width: 415px) {
         .btn-go-back {
-            margin-left: 22px;
+            margin-left: 50px;
         }
     }
 </style>
@@ -23,98 +23,88 @@
 
 {% block lotus_content %}
 
-<section class="post-detail-container mt-5">
 
-
-    <article style="max-width: 1000px">
-        <a href="{{ prev_page }}" style="margin-bottom: 10px;" class="btn btn-secondary btn-go-back">Go Back</a>
-        <section class="media content-section">
-
-            <!-- Comment -->
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <section class="text-white">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="comments-card text-dark">
-                                    <div class="comments-card-body p-4">
-                                        <h3>Comments</h3>
-
-                                        <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
-                                        <!--  Messages Start -->
-                                        {% if messages %} {% for message in messages %}
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                            {{message}}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        {% endfor %} {% endif %}
-                                        <!--  Messages End -->
-
-                                        <div class="mt-4">
-                                            {% if request.user.is_authenticated %}
-
-                                            <form method="POST">
-                                                {% csrf_token %}
-                                                <div class="form-group">
-                                                    <label>Your Comment:</label>
-                                                    <hr>
-                                                    {{form.body}}
-                                                </div>
-                                                <hr>
-                                                <div class="flex d-flex justify-content-center">
-                                                    <button style="max-width: 250px;" class="btn btn-primary btn-block btn-sm" type="submit">
-                                                        Send
-                                                    </button>
-                                                </div>
-                                            </form>
-
-                                            {% else %}
-                                            <div class="d-flex align-items-center justify-content-center">
-                                                <a href="{% url 'login' %}" class="btn btn-primary m-3 btn-sm">
-                                                    Log in to join the discussion!!
-                                                </a>
+<div class="d-flex flex-column align-items-center mt-5">
+    <a style="margin-right: 330px;" href="{{ prev_page }}" class="btn btn-secondary btn-go-back mb-3">Go Back</a>
+    <section class="post-detail-container">
+        <article style="max-width: 1000px">
+            <section class="media content-section">
+                <!-- Comment -->
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <section class="text-white">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="comments-card text-dark">
+                                        <div class="comments-card-body p-4">
+                                            <h3>Comments</h3>
+                                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                                            <!--  Messages Start -->
+                                            {% if messages %}
+                                            {% for message in messages %}
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                {{ message }}
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                            {% endif %}
-
-                                        </div>
-                                        <div class="d-flex flex-column ">
-
-                                            {% for comment in post.post_comments.all %}
-
-                                            <div class="mt-4">
-                                                <h6 class="fw-bold mb-1"> By {{comment.author}}</h6>
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <p class="mb-0">
-                                                        {{comment.created_on | date:"M d, Y"}}
-                                                    </p>
-
-                                                </div>
-                                                <p class="mb-0">
-                                                    {{comment.body}}
-                                                </p>
-                                            </div>
-
-                                            <hr class="my-0 mt-4">
-
-
                                             {% endfor %}
-
+                                            {% endif %}
+                                            <!--  Messages End -->
+                                            <div class="mt-4">
+                                                {% if request.user.is_authenticated %}
+                                                <form method="POST">
+                                                    {% csrf_token %}
+                                                    <div class="form-group">
+                                                        <label>Your Comment:</label>
+                                                        <hr>
+                                                        {{ form.body }}
+                                                    </div>
+                                                    <hr>
+                                                    <div class="d-flex justify-content-center">
+                                                        <button
+                                                            style="max-width: 250px; background-color: #B88E2F; color: #ffffff;"
+                                                            class="btn btn-block btn-sm" type="submit">
+                                                            Send
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                {% else %}
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <a href="{% url 'login' %}" class="btn btn-primary m-3 btn-sm">
+                                                        Log in to join the discussion!!
+                                                    </a>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                {% for comment in post.post_comments.all %}
+                                                <div class="mt-4">
+                                                    <h6 class="fw-bold mb-1"> By {{ comment.author }}</h6>
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <p class="mb-0">
+                                                            {{ comment.created_on | date:"M d, Y" }}
+                                                        </p>
+                                                    </div>
+                                                    <p class="mb-0">
+                                                        {{ comment.body }}
+                                                    </p>
+                                                </div>
+                                                <hr class="my-0 mt-4">
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </section>
+        </article>
+    </section>
+</div>
 
-
-            </div>
-        </section>
-    </article>
-
-</section>
 
 {% endblock lotus_content %}
