@@ -96,20 +96,11 @@ WSGI_APPLICATION = 'lotus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#  }
-
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bdeioqfx',
-        'USER': 'postgres',
-        'PASSWORD': 'Mervecoskun2024!',
-        'HOST': '127.0.0.1',
-        'PORT': 5433,
-    },
-   }
+     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+  }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
