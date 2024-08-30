@@ -18,8 +18,7 @@ class Order(models.Model):
     cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(
         Profile, on_delete=models.CASCADE, related_name='orders')
-    status = models.CharField(
-        max_length=50, choices=status_choices, default=pending)
+    status = models.CharField(max_length=50, choices=status_choices, default=pending)
     created = models.DateTimeField(auto_now_add=True)
 
     @staticmethod
@@ -39,9 +38,6 @@ class Rating(models.Model):
                                 validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField(max_length=2000, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('rater', 'product')
 
     def __str__(self):
         return f"{self.rater.username} - {self.product.name}"

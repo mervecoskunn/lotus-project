@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 
 
@@ -29,6 +30,7 @@ def profile(request):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         address = request.POST.get('address')
+        address = str(address).replace("\n", "").replace("\t", "").strip()
         user = User.objects.filter(
             username=request.user.username
         ).first()
@@ -36,15 +38,15 @@ def profile(request):
         user.last_name = last_name
         user.save()
 
-        profile = user.profile
-        profile.address = address
-        profile.save()
+        user_profile = user.profile
+        user_profile.address = address
+        user_profile.save()
         messages.success(request, 'Profile updated successfully')
         return redirect('profile')
-    profile = User.objects.filter(
+    user_profile = User.objects.filter(
         username=request.user.username
     ).first().profile
-    return render(request, 'user/profile.html', {'profile': profile})
+    return render(request, 'user/profile.html', {'user_profile': user_profile})
 
 
 @login_required

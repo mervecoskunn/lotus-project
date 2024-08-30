@@ -47,10 +47,8 @@ def my_assessments(request):
     prev_page = request.META.get('HTTP_REFERER', '/')
 
     if request.method == 'GET':
-        ratings = Rating.objects.filter(rater=request.user).values_list('product__id', flat=True)
-        queryset = CartProduct.objects.exclude(product__id__in=ratings).filter(
-            cart__order__user_profile__user=request.user
-        )
+        queryset = CartProduct.objects.filter(cart__order__user_profile__user=request.user,
+                                              cart__order__status='Delivered')
         data = []
         product_ids = []
 
@@ -62,7 +60,7 @@ def my_assessments(request):
                 context = {
                     "product_id": cp.product.id,
                     "product_name": cp.product.name,
-                    "product_img": cp.product.img,
+                    "product_img": cp.product.img.url,
                     "rating_average": rate.aggregate(Avg("score", default=0))['score__avg'],
                     "rating_count": rate.count()
                 }

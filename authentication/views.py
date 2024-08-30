@@ -14,7 +14,6 @@ from django.template.loader import render_to_string
 
 from . import forms
 from .tokens import account_activation_token
-from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
 
 
