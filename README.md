@@ -371,7 +371,21 @@ When an ordinary user is logged in the my account gets more available options, m
    ![Navigation my profile page as user](documentation/user-profilepage.png)
 
   * User can update own personal information on this page and change e-mail and change password
-  * User can later rate the products user purchased and write comments as a review.
+  
+  * User can later rate the products user purchased and write comments as a review on my assesment page when admin updated order status as delivered.
+    
+    ![My assesment page as user](documentation/myassesments.png)
+
+  * User can click the Rate Product button and user can write comment and rating to the product.
+    
+    ![Rating as user](documentation/rating.png)
+
+  *  After the user gives a rating to the product he purchased, that product disappears from the my assessment page and does not appear on this page again. If the user purchases the same product again, that product appears on this page again and the user can review it again if he wishes.
+  
+    ![Empty my assesment page](documentation/empty.png)
+
+  * In order for the user to rate a product, that product must be delivered. This process is set up as follows on this e-commerce site. The user purchases the product and the admin changes the product status from pending to delivered by clicking the manage all order button on the admin profile page. In this way, the user sees the product he purchased on the my assessment page and reviews it. This process occurs again every time the user makes a purchase.
+
   * User can see own orders.
     
   * Change e-mail
@@ -644,6 +658,8 @@ Because information about payment transactions is sent to users e-mail, and if w
 
 ![Secure Checkout page ](documentation/checkout-page-testtuserr.png)
 
+After the user makes the payment successfully, the admin must update the status of this order as delivered. After this update is made, the user's order can be seen as delivered both on the user's order page and on the user's my assessment page. If the user wants to share his experiences on the My assessment page, he can give a comment and score about this product. This product will then be removed from my assessment page. But the user can always go back and look at their orders from the my order page.
+
 ### Webhook
 
 A request comes to our site from the Stripe payment system and if the webhook works successfully, the payment process is made. The 200 code seen in the image here shows that it is working successfully.
@@ -674,6 +690,8 @@ When the order is confirmed the user gets an confirmation e-mail to the register
   ![order detail view](documentation/order-detail.png)
 
 * Admin can click the  profile page and manage all order and Admin can click the order status and admin can change order status.
+  
+* When the admin updates the order status to delivered, the user can review the product by visiting the my assessments page from users own page.
 
   ![order status](documentation/admin-status.png)
 
@@ -942,7 +960,9 @@ The libraries used in this project are located in the requirements.txt file and 
 * As a Customer I want to create a favorite so that I can come back later to purchase the products
   * On the product detail page the logged in user can add the specific product to their favorite page  and then access the favorite page from the menu.
 * As a Customer I want to move a favorite product from the favorite page to cart page so that customer can buy it and customer also select quantitiy of product that add to cart.
-* As a customer, I can review the products I have purchased from my assessment page by clicking on the my assessment button on my profile page. After this process, these products will disappear from my assessment page.
+* As a customer, I can review the products I have purchased from my assessment page by clicking on the my assessment button on my profile page. After this process, these products will disappear from my assessment page. I can only do this for my delivered products. 
+* As a customer, In order for me to review, the admin must first update the status of my order to delivered.
+* As a customer, if I purchase the same product again, I can review the products I purchased, whose status is updated as delivered, on my assessment page.
 * As a customer, when I visit the detail page of the products, I can see the scores and comments about them from people who have purchased them before.
 * As a customer, I can see the average of the scores given by users, star icons and average scores under the products.
   
@@ -954,7 +974,7 @@ The libraries used in this project are located in the requirements.txt file and 
 * As a Site Admin I want to create draft blog posts so that I can finish writing the content later
 * As an  Site Admin, I can use the default image in the posts I will add to the blog page and update it later.
 * As an admin, I do not have to add images to the products I will add, and if I do not add them, the image will automatically be added as the default image and I can update it later as an admin.
-  * In the product management page the administrator can choose to put the product in 'draft' mode before publishing it. 
+  * In the product management page the admin can choose to put the product in 'draft' mode before publishing it. 
 *  As a Site Admin I want to get visual feedback when interacting with the content so that I can be sure how I have interacted with the page 
   * When the site user performs actions on the sites flash messages shows (i.e. delete/update/add to cart/ actions).
 * As a Site Admin I want to select one blog post and read, create, update and delete blog posts so that I can manage my blog content  
@@ -962,6 +982,8 @@ The libraries used in this project are located in the requirements.txt file and 
 * As a Site Admin I want to create draft blog posts so that I can finish writing the content later
   * In the blog management page the administrator can choose to put the blog post in 'draft' mode before publishing it.   
 * As a Site Admin, I can review the products I have purchased from my assessment page by clicking on the my assessment button on my profile page. After this process, these products will disappear from my assessment page.
+* As a Site Admin, I can update status of all orders so users can review to the products purchased.
+ 
   
 
 ### Code Validation
