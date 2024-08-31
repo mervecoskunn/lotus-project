@@ -339,7 +339,13 @@ When an ordinary user is logged in the my account gets more available options, m
    
  * User Register Page
    
-   ![Navigation user register](documentation/username-register.png)
+   ![Navigation user register](documentation/registerlast.png)
+
+   Users must fill in their address information completely when registering, because this address will automatically be used as the order delivery address for their purchases.
+
+   Users must also write their e-mail addresses completely, because order information will be sent to the e-mail address used during the registration phase.
+
+   They can change and update this and other information later by logging in and on the user's own profile page.
 
  * User Register Success
    
