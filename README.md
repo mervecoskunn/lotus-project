@@ -364,7 +364,7 @@ When an ordinary user is logged in the my account gets more available options, m
    
   There is already a person registered as an admin on our site, and the admin can log in with the admin username and password, and the admin is greeted with a flash message stating that you are logged in as an admin. In addition, all other registered users can log in with their username and password, and at this stage, when they log in as their username, the flash message they encounter is like this and they see the flash message.
 
-    ![Navigation user login status](documentation/user-login-status.png)
+  ![Navigation user login status](documentation/user-login-status.png)
    
  * Profile page for login user 
 
@@ -374,15 +374,15 @@ When an ordinary user is logged in the my account gets more available options, m
   
   * User can later rate the products user purchased and write comments as a review on my assesment page when admin updated order status as delivered.
     
-    ![My assesment page as user](documentation/myassesments.png)
+  ![My assesment page as user](documentation/myassesments.png)
 
   * User can click the Rate Product button and user can write comment and rating to the product.
     
-    ![Rating as user](documentation/rating.png)
+  ![Rating as user](documentation/rating.png)
 
   *  After the user gives a rating to the product he purchased, that product disappears from the my assessment page and does not appear on this page again. If the user purchases the same product again, that product appears on this page again and the user can review it again if he wishes.
   
-    ![Empty my assesment page](documentation/empty.png)
+  ![Empty my assesment](documentation/empty.png)
 
   * In order for the user to rate a product, that product must be delivered. This process is set up as follows on this e-commerce site. The user purchases the product and the admin changes the product status from pending to delivered by clicking the manage all order button on the admin profile page. In this way, the user sees the product he purchased on the my assessment page and reviews it. This process occurs again every time the user makes a purchase.
 
