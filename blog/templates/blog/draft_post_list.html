@@ -13,6 +13,9 @@
 {% block header %}
     <section>
         {% include "includes/banner.html" with page_name="Draft Posts" %}
+        <div style="margin-left: 25px;" class="mb-2">
+            <a href="/blog" class="btn btn-secondary">Go Back</a>
+        </div>
     </section>
 {% endblock header %}
 
@@ -21,15 +24,15 @@
     <main class="container-fluid">
         {% if messages %}
             {% for message in messages %}
-                <div class="alert draft-alert alert-{{ message.tags }}">
-                    {{ message }} - <a href="{% url 'post_list' %}">Go to blog</a>
+                <div class="alert draft-alert alert {{ message.tags }}">
+                    {{ message }} - <a href="{% url "post_list" %}"></a>
                 </div>
             {% endfor %}
         {% endif %}
         {% if draft_post_list.count == 0 %}
             <div class="col-12 text-center">
                 <h2>No Post Drafts</h2>
-                <a href="{% url 'post_list' %}" class="btn btn-outline-secondary">Go to blog</a>
+                <a href="{% url "post_list" %}" class="btn btn-outline-secondary">Go to blog</a>
             </div>
         {% else %}
             <div class="row justify-content-center">
