@@ -1,14 +1,17 @@
 {% load static %}
 <section class="container text-center">
-    <div class="row">
+   <div class="container">
+    <div class="row justify-content-center">
         {% for product in products %}
-        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex align-items-stretch justify-content-center">
-            <div class="card text-center h-100 d-flex flex-column">
-                <img src="{{ product.img.url }}" alt="{{ product.name }}" class="card-img-top blog-img img-fluid"
-                    style="max-height: 500px; object-fit: cover;">
+        <div class="col-12 col-md-6 col-lg-4 mb-5 d-flex justify-content-center">
+            <div class="card text-center h-100 d-flex flex-column" style="width: 100%; max-width: 400px;">
+                <div class="d-flex justify-content-center align-items-center" style="height: 400px;">
+                    <img src="{{ product.img.url }}" alt="{{ product.name }}" class="card-img-top blog-img img-fluid"
+                        style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                </div>
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div class="d-flex flex-column">
-                        <h4 class="mt-4" style="height:58px">{{ product.name }}</h4>
+                        <h4 class="mt-4" style="height:58px; overflow: hidden; text-overflow: ellipsis;">{{ product.name }}</h4>
                     </div>
                     <div class="mt-auto">
                         <div class="d-flex justify-content-center mb-3">
@@ -20,12 +23,14 @@
                             <strong>€ {{ product.price }}</strong>
                         </p>
                     </div>
-                    <a href="{% url 'product_detail' product.id %}" class="btn lotus-btn-primary">Read More</a>
+                    <a href="{% url 'product_detail' product.id %}" class="btn lotus-btn-primary" style="width: 100%;">Read
+                        More</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+</div>
 </section>
 <nav class="d-flex justify-content-center mt-5" aria-label="Page navigation example">
     <ul class="pagination">

@@ -759,7 +759,7 @@ When the user clicks sign out in the menu bar a confirmation page is being showe
 
 Our application features a custom 404 error page that appears when users attempt to access a non-existent page. This page is designed to inform users and redirect them to the homepage or other important sections of the site. The purpose of the 404 error page is to improve user experience and help lost visitors find their way back.
 
-   ![404 page](documentation/404-page.png)
+  ![404 page](documentation/404pagelast.png)
    
 ### 500 Error Page
 
