@@ -24,9 +24,9 @@
     <main class="container-fluid">
         {% if messages %}
             {% for message in messages %}
-                <div class="alert draft-alert alert {{ message.tags }}">
-                    {{ message }} - <a href="{% url "post_list" %}"></a>
-                </div>
+            <div class="alert draft-alert alert-{{ message.tags }}">
+                {{ message }}  <a href="{% url 'post_list' %}"></a>
+            </div>
             {% endfor %}
         {% endif %}
         {% if draft_post_list.count == 0 %}
