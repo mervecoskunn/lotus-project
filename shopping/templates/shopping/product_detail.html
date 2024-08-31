@@ -93,9 +93,10 @@
 <div class="row scrolling-wrapper">
 
 
-{% for rate in product.product_ratings.all %}
-        <div class="col-md-3 card">
-        <div class="row no-gutters">
+<div style="display: flex; overflow-x: auto; gap: 1rem; scroll-behavior: smooth;" class="ratings-container">
+    <div class="ratings-wrapper d-flex overflow-auto" style="flex-wrap: nowrap; gap: 1rem;">
+        {% for rate in product.product_ratings.all %}
+        <div class="card" style="min-width: 250px;">
             <div class="card-body">
                 <div class="rating">
                     <small class="starSmallText" data-value="{{rate.score}}">{{rate.score}}</small>
@@ -107,12 +108,11 @@
                 </div>
                 <h5 class="card-title">{{rate.rater}}</h5>
                 <small class="card-title">{{rate.comment}}</small>
-
-
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+</div>
 
 </div>
 
