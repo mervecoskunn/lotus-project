@@ -34,6 +34,7 @@ class Order(models.Model):
 class Rating(models.Model):
     rater = models.ForeignKey(get_user_model(), on_delete=models.PROTECT)
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_ratings')
+    order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name='order_ratings')
     score = models.DecimalField(decimal_places=1, max_digits=3,
                                 validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField(max_length=2000, null=True, blank=True)

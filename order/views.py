@@ -47,8 +47,14 @@ def my_assessments(request):
     prev_page = request.META.get('HTTP_REFERER', '/')
 
     if request.method == 'GET':
-        queryset = CartProduct.objects.filter(cart__order__user_profile__user=request.user,
-                                              cart__order__status='Delivered')
+        order_list = Order.objects.filter(user_profile__user=request.user).values_list('id', flat=True)
+        rating_list = Rating.objects.filter(rater=request.user, order__id__in=order_list)
+        queryset = (CartProduct.objects.exclude(
+            cart__order__order_ratings__id__in=rating_list
+        ).filter(
+            cart__order__user_profile__user=request.user,
+            cart__order__status='Delivered'
+        ))
         data = []
         product_ids = []
 
@@ -56,11 +62,11 @@ def my_assessments(request):
             if cp.product.id not in product_ids:
                 product_ids.append(cp.product.id)
                 rate = Rating.objects.filter(product=cp.product)
-
                 context = {
                     "product_id": cp.product.id,
                     "product_name": cp.product.name,
                     "product_img": cp.product.img.url,
+                    "cart_id": cp.cart.id,
                     "rating_average": rate.aggregate(Avg("score", default=0))['score__avg'],
                     "rating_count": rate.count()
                 }
@@ -72,11 +78,13 @@ def my_assessments(request):
 
     elif request.method == 'POST':
         product_id = request.POST.get('productId')
+        cart_id = request.POST.get('cartId')
         score = request.POST.get('rating')
         comment = request.POST.get('review')
         product = Product.objects.get(id=product_id)
+        order = Order.objects.get(cart__id=cart_id)
 
-        Rating.objects.create(rater=request.user, product=product, score=score, comment=comment)
+        Rating.objects.create(rater=request.user, product=product, score=score, order=order, comment=comment)
         return HttpResponseRedirect(reverse('my_assessment'))
 
 

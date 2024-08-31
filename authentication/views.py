@@ -12,6 +12,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 
+from user.models import Profile
 from . import forms
 from .tokens import account_activation_token
 from django.contrib.auth.decorators import login_required
@@ -46,6 +47,7 @@ def register(request):
         username = request.POST.get('username')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
+        address = request.POST.get('address')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
@@ -64,6 +66,9 @@ def register(request):
             )
             new_user.is_active = False
             new_user.save()
+            if new_user:
+                # Create a Profile associated with the newly created User
+                Profile.objects.create(user=new_user, address=address).save()
 
             # Send activation email
             html_content = render_to_string(

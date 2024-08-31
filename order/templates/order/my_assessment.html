@@ -35,7 +35,8 @@
                 </div>
                 <div class="col-md-8 col-sm-8 col-8">
                     <div class="">
-                        <h6 style="margin-left: 20px;" class="card-title">{{product.product_name}}</h6>
+                        <a href="{% url 'product_detail' product.product_id %}"><h6 style="margin-left: 20px;" class="card-title">{{product.product_name}}</h6></a>
+
                         <div style="margin-left: 20px;" class="rating">
                             <small class="starSmallText" data-value="{{product.rating_average}}">{{product.rating_average | floatformat:1}}</small>
 
@@ -46,7 +47,7 @@
                             <i class="fa fa-star starSmall" data-value="5"></i>
                             ({{product.rating_count}})
                         </div>
-                        <button style="margin-left: 20px;" type="button" class="reviewButton" data-product-id="{{product.product_id}}" data-product-name="{{product.product_name}}" data-product-image="{{product.product_img}}">
+                        <button style="margin-left: 20px;" type="button" class="reviewButton" data-product-id="{{product.product_id}}" data-product-name="{{product.product_name}}" data-product-image="{{product.product_img}}" data-cart-id="{{product.cart_id}}">
                             Rate Product
                         </button>
                     </div>
@@ -72,6 +73,7 @@
 
                     <input type="hidden" name="rating" id="rating" value="" />
                     <input type="hidden" name="productId" id="productId" value="" />
+                    <input type="hidden" name="cartId" id="cartId" value="" />
 
 
                     <div class="row">
@@ -150,6 +152,7 @@
 
             $("#rating").text("");
             $("#productId").val($(this).data("productId"));
+            $("#cartId").val($(this).data("cartId"));
             $("#productName").text($(this).data("productName"));
             $("#productImage").attr("src", $(this).data("productImage"))
         });
