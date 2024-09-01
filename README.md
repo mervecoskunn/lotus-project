@@ -369,7 +369,7 @@ When an ordinary user is logged in the my account gets more available options, m
  * Navigation my account- User Logged In
    
   There is already a person registered as an admin on our site, and the admin can log in with the admin username and password, and the admin is greeted with a flash message stating that you are logged in as an admin. In addition, all other registered users can log in with their username and password, and at this stage, when they log in as their username, the flash message they encounter is like this and they see the flash message.
-  
+
 
   ![Navigation user login status](documentation/user-login-status.png)
 
@@ -378,7 +378,9 @@ When an ordinary user is logged in the my account gets more available options, m
 
    ![Navigation my profile page as user](documentation/user-profilepage.png)
 
+
   * User can update own personal information on this page and change e-mail and change password
+  
   
   * User can later rate the products user purchased and write comments as a review on my assesment page when admin updated order status as delivered.
     
