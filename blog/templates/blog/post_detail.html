@@ -114,9 +114,9 @@
                                             {% if request.user == comment.author %}
                                             <span>
                                                 <a href="{% url 'comment_edit' post.id comment.id %}"
-                                                    class="text-primary me-2"><i class="fas fa-pencil-alt"></i></a>
+                                                    class="text-primary me-2"><i style="color: #B88E2F;" class="fas fa-pencil-alt"></i></a>
                                                 <a href="#" class="text-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#confirmDeleteModal-{{ comment.id }}"><i
+                                                    data-bs-target="#confirmDeleteModal-{{ comment.id }}"><i style="color: #6c757d;"
                                                         class="fas fa-trash"></i></a>
                                             </span>
                                             {% endif %}
